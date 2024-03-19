@@ -1,0 +1,24 @@
+section h2{
+    color: white;
+}
+section.main{
+
+}
+section.main .main-wrapper{
+    width: 100%;
+    height: auto;
+}
+section.main .main-wrapper>div{
+    width: 1680px;
+    max-width: 100%;
+    height: auto;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    padding: 25px;
+}
+section.main .main-wrapper>div > div.title h1{
+    text-align: center;
+    color: white;
+}

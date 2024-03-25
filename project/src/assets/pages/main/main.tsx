@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import { gsap } from 'gsap';
 import { motion,useScroll, useTransform,easeIn} from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { ReactComponent as Column_Logo } from "../..//img/logo/column-logo.svg";
+import { ReactComponent as Column_Logo } from "../../img/logo/column-logo.svg";
 import './main.css';
 import "./media.css"
 import UserSearch from './contents main ui/user-search/user-search';
@@ -22,24 +22,43 @@ function Main(){
             <div className = 'main-wrapper'>
                 <div>
                     
-                    <div 
+                    <motion.div
+                    initial = {{opacity : 0, y : 100}}
+                    animate={{ opacity: 1, y : 0}}
+                    exit={{ opacity: 0 }}
+                    transition={{ 
+                        duration: 1,
+                        ease : "anticipate", 
+                    }}
+
                     className='title'>
                         <h1>AI-Powered Web Design Canvas tool</h1>
-                    </div>
-                    <div className='btn-main-start'>
+                    </motion.div>
+                    <motion.div 
+                    initial = {{opacity : 0, y : 50}}
+                    animate={{ opacity: 1, y : 0}}
+                    exit={{ opacity: 0 }}
+                    transition={{ 
+                        duration: 1.3,
+                        ease : "anticipate", 
+                    }}
+                    className='btn-main-start'>
                         
-                    <Link to="/">
+                    <Link to="/file/framefix" >
                         <div className='btn'>Start FrameFix</div>
                     </Link>
-                    </div>
+                    </motion.div>
                     
                 </div>
 
                 <motion.div 
-                initial = {{opacity : 0, y : 100}}
+                initial = {{opacity : 0, y : 50}}
                 animate={{ opacity: 1, y : 0}}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 1 }}
+                transition={{ 
+                    duration: 1.6,
+                    ease : "anticipate", 
+                }}
                 
                 className='framefix'>
                     <div className='contents'>

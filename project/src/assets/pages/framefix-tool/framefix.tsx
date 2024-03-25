@@ -1,10 +1,16 @@
 import React from "react";
-import "./framefix.css";
+import framefixStyles from './framefix.module.css';
 
-function FrameFix (){
+function FrameFix(){
     return(
         <>
-
+            <div className={framefixStyles.contain}>
+                {/*
+                    <div>
+                        code..
+                    </div>
+                */}
+            </div>
         </>
     )
 }

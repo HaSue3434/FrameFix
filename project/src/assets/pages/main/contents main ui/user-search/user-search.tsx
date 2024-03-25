@@ -1,5 +1,5 @@
 import React from "react";
-
+import { gsap } from 'gsap';
 import "./user-search.css";
 import { ReactComponent as Logo } from '../../../../img/logo/logo.svg';
 

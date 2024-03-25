@@ -212,7 +212,10 @@ Design Canvas tool</h1>
 
                                     </div>
                                     <div className='ex-view'>
-                                        <div className='site-view'></div>
+                                        
+                                        <div className='site-view'>
+
+                                        </div>
                                         <div className='open-graph'></div>
                                     </div>
                                 </div>
@@ -358,6 +361,13 @@ Design Canvas tool</h1>
             </div>
         </section>
         
+        <section className='framefix'>
+            <div className='contain'>
+                <div className='img'>
+                    <img src={require("../../img/framefix.png")} alt="" />
+                </div>
+            </div>
+        </section>
         </>
     );
 }

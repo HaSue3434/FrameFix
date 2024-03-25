@@ -1,9 +1,10 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import {Link} from 'react-router-dom';
 import { gsap } from 'gsap';
+import { motion,useScroll, useTransform,easeIn} from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 import { ReactComponent as Column_Logo } from "../..//img/logo/column-logo.svg";
-
 import './main.css';
 import "./media.css"
 import UserSearch from './contents main ui/user-search/user-search';
@@ -11,17 +12,19 @@ import Category from './contents main ui/category/category';
 import Result from './contents main ui/result/result';
 
 function Main(){
-    
+    const { scrollYProgress } = useScroll();
+
+    const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
+
     return (
         <>
         <section className='main'>
             <div className = 'main-wrapper'>
                 <div>
                     
-                    <div className='title'>
-                        <h1>AI-Powered Web
-Design Canvas tool</h1>
-
+                    <div 
+                    className='title'>
+                        <h1>AI-Powered Web Design Canvas tool</h1>
                     </div>
                     <div className='btn-main-start'>
                         
@@ -32,7 +35,13 @@ Design Canvas tool</h1>
                     
                 </div>
 
-                <div className='framefix'>
+                <motion.div 
+                initial = {{opacity : 0, y : 100}}
+                animate={{ opacity: 1, y : 0}}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1 }}
+                
+                className='framefix'>
                     <div className='contents'>
                         <div className='sec1 sec-content'>
                             <UserSearch />
@@ -44,7 +53,7 @@ Design Canvas tool</h1>
                             <Result />
                         </div>
                     </div>
-                </div>
+                </motion.div>
                 
             </div>
         </section>
@@ -192,7 +201,7 @@ Design Canvas tool</h1>
                                                 <div className='meta-title'>
                                                     <p>Title</p>
                                                     <div className='user-input'>
-                                                        <input type="text" placeholder='Title'/>
+                                                        <input type="text" placeholder='Title' />
                                                     </div>
                                                 </div>
                                                 <div className='meta-url'>
@@ -213,10 +222,11 @@ Design Canvas tool</h1>
                                     </div>
                                     <div className='ex-view'>
                                         
-                                        <div className='site-view'>
+                                        <div className="txt-box"></div>
+                                        <div className="txt-box"></div>
+                                        <div className='open-graph'>
 
                                         </div>
-                                        <div className='open-graph'></div>
                                     </div>
                                 </div>
                             </div>
@@ -362,11 +372,7 @@ Design Canvas tool</h1>
         </section>
         
         <section className='framefix'>
-            <div className='contain'>
-                <div className='img'>
-                    <img src={require("../../img/framefix.png")} alt="" />
-                </div>
-            </div>
+            
         </section>
         </>
     );

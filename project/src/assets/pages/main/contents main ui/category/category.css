@@ -1,0 +1,61 @@
+.framefix .contents .sec-content .view{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    color: rgba(255,255,255,1);
+    border-radius: 15px;
+    overflow: hidden;
+}
+.framefix .contents .sec-content .view .view-header{
+    height: 100px;
+    min-height: 100px;
+    width: 100%;
+    background: #14141E;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+.framefix .contents .sec-content .view .view-header .prev{
+    font-size: 2.00em;
+}
+.framefix .contents .sec-content .view .user-input{
+    padding: 6.20em 5em 3em 5em;
+    
+}
+.framefix .contents .sec-content .view .user-input .title{
+    display: flex;
+    justify-content: space-between;
+}
+.framefix .contents .sec-content .view .user-input .title h1{
+    font-size: 2.5em;
+}
+.framefix .contents .sec-content .view .user-input .title .create-btn{
+    padding: 18px 21px;
+    background: #459AFF;
+    border-radius: 15px;
+    font-size: 1.25em;
+    user-select: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+.grid-category{
+    width: 100%;
+    height: auto;
+}
+.grid-category .wrapper{
+    padding: 0em 5em 5em 5em;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(6, minmax(0px, 1fr));
+}
+.grid-category .wrapper > div{
+    height: 165px;
+    background-color: #2b2b2b;
+    border-radius: 10px;
+}

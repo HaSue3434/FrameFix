@@ -2,55 +2,54 @@ import React, {useRef, useEffect, useState} from 'react';
 import { ReactComponent as Logo } from "../img/logo/logo.svg";
 import {Link} from 'react-router-dom';
 
-interface LineStyle {
-    width: string;
-    left: string;
-}
 
 const Header = () =>{
-    const [lineStyle, setLineStyle] = useState<LineStyle>({ width: '0px', left: '0px' });
-    const navRef = useRef<HTMLDivElement>(null);
+  const [isSticky, setIsSticky] = useState<boolean>(false);
 
-    useEffect(() => {
-      const navItems = navRef.current?.querySelectorAll("#header > nav>.nav li");
-      console.log(navItems)
-      const mouseOverHandler: EventListener = (event) => { 
-        const e = event as MouseEvent; 
-        const target = e.target as HTMLElement;
-        const itemWidth = target.offsetWidth;
-        const itemLeft = target.offsetLeft;
-        setLineStyle({ width: `${itemWidth}px`, left: `${itemLeft}px` });
-      };
+  const handleScroll = () => {
+    setIsSticky(window.scrollY > 0);
+  };
 
-      navItems?.forEach(item => {
-        item.addEventListener("mouseover", mouseOverHandler);
-      });
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
 
-      return () => {
-        navItems?.forEach(item => {
-          item.removeEventListener("mouseover", mouseOverHandler);
-        });
-      };
-    }, []);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []); 
+
+  const lineRef = useRef<HTMLDivElement>(null);
+  
+  const handleMouseOver = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    const itemWidth = event.currentTarget.offsetWidth;
+    const itemLeft = event.currentTarget.offsetLeft;
+
+    if (lineRef.current) {
+      lineRef.current.style.width = `${itemWidth}px`;
+      lineRef.current.style.left = `${itemLeft}px`;
+    }
+  };
+
 
     return (
-        <header id='header'>
+        <header id='header' className={isSticky ? 'sticky' : ''}>
             <nav>
                 <div className = 'logo'>
                    <Link to='/'><Logo /></Link>
                 </div>
                 <ul className='nav'>
-                    <li className = 'framerfix-features'>
-                        <div className='f'>Features</div>
-                        <ul>
+                  <Link to='/' onMouseOver={handleMouseOver}>
+                      <li className = 'framefix-features' >
+                          <div className='f'>Features</div>
+                          <ul>
 
-                        </ul>
-                    </li>
-                    <Link to='/'><li>Updates</li></Link>
-                    <Link to='/'><li>Community</li></Link>
-                    <Link to='/'><li>Pricing</li></Link>
-                    <div id="navigation-live" style={{ width: lineStyle.width, left: lineStyle.left }}></div>
-
+                          </ul>
+                      </li>
+                    </Link>
+                    <Link to='/' onMouseOver={handleMouseOver}><li>Updates</li></Link>
+                    <Link to='/' onMouseOver={handleMouseOver}><li>Community</li></Link>
+                    <Link to='/' onMouseOver={handleMouseOver}><li>Pricing</li></Link>
+                    <div id="move-line" ref={lineRef}></div>
                 </ul>
                 <div className='start-link'>
                     <Link to = '/sign-up'>

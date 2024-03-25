@@ -8,7 +8,9 @@ import Footer from './assets/components/footer';
 import Main from './assets/pages/main/main';
 import SignUp  from  './assets/pages/sign-up/sign';
 
+
 function App() {
+  
   return (
     <>
     

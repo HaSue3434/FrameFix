@@ -1,8 +1,5 @@
-section h2{
-    color: white;
-}
-section.main{
-
+#contain section.main{
+    padding-top: 8em;
 }
 section.main .main-wrapper{
     width: 100%;
@@ -13,12 +10,76 @@ section.main .main-wrapper>div{
     max-width: 100%;
     height: auto;
     max-width: 100%;
-    display: flex;
-    flex-direction: column;
-
+    margin: 0 auto;
+    
     padding: 25px;
+}
+section.main .main-wrapper>div > div.title{
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 section.main .main-wrapper>div > div.title h1{
     text-align: center;
     color: white;
+    font-size: 6em;
+    font-weight: 700;
+    max-width: 1000px;
+}
+section.main .main-wrapper>div .btn-main-start{
+    display: flex;
+    justify-content: center;
+    padding-top: 4em;
+    padding-bottom: 4em;
+}
+section.main .main-wrapper>div .btn-main-start>a .btn{
+    padding: 25px;
+    max-width: 100%;
+    background: linear-gradient(to right, #4A96FE,#AC42FB);
+    color: rgba(255,255,255,1);
+    font-weight: 600;
+    border-radius: 15px;
+    font-size: 1.5em;
+}
+
+.main .main-wrapper .framefix{
+    display: flex;
+    width: 1680px;
+    justify-content: center;
+    
+    height: auto;
+}
+
+.main .main-wrapper .framefix > .contents{
+    width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 3;
+}
+.main .main-wrapper .framefix > .contents .sec-content{
+    width: 100%;
+    height: 810px;
+    background: #2D2E32;
+    border: 3px solid rgba(255,255,255,.4);
+    border-radius: 15px;
+}
+.main .main-wrapper .framefix > .contents .sec-content:nth-child(1){
+    transform: scale(1);
+}
+.main .main-wrapper .framefix > .contents .sec-content:not(:nth-child(1)){
+    position: absolute;
+    z-index: -1;
+}
+.main .main-wrapper .framefix > .contents .sec-content:nth-child(2){
+    transform: scale(0.98);
+    top: -25px;
+    opacity: 0.5;
+}
+.main .main-wrapper .framefix > .contents .sec-content:nth-child(3){
+    transform: scale(0.96);
+    top: -50px;
+    opacity: 0.2;
+}
+.ai-powered-contain{
+    padding-top: 8em;
 }

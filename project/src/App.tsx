@@ -24,6 +24,7 @@ function RoutesWithHeader() {
   return (
     <>
       {location.pathname !== "/file/framefix" && <Header />}
+      
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/sign-up" element={<SignUp />} />

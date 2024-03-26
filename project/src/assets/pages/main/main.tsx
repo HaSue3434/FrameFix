@@ -1,20 +1,76 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState,useRef} from 'react';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import {Link} from 'react-router-dom';
 import { gsap } from 'gsap';
+import { useGSAP } from "@gsap/react";
 import { motion,useScroll, useTransform,easeIn} from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { ReactComponent as Column_Logo } from "../../img/logo/column-logo.svg";
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useTypingEffect } from './script';
+
+// svg
+import {ReactComponent as ColLogo} from "../../img/logo/column-logo.svg";
+import {ReactComponent as Prompt }  from '../../img/icons/prompt.svg';
+import {ReactComponent as Create }  from '../../img/icons/create.svg';
+import {ReactComponent as Keyword}  from '../../img/icons/keyword.svg';
+import {ReactComponent as Element}  from '../../img/icons/element.svg';
+import {ReactComponent as Publish}  from '../../img/icons/publish.svg';
+// svg 
+
+/* page import */
 import './main.css';
-import "./media.css"
 import UserSearch from './contents main ui/user-search/user-search';
 import Category from './contents main ui/category/category';
 import Result from './contents main ui/result/result';
+/* page import */
+
+/* module */
+
+/* module */
+
+gsap.registerPlugin(ScrollTrigger);
 
 function Main(){
-    const { scrollYProgress } = useScroll();
+    
+    let pinRef = useRef(null);
+    
+    const [trigger1, setTrigger1] = useState(false);
+    const [trigger2, setTrigger2] = useState(false);
+    const [trigger3, setTrigger3] = useState(false);
 
-    const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
+    const { typedText: typedText1, isCompleted: isCompleted1 } = useTypingEffect(trigger1 ? "FrameFix" : "", 50);
+    const { typedText: typedText2, isCompleted: isCompleted2 } = useTypingEffect(trigger2 ? "FrameFix.com/" : "", 50);
+    const { typedText: typedText3, isCompleted: isCompleted3 } = useTypingEffect(
+        trigger3 ? "Framefix is at the forefront of revolutionizing the web design landscape by harnessing the power of artificial intelligence to offer unparalleled web design references and innovative designs crafted from these inspirations." : "", 10
+        );
+
+    useEffect(() => {
+        ScrollTrigger.create({
+          trigger: "#framefix-seo",
+          start: "40% center",
+          onEnter: () => {
+            setTrigger1(true);
+            setTrigger2(true);
+            setTrigger3(true);
+          },
+        });
+        return () => {
+          ScrollTrigger.getAll().forEach(t => t.kill());
+        };
+      }, []);
+    useEffect(() => {
+        if (pinRef.current) {
+            ScrollTrigger.create({
+                trigger: pinRef.current,
+                start: "20% 50%",
+                end : "65% 50%",
+                pin: true,
+                pinSpacing: false,
+            });
+        }
+
+        return () => ScrollTrigger.clearScrollMemory();
+    }, []);
 
     return (
         <>
@@ -88,7 +144,7 @@ function Main(){
                         <div className='feature active'>
                             <div className="content">
                                 <div className='icon'>
-                                    <img src={require("../../img/icons/prompt.png")} alt="" />
+                                   <Prompt />
                                 </div>
                                 <div className='prompt txt'>
                                     <p>prompt</p>
@@ -102,7 +158,7 @@ function Main(){
                         <div className='feature'>
                             <div className="content">
                                 <div className='icon'>
-                                    <img src={require("../../img/icons/create.png")} alt="" />
+                                    <Create />
                                 </div>
                                 <div className='create txt'>
                                     <p>create image</p>
@@ -115,7 +171,7 @@ function Main(){
                         <div className='feature'>
                             <div className="content">
                                 <div className='icon'>
-                                    <img src={require("../../img/icons/keyword.png")} alt="" />
+                                    <Keyword />
                                 </div>
                                 <div className='keyword txt'>
                                     <p>keyword</p>
@@ -127,13 +183,15 @@ function Main(){
                         </div>
                     </div>
                     <div className="start-framefix">
-                        <Link to='/'>
+                        
                             <div className='btn'>
-                               <div>
-                                Start FrameFix
-                               </div>
+                                <Link to='/'>
+                                    <div>
+                                     Start FrameFix
+                                    </div>
+                               </Link>
                             </div>
-                        </Link>
+                        
                     </div>
                 </div>
                 <div className='framefix-designtool'>
@@ -150,7 +208,7 @@ function Main(){
                 <div className="publish-txt">
                     <div className='publish-icon'>
                         <div className='icon'>
-                            <img src={require("../../img/icons/publish.png")} alt="" />
+                            <Publish />
                         </div>
                         <div className='tag'>
                             <span>Publish</span>
@@ -180,7 +238,7 @@ function Main(){
         <section className='seo-contain'>
             <div className="contents">
                 <div>
-                    <div className='seo-t'>
+                    <div className='seo-t' id = "pin-seo" ref={pinRef}>
                         <div className="title">
                             <h1>Search Engine Optimization</h1>
                         </div>
@@ -195,7 +253,7 @@ function Main(){
                             </Link>
                         </div>
                     </div>
-                    <div className='framefix-cards'>
+                    <div className='framefix-cards' id='framefix-seo'>
                         <div className='wrapper'>
                             <div className='left contain'>
                                 <div className='small'>
@@ -220,20 +278,20 @@ function Main(){
                                                 <div className='meta-title'>
                                                     <p>Title</p>
                                                     <div className='user-input'>
-                                                        <input type="text" placeholder='Title' />
+                                                        <input type="text" value={typedText1} readOnly/>
                                                     </div>
                                                 </div>
                                                 <div className='meta-url'>
                                                     <p>URL</p>
                                                     <div className='user-input'>
-                                                        <input type="text" placeholder='URL' />
+                                                        <input type="text" value={typedText2} readOnly/>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div className='meta-description'>
                                                 <p>Meta Description</p>
                                                 <div className='textarea'>
-                                                    <textarea/>
+                                                    <textarea  value={typedText3} readOnly/>
                                                 </div>
                                             </div>
                                         </div>
@@ -244,7 +302,10 @@ function Main(){
                                         <div className="txt-box"></div>
                                         <div className="txt-box"></div>
                                         <div className='open-graph'>
+                                            <div className="txt"></div>
+                                            <div className='graph'>
 
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -332,15 +393,15 @@ function Main(){
                                                 <p>Custom Sitemap.xml</p>
                                                 <div className="textarea">
                                                     <pre>
-                                                        &lt;?xml version = "1.0" encoding = "UTF-8"? &gt; <br/>
-                                                        &lt;urlset xmlns = "http://www.sitemaps.org/schemas/sitemap/0.9"&gt;<br/>
-                                                            &emsp;&lt;url&gt;<br/>
-                                                            &emsp;&emsp;&lt;loc&lt;http://www.example.com/&lt;loc&gt;<br/>
-                                                            &emsp;&emsp;&lt;lastmod&lt;2005-01-01&lt;lastmod&gt;<br/>
-                                                            &emsp;&emsp;&lt;changefreq&lt;monthly&lt;changefreq&gt;<br/>
-                                                            &emsp;&emsp;&lt;priority&lt;0.8&lt;priority&gt;<br/>
-                                                            &emsp;&lt;url&gt;<br/>
-                                                        &lt;/urlset&gt;
+                                                            &lt;?xml version = "1.0" encoding = "UTF-8"? &gt; <br/>
+                                                            &lt;urlset xmlns = "http://www.sitemaps.org/schemas/sitemap/0.9"&gt;<br/>
+                                                                &emsp;&lt;url&gt;<br/>
+                                                                &emsp;&emsp;&lt;loc&lt;http://www.example.com/&lt;loc&gt;<br/>
+                                                                &emsp;&emsp;&lt;lastmod&lt;2005-01-01&lt;lastmod&gt;<br/>
+                                                                &emsp;&emsp;&lt;changefreq&lt;monthly&lt;changefreq&gt;<br/>
+                                                                &emsp;&emsp;&lt;priority&lt;0.8&lt;priority&gt;<br/>
+                                                                &emsp;&lt;url&gt;<br/>
+                                                            &lt;/urlset&gt;
                                                     </pre>
                                                 </div>
                                             </div>
@@ -377,7 +438,7 @@ function Main(){
                 </div>
                 <div className="back-tile">
                     <div className='logo'>
-                        <Column_Logo/>
+                        <ColLogo/>
                     </div>
                     <div className='btn'>
                         <Link to='/'>

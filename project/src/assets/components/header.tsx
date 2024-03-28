@@ -4,19 +4,6 @@ import {Link} from 'react-router-dom';
 
 
 const Header = () =>{
-  const [isSticky, setIsSticky] = useState<boolean>(false);
-
-  const handleScroll = () => {
-    setIsSticky(window.scrollY > 0);
-  };
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []); 
 
   const lineRef = useRef<HTMLDivElement>(null);
   
@@ -32,7 +19,7 @@ const Header = () =>{
 
 
     return (
-        <header id='header' className={isSticky ? 'sticky' : ''}>
+        <header id='header'>
             <nav>
                 <div className = 'logo'>
                    <Link to='/'><Logo /></Link>

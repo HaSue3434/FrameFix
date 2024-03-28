@@ -1,13 +1,15 @@
 import React, {useEffect, useState,useRef} from 'react';
+import './main.css';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import {Link} from 'react-router-dom';
 import { gsap } from 'gsap';
 import { useGSAP } from "@gsap/react";
-import { motion,useScroll, useTransform,easeIn} from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useTypingEffect } from './script';
+import { motion,useScroll, useTransform,easeIn} from 'framer-motion';
+import LocomotiveScroll from 'locomotive-scroll';
 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 // svg
 import {ReactComponent as ColLogo} from "../../img/logo/column-logo.svg";
 import {ReactComponent as Prompt }  from '../../img/icons/prompt.svg';
@@ -18,22 +20,29 @@ import {ReactComponent as Publish}  from '../../img/icons/publish.svg';
 // svg 
 
 /* page import */
-import './main.css';
 import UserSearch from './contents main ui/user-search/user-search';
 import Category from './contents main ui/category/category';
 import Result from './contents main ui/result/result';
+
 /* page import */
 
 /* module */
-
+import { useTypingEffect } from './script';
 /* module */
 
 gsap.registerPlugin(ScrollTrigger);
-
+interface CallEventDetail {
+    func: string; 
+    direction: 'enter' | 'leave'; 
+    obj: any; 
+}
 function Main(){
+    const logoScroll = new LocomotiveScroll();
     
-    let pinRef = useRef(null);
-    
+    const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+    const scroll = useRef<LocomotiveScroll>(null);
+
     const [trigger1, setTrigger1] = useState(false);
     const [trigger2, setTrigger2] = useState(false);
     const [trigger3, setTrigger3] = useState(false);
@@ -42,39 +51,40 @@ function Main(){
     const { typedText: typedText2, isCompleted: isCompleted2 } = useTypingEffect(trigger2 ? "FrameFix.com/" : "", 50);
     const { typedText: typedText3, isCompleted: isCompleted3 } = useTypingEffect(
         trigger3 ? "Framefix is at the forefront of revolutionizing the web design landscape by harnessing the power of artificial intelligence to offer unparalleled web design references and innovative designs crafted from these inspirations." : "", 10
-        );
-
+    );
     useEffect(() => {
-        ScrollTrigger.create({
-          trigger: "#framefix-seo",
-          start: "40% center",
-          onEnter: () => {
-            setTrigger1(true);
-            setTrigger2(true);
-            setTrigger3(true);
-          },
-        });
-        return () => {
-          ScrollTrigger.getAll().forEach(t => t.kill());
+        
+        const handleScrollCall = (event: CustomEvent<CallEventDetail>)=>{
+            const { func, direction, obj } = event.detail;
+            if (func === "trigger1"){setTrigger1(true)} 
+            if (func === "trigger2"){setTrigger2(true)} 
+            if (func === "trigger3"){setTrigger3(true)} 
+          
         };
-      }, []);
-    useEffect(() => {
-        if (pinRef.current) {
-            ScrollTrigger.create({
-                trigger: pinRef.current,
-                start: "20% 50%",
-                end : "65% 50%",
-                pin: true,
-                pinSpacing: false,
-            });
-        }
 
-        return () => ScrollTrigger.clearScrollMemory();
-    }, []);
+        ScrollTrigger.refresh();
 
+        return () => {if (scroll.current) {scroll.current.destroy(); }};}, [scrollContainerRef])
+    useEffect(()=>{
+        gsap.to(scrollContainerRef.current,{
+            scrollTrigger : {
+                trigger : scrollContainerRef.current,
+                start  : "30% 50%",
+                end : "80% 80%",
+                onEnter : ()=>{
+                    setTrigger1(true);
+                    setTrigger2(true);
+                    setTrigger3(true);
+                }
+            }
+        })
+
+        ScrollTrigger.refresh();
+        ScrollTrigger.update();
+    })
     return (
         <>
-        <section className='main'>
+        <section className='main' data-scroll data-scroll-section>
             <div className = 'main-wrapper'>
                 <div>
                     
@@ -132,7 +142,7 @@ function Main(){
                 
             </div>
         </section>
-        <section className='ai-powered-contain'>
+        <section className='ai-powered-contain' data-scroll data-scroll-section>
             
             <div className='top-blur'></div>
             <div className='wrapper'>
@@ -203,8 +213,8 @@ function Main(){
             </div>
             <div className='bottom-blur'></div>
         </section>
-        <section className='publish'>
-            <div className='wrapper'>
+        <section className='publish' data-scroll data-scroll-section>
+            <div className='wrapper' >
                 <div className="publish-txt">
                     <div className='publish-icon'>
                         <div className='icon'>
@@ -235,11 +245,16 @@ function Main(){
                 </div>
             </div>
         </section>
-        <section className='seo-contain'>
-            <div className="contents">
-                <div>
-                    <div className='seo-t' id = "pin-seo" ref={pinRef}>
-                        <div className="title">
+        <section className='seo-contain'  data-scroll data-scroll-section  ref={scrollContainerRef}>
+            <div className="contents"
+                   >
+                <div id='pin'>
+                    <div className='seo-t has-scroll-smooth' id = "pin-seo">
+                        <div 
+                        data-scrorll
+                        data-scroll-speed = "2"
+                        
+                        className="title">
                             <h1>Search Engine Optimization</h1>
                         </div>
                         <div className="sub-title">
@@ -248,13 +263,18 @@ function Main(){
                         <div className="lead-more">
                             <Link to="/">
                                 <div className="btn">
-                                    <div>Lead More</div>
+                                    <div>Learn More</div>
                                 </div>
                             </Link>
                         </div>
                     </div>
                     <div className='framefix-cards' id='framefix-seo'>
-                        <div className='wrapper'>
+
+                        <div className='wrapper'
+
+                            data-scrorll
+                            data-scroll-speed = "-2">
+                            
                             <div className='left contain'>
                                 <div className='small'>
                                     <p className='sementics'>Sementics</p>
@@ -264,7 +284,7 @@ function Main(){
                                         </div>
                                     </div>
                                 </div>
-                                <div className="big metadata-contain">
+                                <div className="big metadata-contain" data-scroll data-scroll-call="typing">
                                     <p className='metadata'>Metadata</p>
                                     <div className="meta-settings">
                                         <div className='head'>
@@ -278,20 +298,20 @@ function Main(){
                                                 <div className='meta-title'>
                                                     <p>Title</p>
                                                     <div className='user-input'>
-                                                        <input type="text" value={typedText1} readOnly/>
+                                                        <input type="text"  data-scroll data-scroll-call = "trigger1" value={typedText1} readOnly/>
                                                     </div>
                                                 </div>
                                                 <div className='meta-url'>
                                                     <p>URL</p>
                                                     <div className='user-input'>
-                                                        <input type="text" value={typedText2} readOnly/>
+                                                        <input type="text" value={typedText2} readOnly data-scroll data-scroll-call = "trigger2"/>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div className='meta-description'>
                                                 <p>Meta Description</p>
                                                 <div className='textarea'>
-                                                    <textarea  value={typedText3} readOnly/>
+                                                    <textarea  value={typedText3} readOnly data-scroll data-scroll-call = "trigger3"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -309,6 +329,7 @@ function Main(){
                                         </div>
                                     </div>
                                 </div>
+                                
                             </div>
                             <div className='right contain'>
                                 <div className='big'>
@@ -415,10 +436,12 @@ function Main(){
             </div>
         </section>
 
-        <section className="community">
+        <section className="community" data-scroll data-scroll-section>
             <div className = "title">
                 <center>
-                    <h1>Use the community to improve branding</h1>
+                    <h1>
+                    Use the community to improve branding
+                    </h1>
                 </center>
             </div>
             <div className='contain'>
@@ -451,7 +474,7 @@ function Main(){
             </div>
         </section>
         
-        <section className='framefix'>
+        <section className='framefix' data-scroll data-scroll-section>
             
         </section>
         </>

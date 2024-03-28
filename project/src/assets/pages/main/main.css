@@ -309,7 +309,7 @@ section.main .main-wrapper>div .btn-main-start>a .btn{
     color: #459AFF;
 }
 .publish .wrapper .publish-txt .txt h1{
-    color: rgba(255,255,255,.5);
+    color: rgba(255,255,255,1);
     font-size: 4em;
     letter-spacing: 1px;
     max-width: 680px;
@@ -363,10 +363,12 @@ section.main .main-wrapper>div .btn-main-start>a .btn{
     gap: 35px;
     width: 100%;
     max-width: 100%;
-
+    align-items: center;
+    overflow: hidden;
 }
+
 .seo-contain .contents .seo-t>div{
-    padding-top: 35px;
+    display: flex;
 }
 .seo-contain .contents .seo-t>div:not(:nth-child(1)){
     padding-top: 5.00em;
@@ -887,10 +889,6 @@ section.main .main-wrapper>div .btn-main-start>a .btn{
     height: auto;
     position: relative;
 }
-
-
-
-
 #mask0_97_313 {
     mask-type: alpha;
-  }
+}

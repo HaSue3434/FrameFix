@@ -7,7 +7,6 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { motion,useScroll, useTransform,easeIn} from 'framer-motion';
 import LocomotiveScroll from 'locomotive-scroll';
-
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 // svg
@@ -28,60 +27,81 @@ import Result from './contents main ui/result/result';
 
 /* module */
 import { useTypingEffect } from './script';
+import { usePin } from './script';
 /* module */
 
 gsap.registerPlugin(ScrollTrigger);
-interface CallEventDetail {
-    func: string; 
-    direction: 'enter' | 'leave'; 
-    obj: any; 
-}
+
 function Main(){
-    const logoScroll = new LocomotiveScroll();
+    const locoScroll = new LocomotiveScroll();
     
     const scrollContainerRef = useRef<HTMLDivElement>(null);
+    const scrollPinRef = useRef<HTMLDivElement>(null);
 
-    const scroll = useRef<LocomotiveScroll>(null);
 
-    const [trigger1, setTrigger1] = useState(false);
-    const [trigger2, setTrigger2] = useState(false);
-    const [trigger3, setTrigger3] = useState(false);
+    const [triggerMetaTitle, setTriggerMeta1] = useState(false);
+    const [triggerMetaURL, setTriggerMeta2] = useState(false);
+    const [triggerMetaDescription, setTriggerMeta3] = useState(false);
+    const [triggerMetaSubTitle, setTriggerMeta4] = useState(false);
 
-    const { typedText: typedText1, isCompleted: isCompleted1 } = useTypingEffect(trigger1 ? "FrameFix" : "", 50);
-    const { typedText: typedText2, isCompleted: isCompleted2 } = useTypingEffect(trigger2 ? "FrameFix.com/" : "", 50);
-    const { typedText: typedText3, isCompleted: isCompleted3 } = useTypingEffect(
-        trigger3 ? "Framefix is at the forefront of revolutionizing the web design landscape by harnessing the power of artificial intelligence to offer unparalleled web design references and innovative designs crafted from these inspirations." : "", 10
+    const { typedText: metaTitle, isCompleted: isCompleted1 } = useTypingEffect(triggerMetaTitle ? "FrameFix" : "", 50);
+    const { typedText: metaUrl, isCompleted: isCompleted2 } = useTypingEffect(triggerMetaURL ? "FrameFix.com" : "", 50);
+    const { typedText: metaDescription, isCompleted: isCompleted3 } = useTypingEffect(
+        triggerMetaDescription ? "Framefix leads in revolutionizing web design by leveraging AI to provide unique design references and innovative creations inspired by these insights." : "", 10
     );
-    useEffect(() => {
-        
-        const handleScrollCall = (event: CustomEvent<CallEventDetail>)=>{
-            const { func, direction, obj } = event.detail;
-            if (func === "trigger1"){setTrigger1(true)} 
-            if (func === "trigger2"){setTrigger2(true)} 
-            if (func === "trigger3"){setTrigger3(true)} 
-          
-        };
+    const { typedText: metaSubTitle, isCompleted: isCompleted4 } = useTypingEffect(triggerMetaSubTitle ? "FrameFix canvas tool" : "", 50);
 
-        ScrollTrigger.refresh();
+    
 
-        return () => {if (scroll.current) {scroll.current.destroy(); }};}, [scrollContainerRef])
     useEffect(()=>{
+
         gsap.to(scrollContainerRef.current,{
             scrollTrigger : {
                 trigger : scrollContainerRef.current,
                 start  : "30% 50%",
                 end : "80% 80%",
                 onEnter : ()=>{
-                    setTrigger1(true);
-                    setTrigger2(true);
-                    setTrigger3(true);
-                }
+                    setTriggerMeta1(true);
+                    setTriggerMeta2(true);
+                    setTriggerMeta3(true);
+                    setTriggerMeta4(true);
+                },
+                onLeaveBack : ()=>{
+                    locoScroll.on("call", func=>{
+                        
+                    })
+                },
             }
-        })
+        });
+
 
         ScrollTrigger.refresh();
         ScrollTrigger.update();
+
+
+    },[scrollContainerRef])    
+
+    useEffect(()=>{
+        locoScroll.on("call", (func) =>{
+            console.log(func);
+            gsap.to("#ai-powered",{
+                scrollTrigger : {
+                    trigger : scrollPinRef.current,
+                    start : "50% 50%",
+                    end : "50% 50%",
+                    markers : true,
+                }
+            })
+        })
+
+        ScrollTrigger.refresh();
+    },[scrollPinRef])
+
+    const { element, triggerElement } = usePin();
+    useEffect(()=>{
+        
     })
+
     return (
         <>
         <section className='main' data-scroll data-scroll-section>
@@ -105,7 +125,7 @@ function Main(){
                     animate={{ opacity: 1, y : 0}}
                     exit={{ opacity: 0 }}
                     transition={{ 
-                        duration: 1.3,
+                        duration: 1,
                         ease : "anticipate", 
                     }}
                     className='btn-main-start'>
@@ -122,7 +142,7 @@ function Main(){
                 animate={{ opacity: 1, y : 0}}
                 exit={{ opacity: 0 }}
                 transition={{ 
-                    duration: 1.6,
+                    duration: 1,
                     ease : "anticipate", 
                 }}
                 
@@ -142,79 +162,146 @@ function Main(){
                 
             </div>
         </section>
-        <section className='ai-powered-contain' data-scroll data-scroll-section>
+        <section className='ai-powered-contain' 
+        data-scroll 
+        data-scroll-section 
+        id='ai-powered'>
             
-            <div className='top-blur'></div>
             <div className='wrapper'>
                 <div className='txt-contents'>
-                    <div className="title">
-                        <h1><strong>AI-Powered</strong> prompt support</h1>
-                    </div>
-                    <div className="explain">
-                        <div className='feature active'>
-                            <div className="content">
-                                <div className='icon'>
-                                   <Prompt />
-                                </div>
-                                <div className='prompt txt'>
-                                    <p>prompt</p>
-                                </div>
+                    <div className="ai-powered wrap" id='ai-powered'>
+                        <div className="side-contain">
+                            <div className="title">
+
+                                <h1><strong>AI-Powered</strong> prompt support</h1>
                             </div>
-                            <div className='description'>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                            </div>
-                            
-                        </div>
-                        <div className='feature'>
-                            <div className="content">
-                                <div className='icon'>
-                                    <Create />
-                                </div>
-                                <div className='create txt'>
-                                    <p>create image</p>
-                                </div>
-                            </div>
-                            <div className='description'>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                            </div>
-                        </div>
-                        <div className='feature'>
-                            <div className="content">
-                                <div className='icon'>
-                                    <Keyword />
-                                </div>
-                                <div className='keyword txt'>
-                                    <p>keyword</p>
-                                </div>
-                            </div>
-                            <div className='description'>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="start-framefix">
-                        
-                            <div className='btn'>
-                                <Link to='/'>
-                                    <div>
-                                     Start FrameFix
+                            <div className="features">
+                                <div className='feature active'>
+                                    <div className="content">
+                                        <div className='icon'>
+                                           <Prompt />
+                                        </div>
+                                        <div className='prompt txt'>
+                                            <p>prompt</p>
+                                        </div>
                                     </div>
-                               </Link>
+                                    <div className='description'>
+                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                    </div>
+
+                                </div>
+                                <div className='feature'>
+                                    <div className="content">
+                                        <div className='icon'>
+                                            <Create />
+                                        </div>
+                                        <div className='create txt'>
+                                            <p>create image</p>
+                                        </div>
+                                    </div>
+                                    <div className='description'>
+                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                    </div>
+                                </div>
+                                <div className='feature'>
+                                    <div className="content">
+                                        <div className='icon'>
+                                            <Keyword />
+                                        </div>
+                                        <div className='keyword txt'>
+                                            <p>keyword</p>
+                                        </div>
+                                    </div>
+                                    <div className='description'>
+                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                    </div>
+                                </div>
                             </div>
-                        
+                            <div className="start-framefix">
+
+                                <div className='btn'>
+                                    <Link to='/'>
+                                        <div>
+                                         Start FrameFix
+                                        </div>
+                                   </Link>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className='quickly wrap' id='quickly'>
+                        <div className="side-contain">
+                            <div className="title">
+                                <h1><strong>Quickly</strong> build design</h1>
+                            </div>
+                            <div className="features">
+                                <div className='feature active'>
+                                    <div className="content">
+                                        <div className='icon'>
+                                           <Prompt />
+                                        </div>
+                                        <div className='prompt txt'>
+                                            <p>prompt</p>
+                                        </div>
+                                    </div>
+                                    <div className='description'>
+                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                    </div>
+
+                                </div>
+                                <div className='feature'>
+                                    <div className="content">
+                                        <div className='icon'>
+                                            <Create />
+                                        </div>
+                                        <div className='create txt'>
+                                            <p>create image</p>
+                                        </div>
+                                    </div>
+                                    <div className='description'>
+                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                    </div>
+                                </div>
+                                <div className='feature'>
+                                    <div className="content">
+                                        <div className='icon'>
+                                            <Keyword />
+                                        </div>
+                                        <div className='keyword txt'>
+                                            <p>keyword</p>
+                                        </div>
+                                    </div>
+                                    <div className='description'>
+                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="start-framefix">
+
+                                    <div className='btn'>
+                                        <Link to='/'>
+                                            <div>
+                                             Start FrameFix
+                                            </div>
+                                       </Link>
+                                    </div>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div className='framefix-designtool'>
+                <div className='framefix-designtool'
+                ref={scrollPinRef}>
                     <div id='first'  className='framefix-tool'></div>
                     <div id='second' className='framefix-tool'></div>
                     <div id='last'   className='framefix-tool'></div>
                 </div>
                 
             </div>
-            <div className='bottom-blur'></div>
         </section>
         <section className='publish' data-scroll data-scroll-section>
-            <div className='wrapper' >
+            <div className='wrapper'>
                 <div className="publish-txt">
                     <div className='publish-icon'>
                         <div className='icon'>
@@ -240,20 +327,20 @@ function Main(){
             </div>
             <div className='publish-ex'>
                 <div className='contents'>
-                    <div className='main-content'></div>
-                    <div className='sub-content'></div>
+                    <div className='left-content'></div>
+                    <div className='right-content'></div>
                 </div>
             </div>
         </section>
         <section className='seo-contain'  data-scroll data-scroll-section  ref={scrollContainerRef}>
             <div className="contents"
-                   >
+                >
                 <div id='pin'>
-                    <div className='seo-t has-scroll-smooth' id = "pin-seo">
-                        <div 
-                        data-scrorll
-                        data-scroll-speed = "2"
-                        
+                    <div className='seo-t has-scroll-smooth' id = "pin-seo"
+                        data-scroll
+                        data-scroll-speed ="-3"
+                    >
+                        <div
                         className="title">
                             <h1>Search Engine Optimization</h1>
                         </div>
@@ -268,22 +355,37 @@ function Main(){
                             </Link>
                         </div>
                     </div>
-                    <div className='framefix-cards' id='framefix-seo'>
+                    <div className='framefix-cards' id='framefix-seo'
+                        data-scroll
+                    >
 
                         <div className='wrapper'
 
                             data-scrorll
-                            data-scroll-speed = "-2">
+                            data-scroll-speed = "-4">
                             
                             <div className='left contain'>
+                                <Link to={'/'}>
                                 <div className='small'>
                                     <p className='sementics'>Sementics</p>
                                     <div className='view-ex'>
                                         <div>
+                                            <div
+                                                data-scroll
+                                                data-scroll-speed="-1"
+                                                data-scroll-direction = "horizontal"
+                                            >
+                                                <span>h1 </span><span>h2 </span><span>h1</span><span>div</span><span>header</span>
+                                            </div>
                                             
+                                            <div className="blur left"></div>
+                                            <div className="blur right"></div>
                                         </div>
+                                        
                                     </div>
                                 </div>
+                                </Link>
+                                <Link to={'/'}>
                                 <div className="big metadata-contain" data-scroll data-scroll-call="typing">
                                     <p className='metadata'>Metadata</p>
                                     <div className="meta-settings">
@@ -298,20 +400,20 @@ function Main(){
                                                 <div className='meta-title'>
                                                     <p>Title</p>
                                                     <div className='user-input'>
-                                                        <input type="text"  data-scroll data-scroll-call = "trigger1" value={typedText1} readOnly/>
+                                                        <input type="text"  data-scroll data-scroll-call = "trigger1" value={metaTitle} readOnly/>
                                                     </div>
                                                 </div>
                                                 <div className='meta-url'>
                                                     <p>URL</p>
                                                     <div className='user-input'>
-                                                        <input type="text" value={typedText2} readOnly data-scroll data-scroll-call = "trigger2"/>
+                                                        <input type="text" value={metaUrl} readOnly data-scroll data-scroll-call = "trigger2"/>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div className='meta-description'>
                                                 <p>Meta Description</p>
                                                 <div className='textarea'>
-                                                    <textarea  value={typedText3} readOnly data-scroll data-scroll-call = "trigger3"/>
+                                                    <textarea  value={metaDescription} readOnly data-scroll data-scroll-call = "trigger3"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -322,16 +424,39 @@ function Main(){
                                         <div className="txt-box"></div>
                                         <div className="txt-box"></div>
                                         <div className='open-graph'>
-                                            <div className="txt"></div>
+                                            <div className="txt">
+                                                <div className='head'>
+                                                    <div className='favicon'>
+                                                        <img src={require("../../img/meta-data.png")} alt="" />
+                                                    </div>
+                                                    <div>
+                                                        <p className='site-title'>FrameFix</p>
+                                                        <p className='site-url'>www.framefix.com</p>
+                                                    </div>
+                                                    
+                                                </div>
+                                                <div className='site-infor'>
+                                                    <div className='sub-title'><p>{metaSubTitle}</p></div>
+                                                    <div className='description'><p>{metaDescription}</p></div>
+                                                </div>
+                                            </div>
                                             <div className='graph'>
-
+                                                <div className='meta-image'>
+                                                    <img src={require('../../img/gradient-mountain.jpg')} alt="" />
+                                                </div>
+                                                <div className='infor'>
+                                                    <p className='title'>FrameFix</p>
+                                                    <p className='description'>Framefix is at the forefront of revolut...</p>
+                                                    <p className='url'>framefix.com</p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                
+                                </Link>
                             </div>
                             <div className='right contain'>
+                                <Link to={'/'}>
                                 <div className='big'>
                                     <p className='editing'>Simple editing</p>
                                     <div className='open-img'>
@@ -396,6 +521,8 @@ function Main(){
                                         </div>
                                     </div>
                                 </div>
+                                </Link>
+                                <Link to={'/'}>
                                 <div className='small'>
                                     <p className='sitemap'>Sitemap</p>
                                     <div className='view-ex'>
@@ -429,6 +556,7 @@ function Main(){
                                         </div>
                                     </div>
                                 </div>
+                                </Link>
                             </div>
                         </div>
                     </div>

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect,useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -39,37 +39,35 @@ export const useTypingEffect = (text: string, speed: number): TypingEffectHookRe
   return { typedText, isCompleted };
 };
 
-interface GSAPHookReturnType {
-  e: string;
+
+// Defines the return type for the Pin function.
+interface PinEvent {
+  element: React.RefObject<HTMLDivElement>;
+  triggerElement: React.RefObject<HTMLDivElement>;
 }
 
-export const useGsapScrollTrigger = (selector: string): GSAPHookReturnType => {
-  useEffect(() => {
-    const element = document.querySelector(selector);
+export const usePin = (): PinEvent => {
+  
+  const elementRef = useRef<HTMLDivElement>(null);
+  const triggerElementRef = useRef<HTMLDivElement>(null);
 
-    if (element) {
-      gsap.fromTo(
-        element,
-        { autoAlpha: 0 },
-        {
-          autoAlpha: 1,
-          duration: 1,
-          scrollTrigger: {
-            trigger: element,
-            start: "top 75%", 
-            end: "bottom 25%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
+  useEffect(() => {
+    const element = elementRef.current;
+    const triggerElement = triggerElementRef.current;
+    
+    // Ensures the elements exist before attempting to use them.
+    if (element && triggerElement) {
+
+      const scrollTriggerInstance = ScrollTrigger.create({
+        trigger: triggerElement,
+        start: "top 50%",
+        end: "+=500", 
+        pin: element,
+        markers: true,
+      });
     }
 
-    return () => {
-      if (element) {
-        ScrollTrigger.getById(selector)?.kill();
-      }
-    };
-  }, [selector]);
+  }, []);
 
-  return { e: '' };
-};
+  return { element: elementRef, triggerElement: triggerElementRef };
+}

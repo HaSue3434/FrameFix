@@ -1,5 +1,5 @@
 body{
-    background: #000;
+    background: #080808;
 }
 #contain section.main{
     padding-top: 8em;
@@ -85,13 +85,12 @@ section.main .main-wrapper>div .btn-main-start>a .btn{
     z-index: -3;
 }
 .ai-powered-contain{
-    margin-top: 12em;
+    padding-top: 16.25em;
     width: 100%;
-    position: relative;
-    background: #0f0f15;
-    height: 100vh;
+    height: 100%;
     display: flex;
     align-items: center;
+    
 }
 .ai-powered-contain .wrapper{
     width: 1680px;
@@ -100,124 +99,72 @@ section.main .main-wrapper>div .btn-main-start>a .btn{
     position: relative;
     display: flex;
     min-width: 0px;
+    height: 100%;
     padding: 25px;
+    gap: 35px;
     padding-top: 5em;
 }
 .ai-powered-contain .wrapper .txt-contents{
     width: 100%;
 }
-.ai-powered-contain .wrapper .txt-contents .title h1{
-    color: #fff;
-    font-size: 4em;
-    max-width: 500px;
+
+.ai-powered-contain .wrapper .txt-contents>.wrap>.side-contain{
+    padding: 35px 0px 35px 0px;
+    max-width: 580px;
 }
-.ai-powered-contain .wrapper .txt-contents > div:not(:nth-child(1)){
-    padding-top: 35px;
+.ai-powered-contain .wrapper .txt-contents>.wrap>.side-contain>div{
     padding-bottom: 35px;
 }
-.ai-powered-contain .wrapper .txt-contents .title h1 strong{
+.ai-powered-contain .wrapper .txt-contents>.wrap>.side-contain>.title h1{
+    font-size: 4em;
+    color: rgba(255,255,255,.8);
+}
+.ai-powered-contain .wrapper .txt-contents>.wrap>.side-contain>.title h1 strong{
     color: #459AFF;
+    
 }
-.ai-powered-contain .wrapper .txt-contents .explain .feature{
-
+.ai-powered-contain .wrapper .txt-contents>.wrap>.side-contain>.features{
+   
+    padding-top:35px;
+}
+.ai-powered-contain .wrapper .txt-contents>.wrap>.side-contain>.features .feature{
+    padding: 0px 0px 35px 0px;
     cursor: pointer;
-}
 
-.ai-powered-contain .wrapper .txt-contents .explain .feature .content{
+}
+.ai-powered-contain .wrapper .txt-contents>.wrap>.side-contain>.features .feature:hover .content > .txt p{
+    color: rgba(255,255,255,.8);
+}
+.ai-powered-contain .wrapper .txt-contents>.wrap>.side-contain>.features .feature:hover .content > .icon{
+    opacity: 0.8;
+}
+.ai-powered-contain .wrapper .txt-contents>.wrap>.side-contain>.features .content{
     display: flex;
-    gap: 20px;
-    max-width: 550px;
-    padding: 25px 0px 25px 0px;
-    align-items: center;
-    position: relative;
-    width: 100%;
-    margin-top: -1px;
-    height: fit-content;
+    gap: 15px;
 }
-.ai-powered-contain .wrapper .txt-contents .explain .feature .content:hover .txt p{
-    color: rgba(255,255,255,.8);
-}
-.ai-powered-contain .wrapper .txt-contents .explain .feature .content:hover .txt p{
-    color: rgba(255,255,255,.8);
-}
-
-.ai-powered-contain .wrapper .txt-contents .explain .feature .content .icon{
-    width: 35px;
-    height: auto;
-}
-.ai-powered-contain .wrapper .txt-contents .explain .feature .content .icon img{
-    width: 100%;
-    user-select: none;
-    object-fit: cover;
-}
-.ai-powered-contain .wrapper .txt-contents .explain .feature .content .txt p{
-    font-size: 1.5em;
-    color: white;
-    font-weight: bold;
-    text-transform: capitalize;
+.ai-powered-contain .wrapper .txt-contents>.wrap>.side-contain>.features .content > .icon{
     transition: .3s;
 }
-.ai-powered-contain .wrapper .txt-contents .explain .feature .description{
-    height: 0; /* 100%*/
-    padding: 0; /* 25px*/
-    width: 100%;
-    opacity: 0;
-    background: #202023;
-    max-width: 550px;
-    border-bottom: 1px solid rgba(255,255,255,.1);
-}
-.ai-powered-contain .wrapper .txt-contents .explain .feature .description p {
-    color: rgba(255,255,255,.5);
-    font-size: 18px;
-    font-weight: 500;
-    
-    visibility: hidden; /* visible*/
-}
-
-.ai-powered-contain .wrapper .txt-contents .explain .feature .content{
-    animation: test 0.3s ease-in-out forwards;
-    z-index: 3;
-}
-/*
-@keyframes test {
-    0%{
-        top: 0;
-        left: 0;
-    }
-    100%{
-        top: 20px;
-        left: 20px;
-    }
-}
-
-.ai-powered-contain .wrapper .txt-contents .explain .feature .description{
-    animation: test2 0.3s ease-in-out forwards;
-}
-@keyframes test2 {
-    0%{
-        opacity: 0;
-        padding: 0px 20px 0px 20px;
-    }
-    100%{
-        padding: 35px 20px 35px 20px;
-        opacity: 1;
-
-    }
-}
-*/
-
-.ai-powered-contain .wrapper .txt-contents .start-framefix a{
-    padding: 25px;
-    width: fit-content;
-    background: linear-gradient(to right, #4A96FE, #AC42FB);
-    border-radius: 15px;
-    display: block;
-}
-.ai-powered-contain .wrapper .txt-contents .start-framefix .btn{
-    
-    font-weight: 600;
+.ai-powered-contain .wrapper .txt-contents>.wrap>.side-contain>.features .content > .txt p{
+    color: white;
+    font-weight: bold;
     font-size: 1.5em;
+    transition: .3s;
+}
+.ai-powered-contain .wrapper .txt-contents>.wrap>.side-contain .start-framefix a{
+    padding: 25px;
+    background: red;
+    width: fit-content;
+    height: auto;
+    display: block;
+    border-radius: 15px;
+    background: linear-gradient(to right, #4A96FE,#AC42FB);
     color: #fff;
+    font-size: 1.5em;
+    font-weight: 600;
+}
+#quickly{
+    padding-top: 50vh;
 }
 .ai-powered-contain .wrapper .framefix-designtool{
     width: 100%;
@@ -226,6 +173,7 @@ section.main .main-wrapper>div .btn-main-start>a .btn{
     position: relative;
     top: 0;
 }
+
 .framefix-tool{
     position: absolute;
     top: 0;
@@ -251,34 +199,11 @@ section.main .main-wrapper>div .btn-main-start>a .btn{
     left: 30px;
     opacity: 0.2;
 }
-.top-blur{
-    position: absolute;
-    top: -50px;
-    left: 0;
-    width: 100%;
-    
-    height: 200px;
-    background: #0f0f15;
-    width: 100%;
-    filter: blur(35px);
-}
-.bottom-blur{
-    position: absolute;
-    left: 0;
-    bottom: -100px;
-    width: 100%;
-    z-index:0;
-    height: 300px;
-    background: #0f0f15;
-    width: 100%;
-    filter: blur(35px);
-    z-index: -1;
-}
 /*publish*/
 .publish{
     width: 100%;
     height: auto;
-    margin-top: 12em;
+    margin-top: 16.25em;
 }
 .publish .wrapper{
     width: 1680px;
@@ -345,6 +270,10 @@ section.main .main-wrapper>div .btn-main-start>a .btn{
     border: 1px solid rgba(255,255,255,.2);
     background: #1a1a1a;
     border-radius: 15px;
+    
+}
+.publish-ex> .contents > div.right-content{
+    background: rgba(255,255,255,.8);
 }
 /*seo*/
 .seo-contain{
@@ -401,10 +330,13 @@ section.main .main-wrapper>div .btn-main-start>a .btn{
     grid-template-columns: repeat(2,1fr);
     gap: 20px;
 }
-.framefix-cards .wrapper .contain>div{
+.framefix-cards .wrapper .contain a > div{
     margin-top: 20px;
     border: 2px solid rgba(255,255,255,.2);
     border-radius: 15px;
+}
+.big.metadata-contain{
+    background: #459AFF;
 }
 .framefix-cards .wrapper .big,.small{
     width: 494px;
@@ -547,13 +479,48 @@ section.main .main-wrapper>div .btn-main-start>a .btn{
 }
 .sementics~.view-ex>div{
     display: flex;
-    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.sementics~.view-ex>div>div{
+    white-space: nowrap;
+    display: flex;
+    gap: 55px;
+    justify-content: center;
     align-items: center;
+    position: relative;
+    left: -100px;
+    width: 100%;
+    height: 100%;
+}
+.sementics~.view-ex .blur{
+    position: absolute;
+    top: 0;
+    background: #000;
+    height: 100%;
+    width: 65px;
+    filter: blur(15px);
+    z-index: 3;
+}
+.sementics~.view-ex>div .blur.left{
+    left: -25px;
+}
+.sementics~.view-ex>div .blur.right{
+    left: 90%;
+}
+.sementics~.view-ex>div span{
+    font-size: 4.00em;
+    font-weight: bold;
+    color: #459AFF;
+    user-select: none;
+    text-shadow: 0px 2px 5px rgba(69,153,255,.45);
 }
 .sitemap~.view-ex {
     border: 1px solid rgba(255,255,255,.2);
 }
-.sitemap~.view-ex >div p,div{
+.sitemap~.view-ex >div p, .sitemap~.view-ex >div div{
     color: #fff;
 }
 .sitemap~.view-ex >div div:not(:nth-child(1)){
@@ -818,6 +785,8 @@ section.main .main-wrapper>div .btn-main-start>a .btn{
     font-size: 12px;
     width: 100%;
     max-width: 100%;
+    user-select: none;
+    cursor:pointer;
     
 }
 .metadata~.meta-settings .setting .meta-description{
@@ -834,6 +803,7 @@ section.main .main-wrapper>div .btn-main-start>a .btn{
 .metadata~.meta-settings .setting .meta-description .textarea{
     width: 100%;
     height: 100%;
+    
 }
 
 .metadata~.meta-settings .setting .meta-description .textarea textarea{
@@ -842,6 +812,8 @@ section.main .main-wrapper>div .btn-main-start>a .btn{
     border: none;
     padding: 8px;
     width: 100%;
+    
+    cursor:pointer;
     height:250px;
     
     font-size: 12px;
@@ -855,7 +827,7 @@ section.main .main-wrapper>div .btn-main-start>a .btn{
     position: absolute;
     bottom: 0;
     width: 85%;
-    height: 200px;
+    height: 220px;
     background: #171717;
     border: 1px solid rgba(255,255,255,.2);
     border-bottom: 0;
@@ -876,6 +848,102 @@ section.main .main-wrapper>div .btn-main-start>a .btn{
     margin-top: 5px;
     width: 120px;
     height: 10px;
+}
+.framefix-cards .wrapper .big.metadata-contain .ex-view .open-graph{
+    display: flex;
+    align-items: flex-start;
+    overflow: hidden;
+    justify-content: space-between;
+    gap: 25px;
+}
+.framefix-cards .wrapper .big.metadata-contain .ex-view .txt{
+    width: 100%;
+    padding-right: 15px;
+    padding-top: 25px;
+    max-width: 200px;
+
+}
+.framefix-cards .wrapper .big.metadata-contain .ex-view .txt .site-infor{
+    max-width: 100%; 
+}
+.framefix-cards .wrapper .big.metadata-contain .ex-view .txt .site-infor .sub-title{
+    color: #2c64ff; 
+    font-size: 12px;
+
+    padding-top: 10px; 
+}
+.framefix-cards .wrapper .big.metadata-contain .ex-view .txt .site-infor>.description{
+    color: rgba(255,255,255,.8);
+    padding-top: 10px; 
+    font-weight: 400;
+    font-size: 10px;
+}
+
+.framefix-cards .wrapper .big.metadata-contain .ex-view .txt .head{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.framefix-cards .wrapper .big.metadata-contain .ex-view .txt .head p{
+    font-size: 12px;
+}
+
+.framefix-cards .wrapper .big.metadata-contain .ex-view .txt .head p.site-url{
+    font-size: 10px;
+    color: rgba(255,255,255,.5);
+}
+.framefix-cards .wrapper .big.metadata-contain .ex-view .txt .head .favicon {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #fff;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+}
+.framefix-cards .wrapper .big.metadata-contain .ex-view .txt .head .favicon img{
+    width: 100%;
+    height: 100%;
+    user-select: none;
+    object-fit: cover;
+}
+.framefix-cards .wrapper .big.metadata-contain .ex-view .open-graph .graph .meta-image{
+    width: 180px;
+    height: 90px;
+}
+.framefix-cards .wrapper .big.metadata-contain .ex-view .open-graph .graph .meta-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    user-select: none;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+.framefix-cards .wrapper .big.metadata-contain .ex-view .open-graph .graph .infor{
+    width: 100%;
+    height: auto;
+    padding: 5px;
+    background: #000;
+    max-width: 180px;
+    overflow: hidden;
+    white-space: nowrap;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.framefix-cards .wrapper .big.metadata-contain .ex-view .open-graph .graph .infor p{
+    font-weight: 400;
+    padding: 2px;
+}
+.framefix-cards .wrapper .big.metadata-contain .ex-view .open-graph .graph .infor .url{
+    font-size: 7px;
+    color: rgba(255,255,255,.5);
+}
+.framefix-cards .wrapper .big.metadata-contain .ex-view .open-graph .graph .infor .description{
+    font-size: 8px;
+    color: rgba(255,255,255,.8);
+}
+.framefix-cards .wrapper .big.metadata-contain .ex-view .open-graph .graph .infor .title{
+    font-size: 9px;
 }
 .framefix{
     width: 100%;

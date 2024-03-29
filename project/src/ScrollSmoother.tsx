@@ -5,7 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import LocomotiveScroll from 'locomotive-scroll';
 import 'locomotive-scroll/dist/locomotive-scroll.css';
 import AOS from 'aos';
-
+import 'aos/dist/aos.css'; 
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,35 +18,41 @@ const ScrollSmootherComponent: React.FC<ScrollSmootherProps> = ({ children }) =>
   const [locoScroll, setLocoScroll] = useState<LocomotiveScroll | null>(null);
 
   useEffect(() => {
+    AOS.init({
+      duration: 400, 
+      once: false, 
+    });
+
     if (!scrollRef.current) return;
 
     const ls = new LocomotiveScroll({
       el: scrollRef.current,
       smooth: true,
-      lerp : 0.07,
+      lerp : 0.1,
+
+
     });
 
     setLocoScroll(ls);
-    ls.init()
     let currentScrollY = 0;
     ls.on("scroll", (scrollEvent) => {
       currentScrollY = scrollEvent.scroll.y;
       ScrollTrigger.update();
-
+      AOS.refresh();
       
     });
 
     ls.on("call", func=>{
       console.log(func);
       if(func){
-        ls.start();
         ScrollTrigger.refresh();
+        AOS.refresh();
       }
     })
     ScrollTrigger.refresh();
 
     return () => {
-      ls.stop();
+      ls.destroy();
       ScrollTrigger.killAll();
     };
   }, []);

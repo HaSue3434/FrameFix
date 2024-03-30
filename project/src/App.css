@@ -70,7 +70,7 @@ header nav ul a li:hover{
   padding: 12px 18px;
   color: #fff;
   font-weight: 600;
-  background: linear-gradient(to right, #4A96FE,#AC42FB);
+  background: #4A96FE;
 }
 #navigation-live{
   position: absolute;

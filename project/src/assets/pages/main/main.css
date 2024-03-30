@@ -1,96 +1,116 @@
 body{
     background: #080808;
 }
-#contain section.main{
+section.main{
     padding-top: 8em;
-}
-section.main .main-wrapper{
     width: 100%;
-    height: auto;
-}
-section.main .main-wrapper>div{
+    height: 100%;
+}   
+section.main .wrapper{
     width: 1680px;
-    max-width: 100%;
     height: auto;
-    max-width: 100%;
     margin: 0 auto;
-    
     padding: 25px;
-}
-section.main .main-wrapper>div > div.title{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-section.main .main-wrapper>div > div.title h1{
-    text-align: center;
-    color: white;
-    font-size: 6em;
-    font-weight: 700;
-    max-width: 1000px;
-}
-section.main .main-wrapper>div .btn-main-start{
-    display: flex;
-    justify-content: center;
-    padding-top: 4em;
-    padding-bottom: 4em;
-}
-section.main .main-wrapper>div .btn-main-start>a .btn{
-    padding: 25px;
-    max-width: 100%;
-    background: linear-gradient(to right, #4A96FE,#AC42FB);
-    color: rgba(255,255,255,1);
-    font-weight: 600;
-    border-radius: 15px;
-    font-size: 1.5em;
-}
-
-.main .main-wrapper .framefix{
-    display: flex;
-    width: 1680px;
-    justify-content: center;
-    height: auto;
-    
-}
-
-.main .main-wrapper .framefix > .contents{
-    width: 100%;
-    height: auto;
     position: relative;
-    z-index: 3;
+    max-width: 100%;
 }
-.main .main-wrapper .framefix > .contents .sec-content{
+section.main .wrapper .main{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+section.main .wrapper .main .title h1{
+    font-size: 100px;
+    color: #fff;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+section.main .wrapper .main .description .txt p{
+    color: rgba(255,255,255,.5);
+    max-width: 630px;
+    font-size: 1.25em;
+    font-weight: 500;
+
+}
+section.main .wrapper .main .description .start-framefix{
+    padding-top:35px;
+    height: auto;
+    margin-top: 35px;
+}
+section.main .wrapper .main .description .start-framefix > a{
+    padding: 20px 30px 20px 30px;
+    background: #459AFF;
+    border-radius: 10px;
+    width: fit-content;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.25em;
+}
+section.main .wrapper .main .slider{
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    align-items: flex-end;
+}
+section.main .wrapper .main .slider > div{
+    color: rgba(255,255,255,.2);
+    text-transform: uppercase;
+    text-align: end;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    padding: 2px;
+    width: fit-content;
+}
+section.main .wrapper .main .slider > div.active{
+    color: #fff;
+}
+section.main .wrapper .main .slider > div.active::before{
+    content: "";
+    display: flex;
     width: 100%;
-    height: 810px;
-    background: #1a1a1a;
-    border: 1px solid rgba(255,255,255,.4);
-    border-radius: 15px;
-}
-.main .main-wrapper .framefix > .contents .sec-content:nth-child(1){
-    transform: scale(1);
-}
-.main .main-wrapper .framefix > .contents .sec-content:not(:nth-child(1)){
     position: absolute;
-    z-index: -1;
+    height: 2px;
+    bottom: 0%;
+    left: 0;
+    background: #fff;
 }
-.main .main-wrapper .framefix > .contents .sec-content:nth-child(2){
-    transform: scale(0.98);
-    top: -25px;
-    opacity: 0.5;
+section.main .wrapper  .framefix{
+    margin-top: 8em;
+    width: 100%;
+    height: 100%;
+    perspective: 1000px;
 }
-.main .main-wrapper .framefix > .contents .sec-content:nth-child(3){
-    transform: scale(0.96);
-    top: -50px;
-    opacity:0.2;
-    z-index: -3;
+section.main .wrapper  .framefix .frame{
+    height: 840px;
+    width: 100%;   
+    border-radius: 15px;
+    background: rgba(255,255,255,.05);
+    padding: 12px;
+}
+section.main .wrapper  .framefix .frame>div{
+    width: 100%;
+    height: 100%;
+    background: #1b1b1b;
+    border-radius: 12px;
+    border: 2px solid rgba(255,255,255,.1);
+    padding: 12px;
+}
+section.main .wrapper  .framefix .frame>div .contain{
+    width: 100%;
+    height: 100%;
 }
 .ai-powered-contain{
     padding-top: 16.25em;
     width: 100%;
-    height: 100%;
     display: flex;
+    
+    overflow: hidden;
     align-items: center;
     
+    height: 100%;
 }
 .ai-powered-contain .wrapper{
     width: 1680px;
@@ -98,11 +118,8 @@ section.main .main-wrapper>div .btn-main-start>a .btn{
     margin: 0 auto;
     position: relative;
     display: flex;
-    min-width: 0px;
-    height: 100%;
     padding: 25px;
     gap: 35px;
-    padding-top: 5em;
 }
 .ai-powered-contain .wrapper .txt-contents{
     width: 100%;
@@ -117,7 +134,7 @@ section.main .main-wrapper>div .btn-main-start>a .btn{
 }
 .ai-powered-contain .wrapper .txt-contents>.wrap>.side-contain>.title h1{
     font-size: 4em;
-    color: rgba(255,255,255,.8);
+    color: rgba(255,255,255,1);
 }
 .ai-powered-contain .wrapper .txt-contents>.wrap>.side-contain>.title h1 strong{
     color: #459AFF;
@@ -153,7 +170,6 @@ section.main .main-wrapper>div .btn-main-start>a .btn{
 }
 .ai-powered-contain .wrapper .txt-contents>.wrap>.side-contain .start-framefix a{
     padding: 25px;
-    background: red;
     width: fit-content;
     height: auto;
     display: block;
@@ -164,22 +180,21 @@ section.main .main-wrapper>div .btn-main-start>a .btn{
     font-weight: 600;
 }
 #quickly{
-    padding-top: 50vh;
+    padding-top: 100vh;
 }
 .ai-powered-contain .wrapper .framefix-designtool{
     width: 100%;
     transform-origin: center left;
+    max-height: 100%;
     height: auto;
     position: relative;
-    top: 0;
 }
-
 .framefix-tool{
     position: absolute;
     top: 0;
     width: 1330px;
     background: #1a1a1a;
-    height: 690px;
+    height: 750px;
     border-radius: 15px;
     border: 2px solid rgba(255,255,255,.2);
 }
@@ -203,7 +218,7 @@ section.main .main-wrapper>div .btn-main-start>a .btn{
 .publish{
     width: 100%;
     height: auto;
-    margin-top: 16.25em;
+    padding-top: 16.25em;
 }
 .publish .wrapper{
     width: 1680px;
@@ -265,7 +280,7 @@ section.main .main-wrapper>div .btn-main-start>a .btn{
 }
 .publish-ex> .contents > div{
     width: 1180px;
-    height: 690px;
+    height: 750px;
     min-width: 1180px;
     border: 1px solid rgba(255,255,255,.2);
     background: #1a1a1a;
@@ -293,7 +308,6 @@ section.main .main-wrapper>div .btn-main-start>a .btn{
     width: 100%;
     max-width: 100%;
     align-items: center;
-    overflow: hidden;
 }
 
 .seo-contain .contents .seo-t>div{
@@ -382,7 +396,7 @@ section.main .main-wrapper>div .btn-main-start>a .btn{
     align-items: center;
     justify-content: center;
 }
-.community  .title h1{
+.community .title h1{
     font-size: 6.00em;
     padding: 25px;
     max-width: 1100px;
@@ -447,6 +461,8 @@ section.main .main-wrapper>div .btn-main-start>a .btn{
     left: 0;
     height: 435px;
     width: 100%;
+    /*clip-path: polygon(50% 0, 50% 0, 50% 100%, 50% 100%);*/
+
     background: rgba(26,26,26,.35);
     display: flex;
     justify-content: center;
@@ -491,7 +507,7 @@ section.main .main-wrapper>div .btn-main-start>a .btn{
     justify-content: center;
     align-items: center;
     position: relative;
-    left: -100px;
+    /*left: -100px;*/
     width: 100%;
     height: 100%;
 }
@@ -959,4 +975,90 @@ section.main .main-wrapper>div .btn-main-start>a .btn{
 }
 #mask0_97_313 {
     mask-type: alpha;
+}
+
+
+/* scroll event*/
+.community .title h1{
+    perspective: 1000px;
+}
+.flip-event{
+    opacity: 0;
+    transform: translateY(50px) rotateX(-90deg) scale(0.9) ;
+    transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out;
+}
+.flip-event.is-inview{
+    opacity: 1;
+    transform: translateY(0) rotateX(0) scale(1) ;
+}
+
+
+.seo-t{
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+.seo-t.is-inview{
+    opacity: 1;
+}
+.back-tile{
+    clip-path: polygon(50% 0, 50% 0, 50% 100%, 50% 100%);
+    transition: clip-path 0.7s ease-in-out;
+}
+.back-tile.is-inview{
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+
+}
+
+.publish-txt {
+    opacity: 0;
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.publish-txt.is-inview {
+    opacity: 1;
+    transform: translateX(0);
+    animation: publishAnimate 1s ease-in-out forwards;
+}
+
+@keyframes publishAnimate {
+    0% {
+        opacity: 0;
+        transform: translateX(-10%);
+    }
+    60% {
+        opacity: 1;
+        transform: translateX(4%); 
+    }
+    /*
+    80% {
+        transform: translateX(-2%); 
+    }
+    */
+    100% {
+        transform: translateX(0);
+    }
+}
+.horizontal-sementics{
+    /*left: -100px;*/
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, left 0.5s ease-in-out;
+}
+.horizontal-sementics.is-inview{
+    left: -100px;
+    opacity: 1;
+}
+
+.fadeout{
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+.fadeout.is-inview{
+    opacity: 1;
+}
+/*footer*/
+.framefix-footer{
+    padding-top: 20em;
+    height: auto;
+    width: 100%;
 }

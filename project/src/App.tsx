@@ -7,7 +7,6 @@ import Main from './assets/pages/main/main';
 import SignUp from './assets/pages/sign-up/sign';
 import FrameFix from './assets/pages/framefix-tool/framefix';
 
-import ScrollSmootherComponent from "./ScrollSmoother"
 
 function App() {
   
@@ -25,13 +24,11 @@ function RoutesWithHeader() {
     <>
       {location.pathname !== "/file/framefix" && <Header />}
 
-      <ScrollSmootherComponent>
           <Routes>
             <Route path="/" element={<Main />} />
             <Route path="/sign-up" element={<SignUp />} />
             <Route path="/file/framefix" element={<FrameFix />} />
           </Routes>
-      </ScrollSmootherComponent>
       
       <Footer />
     </>

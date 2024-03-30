@@ -16,7 +16,7 @@
     "@types/react-dom": "^18.2.22",
     "aos": "^3.0.0-beta.6",
     "app": "^0.1.0",
-    "framer-motion": "^11.0.20",
+    "framer-motion": "^11.0.24",
     "gsap": "^3.12.5",
     "locomotive-scroll": "^4.1.4",
     "react": "^18.2.0",

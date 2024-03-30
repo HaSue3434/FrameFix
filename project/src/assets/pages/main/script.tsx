@@ -1,9 +1,4 @@
 import { useState, useEffect,useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
-
 interface TypingEffectHookReturnType {
   typedText: string;
   isCompleted: boolean;
@@ -35,39 +30,5 @@ export const useTypingEffect = (text: string, speed: number): TypingEffectHookRe
     setIndex(0);
     setIsCompleted(false);
   }, [text]);
-
   return { typedText, isCompleted };
 };
-
-
-// Defines the return type for the Pin function.
-interface PinEvent {
-  element: React.RefObject<HTMLDivElement>;
-  triggerElement: React.RefObject<HTMLDivElement>;
-}
-
-export const usePin = (): PinEvent => {
-  
-  const elementRef = useRef<HTMLDivElement>(null);
-  const triggerElementRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const element = elementRef.current;
-    const triggerElement = triggerElementRef.current;
-    
-    // Ensures the elements exist before attempting to use them.
-    if (element && triggerElement) {
-
-      const scrollTriggerInstance = ScrollTrigger.create({
-        trigger: triggerElement,
-        start: "top 50%",
-        end: "+=500", 
-        pin: element,
-        markers: true,
-      });
-    }
-
-  }, []);
-
-  return { element: elementRef, triggerElement: triggerElementRef };
-}

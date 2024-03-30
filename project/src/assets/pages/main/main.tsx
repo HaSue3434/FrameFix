@@ -1,14 +1,13 @@
 import React, {useEffect, useState,useRef} from 'react';
+import ScrollSmootherComponent from "./ScrollSmoother"
 import './main.css';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import {Link} from 'react-router-dom';
 import { gsap } from 'gsap';
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { motion,useScroll, useTransform,easeIn} from 'framer-motion';
-import LocomotiveScroll from 'locomotive-scroll';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import { motion, AnimatePresence,useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 // svg
 import {ReactComponent as ColLogo} from "../../img/logo/column-logo.svg";
 import {ReactComponent as Prompt }  from '../../img/icons/prompt.svg';
@@ -19,25 +18,18 @@ import {ReactComponent as Publish}  from '../../img/icons/publish.svg';
 // svg 
 
 /* page import */
-import UserSearch from './contents main ui/user-search/user-search';
-import Category from './contents main ui/category/category';
-import Result from './contents main ui/result/result';
 
 /* page import */
 
 /* module */
 import { useTypingEffect } from './script';
-import { usePin } from './script';
 /* module */
 
 gsap.registerPlugin(ScrollTrigger);
 
-function Main(){
-    const locoScroll = new LocomotiveScroll();
-    
+function Main(){    
     const scrollContainerRef = useRef<HTMLDivElement>(null);
-    const scrollPinRef = useRef<HTMLDivElement>(null);
-
+    const mainFrameFixAnimation = useRef<HTMLDivElement>(null);
 
     const [triggerMetaTitle, setTriggerMeta1] = useState(false);
     const [triggerMetaURL, setTriggerMeta2] = useState(false);
@@ -49,16 +41,14 @@ function Main(){
     const { typedText: metaDescription, isCompleted: isCompleted3 } = useTypingEffect(
         triggerMetaDescription ? "Framefix leads in revolutionizing web design by leveraging AI to provide unique design references and innovative creations inspired by these insights." : "", 10
     );
-    const { typedText: metaSubTitle, isCompleted: isCompleted4 } = useTypingEffect(triggerMetaSubTitle ? "FrameFix canvas tool" : "", 50);
-
-    
+    const { typedText: metaSubTitle, isCompleted: isCompleted4 } = useTypingEffect(triggerMetaSubTitle ? "FrameFix canvas tool" : "", 10);
 
     useEffect(()=>{
 
         gsap.to(scrollContainerRef.current,{
             scrollTrigger : {
                 trigger : scrollContainerRef.current,
-                start  : "30% 50%",
+                start  : "25% 50%",
                 end : "80% 80%",
                 onEnter : ()=>{
                     setTriggerMeta1(true);
@@ -67,112 +57,153 @@ function Main(){
                     setTriggerMeta4(true);
                 },
                 onLeaveBack : ()=>{
-                    locoScroll.on("call", func=>{
-                        
-                    })
+                    setTriggerMeta1(false);
+                    setTriggerMeta2(false);
+                    setTriggerMeta3(false);
+                    setTriggerMeta4(false);
                 },
-            }
-        });
-
-
-        ScrollTrigger.refresh();
-        ScrollTrigger.update();
-
-
-    },[scrollContainerRef])    
-
-    useEffect(()=>{
-        locoScroll.on("call", (func) =>{
-            console.log(func);
-            gsap.to("#ai-powered",{
-                scrollTrigger : {
-                    trigger : scrollPinRef.current,
-                    start : "50% 50%",
-                    end : "50% 50%",
-                    markers : true,
+                onEnterBack : ()=>{
+                    setTriggerMeta1(true);
+                    setTriggerMeta2(true);
+                    setTriggerMeta3(true);
+                    setTriggerMeta4(true);
                 }
-            })
-        })
-
-        ScrollTrigger.refresh();
-    },[scrollPinRef])
-
-    const { element, triggerElement } = usePin();
-    useEffect(()=>{
+            }
+            
+            
+        });
         
-    })
+    },[scrollContainerRef])
+
+    const controls = useAnimation();
+    const [ref, inView] = useInView();
+
+    React.useEffect(() => {
+        if (inView) {
+            controls.start({
+                opacity: 1,
+                scale: 1,
+                transition: { type: 'spring', stiffness: 150, damping: 10 }
+            });
+        } else {
+            controls.start({ opacity: 0, scale: 0.5 });
+        }
+    }, [controls, inView]);
 
     return (
+        <ScrollSmootherComponent>
         <>
+        
+
         <section className='main' data-scroll data-scroll-section>
-            <div className = 'main-wrapper'>
-                <div>
-                    
+            <div className='wrapper'>
+                <div className='main'>
+                    <div className='title'>
+                        <div>
+                            <motion.h1
+                                initial={{ 
+                                    opacity: 0,
+                                    y : 50
+                                }} // 애니메이션 시작 상태
+                                animate={{ 
+                                    opacity: 1,
+                                    y : 0,
+                                    
+                                }}
+                                transition={{ 
+                                    duration: 1,
+                                    ease: "anticipate",
+                                }}
+                            >the
+                            </motion.h1>
+                        </div>
+                        <div>
+                            <motion.h1
+                            initial={{ 
+                                opacity: 0,
+                                y : 50
+                            }} 
+                            animate={{ 
+                                opacity: 1,
+                                y : 0,
+                                
+                            }}
+
+                            transition={{ 
+                                duration: 1,
+                                delay : 0.2,
+                                ease: "anticipate",
+                            }}
+                            >smarter.</motion.h1>
+                        </div>
+                    </div>
                     <motion.div
-                    initial = {{opacity : 0, y : 100}}
-                    animate={{ opacity: 1, y : 0}}
-                    exit={{ opacity: 0 }}
-                    transition={{ 
-                        duration: 1,
-                        ease : "anticipate", 
-                    }}
-
-                    className='title'>
-                        <h1>AI-Powered Web Design Canvas tool</h1>
-                    </motion.div>
-                    <motion.div 
-                    initial = {{opacity : 0, y : 50}}
-                    animate={{ opacity: 1, y : 0}}
-                    exit={{ opacity: 0 }}
-                    transition={{ 
-                        duration: 1,
-                        ease : "anticipate", 
-                    }}
-                    className='btn-main-start'>
+                    initial={{ 
+                        opacity: 0,
+                        x : -50
+                    }} 
+                    animate={{ 
+                        opacity: 1,
+                        x : 0,
                         
-                    <Link to="/file/framefix" >
-                        <div className='btn'>Start FrameFix</div>
-                    </Link>
+                    }}
+                    transition={{ 
+                        duration: 1,
+                        delay : 0.5,
+                        ease: "anticipate",
+                    }}
+                    className='description'>
+                        <div className='txt'>
+                            <p>Leverage AI for a transformative design workflow: create effortlessly and deploy with a single click, streamlining your process and speeding up idea realization.</p>
+                        </div>
+                        <div className='start-framefix'>
+                            <Link to="/">
+                                Start FrameFix
+                            </Link>
+                        </div>
                     </motion.div>
-                    
+                    <div className='slider'>
+                        <div className='active'>canvas</div>
+                        <div>ai-powered</div>
+                        <div>publish</div>
+                        <div>code</div>
+                    </div>
                 </div>
+                <motion.div
+                ref={ref}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={controls}
+                className="framefix">
+                    <div className="frame">
+                        <div>
+                            <div className='contain'>
 
-                <motion.div 
-                initial = {{opacity : 0, y : 50}}
-                animate={{ opacity: 1, y : 0}}
-                exit={{ opacity: 0 }}
-                transition={{ 
-                    duration: 1,
-                    ease : "anticipate", 
-                }}
-                
-                className='framefix'>
-                    <div className='contents'>
-                        <div className='sec1 sec-content'>
-                            <UserSearch />
-                        </div>
-                        <div className='sec2 sec-content'>
-                            <Category />
-                        </div>
-                        <div className='sec3 sec-content'>
-                            <Result />
+                            </div>
                         </div>
                     </div>
                 </motion.div>
-                
+                <div className='back'>
+                    
+                </div>
             </div>
         </section>
         <section className='ai-powered-contain' 
         data-scroll 
         data-scroll-section 
-        id='ai-powered'>
+        
+        >
             
             <div className='wrapper'>
-                <div className='txt-contents'>
-                    <div className="ai-powered wrap" id='ai-powered'>
-                        <div className="side-contain">
-                            <div className="title">
+                <div className='txt-contents' id='ai-powered' data-scroll-call = "pinTrigger">
+                    <div className="ai-powered wrap">
+                        <div className="side-contain "
+                             data-scroll
+                             data-scroll-sticky
+                             data-scroll-target = "#ai-powered"
+                             data-scroll-class = "is-inview"
+                        >
 
+                            <div className="title">
                                 <h1><strong>AI-Powered</strong> prompt support</h1>
                             </div>
                             <div className="features">
@@ -231,7 +262,11 @@ function Main(){
                     </div>
 
                     <div className='quickly wrap' id='quickly'>
-                        <div className="side-contain">
+                        <div className="side-contain"
+                             data-scroll
+                             data-scroll-call = "quicklyTrigger"
+                             data-scroll-class = "is-inview">
+
                             <div className="title">
                                 <h1><strong>Quickly</strong> build design</h1>
                             </div>
@@ -291,18 +326,30 @@ function Main(){
                         </div>
                     </div>
                 </div>
-                <div className='framefix-designtool'
-                ref={scrollPinRef}>
-                    <div id='first'  className='framefix-tool'></div>
-                    <div id='second' className='framefix-tool'></div>
-                    <div id='last'   className='framefix-tool'></div>
+                <div className='framefix-designtool' data-scroll 
+                
+                >
+
+                    <div id='first'  className='framefix-tool' data-scroll
+                data-scroll-sticky
+                data-scroll-target = ".txt-contents"></div>
+                    <div id='second' className='framefix-tool' data-scroll
+                data-scroll-sticky
+                data-scroll-target = ".txt-contents"></div>
+                    <div id='last'   className='framefix-tool' data-scroll
+                data-scroll-sticky
+                data-scroll-target = ".txt-contents"></div>
                 </div>
                 
             </div>
         </section>
-        <section className='publish' data-scroll data-scroll-section>
+        <section className='publish' data-scroll data-scroll-section
+        >
             <div className='wrapper'>
-                <div className="publish-txt">
+                <div className="publish-txt"
+                    data-scroll
+                    data-scroll-class = "is-inview"
+                >
                     <div className='publish-icon'>
                         <div className='icon'>
                             <Publish />
@@ -336,12 +383,11 @@ function Main(){
             <div className="contents"
                 >
                 <div id='pin'>
-                    <div className='seo-t has-scroll-smooth' id = "pin-seo"
+                    <div className='seo-t' id = "pin-seo"
                         data-scroll
-                        data-scroll-speed ="-3"
-                    >
-                        <div
-                        className="title">
+                        data-scroll-speed ="-4"
+                        data-scroll-class = "is-inview">
+                        <div className="title">
                             <h1>Search Engine Optimization</h1>
                         </div>
                         <div className="sub-title">
@@ -350,7 +396,7 @@ function Main(){
                         <div className="lead-more">
                             <Link to="/">
                                 <div className="btn">
-                                    <div>Learn More</div>
+                                    <div>Lead More</div>
                                 </div>
                             </Link>
                         </div>
@@ -374,6 +420,8 @@ function Main(){
                                                 data-scroll
                                                 data-scroll-speed="-1"
                                                 data-scroll-direction = "horizontal"
+                                                data-scroll-class = "is-inview"
+                                                className='horizontal-sementics'
                                             >
                                                 <span>h1 </span><span>h2 </span><span>h1</span><span>div</span><span>header</span>
                                             </div>
@@ -390,7 +438,7 @@ function Main(){
                                     <p className='metadata'>Metadata</p>
                                     <div className="meta-settings">
                                         <div className='head'>
-                                            <div className='title'>
+                                            <div className='title fadeout' data-scroll data-scroll-class =  "is-inview">
                                                 <p>Settings</p>
                                             </div>
                                             <div className='save'>Save</div>
@@ -419,7 +467,7 @@ function Main(){
                                         </div>
 
                                     </div>
-                                    <div className='ex-view'>
+                                    <div className='ex-view '>
                                         
                                         <div className="txt-box"></div>
                                         <div className="txt-box"></div>
@@ -463,7 +511,8 @@ function Main(){
                                         <div className='img'>
                                             <img src={require("../../img/gradient-mountain.jpg")} alt="" />
                                         </div>
-                                        <div className='editing-content-box'>
+                                        <div className='editing-content-box scale'
+                                        >
                                             <div>
                                                 <div className="head">
                                                     <div className="t">
@@ -568,7 +617,21 @@ function Main(){
             <div className = "title">
                 <center>
                     <h1>
-                    Use the community to improve branding
+                        <p
+                            className='flip-event'
+                            data-scroll
+                            data-scroll-class= "is-inview">
+
+                            Use the community to 
+                        </p> 
+
+                        <p
+                            className='flip-event'
+                            data-scroll
+                            data-scroll-class= "is-inview">
+                                
+                               improve branding
+                        </p>
                     </h1>
                 </center>
             </div>
@@ -587,7 +650,11 @@ function Main(){
                     </div>
 
                 </div>
-                <div className="back-tile">
+                <div className="back-tile" 
+                data-scroll 
+                data-scroll-class = "is-inview"
+
+                >
                     <div className='logo'>
                         <ColLogo/>
                     </div>
@@ -602,10 +669,12 @@ function Main(){
             </div>
         </section>
         
-        <section className='framefix' data-scroll data-scroll-section>
+        <section className='framefix-footer' data-scroll data-scroll-section>
             
         </section>
+        
         </>
+        </ScrollSmootherComponent>
     );
 }
 export default Main

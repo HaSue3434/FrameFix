@@ -9,15 +9,17 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { motion, AnimatePresence,useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 // svg
-import {ReactComponent as ColLogo} from "../../img/logo/column-logo.svg";
-import {ReactComponent as Prompt }  from '../../img/icons/prompt.svg';
-import {ReactComponent as Create }  from '../../img/icons/create.svg';
-import {ReactComponent as Keyword}  from '../../img/icons/keyword.svg';
-import {ReactComponent as Element}  from '../../img/icons/element.svg';
-import {ReactComponent as Publish}  from '../../img/icons/publish.svg';
+import {ReactComponent as ColLogo } from "../../img/logo/column-logo.svg";
+import {ReactComponent as Prompt  }  from '../../img/icons/prompt.svg';
+import {ReactComponent as Create  }  from '../../img/icons/create.svg';
+import {ReactComponent as Keyword }  from '../../img/icons/keyword.svg';
+import {ReactComponent as Element }  from '../../img/icons/element.svg';
+import {ReactComponent as Publish }  from '../../img/icons/publish.svg';
 // svg 
 
 /* page import */
+import DefaultUI from "./slider/project-maker";
+import "./slider/project-maker.css";
 
 /* page import */
 
@@ -72,8 +74,7 @@ function Main(){
             
             
         });
-        
-    },[scrollContainerRef])
+    },[])
 
     const controls = useAnimation();
     const [ref, inView] = useInView();
@@ -83,13 +84,32 @@ function Main(){
             controls.start({
                 opacity: 1,
                 scale: 1,
-                transition: { type: 'spring', stiffness: 150, damping: 10 }
+                
+                transition: { type: 'spring', stiffness: 100, damping: 10}
             });
         } else {
             controls.start({ opacity: 0, scale: 0.5 });
         }
     }, [controls, inView]);
 
+    const [startAnimation, setStartAnimation] = useState(false);
+    const items = ['ai-powered', 'canvas', 'code', 'publish'];
+    const [activeIndex, setActiveIndex] = useState<number | null>(0);
+
+    const itemVariants = {
+        hidden: { opacity: 0, x: -50 },
+        visible: (custom: number) => ({
+            opacity: 1,
+            x: 0,
+            transition: { delay: custom * 0.1, duration: 1, ease: "anticipate" }
+        }),
+    };
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setStartAnimation(true);
+        }, 600); 
+        return () => clearTimeout(timer);
+    }, []);
     return (
         <ScrollSmootherComponent>
         <>
@@ -104,7 +124,7 @@ function Main(){
                                 initial={{ 
                                     opacity: 0,
                                     y : 50
-                                }} // 애니메이션 시작 상태
+                                }} 
                                 animate={{ 
                                     opacity: 1,
                                     y : 0,
@@ -163,23 +183,28 @@ function Main(){
                         </div>
                     </motion.div>
                     <div className='slider'>
-                        <div className='active'>canvas</div>
-                        <div>ai-powered</div>
-                        <div>publish</div>
-                        <div>code</div>
+                        {items.map((item, index) => (
+                        <motion.div
+                            key={item}
+                            custom={index}
+                            variants={itemVariants}
+                            initial="hidden"
+                            animate={startAnimation ? "visible" : "hidden"}
+                            onClick={() => setActiveIndex(index)} 
+                            className={`item ${activeIndex === index ? 'active' : ''}`} 
+                        >
+                            {item}
+                        </motion.div>
+                        ))}
                     </div>
                 </div>
                 <motion.div
                 ref={ref}
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={controls}
-                className="framefix">
+                className="main-framefix">
                     <div className="frame">
-                        <div>
-                            <div className='contain'>
-
-                            </div>
-                        </div>
+                        <DefaultUI />
                     </div>
                 </motion.div>
                 <div className='back'>

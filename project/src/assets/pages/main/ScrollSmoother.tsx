@@ -36,7 +36,9 @@ const ScrollSmootherComponent: React.FC<ScrollSmootherProps> = ({ children }) =>
 
     (ls.on as any)('call', (func: any, direction: any, obj: any) => {
       if(func){
-        console.log(func)
+        if(func === "quicklyTrigger"){
+
+        }
         ScrollTrigger.refresh();
       }
       
@@ -64,13 +66,16 @@ const ScrollSmootherComponent: React.FC<ScrollSmootherProps> = ({ children }) =>
         : "fixed"
     });
 
-    ScrollTrigger.refresh();
     window.addEventListener("load", ()=>{
-      ScrollTrigger.update();
       ScrollTrigger.refresh();
-      ls.update();
+    });
+    document.addEventListener("DOMContentLoaded", ()=>{
+      ScrollTrigger.refresh();
+      ScrollTrigger.update();
+      
     })
     return () => {
+      
       ls.destroy();
     };
   }, []);

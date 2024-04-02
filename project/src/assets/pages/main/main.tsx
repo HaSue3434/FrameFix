@@ -93,7 +93,7 @@ function Main(){
     }, [controls, inView]);
 
     const [startAnimation, setStartAnimation] = useState(false);
-    const items = ['ai-powered', 'canvas', 'code', 'publish'];
+    const items = ['ai-powered', 'canvas', 'code-Converts', 'publish'];
     const [activeIndex, setActiveIndex] = useState<number | null>(0);
 
     const itemVariants = {
@@ -515,7 +515,7 @@ function Main(){
                                             </div>
                                             <div className='graph'>
                                                 <div className='meta-image'>
-                                                    <img src={require('../../img/gradient-mountain.jpg')} alt="" />
+                                                    <img src={require('../../img/sample-img.jpg')} alt="" />
                                                 </div>
                                                 <div className='infor'>
                                                     <p className='title'>FrameFix</p>
@@ -534,7 +534,7 @@ function Main(){
                                     <p className='editing'>Simple editing</p>
                                     <div className='open-img'>
                                         <div className='img'>
-                                            <img src={require("../../img/gradient-mountain.jpg")} alt="" />
+                                            <img src={require("../../img/sample-img.jpg")} alt="" />
                                         </div>
                                         <div className='editing-content-box scale'
                                         >
@@ -555,7 +555,7 @@ function Main(){
                                                         <div className='img-contain'>
                                                             <div className='img-set'>
                                                                 <div className='img'>
-                                                                    <img src={require("../../img/gradient-mountain.jpg")} alt="" />
+                                                                    <img src={require("../../img/sample-img.jpg")} alt="" />
                                                                 </div>
                                                                 <div className="set">
                                                                     <p className='img-name'>FrameFix</p>

@@ -1,5 +1,6 @@
 import React from "react";
 import framefixStyles from './framefix.module.css';
+import {useDrag} from 'react-dnd';
 
 function FrameFix(){
     return(

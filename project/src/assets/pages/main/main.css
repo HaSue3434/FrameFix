@@ -48,6 +48,11 @@ section.main .wrapper .main .description .start-framefix > a{
     color: #fff;
     font-weight: 600;
     font-size: 1.25em;
+    filter : hue-rotate(0);
+    transition: filter 0.3s ease-in-out;
+}
+section.main .wrapper .main .description .start-framefix > a:hover{
+    filter : hue-rotate(90deg);
 }
 section.main .wrapper .main .slider{
     display: flex;
@@ -860,6 +865,8 @@ section.main .wrapper  .main-framefix .frame>div .contain{
 }
 .framefix-cards .wrapper .big.metadata-contain .ex-view .txt-box{
     opacity: 0.2;
+    background: white;
+    border-radius: 50px;
 }
 .framefix-cards .wrapper .big.metadata-contain .ex-view .txt-box:nth-child(1){
     width: 80px;
@@ -996,8 +1003,6 @@ section.main .wrapper  .main-framefix .frame>div .contain{
     opacity: 1;
     transform: translateY(0) rotateX(0) scale(1) ;
 }
-
-
 .seo-t{
     opacity: 0;
     transition: opacity 1s ease-in-out;

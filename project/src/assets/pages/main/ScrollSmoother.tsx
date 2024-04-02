@@ -23,7 +23,7 @@ const ScrollSmootherComponent: React.FC<ScrollSmootherProps> = ({ children }) =>
       smooth: true,
       lerp : 0.1,
       class : 'is-inview',
-      offset : ["-12%", '12%'],
+      offset : ["-15%", '15%'],
       repeat : true,
     });
     
@@ -72,6 +72,7 @@ const ScrollSmootherComponent: React.FC<ScrollSmootherProps> = ({ children }) =>
     document.addEventListener("DOMContentLoaded", ()=>{
       ScrollTrigger.refresh();
       ScrollTrigger.update();
+      ls.destroy();
       
     })
     return () => {

@@ -177,7 +177,7 @@ function Main(){
                             <p>Leverage AI for a transformative design workflow: create effortlessly and deploy with a single click, streamlining your process and speeding up idea realization.</p>
                         </div>
                         <div className='start-framefix'>
-                            <Link to="/">
+                            <Link to="/file/framefix">
                                 Start FrameFix
                             </Link>
                         </div>

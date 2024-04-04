@@ -6,8 +6,8 @@ const MainComponent : React.FC = () =>{
     return (
       <>
           <div className={styles.container}>
-            <FrameFix left={100} top={100}>
-                <p>dragging</p>
+            <FrameFix>
+              <p>dragg</p>
             </FrameFix>
           </div>
       </>

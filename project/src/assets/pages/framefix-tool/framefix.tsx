@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDrag } from 'react-dnd';
+import { useDrag, useDrop} from 'react-dnd';
 
 interface BoxProps {
     id?: string;

@@ -1,4 +1,10 @@
+import { spawn } from 'child_process';
 import { useState, useEffect,useRef } from 'react';
+import { motion,useAnimation,AnimationControls  } from 'framer-motion';
+
+import { useInView } from 'react-intersection-observer';
+
+
 interface TypingEffectHookReturnType {
   typedText: string;
   isCompleted: boolean;
@@ -31,4 +37,95 @@ export const useTypingEffect = (text: string, speed: number): TypingEffectHookRe
     setIsCompleted(false);
   }, [text]);
   return { typedText, isCompleted };
+};
+
+
+interface LetterAnimationConfig {
+  letter: string;
+  delay: number;
+}
+
+const createAnimationConfig = (text: string): LetterAnimationConfig[] => {
+  return Array.from(text).map((letter, index) => ({
+    letter,
+    delay: index * 0.05, 
+  }));
+};
+
+interface TxtAnimationProps {
+  text: string;
+}
+
+export const TxtAnimation: React.FC<TxtAnimationProps> = ({ text }) => {
+  const animationConfig = createAnimationConfig(text);
+
+  return (
+    <div style={{ display: 'flex' }}>
+      {animationConfig.map((item, index) => (
+        <motion.span
+          key={index}
+          initial={{ y: '100%', opacity :0 }}
+          animate={{ y: 0,opacity :0.1}}
+          exit={{ y: '-100%' }}
+          transition={{ duration:1, delay: (item.delay) }}
+        >
+          {item.letter}
+        </motion.span>
+      ))}
+    </div>
+  );
+};
+
+export const useInViewMainSpring = (): [React.RefObject<HTMLDivElement>, AnimationControls] => {
+  const controls = useAnimation();
+  const ref = useRef<HTMLDivElement>(null); 
+  const inViewRef = useInView();
+  const { ref: inViewRefCallback, inView } = inViewRef;
+
+  useEffect(() => {
+    if (inView) {
+      controls.start({
+        opacity: 1,
+        scale: 1,
+        transition: { type: 'spring', stiffness: 100, damping: 10 },
+      });
+    } else {
+      controls.start({ opacity: 0, scale: 0.5 });
+    }
+  }, [controls, inView]);
+
+  useEffect(() => {
+    if (ref.current) {
+      inViewRefCallback(ref.current);
+    }
+  }, [inViewRefCallback]);
+
+  return [ref, controls];
+};
+
+export const useInViewExContentSpring = (): [React.RefObject<HTMLDivElement>, AnimationControls] => {
+  const controls = useAnimation();
+  const ref = useRef<HTMLDivElement>(null); 
+  const inViewRef = useInView();
+  const { ref: inViewRefCallback, inView } = inViewRef;
+
+  useEffect(() => {
+    if (inView) {
+      controls.start({
+        opacity: 1,
+        scale: 1,
+        transition: { type: 'spring', stiffness: 50, damping: 10 },
+      });
+    } else {
+      controls.start({ opacity: 0, scale: 0.7 });
+    }
+  }, [controls, inView]);
+
+  useEffect(() => {
+    if (ref.current) {
+      inViewRefCallback(ref.current);
+    }
+  }, [inViewRefCallback]);
+
+  return [ref, controls];
 };

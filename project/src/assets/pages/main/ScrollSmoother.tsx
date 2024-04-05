@@ -36,13 +36,10 @@ const ScrollSmootherComponent: React.FC<ScrollSmootherProps> = ({ children }) =>
 
     (ls.on as any)('call', (func: any, direction: any, obj: any) => {
       if(func){
-        if(func === "quicklyTrigger"){
-
-        }
         ScrollTrigger.refresh();
       }
       
-    })
+    });
 
     ScrollTrigger.scrollerProxy(scrollRef.current,{
       scrollTop(value) {

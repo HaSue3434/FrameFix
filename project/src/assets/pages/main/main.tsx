@@ -25,6 +25,7 @@ import {ReactComponent as Share }  from '../../img/icons/share.svg';
 import {ReactComponent as URL }  from '../../img/icons/url.svg';
 import {ReactComponent as Heart }  from '../../img/icons/heart.svg';
 import {ReactComponent as View }  from '../../img/icons/user-view.svg';
+import {ReactComponent as Substract }  from '../../img/Subtract.svg';
 // svg 
 
 /* page import */
@@ -34,14 +35,22 @@ import "./slider/project-maker.css";
 /* page import */
 
 /* module */
-import { useTypingEffect } from './script';
+import {
+    useTypingEffect,
+    TxtAnimation,
+    useInViewMainSpring,
+    useInViewExContentSpring,
+} from './script';
 /* module */
 
 gsap.registerPlugin(ScrollTrigger);
 
-function Main(){    
-    const scrollContainerRef = useRef<HTMLDivElement>(null);
-    const mainFrameFixAnimation = useRef<HTMLDivElement>(null);
+function Main(){  
+
+    const [ref1, controls1] = useInViewMainSpring(); 
+    const [ref2, controls2] = useInViewExContentSpring(); 
+
+
 
     const [triggerMetaTitle, setTriggerMeta1] = useState(false);
     const [triggerMetaURL, setTriggerMeta2] = useState(false);
@@ -59,22 +68,6 @@ function Main(){
 
        
     },[])
-
-    const controls = useAnimation();
-    const [ref, inView] = useInView();
-
-    React.useEffect(() => {
-        if (inView) {
-            controls.start({
-                opacity: 1,
-                scale: 1,
-                
-                transition: { type: 'spring', stiffness: 100, damping: 10}
-            });
-        } else {
-            controls.start({ opacity: 0, scale: 0.5 });
-        }
-    }, [controls, inView]);
 
     const [startAnimation, setStartAnimation] = useState(false);
     const items = ['ai-powered', 'canvas', 'code-Converts', 'publish'];
@@ -94,6 +87,10 @@ function Main(){
         }, 600); 
         return () => clearTimeout(timer);
     }, []);
+
+
+    const [scale, setScale] = useState(1);
+
     return (
         <ScrollSmootherComponent>
         <>
@@ -183,17 +180,20 @@ function Main(){
                     </div>
                 </div>
                 <motion.div
-                ref={ref}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={controls}
+                ref={ref1 as React.Ref<HTMLDivElement>}
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={controls1}
+
                 className="main-framefix">
                     <div className="frame">
                         <DefaultUI />
                     </div>
                 </motion.div>
-                <div className='back'>
-                    
-                </div>
+                
+            </div>
+            <div className="background"></div>
+            <div className='txt-back-contain'>
+                <TxtAnimation text='AI-POWERED BUILD WEBSITES'/>
             </div>
         </section>
         <section className='ai-powered-contain' 
@@ -213,7 +213,7 @@ function Main(){
                         >
 
                             <div className="title">
-                                <h1><strong>AI-Powered</strong> prompt support</h1>
+                                <h1>AI-Powered prompt support</h1>
                             </div>
                             <div className="features">
                                 <div className='feature active'>
@@ -277,7 +277,7 @@ function Main(){
                              data-scroll-class = "is-inview">
 
                             <div className="title">
-                                <h1><strong>Quickly</strong> build design</h1>
+                                <h1>Quickly build design</h1>
                             </div>
                             <div className="features">
                                 <div className='feature active'>
@@ -321,23 +321,10 @@ function Main(){
                                     </div>
                                 </div>
                             </div>
-                            <div className="start-framefix">
-
-                                    <div className='btn'>
-                                        <Link to='/'>
-                                            <div>
-                                             Start FrameFix
-                                            </div>
-                                       </Link>
-                                    </div>
-
-                            </div>
                         </div>
                     </div>
                 </div>
-                <div className='framefix-designtool' data-scroll 
-                
-                >
+                <div className='framefix-designtool' data-scroll>
 
                     <div id='first'  className='framefix-tool' data-scroll
                 data-scroll-sticky
@@ -352,33 +339,22 @@ function Main(){
                 
             </div>
         </section>
-        <section className='publish' data-scroll data-scroll-section
-        >
+        <section className='publish' data-scroll data-scroll-section>
             <div className='wrapper'>
-                <div className="publish-txt"
-                >
-                    <div className='publish-icon'>
-                        <div className='icon'>
-                            <Publish />
-                        </div>
-                        <div className='tag'>
-                            <span>Publish</span>
-                        </div>
-                    </div>
-                    <div className='txt'>
-                        <h1>
-                            <span>Deploy Your Website</span>  Effortlessly With Just a Single Click
-                        </h1>
-                    </div>
-                    <div className='start-framefix'>
-                        <Link to="/">
-                            <div className="btn">
-                                Start FrameFix
-                            </div>
-                        </Link>
+                <div className='txt'>
+                    <div className='title'
+                    data-scroll
+                    data-scroll-speed = "2">
+                        <motion.h1
+                        >Quickly Deploy with a Single Click.</motion.h1>
                     </div>
                 </div>
+
+                <div className='description'>
+                    <p>Experience swift and efficient website deployment with just a click. Launch your online presence easily without hassle.</p>
+                </div>
             </div>
+            
             <div className='publish-ex'>
                 <div className='contents'>
                     <div className='left-content'></div>
@@ -386,11 +362,107 @@ function Main(){
                 </div>
             </div>
         </section>
-        <section className='seo-contain'>
-                        
+        <section className='seo-contain' data-scroll data-scroll-section>
+            <div className='wrapper'>
+                <div className='txt-contain'
+                data-scroll
+                data-scroll-speed = "-3"
+                >
+                    <div className='wrap'>
+                        <div className='title'
+                        data-scroll
+                        data-scroll-call = "seoTriggerLink">
+
+                            <h1>Search Engine Optimization</h1>
+                        </div>
+                        <div className='explain'>
+                            <p>FrameFix enables swift and effortless discovery through an optimized search engine.</p>
+                        </div>
+                    </div>
+                </div>
+                <div className='seo-contents'>
+                    <div className='contain'>
+                        <div className="in">
+                            <div>
+                                
+                            </div>
+                        </div>
+                        <div className="out"></div>
+                    </div>
+                </div>
+                <div className="deco-f">
+
+                </div>
+            </div>
         </section>
         <section className="community" data-scroll data-scroll-section>
+            <div className='wrapper'>
+                <div className="community-title">
+                    <div className="txt"
+                    data-scroll
+                    data-scroll-speed = "2">
+                        <motion.h1
+                        
+                        >Boost brand with community.</motion.h1>
+                    </div>
+                </div>
+                
+                <div className="contents">
+                    <div className="description">
+                        <p>Strengthen your branding in just seconds through community engagement.</p>
+                    </div>
+                    <div className='wrap'>
+                        <div className='item1'>
+                            <div className='user-project-contain'>
+                                <div>
+                                    <div className="content-main-txt">
+                                        <div className='content-title'><h1>The Smarter</h1></div>
+                                        <div className='content-explain'>
+                                            <div className='t'>
+                                                <p>Leverage AI for a transformative design workflow: create effortlessly and deploy with a single click, streamlining your process and speeding up idea realization.</p>
+                                            </div>
+                                            <div className='btn'>Start FrameFix</div>
+                                        </div>
+                                        <div className='content-slider'>
+                                            <div>AI-powered</div>
+                                            <div>Canvas</div>
+                                            <div>Code-converts</div>
+                                            <div>Publish</div>
+                                        </div>
+                                    </div>
+                                    <motion.div 
+                                    ref={ref2 as React.Ref<HTMLDivElement>}
+                                    initial={{ opacity: 0, scale: 0.7 }}
+                                    animate={controls2}
 
+                                    className='content-main-banner'>
+                                        <div>
+                                            <div className="banner-title">
+                                                <motion.h1
+                                                data-scroll
+                                                data-scroll-call = "triggerScale"
+                                                data-scroll-repeat
+                                                >AI-powered the smarter</motion.h1>
+                                            </div>
+                                        </div>
+                                    </motion.div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='items'>
+                            <div>d2</div>
+                            <div>d3</div>
+                        </div>
+                        <div className='item3'>
+                            <div className='contents'>
+                               <div>
+
+                               </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
         
         <section className='framefix-footer' data-scroll data-scroll-section>

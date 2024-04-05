@@ -27,7 +27,6 @@ import { ReactComponent as Science } from "../../../img/icons/science.svg";
 import { ReactComponent as Other } from "../../../img/icons/other.svg";
 
 /*icon import */
-
 const variants = {
     hidden: { scale: 0 },
     visible: (i : number) => ({

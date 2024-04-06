@@ -129,3 +129,56 @@ export const useInViewExContentSpring = (): [React.RefObject<HTMLDivElement>, An
 
   return [ref, controls];
 };
+export const useDescriptionFadeOut = (): [React.RefObject<HTMLDivElement>, AnimationControls] => {
+  const controls = useAnimation();
+  const ref = useRef<HTMLDivElement>(null); 
+  const inViewRef = useInView();
+  const { ref: inViewRefCallback, inView } = inViewRef;
+
+  useEffect(() => {
+    if (inView) {
+      controls.start({
+        opacity: 1,
+        x : 0,
+        transition: { duration : 0.5, ease : 'easeInOut'},
+      });
+    } else {
+      controls.start({ opacity: 0, x: -100 });
+    }
+  }, [controls, inView]);
+
+  useEffect(() => {
+    if (ref.current) {
+      inViewRefCallback(ref.current);
+    }
+  }, [inViewRefCallback]);
+
+  return [ref, controls];
+}
+
+export const useDefaultFadeOut = (): [React.RefObject<HTMLDivElement>, AnimationControls] => {
+  const controls = useAnimation();
+  const ref = useRef<HTMLDivElement>(null); 
+  const inViewRef = useInView();
+  const { ref: inViewRefCallback, inView } = inViewRef;
+
+  useEffect(() => {
+    if (inView) {
+      controls.start({
+        opacity: 1,
+        transition: { duration : 0.5, ease : 'easeInOut'},
+      });
+    } else {
+      controls.start({ opacity: 0});
+    }
+  }, [controls, inView]);
+
+  useEffect(() => {
+    if (ref.current) {
+      inViewRefCallback(ref.current);
+    }
+  }, [inViewRefCallback]);
+
+  return [ref, controls];
+
+}

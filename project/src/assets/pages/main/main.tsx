@@ -1,13 +1,11 @@
 import React, {useEffect, useState,useRef} from 'react';
 import ScrollSmootherComponent from "./ScrollSmoother"
 import './main.css';
-import {Swiper, SwiperSlide} from 'swiper/react';
 import {Link} from 'react-router-dom';
 import { gsap } from 'gsap';
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { motion, AnimatePresence,useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import { motion } from 'framer-motion';
 // svg
 import {ReactComponent as ColLogo } from "../../img/logo/column-logo.svg";
 import {ReactComponent as Prompt  }  from '../../img/icons/prompt.svg';
@@ -40,6 +38,9 @@ import {
     TxtAnimation,
     useInViewMainSpring,
     useInViewExContentSpring,
+    useDescriptionFadeOut,
+    useDefaultFadeOut
+
 } from './script';
 /* module */
 
@@ -49,8 +50,12 @@ function Main(){
 
     const [ref1, controls1] = useInViewMainSpring(); 
     const [ref2, controls2] = useInViewExContentSpring(); 
+    const [quicklyDescriptionRef1, controlDescription1] = useDescriptionFadeOut();
+    const [quicklyDescriptionRef2, controlDescription2] = useDescriptionFadeOut();
 
-
+    const [defaultFadeOut1, constrolFadeOut1] = useDefaultFadeOut();
+    const [defaultFadeOut2, constrolFadeOut2] = useDefaultFadeOut();
+    const [defaultFadeOut3, constrolFadeOut3] = useDefaultFadeOut();
 
     const [triggerMetaTitle, setTriggerMeta1] = useState(false);
     const [triggerMetaURL, setTriggerMeta2] = useState(false);
@@ -88,14 +93,9 @@ function Main(){
         return () => clearTimeout(timer);
     }, []);
 
-
-    const [scale, setScale] = useState(1);
-
     return (
         <ScrollSmootherComponent>
         <>
-        
-
         <section className='main' data-scroll data-scroll-section>
             <div className='wrapper'>
                 <div className='main'>
@@ -344,15 +344,23 @@ function Main(){
                 <div className='txt'>
                     <div className='title'
                     data-scroll
-                    data-scroll-speed = "2">
+                    data-scroll-speed = "-3">
                         <motion.h1
+                        ref={defaultFadeOut1 as React.Ref<HTMLDivElement>}
+                        initial={{ opacity: 0}}
+                        animate={constrolFadeOut1}
                         >Quickly Deploy with a Single Click.</motion.h1>
                     </div>
                 </div>
 
-                <div className='description'>
+                <motion.div
+                ref={quicklyDescriptionRef1 as React.Ref<HTMLDivElement>}
+                initial={{ opacity: 0, x: -100 }}
+                animate={controlDescription1}
+
+                className='description'>
                     <p>Experience swift and efficient website deployment with just a click. Launch your online presence easily without hassle.</p>
-                </div>
+                </motion.div>
             </div>
             
             <div className='publish-ex'>
@@ -366,19 +374,21 @@ function Main(){
             <div className='wrapper'>
                 <div className='txt-contain'
                 data-scroll
-                data-scroll-speed = "-3"
-                >
-                    <div className='wrap'>
-                        <div className='title'
-                        data-scroll
-                        data-scroll-call = "seoTriggerLink">
+                data-scroll-speed = "-4">
 
+                    <motion.div 
+                    ref={defaultFadeOut2 as React.Ref<HTMLDivElement>}
+                    initial={{ opacity: 0}}
+                    animate={constrolFadeOut2}
+                    className='wrap'>
+
+                        <div className='title'>
                             <h1>Search Engine Optimization</h1>
                         </div>
                         <div className='explain'>
                             <p>FrameFix enables swift and effortless discovery through an optimized search engine.</p>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
                 <div className='seo-contents'>
                     <div className='contain'>
@@ -400,17 +410,23 @@ function Main(){
                 <div className="community-title">
                     <div className="txt"
                     data-scroll
-                    data-scroll-speed = "2">
+                    data-scroll-speed = "-3">
                         <motion.h1
-                        
+                        ref={defaultFadeOut3 as React.Ref<HTMLDivElement>}
+                        initial={{ opacity: 0}}
+                        animate={constrolFadeOut3}
                         >Boost brand with community.</motion.h1>
                     </div>
                 </div>
                 
                 <div className="contents">
-                    <div className="description">
+                    <motion.div
+                    ref={quicklyDescriptionRef2 as React.Ref<HTMLDivElement>}
+                    initial={{ opacity: 0, x: -100 }}
+                    animate={controlDescription2}
+                    className="description">
                         <p>Strengthen your branding in just seconds through community engagement.</p>
-                    </div>
+                    </motion.div>
                     <div className='wrap'>
                         <div className='item1'>
                             <div className='user-project-contain'>
@@ -450,14 +466,104 @@ function Main(){
                             </div>
                         </div>
                         <div className='items'>
-                            <div>d2</div>
-                            <div>d3</div>
+                            <div></div>
+                            <div></div>
                         </div>
                         <div className='item3'>
-                            <div className='contents'>
-                               <div>
+                            <div className='contain'>
 
-                               </div>
+                                <div className="user-project-infor">
+                                    <div className='user-project-title'>
+                                        <div className='top'>
+                                            <div className="title">
+                                                <h1>User Project Titlte <span>2024-03-02</span></h1>
+                                            </div>
+                                            <div className="share">
+                                                <div className='sns'><Share/></div>
+                                                <div className='url-copy'><URL/></div>
+                                            </div>
+                                        </div>
+                                        <div className='bottom'>
+                                            <div className="profile">
+                                                <div>
+                                                    <div className='img'>U</div>
+                                                    <p>User_Name</p>
+                                                </div>
+                                            </div>
+                                            <div className='interaction'>
+                                                <div className='view-count icon'><View/><p>365</p></div>
+                                                <div className='heart icon'><Heart/><p>200</p></div>
+                                                <div className='visit'>Visit</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className='project-description'>
+                                        <div className='title'>
+                                            <div className="t">
+                                                <h2>Description</h2>
+                                            </div>
+                                            <div className="tag">
+                                                <div>Technology</div>
+                                            </div>
+                                        </div>
+                                        <div className="description-t">
+                                            <p>Leverage AI for a transformative design workflow: create effortlessly and deploy with a single click, streamlining your process and speeding up idea realization.</p>
+                                        </div>
+                                        <div className="division"></div>
+                                        <div className='user-comments'>
+                                            <div className='user-1'>
+
+                                            </div>
+                                            <div className='user-2'>
+
+                                            </div>
+                                            <div className='user-3'>
+
+                                            </div>
+                                        </div>
+                                        <div className='comment'>
+                                            <div className='profile'>U</div>
+                                            <div className='input'>
+                                                Enter Your Comments
+                                            </div>
+                                            <div className='submit'>Submit</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="rel-category">
+                                    <div>
+                                        <div className="like-category">
+                                            <div className="title">
+                                                <h2>List like the Category</h2>
+                                            </div>
+                                            <div className="items">
+                                                <div>
+                                                    <div className="img">
+                                                        <img src={require("../../img/sample2.jpg")} alt="" />
+                                                        <p className='project-name'>Project name</p>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div className="img">
+                                                        <img src={require("../../img/community.jpg")} alt="" />
+                                                        <p className='project-name'>Project name</p>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div className="img">
+                                                        <img src={require("../../img/component-ui.jpg")} alt="" />
+                                                        <p className='project-name'>Project name</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className='more'>
+                                                <div className="more-title">
+                                                    <h2>More by user project</h2>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

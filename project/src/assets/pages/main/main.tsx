@@ -7,23 +7,18 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { motion } from 'framer-motion';
 // svg
-import {ReactComponent as ColLogo } from "../../img/logo/column-logo.svg";
 import {ReactComponent as Prompt  }  from '../../img/icons/prompt.svg';
 import {ReactComponent as Create  }  from '../../img/icons/create.svg';
 import {ReactComponent as Keyword }  from '../../img/icons/keyword.svg';
-import {ReactComponent as Element }  from '../../img/icons/element.svg';
-import {ReactComponent as Publish }  from '../../img/icons/publish.svg';
-import {ReactComponent as Home }  from '../../img/icons/home.svg';
-import {ReactComponent as Pencil }  from '../../img/icons/pencil.svg';
-import {ReactComponent as Community }  from '../../img/icons/community.svg';
-import {ReactComponent as Library }  from '../../img/icons/library icon.svg';
-import {ReactComponent as Favorite }  from '../../img/icons/favorite.svg';
-import {ReactComponent as Flows }  from '../../img/icons/flows icon.svg';
 import {ReactComponent as Share }  from '../../img/icons/share.svg';
 import {ReactComponent as URL }  from '../../img/icons/url.svg';
 import {ReactComponent as Heart }  from '../../img/icons/heart.svg';
 import {ReactComponent as View }  from '../../img/icons/user-view.svg';
-import {ReactComponent as Substract }  from '../../img/Subtract.svg';
+import {ReactComponent as Deploy }  from '../../img/icons/deploy-icon.svg';
+import {ReactComponent as SEO }  from '../../img/icons/seo-icon.svg';
+import {ReactComponent as Community }  from '../../img/icons/community-icon.svg';
+import {ReactComponent as NoneTxtLogo }  from '../../img/icons/none-txt-logo.svg';
+
 // svg 
 
 /* page import */
@@ -50,12 +45,14 @@ function Main(){
 
     const [ref1, controls1] = useInViewMainSpring(); 
     const [ref2, controls2] = useInViewExContentSpring(); 
+    const [seoRef, seo1] = useInViewExContentSpring(); 
     const [quicklyDescriptionRef1, controlDescription1] = useDescriptionFadeOut();
     const [quicklyDescriptionRef2, controlDescription2] = useDescriptionFadeOut();
 
     const [defaultFadeOut1, constrolFadeOut1] = useDefaultFadeOut();
     const [defaultFadeOut2, constrolFadeOut2] = useDefaultFadeOut();
     const [defaultFadeOut3, constrolFadeOut3] = useDefaultFadeOut();
+    const [defaultFadeOut4, constrolFadeOut4] = useDefaultFadeOut();
 
     const [triggerMetaTitle, setTriggerMeta1] = useState(false);
     const [triggerMetaURL, setTriggerMeta2] = useState(false);
@@ -92,6 +89,77 @@ function Main(){
         }, 600); 
         return () => clearTimeout(timer);
     }, []);
+
+    const scrollEventIconRef = useRef<HTMLDivElement>(null);
+    const scrollEventIconRef2 = useRef<HTMLDivElement>(null);
+    const scrollEventNonePin = useRef<HTMLDivElement>(null);
+    const scrollEventTyping = useRef<HTMLDivElement>(null);
+    const fullScreenRef = useRef<HTMLDivElement>(null);
+
+    useEffect(()=>{
+        const t1 = gsap.timeline();
+        let ctx = gsap.context(()=>{
+            t1.to(scrollEventIconRef.current,{
+                x : 2000,
+                opacity : 1,
+                scrollTrigger : {
+                    trigger : scrollEventIconRef.current,
+                    start : "50% 50%",
+                    end : "800% 80%",
+                    scrub : true,
+                    toggleActions : "play none none none",
+                    refreshPriority: 1,
+                    pinType : "transform",
+                },
+                
+            });
+
+            t1.to(scrollEventIconRef2.current,{
+                x : -2000,
+                opacity : 1,
+                scrollTrigger : {
+                    trigger : scrollEventIconRef2.current,
+                    start : "50% 50%",
+                    end : "800% 80%",
+                    scrub : true,
+                    toggleActions : "play none none none",
+                    refreshPriority: 1,
+                    pinType : "transform",
+                },
+                
+            });
+
+            t1.to(scrollEventNonePin.current,{
+                x : 2000,
+                opacity : 1,
+                scrollTrigger : {
+                    trigger : scrollEventNonePin.current,
+                    start : "top 50%",
+                    end : "800% 80%",
+                    scrub : true,
+                    toggleActions : "play none none none",
+                    refreshPriority: 1,
+                    pinType : "transform",
+                },
+                
+            });
+            t1.to(scrollEventTyping.current,{
+                scrollTrigger : {
+                    trigger : scrollEventTyping.current,
+
+                }
+            })
+            t1.to(fullScreenRef.current,{
+                scrollTrigger:{
+
+                }
+            })
+
+            ScrollTrigger.refresh();
+        })
+        return () => ctx.revert();
+    },[scrollEventIconRef,scrollEventIconRef2])
+
 
     return (
         <ScrollSmootherComponent>
@@ -196,161 +264,37 @@ function Main(){
                 <TxtAnimation text='AI-POWERED BUILD WEBSITES'/>
             </div>
         </section>
-        <section className='ai-powered-contain' 
-        data-scroll 
-        data-scroll-section 
-        
-        >
-            
-            <div className='wrapper'>
-                <div className='txt-contents' id='ai-powered' data-scroll-call = "pinTrigger">
-                    <div className="ai-powered wrap">
-                        <div className="side-contain "
-                             data-scroll
-                             data-scroll-sticky
-                             data-scroll-target = "#ai-powered"
-                             data-scroll-class = "is-inview"
-                        >
-
-                            <div className="title">
-                                <h1>AI-Powered prompt support</h1>
-                            </div>
-                            <div className="features">
-                                <div className='feature active'>
-                                    <div className="content">
-                                        <div className='icon'>
-                                           <Prompt />
-                                        </div>
-                                        <div className='prompt txt'>
-                                            <p>prompt</p>
-                                        </div>
-                                    </div>
-                                    <div className='description'>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                    </div>
-
-                                </div>
-                                <div className='feature'>
-                                    <div className="content">
-                                        <div className='icon'>
-                                            <Create />
-                                        </div>
-                                        <div className='create txt'>
-                                            <p>create image</p>
-                                        </div>
-                                    </div>
-                                    <div className='description'>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                    </div>
-                                </div>
-                                <div className='feature'>
-                                    <div className="content">
-                                        <div className='icon'>
-                                            <Keyword />
-                                        </div>
-                                        <div className='keyword txt'>
-                                            <p>keyword</p>
-                                        </div>
-                                    </div>
-                                    <div className='description'>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="start-framefix">
-
-                                <div className='btn'>
-                                    <Link to='/'>
-                                        <div>
-                                         Start FrameFix
-                                        </div>
-                                   </Link>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className='quickly wrap' id='quickly'>
-                        <div className="side-contain"
-                             data-scroll
-                             data-scroll-call = "quicklyTrigger"
-                             data-scroll-class = "is-inview">
-
-                            <div className="title">
-                                <h1>Quickly build design</h1>
-                            </div>
-                            <div className="features">
-                                <div className='feature active'>
-                                    <div className="content">
-                                        <div className='icon'>
-                                           <Prompt />
-                                        </div>
-                                        <div className='prompt txt'>
-                                            <p>prompt</p>
-                                        </div>
-                                    </div>
-                                    <div className='description'>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                    </div>
-
-                                </div>
-                                <div className='feature'>
-                                    <div className="content">
-                                        <div className='icon'>
-                                            <Create />
-                                        </div>
-                                        <div className='create txt'>
-                                            <p>create image</p>
-                                        </div>
-                                    </div>
-                                    <div className='description'>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                    </div>
-                                </div>
-                                <div className='feature'>
-                                    <div className="content">
-                                        <div className='icon'>
-                                            <Keyword />
-                                        </div>
-                                        <div className='keyword txt'>
-                                            <p>keyword</p>
-                                        </div>
-                                    </div>
-                                    <div className='description'>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className='framefix-designtool' data-scroll>
-
-                    <div id='first'  className='framefix-tool' data-scroll
-                data-scroll-sticky
-                data-scroll-target = ".txt-contents"></div>
-                    <div id='second' className='framefix-tool' data-scroll
-                data-scroll-sticky
-                data-scroll-target = ".txt-contents"></div>
-                    <div id='last'   className='framefix-tool' data-scroll
-                data-scroll-sticky
-                data-scroll-target = ".txt-contents"></div>
-                </div>
+        <section className='framefix-guide'>
                 
-            </div>
         </section>
-        <section className='publish' data-scroll data-scroll-section>
+        <section className='publish' data-scroll data-scroll-section id='publish'>
+            <div ref={scrollEventIconRef}  className="scrollEventIcon" id='internet-icon'>
+                <div>deploy website</div>
+            </div>
+            <div className='scrollEvent' ref={scrollEventIconRef2} >
+                <div>deploy website</div>
+            </div>
+            <div
+            className='none-pin' ref={scrollEventNonePin}>
+                <div>deploy website</div>
+            </div>
             <div className='wrapper'>
+                
                 <div className='txt'>
-                    <div className='title'
-                    data-scroll
+                    <motion.div className='title' 
+                    data-scroll 
                     data-scroll-speed = "-3">
+                    
+                        <div className='type-icon'>
+                            <div className="icon"><Deploy/></div>
+                            <div className="txt">Deploy</div>
+                        </div>
                         <motion.h1
                         ref={defaultFadeOut1 as React.Ref<HTMLDivElement>}
                         initial={{ opacity: 0}}
                         animate={constrolFadeOut1}
-                        >Quickly Deploy with a Single Click.</motion.h1>
-                    </div>
+                        >In a click Website Deploy.</motion.h1>
+                    </motion.div>
                 </div>
 
                 <motion.div
@@ -361,6 +305,8 @@ function Main(){
                 className='description'>
                     <p>Experience swift and efficient website deployment with just a click. Launch your online presence easily without hassle.</p>
                 </motion.div>
+
+                
             </div>
             
             <div className='publish-ex'>
@@ -369,6 +315,9 @@ function Main(){
                     <div className='right-content'></div>
                 </div>
             </div>
+        </section>
+        <section className='f-g'>
+            
         </section>
         <section className='seo-contain' data-scroll data-scroll-section>
             <div className='wrapper'>
@@ -381,7 +330,10 @@ function Main(){
                     initial={{ opacity: 0}}
                     animate={constrolFadeOut2}
                     className='wrap'>
-
+                        <div className='type-icon'>
+                            <div className="icon"><SEO/></div>
+                            <div className="txt">SEO</div>
+                        </div>
                         <div className='title'>
                             <h1>Search Engine Optimization</h1>
                         </div>
@@ -390,16 +342,158 @@ function Main(){
                         </div>
                     </motion.div>
                 </div>
-                <div className='seo-contents'>
+                <motion.div
+                ref={defaultFadeOut4 as React.Ref<HTMLDivElement>}
+                initial={{ opacity: 0}}
+                animate={constrolFadeOut4}
+                className='seo-contents'>
                     <div className='contain'>
                         <div className="in">
-                            <div>
-                                
+                            <div className="title"><h1>Page Settings</h1></div>
+                            <div className="meta">
+                                <div className="meta-txt">
+                                    <div className="title-url">
+                                        <div>
+                                            <div className='t'>Title</div>
+                                            <div className='input-box'></div>
+                                        </div>
+                                        <div>
+                                            <div className='t'>URL</div>
+                                            <div className='input-box'></div>
+                                        </div>
+                                    </div>
+                                    <div className="description">
+                                        <div className='t'>Description</div>
+                                        <div className='textarea'></div>
+                                    </div>
+                                </div>
+                                <div className="meta-img-setting">
+                                    <div className='t'>Image settings</div>
+                                    <div className="favicon">
+                                        <div className='guide'>
+                                            <div className='i'>Favicon</div>
+                                            <div className='guide-txt'>It is recommended that the favicon for browser tabs has a resolution of 32x32 pixels.</div>
+                                            <div className='upload'>Upload</div>
+                                        </div>
+                                        <div className='preview-favicon'>
+                                            <NoneTxtLogo/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='open-graph'>
+                                <div className="img">
+                                        <img src={require("../../img/sample-img.jpg")} alt="" />
+                                        <p>Preview open graph</p>
+                                </div>
+                                <div className="txt">
+                                    <div className="og-title-url">
+                                        <div className='title og'>
+                                            <div className="t">Title</div>
+                                            <div className="input-box">asd</div>
+                                        </div>
+                                        <div className='url og'>
+                                            <div className="t">URL</div>
+                                            <div className="input-box"></div>
+                                        </div>
+                                    </div>
+                                    <div className="og-description">
+                                        <div className='description'>Description </div>
+                                        <div className='txtarea'>asd</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div className="out"></div>
+                        
+                        <div className="out">
+                            <div 
+                            data-scroll
+                            data-scroll-direction = "vertical"
+                            data-scroll-speed = "-1"
+                            className='top'>
+                                <div className="sementics">
+                                    <p>Sementics</p>
+                                    <div className="tag">
+                                        <div
+                                        data-scroll
+                                        data-scroll-speed = "2"
+                                        className='t'>h1</div>
+                                        <div
+                                        data-scroll
+                                        data-scroll-speed = "2"
+                                        className='t'>h2</div>
+                                        <div
+                                        data-scroll
+                                        data-scroll-speed = "2"
+                                        className='t'>div</div>
+                                        <div
+                                        data-scroll
+                                        data-scroll-speed = "2"
+                                        className='t'>h3</div>
+                                        <div
+                                        data-scroll
+                                        data-scroll-speed = "2"
+                                        className='t'>h4</div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <motion.div 
+                            ref={seoRef as React.Ref<HTMLDivElement>}
+                            initial={{ opacity: 0, scale: 0.7 }}
+                            animate={seo1}
+
+                            className='bottom'>
+                                <div className="meta-img-setting">
+                                    <div className='t'><p>Simple Editing</p></div>
+                                    <div className='img'>
+                                        <img src={require("../../img/sample-img.jpg")} alt="" />
+                                    </div>
+                                </div>
+                                <div 
+                                data-scroll
+                                data-scroll-direction = "horizontal"
+                                data-scroll-speed = "-0.5"
+                                className='content-box'>
+                                    <div className='wrap'>
+                                        <div className="h">
+                                            <p>Image settings</p>
+                                            <div className="save">save</div>
+                                        </div>
+                                        <div className="image">
+                                            <div className="t">
+                                                <p>Image</p>
+                                            </div>
+                                            <div className='img-view'>
+                                                <div className="img-infor">
+                                                    <div className='view'>
+                                                        <img src={require("../../img/sample-img.jpg")} alt="" />
+                                                    </div>
+                                                    <div className='infor'>
+                                                        <p>FrameFix</p>
+                                                        <p>1200 x 627px</p>
+                                                        <p>230.1KB</p>
+                                                    </div>
+                                                </div>
+                                                <div className="replace-img">Replace Image</div>
+                                            </div>
+                                        </div>
+                                        <div className='alt gr'>
+                                            <div className='t'>Alt Name</div>
+                                            <div className='name box'><p>Open graph</p></div>
+                                        </div>
+                                        <div className='type gr'>
+                                            <div className='t'>Img Type</div>
+                                            <div className='type-select box'>
+                                                <p>JPEG</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        </div>
                     </div>
-                </div>
+                </motion.div>
                 <div className="deco-f">
 
                 </div>
@@ -411,6 +505,10 @@ function Main(){
                     <div className="txt"
                     data-scroll
                     data-scroll-speed = "-3">
+                        <div className='type-icon'>
+                            <div className="icon"><Community/></div>
+                            <div className="txt">Community</div>
+                        </div>
                         <motion.h1
                         ref={defaultFadeOut3 as React.Ref<HTMLDivElement>}
                         initial={{ opacity: 0}}
@@ -559,6 +657,15 @@ function Main(){
                                             <div className='more'>
                                                 <div className="more-title">
                                                     <h2>More by user project</h2>
+                                                </div>
+                                                <div className='more-items'>
+                                                    <div>
+                                                        <img src={require("../../img/more-sample3.jpg")} alt="" id='communityMoreProjectScale' />
+                                                    </div>
+
+                                                    <div><img src={require("../../img/more-sample4.jpg")} alt="" /></div>
+                                                    <div><img src={require("../../img/more-sample1.jpg")} alt="" /></div>
+                                                    <div><img src={require("../../img/more-sample2.jpg")} alt="" /></div>
                                                 </div>
                                             </div>
                                         </div>

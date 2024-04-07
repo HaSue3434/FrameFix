@@ -23,20 +23,18 @@ const ScrollSmootherComponent: React.FC<ScrollSmootherProps> = ({ children }) =>
       smooth: true,
       lerp : 0.1,
       class : 'is-inview',
-      offset : ["-15%", '15%'],
+      offset : ["-13%", '13%'],
       repeat : true,
     });
     
     let currentScrollY = 0;
     ls.on("scroll", (scrollEvent) => {
       currentScrollY = scrollEvent.scroll.y;
-      ScrollTrigger.update();      
       ScrollTrigger.refresh();
     });
 
     (ls.on as any)('call', (func: any, direction: any, obj: any) => {
       if(func){
-        ScrollTrigger.refresh();
       }
       
     });
@@ -65,13 +63,13 @@ const ScrollSmootherComponent: React.FC<ScrollSmootherProps> = ({ children }) =>
 
     window.addEventListener("load", ()=>{
       ScrollTrigger.refresh();
+      
     });
     document.addEventListener("DOMContentLoaded", ()=>{
       ScrollTrigger.refresh();
-      ScrollTrigger.update();
-      ls.destroy();
       
     })
+    
     return () => {
       
       ls.destroy();

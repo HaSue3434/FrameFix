@@ -182,3 +182,11 @@ export const useDefaultFadeOut = (): [React.RefObject<HTMLDivElement>, Animation
   return [ref, controls];
 
 }
+
+export const useSectionLink = (): [React.RefObject<HTMLDivElement>, AnimationControls] => {
+  const controls = useAnimation();
+  const ref = useRef<HTMLDivElement>(null); 
+
+
+  return [ref, controls];
+}

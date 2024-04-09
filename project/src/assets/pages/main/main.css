@@ -30,7 +30,6 @@ section.main{
     padding-top: 8em;
     width: 100%;
     position: relative;
-    padding-bottom: 50vh;
     height: 100%;
 }   
 section.main .background{
@@ -168,6 +167,27 @@ section.main .wrapper  .main-framefix .frame>div .contain{
     width: 100%;
     height: 100%;
 }
+.f-g{
+    width: 100%;
+    height: 100%;
+    margin-top: 50vh;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50vh;
+}
+.f-g .wrapper{
+    width: inherit;
+    height: inherit;
+    background: rgba(0,0,0,1);
+}
+.f-g .wrapper .contain{
+    width: 1680px;
+    max-width: 100%;
+    margin: 0 auto;
+    height: auto;
+    padding: 25px;
+}
+
 /*publish*/
 .publish{
     width: 100%;
@@ -247,6 +267,7 @@ section.main .wrapper  .main-framefix .frame>div .contain{
 .publish .wrapper>.txt .title h1{
     color: rgba(255,255,255,1);
     font-size: 6em;
+    opacity: 0;
     max-width: 1030px;
 }
 .publish .wrapper .description{
@@ -292,7 +313,6 @@ section.main .wrapper  .main-framefix .frame>div .contain{
 .seo-contain{
     width: 100%;
     height: 100%;
-    overflow: hidden;
     padding-top: 50vh;
 }
 .seo-contain .wrapper{
@@ -305,6 +325,16 @@ section.main .wrapper  .main-framefix .frame>div .contain{
     align-items: center;
     position: relative;
     gap: 35px;
+}
+.seo-contain .wrapper .deco{
+    position: absolute;
+    left: -300px;
+    top: 0;
+    
+}
+.seo-contain .wrapper .deco svg{
+    transform: rotate(0);
+    opacity: 0;
 }
 .seo-contain .wrapper .txt-contain{
     width: auto;
@@ -621,17 +651,17 @@ section.main .wrapper  .main-framefix .frame>div .contain{
     background: #000;
     height: 50px;
     width: 100%;
-    filter: blur(15px);
+    filter: blur(10px);
 }
 .seo-contain .wrapper .seo-contents .contain .out .bottom{
     align-self: flex-start;
     width: 500px;
-    height: 400px;
+    height: 380px;
     background-color: #171717;
     position: relative;
     right: 130px;
     padding: 15px;
-    top: -8px;
+    top: -25px;
     border-radius: 8px;
     z-index: 3;
     display: flex;

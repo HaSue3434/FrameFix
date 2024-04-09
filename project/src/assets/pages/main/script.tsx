@@ -1,9 +1,14 @@
-import { spawn } from 'child_process';
-import { useState, useEffect,useRef } from 'react';
-import { motion,useAnimation,AnimationControls  } from 'framer-motion';
+import React, { useState, useEffect,useRef } from 'react';
+
+import { 
+  motion,
+  useAnimation,
+  AnimationControls,
+  useTransform,
+  useScroll  
+} from 'framer-motion';
 
 import { useInView } from 'react-intersection-observer';
-
 
 interface TypingEffectHookReturnType {
   typedText: string;
@@ -186,7 +191,7 @@ export const useDefaultFadeOut = (): [React.RefObject<HTMLDivElement>, Animation
 export const useSectionLink = (): [React.RefObject<HTMLDivElement>, AnimationControls] => {
   const controls = useAnimation();
   const ref = useRef<HTMLDivElement>(null); 
-
+  
 
   return [ref, controls];
 }

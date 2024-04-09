@@ -84,7 +84,7 @@ const PreferredList = (index:number) => ({
     noneSize: { height: 0 },
     size: {
       height: '500px',
-      transition: { duration: 1, ease: "anticipate", delay: 0.25+index * 0.15 }
+      transition: { duration: 1, ease: "anticipate", delay: 0.25+index * 0.10 }
     },
     exit: {
       height: 0,

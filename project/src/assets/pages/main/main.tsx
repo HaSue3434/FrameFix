@@ -3,13 +3,9 @@ import ScrollSmootherComponent from "./ScrollSmoother"
 import './main.css';
 import {Link} from 'react-router-dom';
 import { gsap } from 'gsap';
-import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { motion } from 'framer-motion';
+import { motion, useScroll,useTransform } from 'framer-motion';
 // svg
-import {ReactComponent as Prompt  }  from '../../img/icons/prompt.svg';
-import {ReactComponent as Create  }  from '../../img/icons/create.svg';
-import {ReactComponent as Keyword }  from '../../img/icons/keyword.svg';
 import {ReactComponent as Share }  from '../../img/icons/share.svg';
 import {ReactComponent as URL }  from '../../img/icons/url.svg';
 import {ReactComponent as Heart }  from '../../img/icons/heart.svg';
@@ -18,6 +14,7 @@ import {ReactComponent as Deploy }  from '../../img/icons/deploy-icon.svg';
 import {ReactComponent as SEO }  from '../../img/icons/seo-icon.svg';
 import {ReactComponent as Community }  from '../../img/icons/community-icon.svg';
 import {ReactComponent as NoneTxtLogo }  from '../../img/icons/none-txt-logo.svg';
+import {ReactComponent as F }  from '../../img/icons/f.svg';
 
 // svg 
 
@@ -34,12 +31,19 @@ import {
     useInViewMainSpring,
     useInViewExContentSpring,
     useDescriptionFadeOut,
-    useDefaultFadeOut
+    useDefaultFadeOut, 
 
 } from './script';
 /* module */
 
 gsap.registerPlugin(ScrollTrigger);
+
+const useCustomScrollTransform = () => {
+    const { scrollYProgress } = useScroll();   
+    const y = useTransform(scrollYProgress, [0, 1], [-50, 50]);
+
+  return { y };
+};
 
 function Main(){  
 
@@ -93,8 +97,8 @@ function Main(){
     const scrollEventIconRef = useRef<HTMLDivElement>(null);
     const scrollEventIconRef2 = useRef<HTMLDivElement>(null);
     const scrollEventNonePin = useRef<HTMLDivElement>(null);
-    const scrollEventTyping = useRef<HTMLDivElement>(null);
     const fullScreenRef = useRef<HTMLDivElement>(null);
+    const f = useRef<SVGSVGElement>(null);
 
     useEffect(()=>{
         const t1 = gsap.timeline();
@@ -143,23 +147,29 @@ function Main(){
                 },
                 
             });
-            t1.to(scrollEventTyping.current,{
+            t1.to(f.current,{
                 scrollTrigger : {
-                    trigger : scrollEventTyping.current,
-
-                }
+                    trigger : f.current,
+                    start : "20% 50%",
+                    end : "bottom 50%",
+                    scrub : 1,
+                    refreshPriority: 1,
+                   
+                },
             })
-            t1.to(fullScreenRef.current,{
-                scrollTrigger:{
-
-                }
-            })
-
             ScrollTrigger.refresh();
         })
         return () => ctx.revert();
     },[scrollEventIconRef,scrollEventIconRef2])
 
+    const { scrollY } = useScroll(); 
+    const { y } = useCustomScrollTransform();
+
+    useEffect(()=>{
+        const change =  scrollY.onChange((latest)=>{
+            
+        })
+    })
 
     return (
         <ScrollSmootherComponent>
@@ -264,9 +274,15 @@ function Main(){
                 <TxtAnimation text='AI-POWERED BUILD WEBSITES'/>
             </div>
         </section>
-        <section className='framefix-guide'>
-                
+
+        <section data-scroll data-scroll-section className='f-g' id='f-g'>
+            <div className="wrapper" ref={fullScreenRef}>
+                <div className="contain">
+
+                </div>
+            </div>
         </section>
+
         <section className='publish' data-scroll data-scroll-section id='publish'>
             <div ref={scrollEventIconRef}  className="scrollEventIcon" id='internet-icon'>
                 <div>deploy website</div>
@@ -278,12 +294,13 @@ function Main(){
             className='none-pin' ref={scrollEventNonePin}>
                 <div>deploy website</div>
             </div>
-            <div className='wrapper'>
+            <div className='wrapper' data-scroll>
                 
                 <div className='txt'>
-                    <motion.div className='title' 
+                    <div
                     data-scroll 
-                    data-scroll-speed = "-3">
+                    data-scroll-speed = "-3"
+                    className='title'>
                     
                         <div className='type-icon'>
                             <div className="icon"><Deploy/></div>
@@ -294,7 +311,7 @@ function Main(){
                         initial={{ opacity: 0}}
                         animate={constrolFadeOut1}
                         >In a click Website Deploy.</motion.h1>
-                    </motion.div>
+                    </div>
                 </div>
 
                 <motion.div
@@ -316,14 +333,16 @@ function Main(){
                 </div>
             </div>
         </section>
-        <section className='f-g'>
-            
-        </section>
+
+
         <section className='seo-contain' data-scroll data-scroll-section>
             <div className='wrapper'>
+                <div className="deco">
+                    <F ref={f} className='f-svg'/>
+                </div>
                 <div className='txt-contain'
-                data-scroll
-                data-scroll-speed = "-4">
+                    data-scroll
+                    data-scroll-speed = "-5">
 
                     <motion.div 
                     ref={defaultFadeOut2 as React.Ref<HTMLDivElement>}

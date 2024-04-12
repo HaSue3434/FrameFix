@@ -25,6 +25,7 @@ import { ReactComponent as Arts } from "../../../img/icons/arts.svg";
 import { ReactComponent as Automotive } from "../../../img/icons/automotive.svg";
 import { ReactComponent as Science } from "../../../img/icons/science.svg";
 import { ReactComponent as Other } from "../../../img/icons/other.svg";
+import { ReactComponent as Guide } from "../../../img/icons/guide.svg";
 
 /*icon import */
 const variants = {
@@ -186,6 +187,9 @@ const DefaultUI: React.FC = ()=>{
                                             <div className="upload-txt">Upload Image</div>
                                             <div className="img-icon">
                                                 <ImageIcon/>
+                                                <div className="guide">
+                                                    <Guide/>
+                                                </div>
                                             </div>
                                         </div>
                                         <div className="skip"  onClick={handleNextClick}>
@@ -316,8 +320,8 @@ const DefaultUI: React.FC = ()=>{
                                                             <div>publish</div>
                                                         </div>
                                                     </div>
-                                                    <div className="box">
-                                                        <div>
+                                                    <div className="box" id="ex-reference">
+                                                        <div onClick={handleNextClick}>
                                                             <img src={require("../../../img/sample-img.jpg")} alt="ex-img" />
                                                         </div>
                                                     </div>

@@ -11,6 +11,7 @@ body{
 .type-icon .icon svg{width: 20px;height: 20px;}
 .type-icon .icon{
     width: 40px;
+    min-width: 40px;
     height: 40px;
     background: linear-gradient(120deg, #459AFF,rgba(0,117,255,1));
     border-radius: 5px;
@@ -31,16 +32,17 @@ section.main{
     width: 100%;
     position: relative;
     height: 100%;
+    /* background: linear-gradient(120deg,#08AEEA,#2A57F5,#2AF598);*/
+    padding-bottom: 8em;
 }   
-section.main .background{
+section.main > .background-top-blur{
+    width: 1200%;
     position: absolute;
-    width: 100%;
-    height: 80%;
-    z-index: -1;
-    left: 0;
-    top: 33%;
     background: #000;
-    filter: blur(25px);
+    height: 550px;
+    filter: blur(80px);
+    top: -200px;
+    left: -50%;
 }
 section.main .txt-back-contain{
     position: absolute;
@@ -150,6 +152,7 @@ section.main .wrapper  .main-framefix{
     margin-top: 8em;
     width: 100%;
     height: 100%;
+    border-radius: 15px;
     perspective: 1000px;
 }
 section.main .wrapper  .main-framefix .frame{
@@ -169,23 +172,23 @@ section.main .wrapper  .main-framefix .frame>div .contain{
 }
 .f-g{
     width: 100%;
-    height: 100%;
+    height: auto;
     margin-top: 50vh;
     display: flex;
     justify-content: center;
     margin-bottom: 50vh;
+    background: #080811;
 }
 .f-g .wrapper{
-    width: inherit;
-    height: inherit;
-    background: rgba(0,0,0,1);
-}
-.f-g .wrapper .contain{
     width: 1680px;
     max-width: 100%;
+    height: 100%;
     margin: 0 auto;
-    height: auto;
     padding: 25px;
+}
+.f-g .wrapper .contain{
+    width: 100%;
+    height: 500vh;
 }
 
 /*publish*/
@@ -362,6 +365,8 @@ section.main .wrapper  .main-framefix .frame>div .contain{
     position: relative;
     width: auto;
     height: 980px;
+    
+    border-radius: 15px;
     perspective: 500px;
 }
 .seo-contain .wrapper .seo-contents .contain{
@@ -410,9 +415,10 @@ section.main .wrapper  .main-framefix .frame>div .contain{
     height: 35px;
     margin-top: 5px;
     background: rgba(255,255,255,.1);
-    color: rgba(255,255,255,.5);
+    color: rgba(255,255,255,.8);
     border-radius: 5px;
     font-size: 14px;
+    padding: 8px 12px;
 }
 .seo-contain .wrapper .seo-contents .contain .in .meta .meta-txt .description{
     margin-top: 25px;
@@ -431,7 +437,7 @@ section.main .wrapper  .main-framefix .frame>div .contain{
     background: rgba(255,255,255,.1);
     border-radius: 5px;
     font-size: 14px;
-    color: rgba(255,255,255,.5);
+    color: rgba(255,255,255,.8);
 }
 .seo-contain .wrapper .seo-contents .contain .in .meta .meta-img-setting{
     margin-top: 25px;
@@ -596,7 +602,7 @@ section.main .wrapper  .main-framefix .frame>div .contain{
 }
 .seo-contain .wrapper .seo-contents .contain .out .top .sementics{    
     overflow: hidden;
-    
+    border-radius: 15px;
     height: 100%;
     width: 100%;
 }  
@@ -886,11 +892,13 @@ section.main .wrapper  .main-framefix .frame>div .contain{
 .community .wrapper>.contents  .wrap>div{
     border-radius: 10px;
 }
+
 .community .wrapper>.contents  .wrap>div>div{
     width: 100%;
     height: 100%;
     border-radius: inherit;
     background: #171717;
+    position: relative;
     overflow: hidden;
     padding: 15px;
 }
@@ -901,6 +909,7 @@ section.main .wrapper  .main-framefix .frame>div .contain{
     background: #000;
     padding: 35px;
     display: flex;
+    
     flex-direction: column;
 }
 .community .wrapper>.contents  .wrap .item1 .user-project-contain>div .content-main-txt{
@@ -910,7 +919,15 @@ section.main .wrapper  .main-framefix .frame>div .contain{
     align-items: flex-end;
     gap: 25px;
 }
-
+.community .wrapper>.contents  .wrap .item1 {
+    position: relative;
+}
+.community .wrapper>.contents  .wrap .item1 > .guide{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%,0);
+}
 .community .wrapper>.contents 
 .wrap 
 .item1 
@@ -1042,9 +1059,7 @@ section.main .wrapper  .main-framefix .frame>div .contain{
     text-align: center;
     max-width: 420px;
 }
-.framefix-footer{
-    padding-top: 16.25em;
-}
+
 
 .community .wrapper>.contents .wrap .item3>.contain{
     width: 100%;
@@ -1200,7 +1215,7 @@ section.main .wrapper  .main-framefix .frame>div .contain{
 .item3>.contain>div.user-project-infor>div.user-project-title 
 .bottom .interaction .visit{
     background: #459AFF;
-    font-weight: bold;
+    font-weight: 600;
     color: rgba(255,255,255,1);
     box-shadow: 0 4px 4px rgba(8,8,8,.08),0 1px 2px rgba(8,8,8,.2),inset 0 6px 12px rgba(255,255,255,.12),inset 0 1px 1px rgba(255,255,255,.2);
 
@@ -1271,7 +1286,7 @@ section.main .wrapper  .main-framefix .frame>div .contain{
 .wrapper>.contents .wrap 
 .item3>.contain>div.user-project-infor>.project-description
 .description-t p{
-    color: rgba(255,255,255,.5);
+    color: rgba(255,255,255,.8);
 }
 .community 
 .wrapper>.contents .wrap 
@@ -1281,6 +1296,136 @@ section.main .wrapper  .main-framefix .frame>div .contain{
     height: 1px;
     background: rgba(255,255,255,.2);
 }
+.community 
+.wrapper>.contents .wrap 
+.item3>.contain>div.user-project-infor>.project-description
+.user-comments{
+    display: flex;
+    margin-top: 35px;
+    flex-direction: column;
+}
+.community 
+.wrapper>.contents .wrap 
+.item3>.contain>div.user-project-infor>.project-description
+.user-comments > div:not(:nth-child(1)){
+    margin-top: 35px;
+}
+.community 
+.wrapper>.contents .wrap 
+.item3>.contain>div.user-project-infor>.project-description
+.user-comments > div h2{
+    color: rgba(255,255,255,.8);
+    font-size: 1.13em;
+}
+.community 
+.wrapper>.contents .wrap 
+.item3>.contain>div.user-project-infor>.project-description
+.user-comments > div.u{
+    display: flex;
+    gap: 10px;
+
+}
+.community 
+.wrapper>.contents .wrap 
+.item3>.contain>div.user-project-infor>.project-description
+.user-comments > div.u .u-profile{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 1.25em;
+    color: rgba(255,255,255,1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #459AFF;
+    user-select: none;
+}
+.community 
+.wrapper>.contents .wrap 
+.item3>.contain>div.user-project-infor>.project-description
+.user-comments > div.u .u-chat > div {
+    padding-top: 8px;
+}
+.community 
+.wrapper>.contents .wrap 
+.item3>.contain>div.user-project-infor>.project-description
+.user-comments > div.u .u-chat > div p{
+    color: #fff;
+    font-size: 14px;
+}
+.community 
+.wrapper>.contents .wrap 
+.item3>.contain>div.user-project-infor>.project-description
+.user-comments > div.u .u-chat > div.u-name{
+    padding-top: 0;
+    font-size: 14px;
+}
+.community 
+.wrapper>.contents .wrap 
+.item3>.contain>div.user-project-infor>.project-description
+.user-comments > div.u .u-chat > div.u-name p span{
+    opacity: 0.8;
+    font-weight: 400;
+    font-size: 12px;
+    padding-left: 2px;
+}
+.community 
+.wrapper>.contents .wrap 
+.item3>.contain>div.user-project-infor>.project-description
+.user-comments > div.u .u-chat > div.u-state{
+    opacity: 0.8;
+}
+.community 
+.wrapper>.contents .wrap 
+.item3>.contain>div.user-project-infor>.project-description
+.user-comments > div.u .u-chat > div.reply p {
+    font-size: 12px;
+    opacity: 0.5;
+}
+.community 
+.wrapper>.contents .wrap 
+.item3>.contain>div.user-project-infor>.project-description
+.user-comments > div.u .u-chat .e{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.community 
+.wrapper>.contents .wrap 
+.item3>.contain>div.user-project-infor>.project-description
+.user-comments > div.u .u-chat .e .replise{
+    padding: 8px;
+    background: #459AFF3b;
+    border-radius: 5px;
+}
+.community 
+.wrapper>.contents .wrap 
+.item3>.contain>div.user-project-infor>.project-description
+.user-comments > div.u .u-chat .e .replise p{
+    opacity: 1;
+    color: #459AFF;
+}
+/*
+.community 
+.wrapper>.contents .wrap 
+.item3>.contain>div.user-project-infor>.project-description
+.user-comments > div:nth-child(1) .u-profile{
+    background: #459AFF;
+}
+.community 
+.wrapper>.contents .wrap 
+.item3>.contain>div.user-project-infor>.project-description
+.user-comments > div:nth-child(2) .u-profile{
+    background: #7B81BF;
+}
+.community 
+.wrapper>.contents .wrap 
+.item3>.contain>div.user-project-infor>.project-description
+.user-comments > div:nth-child(3) .u-profile{
+    background: #AF40FB;
+}
+*/
 .community 
 .wrapper>.contents .wrap 
 .item3>.contain>div.user-project-infor>.project-description
@@ -1295,6 +1440,7 @@ section.main .wrapper  .main-framefix .frame>div .contain{
     padding: 15px;
     padding-left: 15px;
     padding-right: 15px;
+
 }
 .community 
 .wrapper>.contents .wrap 
@@ -1387,7 +1533,7 @@ section.main .wrapper  .main-framefix .frame>div .contain{
 .wrap .item3>.contain>div.rel-category>div 
 .like-category .items > div .img>p{
     padding-top: 8px;
-    color: rgba(255,255,255,.5);
+    color: rgba(255,255,255,.8);
     font-weight: 500;
     font-size: 0.80vw;
 }
@@ -1426,4 +1572,7 @@ section.main .wrapper  .main-framefix .frame>div .contain{
 }
 #communityMoreProjectScale{
     transform: scale(1);
+}
+.framefix-footer{
+    padding-top: 50vh;
 }

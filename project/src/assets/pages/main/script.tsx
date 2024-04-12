@@ -4,8 +4,7 @@ import {
   motion,
   useAnimation,
   AnimationControls,
-  useTransform,
-  useScroll  
+
 } from 'framer-motion';
 
 import { useInView } from 'react-intersection-observer';
@@ -92,10 +91,10 @@ export const useInViewMainSpring = (): [React.RefObject<HTMLDivElement>, Animati
       controls.start({
         opacity: 1,
         scale: 1,
-        transition: { type: 'spring', stiffness: 100, damping: 10 },
+        transition: { type: 'spring', stiffness: 100, damping: 15 },
       });
     } else {
-      controls.start({ opacity: 0, scale: 0.5 });
+      controls.start({ opacity: 0, scale: 0.8 });
     }
   }, [controls, inView]);
 
@@ -188,10 +187,3 @@ export const useDefaultFadeOut = (): [React.RefObject<HTMLDivElement>, Animation
 
 }
 
-export const useSectionLink = (): [React.RefObject<HTMLDivElement>, AnimationControls] => {
-  const controls = useAnimation();
-  const ref = useRef<HTMLDivElement>(null); 
-  
-
-  return [ref, controls];
-}

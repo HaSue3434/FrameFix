@@ -115,7 +115,30 @@
     font-weight: 500;
     font-size: 1.13em;
 }
-.project-maker-init .contents .user-interaction .file .upload-img .img-icon svg{
+.project-maker-init .contents .user-interaction .file .upload-img .img-icon {
+    position: relative;
+}
+.project-maker-init .contents .user-interaction .file .upload-img .img-icon .guide{
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #459AFF;
+    display: flex;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+.project-maker-init .contents .user-interaction .file .upload-img .img-icon .guide svg{
+
+    width: 100%;
+    height: 100%;
+}
+
+.project-maker-init .contents .user-interaction .file .upload-img .img-icon>svg{
     width: 35px;
     height: 35px;
     opacity: .5;
@@ -367,4 +390,8 @@
     height:100px;
     background: #2b2b2b;
     border-radius: 5px;
+}
+#ex-reference{
+    position: relative;
+    
 }

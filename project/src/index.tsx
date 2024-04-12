@@ -1,13 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import { DndProvider } from 'react-dnd';
+const container = document.getElementById('contain');
+if (!container) throw new Error('Failed to find the root container');
+const root = createRoot(container);
 
-const root = ReactDOM.createRoot(
-  document.getElementById('contain') as HTMLElement
-);
 root.render(
   <DndProvider backend={HTML5Backend}>
     <React.StrictMode>

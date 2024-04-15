@@ -63,11 +63,12 @@ const ScrollSmootherComponent: React.FC<ScrollSmootherProps> = ({ children }) =>
     });
 
     window.addEventListener("load", ()=>{
-      ls.init();
       ScrollTrigger.refresh();
       
     });
-    
+
+    ScrollTrigger.refresh();
+
     return () => {
       
       ls.destroy();

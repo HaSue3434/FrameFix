@@ -169,7 +169,6 @@ function Main() {
         <ScrollSmootherComponent>
             <>
                 <section className='main' data-scroll data-scroll-section>
-                    <div className="background-top-blur"></div>
                     <div className='wrapper'>
                         <div className='main'>
                             <div className='title'>

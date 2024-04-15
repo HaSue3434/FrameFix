@@ -151,10 +151,37 @@
     width: 80px;
     border-right: 1px solid rgba(255,255,255,.1);
     min-width: 80px;
+    display: flex;
+    flex-direction: column;
 }
-.section-i .framefix>.box > .contents .assets .category-items{
+.section-i .framefix>.box > .contents .assets .category>div{
+    width: 100%;
+    display: flex;
+    padding-top: 15.5px;
+    padding-bottom: 15.5px;
+    flex-direction: column;
+    align-items: center;
+}
+.section-i .framefix>.box > .contents .assets .category>div p{
+    text-align: center;
+    padding-top: 5px;
+    font-size: 12px;
+    text-transform: capitalize;
+    font-weight: 500;
+    color: rgba(255,255,255,1);
+}
+.section-i .framefix>.box > .contents .assets .c-plugins{
     width: 200px;
     min-width: 200px;
+}
+.section-i .framefix>.box > .contents .assets .c-plugins>div{
+    width: 100%;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+}
+.section-i .framefix>.box > .contents .assets .c-plugins>div:nth-child(1){
+    background: rgba(255,255,255,.1);
 }
 .section-i .framefix>.box > .contents .head{
     width: 100%;
@@ -187,7 +214,9 @@
     color: rgba(255,255,255,.35);
 }
 .section-i .framefix>.box > .contents .head .project-name p svg{
-    height: 6px;
+    height: 5px;
+    width: 15px;
+    vertical-align: middle;
 }
 .section-i .framefix>.box > .contents  .ins-ai{
     width: 100%;
@@ -244,16 +273,54 @@
     position: absolute;
     top:150px;
     left: -100px;
+    visibility: hidden;
     display: flex;
     flex-direction: column;
-}
-.out-box>div{
-
-    border: 1px solid rgba(255,255,255,.1);
-    background: #000;
-    position: relative;
-    border-radius: 10px;
+    
+    padding: 12px;
 }
 .section-i .framefix>.box > .contents .generate{
     position: absolute;
+}
+
+
+.create-ai{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: flex-end;align-items: flex-end;
+    
+}
+.create-ai>div{
+    display: flex;
+    padding: 12px 15px 12px 15px;
+    justify-content: center;
+    background: #459AFF;
+    border-radius: 5px;
+    align-items: center;
+    gap: 5px;
+    position: relative;
+    top: -55px;
+    right: -55px;
+}
+.create-ai>div svg{
+    height: 20px;
+    vertical-align: middle;
+}
+.create-ai>div p{
+    color: rgba(255,255,255,1);
+    font-weight: 500;
+    font-size: 14px;
+}
+.section-i .framefix>.box > .contents .assets .category>div.plugin.magic{
+    border-right: 1px solid #459AFF;
+}
+.section-i .framefix>.box > .contents .assets .category>div.plugin.magic p{
+    background: linear-gradient(to right, #459AFF, #E960FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
 }

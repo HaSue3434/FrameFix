@@ -8,6 +8,21 @@ import { ReactComponent as OutContentAI } from '../../../img/icons/out content.s
 import { ReactComponent as Logo } from "../../../img/logo/logo.svg";
 import { ReactComponent as FrameLogo } from "../../../img/logo/frame-logo.svg";
 import { ReactComponent as AiPoweredIcon } from "../../../img/icons/ai-powered-icon.svg";
+import { ReactComponent as DropDownArrow } from "../../../img/icons/bottom-arrow.svg";
+import { ReactComponent as Star } from "../../../img/icons/star.svg";
+
+// icon tools //
+
+import { ReactComponent as Text } from "../../../img/icons/framefix-plugins-icon/text.svg";
+import { ReactComponent as Menus } from "../../../img/icons/framefix-plugins-icon/menus.svg";
+import { ReactComponent as Header } from "../../../img/icons/framefix-plugins-icon/header.svg";
+import { ReactComponent as Footer } from "../../../img/icons/framefix-plugins-icon/footer.svg";
+import { ReactComponent as Slides } from "../../../img/icons/framefix-plugins-icon/slides.svg";
+import { ReactComponent as Button } from "../../../img/icons/framefix-plugins-icon/button.svg";
+import { ReactComponent as Icons } from "../../../img/icons/framefix-plugins-icon/icons.svg";
+import { ReactComponent as Magic } from "../../../img/icons/framefix-plugins-icon/magic.svg";
+ 
+// icon tools //
 
 import { Link } from 'react-router-dom';
 
@@ -110,7 +125,7 @@ const FrameFixGuide: React.FC = () => {
                                         <FrameLogo/>
                                     </div>
                                     <div className="project-name">
-                                        <p> <span>Drafts /</span> Project name</p>
+                                        <p> <span>Drafts /</span> Project name <DropDownArrow/></p>
                                     </div>
                                 </div>
                                 <div className="ins-ai">
@@ -129,10 +144,56 @@ const FrameFixGuide: React.FC = () => {
                                 </div>
                                 <div className="assets">
                                     <div className="category">
-
+                                        <div className="plugin">
+                                            <div className="icon"><Text/></div>
+                                            <div className="txt"><p>Text</p></div>
+                                        </div>
+                                        <div className="plugin">
+                                            <div className="icon"><Menus/></div>
+                                            <div className="txt"><p>Menus</p></div>
+                                        </div>
+                                        <div className="plugin">
+                                            <div className="icon"><Header/></div>
+                                            <div className="txt"><p>Header</p></div>
+                                        </div>
+                                        <div className="plugin">
+                                            <div className="icon"><Footer/></div>
+                                            <div className="txt"><p>Footer</p></div>
+                                        </div>
+                                        <div className="plugin">
+                                            <div className="icon"><Slides/></div>
+                                            <div className="txt"><p>Slides</p></div>
+                                        </div>
+                                        <div className="plugin">
+                                            <div className="icon"><Button/></div>
+                                            <div className="txt"><p>Button</p></div>
+                                        </div>
+                                        <div className="plugin">
+                                            <div className="icon"><Icons/></div>
+                                            <div className="txt"><p>Icons</p></div>
+                                        </div>
+                                        <div className="plugin magic">
+                                            <div className="icon"><Magic/></div>
+                                            <div className="txt"><p>magic</p></div>
+                                        </div>
                                     </div>
-                                    <div className="category-items">
-
+                                    <div className="c-plugins">
+                                        <div>
+                                            <div className="p-i"></div>
+                                            <div className="t"></div>
+                                        </div>
+                                        <div>
+                                            <div className="p-i"></div>
+                                            <div className="t"></div>
+                                        </div>
+                                        <div>
+                                            <div className="p-i"></div>
+                                            <div className="t"></div>
+                                        </div>
+                                        <div>
+                                            <div className="p-i"></div>
+                                            <div className="t"></div>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -142,12 +203,21 @@ const FrameFixGuide: React.FC = () => {
                             </div>
                         </div>
                         <motion.div 
+                        data-scroll
                         ref={outBoxRef as React.Ref<HTMLDivElement>}
                         initial={{ opacity: 0, scale: 0.0 }}
                         animate={outBoxControls}
 
                         className="out-box"  id="out-box">
                             <OutContentAI/>
+
+                            <div className="create-ai">
+                                <div>
+                                    <div><Star/></div>
+                                    <p>Create AI</p>
+                                </div>
+                                
+                            </div>
                         </motion.div>
                     </div>
                   </div>

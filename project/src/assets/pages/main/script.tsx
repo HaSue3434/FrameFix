@@ -205,3 +205,13 @@ export const useInViewPluginsScale = (activate : any): [React.RefObject<HTMLDivE
   
     return [ref, controls];
 }
+export const useStepsDelayFadeOut = (activate : any, elements : Element): [React.RefObject<HTMLDivElement>,AnimationControls]=>{
+  const controls = useAnimation();
+  
+
+  const ref = useRef<HTMLDivElement>(null);
+
+
+
+  return [ref,controls];
+}

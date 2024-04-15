@@ -105,6 +105,23 @@
     cursor: pointer;
     font-size: 1.25em;
     z-index: 5;
+    position: relative;
+    transition: .3s;
+}
+.section-i>div .txt .see-all a:hover{
+    color: #C362FF;
+}
+.section-i>div .txt .see-all a::after{
+    content: " -->";
+    display: inline-block;
+    transition: 0.3s;
+    transform: translateX(-20px);
+    opacity: 0;
+    color: #C362FF;
+}
+.section-i>div .txt .see-all a:hover::after{
+    opacity: 1;
+    transform: translateX(10px);
 }
 .section-i .framefix{
     height: 700px;
@@ -338,7 +355,7 @@
 
 }
 .section-i .framefix>.box > .contents .ai-generate .contain .user-generate p{
-    color: rgba(255,255,255,.2);
+    color: rgba(255,255,255,0.8);
     font-size: 14px;
     font-weight: 500;
 }
@@ -369,9 +386,6 @@
 .section-i .framefix>.box > .contents .ai-generate .contain  .btn .generate .t{
     font-size: 12px;
 }
-.section-i .framefix>.box > .contents .ai-generate .contain  .btn .generate-icon svg{
-
-}
 .create-ai{
     width: 100%;
     height: 100%;
@@ -379,11 +393,15 @@
     left: 0;
     top: 0;
     display: flex;
-    justify-content: flex-end;align-items: flex-end;
+    justify-content: flex-end;
+    align-items: center;
+    cursor: pointer;
     
 }
 .create-ai>div{
     display: flex;
+    transition: .3s;
+    box-shadow: 0px 0px 15px #4599ffbb;
     padding: 12px 15px 12px 15px;
     justify-content: center;
     background: #459AFF;
@@ -394,11 +412,16 @@
     top: -55px;
     right: -55px;
 }
+.create-ai>div:hover{
+    box-shadow: 0px 0px 15px rgba(233,96,255,.35);
+    background: #C362FF;
+}
 .create-ai>div svg{
     height: 20px;
     vertical-align: middle;
 }
 .create-ai>div p{
+    user-select: none;
     color: rgba(255,255,255,1);
     font-weight: 500;
     font-size: 14px;

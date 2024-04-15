@@ -32,7 +32,7 @@ import { ReactComponent as GenerateIcon} from "../../../img/icons/framefix-plugi
 import { Link } from 'react-router-dom';
 
 import {
-    useDefaultFadeOut,
+    useTypingEffect,
     useInViewPluginsScale
 } from "../script";
 gsap.registerPlugin(ScrollTrigger);
@@ -46,11 +46,14 @@ const FrameFixGuide: React.FC = () => {
     const [activate2, setGenerate] = useState(false);
     const [generate, generateControls] = useInViewPluginsScale(activate2);
 
+    const [ triggerTyping, setTriggerTyping ] = useState(false);
+    const { typedText: typing } = useTypingEffect(triggerTyping ? "I would like to see a 3D image." : "", 10);
 
 
     useEffect(() => {
         if (sectionsRef.current) {
             const sections = gsap.utils.toArray<Element>('.section-i', sectionsRef.current);
+            const createAI = document.querySelector(".create-ai") as HTMLElement;
 
             gsap.set(sections, { autoAlpha: 0,});
 
@@ -67,27 +70,36 @@ const FrameFixGuide: React.FC = () => {
                         gsap.to(section, { autoAlpha: 1, zIndex: 5, duration: 0.5 });
                         setActivate(true); 
                         setGenerate(true);
-                      },
-                      onLeave: () => {
+                        setTimeout(()=>{
+                            setTriggerTyping(true);
+                        },500)
+                    },
+                    onLeave: () => {
                         gsap.to(section, { autoAlpha: 0, zIndex: -11, duration: 0.5 });
-                        setActivate(false);
-                        setGenerate(false);
-                      },
-                      onEnterBack: () => {
+                    },
+                    onEnterBack: () => {
                         gsap.to(section, { autoAlpha: 1, zIndex: 5, duration: 0.5 });
                         setActivate(true); 
                         setGenerate(true);
-                      },
-                      onLeaveBack: () => {
+                        setTimeout(()=>{
+                            setTriggerTyping(true);
+                        },500)
+                    },
+                    onLeaveBack: () => {
                         gsap.to(section, { autoAlpha: 0, zIndex: -11, duration: 0.5 });
                         setActivate(false);
                         setGenerate(false);
+                        setTriggerTyping(false);
                     },
                     onUpdate: (self) => {
-
+                        console.log(self.progress)
                         if (progressBar) {
                             progressBar.style.height = `${self.progress * 100}%`;
                         }
+                        if(createAI){
+                            createAI.style.top = `${self.progress * 100}px`;
+                        }
+
                     }
                 });
             });
@@ -230,7 +242,7 @@ const FrameFixGuide: React.FC = () => {
 
                                     className="contain">
                                         <div className="user-generate">
-                                            <p>example...</p>
+                                            <p>{typing}</p>
                                         </div>
                                         <div className="btn">
                                             <div className="example">
@@ -293,7 +305,14 @@ const FrameFixGuide: React.FC = () => {
                         <div className="framefix">
                             <div className="box">
                                 <div className="contents">
-                                    <div className="head"></div>
+                                    <div className="head">
+                                        <div className="frame-logo">
+                                            <FrameLogo/>
+                                        </div>
+                                        <div className="project-name">
+                                            <p> <span>Drafts /</span> Project name <DropDownArrow/></p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div className="out-box">
@@ -331,7 +350,14 @@ const FrameFixGuide: React.FC = () => {
                         <div className="framefix">
                             <div className="box">
                                 <div className="contents">
-                                    <div className="head"></div>
+                                    <div className="head">
+                                        <div className="frame-logo">
+                                            <FrameLogo/>
+                                        </div>
+                                        <div className="project-name">
+                                            <p> <span>Drafts /</span> Project name <DropDownArrow/></p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div className="out-box">

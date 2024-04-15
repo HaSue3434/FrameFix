@@ -21,6 +21,10 @@ import { ReactComponent as Slides } from "../../../img/icons/framefix-plugins-ic
 import { ReactComponent as Button } from "../../../img/icons/framefix-plugins-icon/button.svg";
 import { ReactComponent as Icons } from "../../../img/icons/framefix-plugins-icon/icons.svg";
 import { ReactComponent as Magic } from "../../../img/icons/framefix-plugins-icon/magic.svg";
+import { ReactComponent as Create } from "../../../img/icons/framefix-plugins-icon/create.svg";
+import { ReactComponent as WireFrame } from "../../../img/icons/framefix-plugins-icon/wireframe mode.svg";
+import { ReactComponent as ReplaceTxt } from "../../../img/icons/framefix-plugins-icon/replace-text.svg";
+import { ReactComponent as ReplaceImg} from "../../../img/icons/framefix-plugins-icon/replace-img.svg";
  
 // icon tools //
 
@@ -56,19 +60,19 @@ const FrameFixGuide: React.FC = () => {
                     pinType : "transform",
                     onEnter: () => {
                         gsap.to(section, { autoAlpha: 1, zIndex: 5, duration: 0.5 });
-                        setActivate(true);  // Activate the effect
+                        setActivate(true); 
                       },
                       onLeave: () => {
                         gsap.to(section, { autoAlpha: 0, zIndex: -11, duration: 0.5 });
-                        setActivate(false); // Deactivate the effect
+                        setActivate(false);
                       },
                       onEnterBack: () => {
                         gsap.to(section, { autoAlpha: 1, zIndex: 5, duration: 0.5 });
-                        setActivate(true);  // Reactivate the effect
+                        setActivate(true); 
                       },
                       onLeaveBack: () => {
                         gsap.to(section, { autoAlpha: 0, zIndex: -11, duration: 0.5 });
-                        setActivate(false); // Deactivate the effect
+                        setActivate(false);
                     },
                     onUpdate: (self) => {
 
@@ -179,26 +183,51 @@ const FrameFixGuide: React.FC = () => {
                                     </div>
                                     <div className="c-plugins">
                                         <div>
-                                            <div className="p-i"></div>
-                                            <div className="t"></div>
+                                            <div className="p-i create" id="selected"><Create/></div>
+                                            <div className="t">
+                                                <p className="title">Create Image</p>
+                                                <p className="sub-txt">You can generate images from text.</p>
+                                            </div>
                                         </div>
                                         <div>
-                                            <div className="p-i"></div>
-                                            <div className="t"></div>
+                                            <div className="p-i wireframe"><WireFrame/></div>
+                                            <div className="t">
+                                                <p className="title">Wireframe Mode</p>
+                                                <p className="sub-txt">It is displayed as a wireframe.</p>
+                                            </div>
                                         </div>
                                         <div>
-                                            <div className="p-i"></div>
-                                            <div className="t"></div>
+                                            <div className="p-i re-txt"><ReplaceTxt/></div>
+                                            <div className="t">
+                                                <p className="title">Replace Text</p>
+                                                <p className="sub-txt">It generates alternative text.</p>
+                                            </div>
                                         </div>
                                         <div>
-                                            <div className="p-i"></div>
-                                            <div className="t"></div>
+                                            <div className="p-i re-img"><ReplaceImg/></div>
+                                            <div className="t">
+                                                <p className="title">Replace Image</p>
+                                                <p className="sub-txt">It generates alternative image.</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div className="generate">
-                                    
+                                <div className="ai-generate">
+                                    <div className="contain">
+                                        <div className="user-generate">
+                                            <p>example...</p>
+                                        </div>
+                                        <div className="btn">
+                                            <div className="example">
+                                                Try Example
+                                            </div>
+                                            <div className="generate">
+                                                <div></div>
+                                                <div>Generate</div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -211,13 +240,12 @@ const FrameFixGuide: React.FC = () => {
                         className="out-box"  id="out-box">
                             <OutContentAI/>
 
-                            <div className="create-ai">
+                            <motion.div className="create-ai">
                                 <div>
                                     <div><Star/></div>
                                     <p>Create AI</p>
                                 </div>
-                                
-                            </div>
+                            </motion.div>
                         </motion.div>
                     </div>
                   </div>

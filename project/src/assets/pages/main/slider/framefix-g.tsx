@@ -25,7 +25,8 @@ import { ReactComponent as Create } from "../../../img/icons/framefix-plugins-ic
 import { ReactComponent as WireFrame } from "../../../img/icons/framefix-plugins-icon/wireframe mode.svg";
 import { ReactComponent as ReplaceTxt } from "../../../img/icons/framefix-plugins-icon/replace-text.svg";
 import { ReactComponent as ReplaceImg} from "../../../img/icons/framefix-plugins-icon/replace-img.svg";
- 
+import { ReactComponent as GenerateIcon} from "../../../img/icons/framefix-plugins-icon/generate-icon.svg";
+
 // icon tools //
 
 import { Link } from 'react-router-dom';
@@ -39,9 +40,13 @@ gsap.registerPlugin(ScrollTrigger);
 const FrameFixGuide: React.FC = () => {
 
     const sectionsRef = useRef<HTMLDivElement>(null);
-
     const [activate, setActivate] = useState(false);
     const [outBoxRef, outBoxControls] = useInViewPluginsScale(activate);
+
+    const [activate2, setGenerate] = useState(false);
+    const [generate, generateControls] = useInViewPluginsScale(activate2);
+
+
 
     useEffect(() => {
         if (sectionsRef.current) {
@@ -61,18 +66,22 @@ const FrameFixGuide: React.FC = () => {
                     onEnter: () => {
                         gsap.to(section, { autoAlpha: 1, zIndex: 5, duration: 0.5 });
                         setActivate(true); 
+                        setGenerate(true);
                       },
                       onLeave: () => {
                         gsap.to(section, { autoAlpha: 0, zIndex: -11, duration: 0.5 });
                         setActivate(false);
+                        setGenerate(false);
                       },
                       onEnterBack: () => {
                         gsap.to(section, { autoAlpha: 1, zIndex: 5, duration: 0.5 });
                         setActivate(true); 
+                        setGenerate(true);
                       },
                       onLeaveBack: () => {
                         gsap.to(section, { autoAlpha: 0, zIndex: -11, duration: 0.5 });
                         setActivate(false);
+                        setGenerate(false);
                     },
                     onUpdate: (self) => {
 
@@ -214,7 +223,12 @@ const FrameFixGuide: React.FC = () => {
                                 </div>
 
                                 <div className="ai-generate">
-                                    <div className="contain">
+                                    <motion.div
+                                    ref={generate as React.Ref<HTMLDivElement>}
+                                    initial={{ opacity: 0, scale: 0.0 }}
+                                    animate={generateControls}
+
+                                    className="contain">
                                         <div className="user-generate">
                                             <p>example...</p>
                                         </div>
@@ -223,11 +237,11 @@ const FrameFixGuide: React.FC = () => {
                                                 Try Example
                                             </div>
                                             <div className="generate">
-                                                <div></div>
-                                                <div>Generate</div>
+                                                <div className="generate-icon"><GenerateIcon/></div>
+                                                <div className="t">Generate</div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </motion.div>
                                 </div>
                             </div>
                         </div>
@@ -295,7 +309,6 @@ const FrameFixGuide: React.FC = () => {
                             <div className='type-icon'>
                                 <div className="icon"><Deploy/></div>
                                 <div className="txt">layouts</div>
-
                             </div>
                             <h1> Structure with a few <span>clicks.</span></h1>
                         </div>

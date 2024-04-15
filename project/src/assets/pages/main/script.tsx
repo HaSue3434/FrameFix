@@ -187,3 +187,21 @@ export const useDefaultFadeOut = (): [React.RefObject<HTMLDivElement>, Animation
 
 }
 
+export const useInViewPluginsScale = (activate : any): [React.RefObject<HTMLDivElement>, AnimationControls] => {
+    const controls = useAnimation();
+    const ref = useRef<HTMLDivElement>(null);
+  
+    useEffect(() => {
+      if (activate) {
+        controls.start({
+          opacity: 1,
+          scale: 1,
+          transition: { type: 'spring', stiffness: 50, damping: 10 },
+        });
+      } else {
+        controls.start({ opacity: 0, scale: 0.5 });
+      }
+    }, [controls, activate]);
+  
+    return [ref, controls];
+}

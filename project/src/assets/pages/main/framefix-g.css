@@ -45,6 +45,12 @@
     align-items: center;
 
 }
+.section-i.f-c .txt h1{
+    max-width: 600px;
+}
+.section-i.f-b .txt h1{
+    max-width: 750px;
+}
 .section-i>div .txt{
     width: 100%;
 }
@@ -104,18 +110,18 @@
     height: 700px;
     width: 100%;
     z-index: 10;
-    margin-top: 55px;
+    margin-top: 35px;
     position: relative;
 }
 .section-i .framefix>.box{
     position: absolute;
     top: 0;
     left: 0;
-    width: 1300px;
+    width: auto;
     height: 100%;
     border-radius: 15px;
     background: rgba(255,255,255,.1);
-    padding: 8px;
+    padding: 15px;
     z-index: -1;
 
 }
@@ -127,11 +133,61 @@
     background: #1b1b1b;
     overflow: hidden;
     border-radius: 10px;
+    position: relative;
+}
+.section-i .framefix>.box > .contents .assets{
+    position: absolute;
+    top: 60px;
+    left: 0;
+    height: 100%;
+    width: 80px;
+    display: flex;
+}
+.section-i .framefix>.box > .contents .assets>div{
+    background: #000;
+    height: 100%;
+}
+.section-i .framefix>.box > .contents .assets .category{
+    width: 80px;
+    border-right: 1px solid rgba(255,255,255,.1);
+    min-width: 80px;
+}
+.section-i .framefix>.box > .contents .assets .category-items{
+    width: 200px;
+    min-width: 200px;
 }
 .section-i .framefix>.box > .contents .head{
     width: 100%;
     height: 60px;
     background: #000;
+    padding: 12px 15px;
+    border-bottom:  1px solid rgba(255,255,255,.1);
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.section-i .framefix>.box > .contents .head .frame-logo{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.section-i .framefix>.box > .contents .head .frame-logo svg:nth-child(1){
+    width: auto;    
+    height: 30px;
+}
+.section-i .framefix>.box > .contents .head .frame-logo svg:nth-child(2){
+    height:6px;
+}
+.section-i .framefix>.box > .contents .head .project-name p {
+    color: rgba(255,255,255,1);
+    font-size: 14px;
+    line-height: 30px;
+}
+.section-i .framefix>.box > .contents .head .project-name p span{
+    color: rgba(255,255,255,.35);
+}
+.section-i .framefix>.box > .contents .head .project-name p svg{
+    height: 6px;
 }
 .section-i .framefix>.box > .contents  .ins-ai{
     width: 100%;
@@ -185,5 +241,19 @@
 }
 
 .out-box{
+    position: absolute;
+    top:150px;
+    left: -100px;
+    display: flex;
+    flex-direction: column;
+}
+.out-box>div{
+
+    border: 1px solid rgba(255,255,255,.1);
+    background: #000;
+    position: relative;
+    border-radius: 10px;
+}
+.section-i .framefix>.box > .contents .generate{
     position: absolute;
 }

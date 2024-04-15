@@ -1,20 +1,28 @@
-import React, { useEffect,useRef} from "react";
+import React, { useEffect,useRef,useState} from "react";
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ReactComponent as Logo } from "../../../img/logo/logo.svg";
 import { motion } from 'framer-motion';
-import { ReactComponent as Community } from '../../../img/icons/community-icon.svg';
 import { ReactComponent as Deploy } from '../../../img/icons/deploy-icon.svg';
+import { ReactComponent as OutContentAI } from '../../../img/icons/out content.svg';
+
+import { ReactComponent as Logo } from "../../../img/logo/logo.svg";
+import { ReactComponent as FrameLogo } from "../../../img/logo/frame-logo.svg";
+import { ReactComponent as AiPoweredIcon } from "../../../img/icons/ai-powered-icon.svg";
+
 import { Link } from 'react-router-dom';
 
 import {
-    useDefaultFadeOut
+    useDefaultFadeOut,
+    useInViewPluginsScale
 } from "../script";
 gsap.registerPlugin(ScrollTrigger);
 
 const FrameFixGuide: React.FC = () => {
 
     const sectionsRef = useRef<HTMLDivElement>(null);
+
+    const [activate, setActivate] = useState(false);
+    const [outBoxRef, outBoxControls] = useInViewPluginsScale(activate);
 
     useEffect(() => {
         if (sectionsRef.current) {
@@ -31,10 +39,22 @@ const FrameFixGuide: React.FC = () => {
                     pin : true,
                     pinSpacing: false,
                     pinType : "transform",
-                    onEnter: () => gsap.to(section, { autoAlpha: 1, zIndex : 5, duration : 0.5, }),
-                    onLeave: () => gsap.to(section, { autoAlpha: 0, zIndex : -11, duration : 0.5  }), 
-                    onEnterBack: () => gsap.to(section, { autoAlpha: 1, zIndex : 5, duration : 0.5 }),
-                    onLeaveBack: () => gsap.to(section, { autoAlpha: 0, zIndex : -11, duration : 0.5  }),
+                    onEnter: () => {
+                        gsap.to(section, { autoAlpha: 1, zIndex: 5, duration: 0.5 });
+                        setActivate(true);  // Activate the effect
+                      },
+                      onLeave: () => {
+                        gsap.to(section, { autoAlpha: 0, zIndex: -11, duration: 0.5 });
+                        setActivate(false); // Deactivate the effect
+                      },
+                      onEnterBack: () => {
+                        gsap.to(section, { autoAlpha: 1, zIndex: 5, duration: 0.5 });
+                        setActivate(true);  // Reactivate the effect
+                      },
+                      onLeaveBack: () => {
+                        gsap.to(section, { autoAlpha: 0, zIndex: -11, duration: 0.5 });
+                        setActivate(false); // Deactivate the effect
+                    },
                     onUpdate: (self) => {
 
                         if (progressBar) {
@@ -61,7 +81,7 @@ const FrameFixGuide: React.FC = () => {
                         
                         <div>
                             <div className='type-icon'>
-                                <div className="icon"><Deploy/></div>
+                                <div className="icon"><AiPoweredIcon/></div>
                                 <div className="txt">ai-powered</div>
                             </div>
                             <h1> <span>Quick and Precise</span>  Layouts with AI.</h1>
@@ -86,7 +106,12 @@ const FrameFixGuide: React.FC = () => {
                         <div className="box">
                             <div className="contents">
                                 <div className="head">
-                                    
+                                    <div className="frame-logo">
+                                        <FrameLogo/>
+                                    </div>
+                                    <div className="project-name">
+                                        <p> <span>Drafts /</span> Project name</p>
+                                    </div>
                                 </div>
                                 <div className="ins-ai">
                                     <div className="block-1 block">
@@ -102,11 +127,28 @@ const FrameFixGuide: React.FC = () => {
                                         <div><img src={require("../../../img/mint.jpg")} alt="" /></div>
                                     </div>
                                 </div>
+                                <div className="assets">
+                                    <div className="category">
+
+                                    </div>
+                                    <div className="category-items">
+
+                                    </div>
+                                </div>
+
+                                <div className="generate">
+                                    
+                                </div>
                             </div>
                         </div>
-                        <div className="out-box">
+                        <motion.div 
+                        ref={outBoxRef as React.Ref<HTMLDivElement>}
+                        initial={{ opacity: 0, scale: 0.0 }}
+                        animate={outBoxControls}
 
-                        </div>
+                        className="out-box"  id="out-box">
+                            <OutContentAI/>
+                        </motion.div>
                     </div>
                   </div>
                 </motion.div>
@@ -126,7 +168,7 @@ const FrameFixGuide: React.FC = () => {
                             </div>
                             <div className="explain">
                                 <p className="sub-title">Effects</p>
-                                <p>Effective visual effects guide user focus, enhance interaction with websites and apps, and enrich the user experience.</p>
+                                <p>Enhance user interactions and focus by adding effects to websites and apps, enriching the overall user experience. These visual enhancements encourage intuitive navigation and a more user-friendly environment.</p>
                             </div>
                         </div>
                         <div className="see-all">
@@ -154,23 +196,23 @@ const FrameFixGuide: React.FC = () => {
                         <div>
                             <div className='type-icon'>
                                 <div className="icon"><Deploy/></div>
-                                <div className="txt">ai-powered</div>
+                                <div className="txt">layouts</div>
 
                             </div>
-                            <h1> <span>Quick and Precise</span>  Layouts with AI.</h1>
+                            <h1> Structure with a few <span>clicks.</span></h1>
                         </div>
                         <div className="m-expl">
                             <div className="progress-contain">
                                 <div className="progress"></div>
                             </div>
                             <div className="explain">
-                                <p className="sub-title">Utilize</p>
-                                <p>FrameFix utilizes AI technology to allow for precise and quick adjustments in layouts. This tool supports efficient workflow, enhancing project completion speeds. Experience perfect layouts with the help of AI.</p>
+                                <p className="sub-title">Layouts</p>
+                                <p>Effective visual effects guide user focus, enhance interaction with websites and apps, and enrich the user experience.</p>
                             </div>
                         </div>
                         <div className="see-all">
                             <Link to="./">
-                                See all AI
+                                See all Layout
                             </Link>
                            
                         </div>

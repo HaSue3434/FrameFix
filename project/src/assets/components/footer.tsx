@@ -4,7 +4,7 @@ import { ReactComponent as Logo } from "../img/logo/logo.svg";
 const Footer = () =>{
     return (
         <footer className='footer'>
-            <div className='logo'>
+            <div className="f-wrapper">
                 
             </div>
         </footer>

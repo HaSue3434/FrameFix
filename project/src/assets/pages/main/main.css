@@ -1588,9 +1588,9 @@ section.main .wrapper  .main-framefix .frame>div .contain{
     width: 100%;
     height:900px;
     border-radius: 15px;
-    background: rgba(255,255,255,.1);
     overflow: hidden;
-    padding: 15px;
+    border: 1px solid rgba(255,255,255,.2);
+    
 }
 .framefix-footer .wrapper .contain .wrap{
     overflow: hidden;
@@ -1609,19 +1609,136 @@ section.main .wrapper  .main-framefix .frame>div .contain{
     align-items: center;
     border-bottom: 1px solid rgba(255,255,255,.1);
     padding: 15px;
+    gap: 35px;
     
 }
-.framefix-footer .wrapper .contain .wrap .head .side{
+.framefix-footer .wrapper .contain .wrap .head .framefix-project{
     display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.framefix-footer .wrapper .contain .wrap .head .logo svg{
+   height: 35px;
+}
+.framefix-footer .wrapper .contain .wrap .head~.side{
+    display: flex;
+    z-index: 555;
     justify-content: space-between;
     gap: 35px;
     width: 100%;
     height: 100%;
 }
+.framefix-footer .wrapper .contain .wrap .head .framefix-project .name p{
+    color: rgba(255,255,255,1);
+    font-size: 15px;
+    line-height: 65px;
+    user-select: none;
+    vertical-align: middle;
+}
+.framefix-footer .wrapper .contain .wrap .head .framefix-project .name p span{
+    color: rgba(2555,255,255,.35);
+}
+.framefix-footer .wrapper .contain .wrap .head .framefix-project .free{
+    color: rgba(255,255,255,1);
+    font-weight: 500;
+    font-size: 13px;
+    background: #459AFF;
+    border-radius: 3px;
+    padding: 3px 8px;
+}
+.framefix-footer .wrapper .contain .wrap .head .u-interaction{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+.framefix-footer .wrapper .contain .wrap .head .u-interaction > div{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.framefix-footer .wrapper .contain .wrap .head .u-interaction > div svg{
+    vertical-align: middle;
+    height: 100%;
+}
+.framefix-footer .wrapper .contain .wrap .head .u-interaction > div svg:nth-child(2){
+    height: 5px;
+}
+.framefix-footer .wrapper .contain .wrap .head .u-interaction .cursor{
+    
+    background: #459AFF;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    width: 45px;
+    height: 45px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+.framefix-footer .wrapper .contain .wrap .head .u-interaction .cursor svg{
+    vertical-align: middle;
+    margin-left: 5px;
+}
+.framefix-footer .wrapper .contain .wrap .head .u-interaction .hr {
+    width: 3px;
+    height: 30px;
+    background: rgba(255,255,255,.2);
+}
+.framefix-footer .wrapper .contain .wrap .head .u-interaction .zoom-in{
+    gap: 15px;
+}
+.framefix-footer .wrapper .contain .wrap .head .u-interaction .zoom-in .num{
+    font-size: 14px;
+    color: rgba(255,255,255,1);
+}
+.framefix-footer .wrapper .contain .wrap .head .user-publish{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
 .framefix-footer .wrapper .contain .wrap .side .left{
     display: flex;
     height: 100%;
     width: auto;
+}
+.framefix-footer .wrapper .contain .wrap .head .user-publish .user-infor{
+    display: flex;
+    background-color:#2B2B2B;
+    height: 45px;
+    width: 65px;
+    align-items: center;
+    gap: 5px;
+    border-radius: 50px;
+    padding: 5px;
+}
+.framefix-footer .wrapper .contain .wrap .head .user-publish .user-infor>div{
+    width: 35px;
+    height: 100%;
+    border-radius: 50%;
+    background: #459AFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(255,255,255,1);
+    font-weight: bold;
+    font-size: 1.13em;
+    user-select: none;
+}
+.framefix-footer .wrapper .contain .wrap .head .user-publish .user-infor svg{
+    height:6px;
+    vertical-align: middle;
+}
+.framefix-footer .wrapper .contain .wrap .head .user-publish .publish-btn{
+    color: rgba(255,255,255,1);
+    font-size: 13px;
+    background: #459AFF;
+    border-radius: 5px;
+    padding: 8px 15px;
+}
+.framefix-footer .wrapper .contain .wrap .head .user-publish .an{
+    padding: 8px 12px;
+    border-radius: 5px;
+    background: #2B2B2B;
 }
 .framefix-footer .wrapper .contain .wrap .side .left .category{
     display: flex;
@@ -1646,12 +1763,28 @@ section.main .wrapper  .main-framefix .frame>div .contain{
 .framefix-footer .wrapper .contain .wrap .side .left .category>div>.t span{
     color: rgba(255,255,255,1);
     font-size: 14px;
-
+    text-transform: capitalize;
 }
 .framefix-footer .wrapper .contain .wrap .side .left .assets{
-    width: 260px;
+    width: 240px;
     background: #000;
-    padding: 15px;
+}
+.framefix-footer .wrapper .contain .wrap .side .left .assets .close-icon{
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255,255,255,.1);
+    border-radius: 5px;
+}
+.framefix-footer .wrapper .contain .wrap .side .left .assets .pages .icons{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.framefix-footer .wrapper .contain .wrap .side .left .assets .pages .icons > div:nth-child(2) svg{
+    vertical-align: middle;
 }
 .framefix-footer .bottom-blur{
     bottom: 0;
@@ -1663,8 +1796,90 @@ section.main .wrapper  .main-framefix .frame>div .contain{
     filter: blur(25px);
     z-index: 5;
 }
-.footer{
+.framefix-footer .wrapper .contain .wrap .side .left .assets .pages .page-top .items{
+    padding-left: 12px;
+}
+.framefix-footer .wrapper .contain .wrap .side .left .assets .pages .page-top .items>div{
+    padding-top: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.framefix-footer .wrapper .contain .wrap .side .left .assets .pages .page-top .items>div:nth-child(2){
+    opacity: 0.5;
+}
+.framefix-footer .wrapper .contain .wrap .side .left .assets .pages .page-top .items p{
+    color: rgba(255,255,255,1);
+    font-size: 12px;
+    text-transform: capitalize;
+}
+.framefix-footer .wrapper .contain .wrap .side .left .assets .layer{
+    padding: 15px;
+
+}
+.framefix-footer .wrapper .contain .wrap .side .left .assets .layer h4{
+    color: rgba(255,255,255,1);
+    font-size: 15px;
+    font-weight: 500;
+}
+.framefix-footer .wrapper .contain .wrap .side .left .assets .layer .frame-contain {
+    padding-top: 15px;
+}
+.framefix-footer .wrapper .contain .wrap .side .left .assets .layer .frame-contain .frame .h{
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    padding-top: 0;
+    padding-bottom: 0;
+    gap: 10px;
+}
+.framefix-footer .wrapper .contain .wrap .side .left .assets .layer .frame-contain .frame .h svg{
+    height: 25px;
+    background: black;
+}
+.framefix-footer .wrapper .contain .wrap .side .left .assets .layer .frame-contain  p{
+    color: rgba(255,255,255,1);
+    font-size: 12px;
+}
+.framefix-footer .wrapper .contain .wrap .side .left .assets .layer .frame-contain .in-e{
+    padding-top: 15px;
+    padding-left: 42px;
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+.framefix-footer .wrapper .contain .wrap .side .left .assets .layer .frame-contain .in-e .e-infor{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+}
+.space{
+    padding: 15px;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+.pages.space{
+    align-items: flex-start;
+}
+.space h4{
+    font-size: 15px;
+    font-weight: 500;
+    color: rgba(255,255,255,1);
+}
+.framefix-footer .wrapper .contain .wrap .side .right{
+    width: 320px;
+    height: 100%;
+    background: #000;
+}
+.elements{
+    position: absolute;
     width: 100%;
     height: 100%;
-    margin-top: 50vh;
+    left: 0;
+    top: 0;
 }

@@ -30,7 +30,7 @@ function RoutesWithHeader() {
             <Route path="/file/framefix" element={<FrameFix />} />
           </Routes>
       
-      <Footer />
+      {location.pathname !== "/file/framefix" && <Footer />}
     </>
   );
 }

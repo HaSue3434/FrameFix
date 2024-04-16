@@ -17,6 +17,10 @@ import { ReactComponent as Community } from '../../img/icons/community-icon.svg'
 import { ReactComponent as NoneTxtLogo } from '../../img/icons/none-txt-logo.svg';
 import { ReactComponent as F } from '../../img/icons/f.svg';
 import { ReactComponent as Template } from '../../img/icons/framefix-plugins-icon/template.svg';
+import { ReactComponent as FrameLogo } from "../../img/logo/frame-logo.svg";
+
+// framfix icon //
+
 import { ReactComponent as Layer } from '../../img/icons/framefix-plugins-icon/layer.svg';
 import { ReactComponent as Text } from '../../img/icons/framefix-plugins-icon/text.svg';
 import { ReactComponent as Menus } from '../../img/icons/framefix-plugins-icon/menus.svg';
@@ -26,7 +30,21 @@ import { ReactComponent as Slides } from '../../img/icons/framefix-plugins-icon/
 import { ReactComponent as Button } from '../../img/icons/framefix-plugins-icon/button.svg';
 import { ReactComponent as Icons } from '../../img/icons/framefix-plugins-icon/icons.svg';
 import { ReactComponent as Magic } from '../../img/icons/framefix-plugins-icon/magic.svg';
+import { ReactComponent as Close } from '../../img/icons/framefix-plugins-icon/close.svg';
+import { ReactComponent as Add } from '../../img/icons/framefix-plugins-icon/add.svg';
+import { ReactComponent as Minus } from '../../img/icons/framefix-plugins-icon/minus.svg';
+import { ReactComponent as AssetsBottomArrow } from '../../img/icons/framefix-plugins-icon/aseets-arrow-bottom.svg';
+import { ReactComponent as PageIcon } from '../../img/icons/framefix-plugins-icon/page-icon.svg';
+import { ReactComponent as FrameIcon } from '../../img/icons/framefix-plugins-icon/frame.svg';
+import { ReactComponent as Rect } from '../../img/icons/framefix-plugins-icon/Rect.svg';
+import { ReactComponent as CursorIcon } from '../../img/icons/framefix-plugins-icon/cursor.svg';
+import { ReactComponent as Locked } from '../../img/icons/framefix-plugins-icon/locked.svg';
+import { ReactComponent as Open } from '../../img/icons/framefix-plugins-icon/opened.svg';
+import { ReactComponent as Hand } from '../../img/icons/framefix-plugins-icon/hand.svg';
+import { ReactComponent as Settings } from '../../img/icons/framefix-plugins-icon/settings.svg';
+import { ReactComponent as Preview } from '../../img/icons/framefix-plugins-icon/view.svg';
 
+// framfix icon //
 
 import "./slider/project-maker.css"
 import "./framefix-g.css"
@@ -725,7 +743,43 @@ function Main() {
                         <div className="contain">
                             <div className="wrap">
                                 <div className='head'>
-
+                                    <div className='framefix-project'>
+                                        <div className='logo'><FrameLogo/></div>
+                                        <div className='name'>
+                                            <p><span>Drafts / </span>Project Name</p>
+                                        </div>
+                                        <div className="free">Free</div>
+                                        <div className="option"><AssetsBottomArrow/></div>
+                                    </div>
+                                    <div className='u-interaction'>
+                                        <div className='cursor'>
+                                            <CursorIcon/>
+                                        </div>
+                                        <div className='frame'>
+                                            <FrameIcon/><AssetsBottomArrow/>
+                                        </div>
+                                        <div className='rect'>
+                                            <Rect/><AssetsBottomArrow/>
+                                        </div>
+                                        <div className='hand'>
+                                            <Hand/>
+                                        </div>
+                                        <div className="hr"></div>
+                                        <div className="zoom-in">
+                                            <div className='miuns'><Minus/></div>
+                                            <div className='num'>100%</div>
+                                            <div className='plus'><Add/></div>
+                                        </div>
+                                    </div>
+                                    <div className='user-publish'>
+                                        <div className='user-infor'>
+                                            <div>U</div>
+                                            <AssetsBottomArrow/>
+                                        </div>
+                                        <div className='settings an'><Settings/></div>
+                                        <div className='preview  an'><Preview/></div>
+                                        <div className='publish-btn'>Publish</div>
+                                    </div>
                                 </div>
                                 <div className='side'>
                                     <div className='left si'>
@@ -772,10 +826,83 @@ function Main() {
                                             </div>
                                         </div>
                                         <div className='assets'>
+                                            <div>
+                                                <div className="layer-top space">
+                                                    <div className='category-title'><h4>Layer</h4></div>
+                                                    <div className='close-icon'>
+                                                        <Close/>
+                                                    </div>
+                                                </div>
+                                                <div className="pages space">
+                                                    <div className='page-top'>
+                                                        <div className='pages-title'><h4>Page</h4></div>
+                                                        <div className='items'>
+                                                            <div className='page'>
+                                                                <div className='icon'><PageIcon/></div>
+                                                                <div className='t'><p>page1</p></div>
+                                                            </div>
+                                                            <div className='page'>
+                                                                <div className='icon'><PageIcon/></div>
+                                                                <div className='t'><p>page2</p></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className='icons'>
+                                                        <div><Add/></div>
+                                                        <div><AssetsBottomArrow/></div>
+                                                    </div>
+                                                    
+                                                </div>
+                                                <div className="layer">
+                                                    <div className='layer-title'><h4>Layer</h4></div>
+                                                    <div className='frame-contain'>
+                                                        <div className="frame">
+                                                            <div className='h'><AssetsBottomArrow/><FrameIcon/><p>Frame</p></div>
+
+                                                            <div className="in-e">
+                                                                <div className='e-infor'>
+                                                                    <Rect/> 
+                                                                    <p>Rectangle1</p>
+                                                                </div>
+                                                                <div className='e-isset-locked'>
+                                                                    <Locked/>
+                                                                </div>
+                                                            </div>
+                                                            <div className="in-e">
+                                                                <div className='e-infor'>
+                                                                    <Rect/> 
+                                                                    <p>Rectangle2</p>
+                                                                </div>
+                                                                <div className='e-isset-locked'>
+                                                                    <Open/>
+                                                                </div>
+                                                            </div>
+                                                            <div className="in-e">
+                                                                <div className='e-infor'>
+                                                                    <Rect/> 
+                                                                    <p>Rectangle3</p>
+                                                                </div>
+                                                            </div>
+                                                            <div className="in-e">
+                                                                <div className='e-infor'>
+                                                                    <Rect/> 
+                                                                    <p>Rectangle4</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
                                             
                                         </div>
                                     </div>
-                                    <div className='right si'></div>
+                                    <div className='right si'>
+
+                                    </div>
+                                </div>
+                                <div className="elements">
+                                    
                                 </div>
                             </div>
                         </div>

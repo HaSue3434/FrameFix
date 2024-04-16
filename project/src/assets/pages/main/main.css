@@ -1574,5 +1574,97 @@ section.main .wrapper  .main-framefix .frame>div .contain{
     transform: scale(1);
 }
 .framefix-footer{
+    position: relative;
     padding-top: 50vh;
+}
+.framefix-footer .wrapper{
+    width: 1680px;
+    max-width: 100%;
+    padding: 25px;
+    margin: 0 auto;
+    height: auto;
+}
+.framefix-footer .wrapper .contain{
+    width: 100%;
+    height:900px;
+    border-radius: 15px;
+    background: rgba(255,255,255,.1);
+    overflow: hidden;
+    padding: 15px;
+}
+.framefix-footer .wrapper .contain .wrap{
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #171717;
+    border-radius: 15px;
+}
+.framefix-footer .wrapper .contain .wrap .head{
+    width: 100%;
+    height: 65px;
+    background: #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+    padding: 15px;
+    
+}
+.framefix-footer .wrapper .contain .wrap .head .side{
+    display: flex;
+    justify-content: space-between;
+    gap: 35px;
+    width: 100%;
+    height: 100%;
+}
+.framefix-footer .wrapper .contain .wrap .side .left{
+    display: flex;
+    height: 100%;
+    width: auto;
+}
+.framefix-footer .wrapper .contain .wrap .side .left .category{
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: 100%;
+    align-items: center;
+    border-right: 1px solid rgba(255,255,255,.1);
+    background: #000;
+}
+.framefix-footer .wrapper .contain .wrap .side .left .category>div{
+    text-align: center;
+    padding: 15px;
+    width: 100%;
+}
+.framefix-footer .wrapper .contain .wrap .side .left .category>div.layer{
+    border-right: 1px solid #459AFF;
+}
+.framefix-footer .wrapper .contain .wrap .side .left .category>div>.t{
+    padding-top: 5px;
+}
+.framefix-footer .wrapper .contain .wrap .side .left .category>div>.t span{
+    color: rgba(255,255,255,1);
+    font-size: 14px;
+
+}
+.framefix-footer .wrapper .contain .wrap .side .left .assets{
+    width: 260px;
+    background: #000;
+    padding: 15px;
+}
+.framefix-footer .bottom-blur{
+    bottom: 0;
+    width: 100%;
+    height: 150px;
+    position: absolute;
+    left: 0;
+    background: #000;
+    filter: blur(25px);
+    z-index: 5;
+}
+.footer{
+    width: 100%;
+    height: 100%;
+    margin-top: 50vh;
 }

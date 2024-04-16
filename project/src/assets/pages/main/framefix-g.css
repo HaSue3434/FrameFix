@@ -395,10 +395,9 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    cursor: pointer;
     
 }
-.create-ai>div{
+.create-ai a {
     display: flex;
     transition: .3s;
     box-shadow: 0px 0px 15px #4599ffbb;
@@ -411,16 +410,17 @@
     position: relative;
     top: -55px;
     right: -55px;
+    gap: 5px;
 }
-.create-ai>div:hover{
+.create-ai a:hover{
     box-shadow: 0px 0px 15px rgba(233,96,255,.35);
     background: #C362FF;
 }
-.create-ai>div svg{
+.create-ai a > div svg{
     height: 20px;
     vertical-align: middle;
 }
-.create-ai>div p{
+.create-ai a p{
     user-select: none;
     color: rgba(255,255,255,1);
     font-weight: 500;

@@ -73,6 +73,7 @@ const FrameFixGuide: React.FC = () => {
                         setTimeout(()=>{
                             setTriggerTyping(true);
                         },500)
+                        
                     },
                     onLeave: () => {
                         gsap.to(section, { autoAlpha: 0, zIndex: -11, duration: 0.5 });
@@ -267,10 +268,10 @@ const FrameFixGuide: React.FC = () => {
                             <OutContentAI/>
 
                             <motion.div className="create-ai">
-                                <div>
+                                <Link to="./">
                                     <div><Star/></div>
                                     <p>Create AI</p>
-                                </div>
+                                </Link>
                             </motion.div>
                         </motion.div>
                     </div>

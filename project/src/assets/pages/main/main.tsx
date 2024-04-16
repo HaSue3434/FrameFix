@@ -4,7 +4,9 @@ import ScrollSmootherComponent from "./ScrollSmoother";
 import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { motion, useScroll } from 'framer-motion';
+import { motion } from 'framer-motion';
+
+
 import { ReactComponent as Share } from '../../img/icons/share.svg';
 import { ReactComponent as URL } from '../../img/icons/url.svg';
 import { ReactComponent as Heart } from '../../img/icons/heart.svg';
@@ -14,6 +16,18 @@ import { ReactComponent as SEO } from '../../img/icons/seo-icon.svg';
 import { ReactComponent as Community } from '../../img/icons/community-icon.svg';
 import { ReactComponent as NoneTxtLogo } from '../../img/icons/none-txt-logo.svg';
 import { ReactComponent as F } from '../../img/icons/f.svg';
+import { ReactComponent as Template } from '../../img/icons/framefix-plugins-icon/template.svg';
+import { ReactComponent as Layer } from '../../img/icons/framefix-plugins-icon/layer.svg';
+import { ReactComponent as Text } from '../../img/icons/framefix-plugins-icon/text.svg';
+import { ReactComponent as Menus } from '../../img/icons/framefix-plugins-icon/menus.svg';
+import { ReactComponent as Header } from '../../img/icons/framefix-plugins-icon/header.svg';
+import { ReactComponent as Footer } from '../../img/icons/framefix-plugins-icon/footer.svg';
+import { ReactComponent as Slides } from '../../img/icons/framefix-plugins-icon/slides.svg';
+import { ReactComponent as Button } from '../../img/icons/framefix-plugins-icon/button.svg';
+import { ReactComponent as Icons } from '../../img/icons/framefix-plugins-icon/icons.svg';
+import { ReactComponent as Magic } from '../../img/icons/framefix-plugins-icon/magic.svg';
+
+
 import "./slider/project-maker.css"
 import "./framefix-g.css"
 import DefaultUI from "./slider/project-maker";
@@ -707,7 +721,66 @@ function Main() {
                 </section>
 
                 <section className='framefix-footer' data-scroll data-scroll-section>
+                    <div className="wrapper">
+                        <div className="contain">
+                            <div className="wrap">
+                                <div className='head'>
 
+                                </div>
+                                <div className='side'>
+                                    <div className='left si'>
+                                        <div className='category'>
+                                            <div>
+                                                <div className="icon"><Template/></div>
+                                                <div className="t"><span>Template</span></div>
+                                            </div>
+                                            <div className='layer'>
+                                                <div className="icon"><Layer/></div>
+                                                <div className="t"><span>Layer</span></div>
+                                            </div>
+                                            <div>
+                                                <div className="icon"><Text/></div>
+                                                <div className="t"><span>Text</span></div>
+                                            </div>
+                                            <div>
+                                                <div className="icon"><Menus/></div>
+                                                <div className="t"><span>Menus</span></div>
+                                            </div>
+                                            <div>
+                                                <div className="icon"><Header/></div>
+                                                <div className="t"><span>Header</span></div>
+                                            </div>
+                                            <div>
+                                                <div className="icon"><Footer/></div>
+                                                <div className="t"><span>Footer</span></div>
+                                            </div>
+                                            <div>
+                                                <div className="icon"><Slides/></div>
+                                                <div className="t"><span>Slides</span></div>
+                                            </div>
+                                            <div>
+                                                <div className="icon"><Button/></div>
+                                                <div className="t"><span>Button</span></div>
+                                            </div>
+                                            <div>
+                                                <div className="icon"><Icons/></div>
+                                                <div className="t"><span>Icons</span></div>
+                                            </div>
+                                            <div>
+                                                <div className="icon"><Magic/></div>
+                                                <div className="t magic"><span>Magic</span></div>
+                                            </div>
+                                        </div>
+                                        <div className='assets'>
+                                            
+                                        </div>
+                                    </div>
+                                    <div className='right si'></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="bottom-blur"></div>
                 </section>
 
             </>

@@ -6,6 +6,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { motion } from 'framer-motion';
 
+import { ReactComponent as Logo } from '../../img/logo/logo.svg';
 
 import { ReactComponent as Share } from '../../img/icons/share.svg';
 import { ReactComponent as URL } from '../../img/icons/url.svg';
@@ -18,7 +19,7 @@ import { ReactComponent as NoneTxtLogo } from '../../img/icons/none-txt-logo.svg
 import { ReactComponent as F } from '../../img/icons/f.svg';
 import { ReactComponent as Template } from '../../img/icons/framefix-plugins-icon/template.svg';
 import { ReactComponent as FrameLogo } from "../../img/logo/frame-logo.svg";
-
+import { ReactComponent as NextArrow } from '../../img/icons/next-arrow.svg';
 // framfix icon //
 
 import { ReactComponent as Layer } from '../../img/icons/framefix-plugins-icon/layer.svg';
@@ -43,6 +44,7 @@ import { ReactComponent as Open } from '../../img/icons/framefix-plugins-icon/op
 import { ReactComponent as Hand } from '../../img/icons/framefix-plugins-icon/hand.svg';
 import { ReactComponent as Settings } from '../../img/icons/framefix-plugins-icon/settings.svg';
 import { ReactComponent as Preview } from '../../img/icons/framefix-plugins-icon/view.svg';
+
 
 // framfix icon //
 
@@ -739,6 +741,20 @@ function Main() {
                 </section>
 
                 <section className='framefix-footer' data-scroll data-scroll-section>
+                    <div className='title'>
+                        <div>
+                            <div className="logo"><Logo/></div>
+                            <h1>Get Started FrameFix</h1>
+                            <p>Try using the FrameFix tool to easily build a website.</p>
+                            <div className='btn'>
+                                <Link to='./'>
+                                    Start FrameFix
+                                    <div className='next'><NextArrow/></div>
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="background"></div>
                     <div className="wrapper">
                         <div className="contain">
                             <div className="wrap">
@@ -902,7 +918,26 @@ function Main() {
                                     </div>
                                 </div>
                                 <div className="elements">
-                                    
+                                    <div className='work-contents'>
+                                        <div className="desktop" id='desktop-frame'>
+                                            <p>Desktop Frame</p>
+                                            <div>
+                                                <div className="header">
+                                                    <div className="nav">
+                                                        <div className='logo'>
+                                                            <FrameLogo/>
+                                                        </div>
+                                                        <div className='items'></div>
+                                                        <div className='btn'></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="mobile">
+                                            <p>Mobile Frame</p>
+                                            <div></div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -915,7 +950,3 @@ function Main() {
     );
 }
 export default Main;
-
-function createRoot(panelElement: HTMLDivElement) {
-    throw new Error('Function not implemented.');
-}

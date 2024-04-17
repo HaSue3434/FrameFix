@@ -34,7 +34,7 @@ import { ReactComponent as Icons } from '../../img/icons/framefix-plugin-icons/i
 import { ReactComponent as Magic } from '../../img/icons/framefix-plugin-icons/magic.svg';
 import { ReactComponent as Close } from '../../img/icons/framefix-plugin-icons/close.svg';
 import { ReactComponent as Add } from '../../img/icons/framefix-plugin-icons/add.svg';
-import { ReactComponent as Minus } from '../../img/icons/framefix-plugins-icon/minus.svg';
+import { ReactComponent as Minus } from '../../img/icons/framefix-plugin-icons/minus.svg';
 import { ReactComponent as AssetsBottomArrow } from '../../img/icons/framefix-plugin-icons/aseets-arrow-bottom.svg';
 import { ReactComponent as PageIcon } from '../../img/icons/framefix-plugin-icons/page-icon.svg';
 import { ReactComponent as FrameIcon } from '../../img/icons/framefix-plugin-icons/frame.svg';
@@ -48,6 +48,19 @@ import { ReactComponent as Preview } from '../../img/icons/framefix-plugin-icons
 
 
 // framfix icon //
+
+// framefix style icons //
+
+import { ReactComponent as Left } from '../../img/icons/framefix-style-icons/left.svg';
+import { ReactComponent as Center } from '../../img/icons/framefix-style-icons/center.svg';
+import { ReactComponent as Right } from '../../img/icons/framefix-style-icons/right.svg';
+import { ReactComponent as AlignTop } from '../../img/icons/framefix-style-icons/align-top.svg';
+import { ReactComponent as AlignVerticalCenter } from '../../img/icons/framefix-style-icons/align-vertical-center.svg';
+import { ReactComponent as AlignBottom } from '../../img/icons/framefix-style-icons/align-bottom.svg';
+import { ReactComponent as VerticalSpacing } from '../../img/icons/framefix-style-icons/vertical-spacing.svg';
+import { ReactComponent as HorizontalSpacing } from '../../img/icons/framefix-style-icons/horizontal-spacing.svg';
+
+// framefix style icons //
 
 import "./slider/project-maker.css"
 import "./framefix-g.css"
@@ -927,6 +940,16 @@ function Main() {
                                             </div>
                                         </div>
                                         <div className="align">
+                                            <div><Left/></div>
+                                            <div><Center/></div>
+                                            <div><Right/></div>
+                                            <div><AlignTop/></div>
+                                            <div><AlignVerticalCenter/></div>
+                                            <div><AlignBottom/></div>
+                                            <div><VerticalSpacing/></div>
+                                            <div><HorizontalSpacing/></div>
+                                        </div>
+                                        <div className="breakpoint">
                                             
                                         </div>
                                     </div>

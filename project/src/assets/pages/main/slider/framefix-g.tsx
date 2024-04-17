@@ -13,19 +13,19 @@ import { ReactComponent as Star } from "../../../img/icons/star.svg";
 
 // icon tools //
 
-import { ReactComponent as Text } from "../../../img/icons/framefix-plugins-icon/text.svg";
-import { ReactComponent as Menus } from "../../../img/icons/framefix-plugins-icon/menus.svg";
-import { ReactComponent as Header } from "../../../img/icons/framefix-plugins-icon/header.svg";
-import { ReactComponent as Footer } from "../../../img/icons/framefix-plugins-icon/footer.svg";
-import { ReactComponent as Slides } from "../../../img/icons/framefix-plugins-icon/slides.svg";
-import { ReactComponent as Button } from "../../../img/icons/framefix-plugins-icon/button.svg";
-import { ReactComponent as Icons } from "../../../img/icons/framefix-plugins-icon/icons.svg";
-import { ReactComponent as Magic } from "../../../img/icons/framefix-plugins-icon/magic.svg";
-import { ReactComponent as Create } from "../../../img/icons/framefix-plugins-icon/create.svg";
-import { ReactComponent as WireFrame } from "../../../img/icons/framefix-plugins-icon/wireframe mode.svg";
-import { ReactComponent as ReplaceTxt } from "../../../img/icons/framefix-plugins-icon/replace-text.svg";
-import { ReactComponent as ReplaceImg} from "../../../img/icons/framefix-plugins-icon/replace-img.svg";
-import { ReactComponent as GenerateIcon} from "../../../img/icons/framefix-plugins-icon/generate-icon.svg";
+import { ReactComponent as Text } from "../../../img/icons/framefix-plugin-icons/text.svg";
+import { ReactComponent as Menus } from "../../../img/icons/framefix-plugin-icons/menus.svg";
+import { ReactComponent as Header } from "../../../img/icons/framefix-plugin-icons/header.svg";
+import { ReactComponent as Footer } from "../../../img/icons/framefix-plugin-icons/footer.svg";
+import { ReactComponent as Slides } from "../../../img/icons/framefix-plugin-icons/slides.svg";
+import { ReactComponent as Button } from "../../../img/icons/framefix-plugin-icons/button.svg";
+import { ReactComponent as Icons } from "../../../img/icons/framefix-plugin-icons/icons.svg";
+import { ReactComponent as Magic } from "../../../img/icons/framefix-plugin-icons/magic.svg";
+import { ReactComponent as Create } from "../../../img/icons/framefix-plugin-icons/create.svg";
+import { ReactComponent as WireFrame } from "../../../img/icons/framefix-plugin-icons/wireframe mode.svg";
+import { ReactComponent as ReplaceTxt } from "../../../img/icons/framefix-plugin-icons/replace-text.svg";
+import { ReactComponent as ReplaceImg} from "../../../img/icons/framefix-plugin-icons/replace-img.svg";
+import { ReactComponent as GenerateIcon} from "../../../img/icons/framefix-plugin-icons/generate-icon.svg";
 
 // icon tools //
 

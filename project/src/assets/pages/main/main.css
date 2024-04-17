@@ -2193,3 +2193,17 @@ section.main .wrapper  .main-framefix .frame>div .contain{
 #right .tab>div.tab-active p{
     color: rgba(255,255,255,1);
 }
+#right .align{
+    padding: 15px;
+    display: flex;
+    border-top: 1px solid rgba(255,255,255,.15);
+    border-bottom: 1px solid rgba(255,255,255,.15);
+    justify-content: space-between;
+}
+#right .align >div svg{
+    height: 20px;
+    vertical-align: middle;
+}
+#right .breakpoint{
+    
+}

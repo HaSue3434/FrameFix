@@ -74,7 +74,7 @@ section.main .wrapper{
 section.main .wrapper .main{
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
     flex-wrap: wrap;
 }
 section.main .wrapper .main .title h1{
@@ -1873,7 +1873,7 @@ section.main .wrapper  .main-framefix .frame>div .contain{
     color: rgba(255,255,255,1);
 }
 .framefix-footer .wrapper .contain .wrap .side .right{
-    width: 300px;
+    width: 280px;
     height: 100%;
     background: #000;
     z-index: 5;
@@ -1893,6 +1893,7 @@ section.main .wrapper  .main-framefix .frame>div .contain{
     display: flex;
     align-items: flex-end;
     gap: 15px;
+    margin-left: 40px;
 }
 .elements .work-contents >div{
     overflow: hidden;
@@ -2000,5 +2001,195 @@ section.main .wrapper  .main-framefix .frame>div .contain{
     padding: 15px;
 }
 #desktop-frame>div .header .nav{
-    padding: 12px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+#desktop-frame>div .header .nav .logo svg{
+    width: auto;
+    vertical-align: middle;
+    height: 20px;
+}
+#desktop-frame>div .header .nav .items{
+    display: flex;
+    gap: 15px;
+}
+#desktop-frame>div .header .nav .items li{
+    font-size: 11px;
+    color: rgba(255,255,255,.8);
+}
+#desktop-frame>div .header .nav .btn{
+    color: rgba(255,255,255,1);
+    background: #459AFF;
+    padding: 5px 8px;
+    border-radius: 5px;
+    font-size: 10px;
+}
+#desktop-frame>div .ex-section {
+    margin-top: 25px;
+}
+#desktop-frame>div .ex-section .txt{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 35px;
+}
+#desktop-frame>div .ex-section .txt .title > h1{
+
+    color: rgba(255,255,255,1);
+    text-transform: uppercase;
+    font-size: 1.5em;
+
+}
+#desktop-frame>div .ex-section .txt .start .expl p{
+    color: rgba(255,255,255,.5);
+    font-size: 8px;
+    max-width: 230px;
+}
+#desktop-frame>div .ex-section .txt .start .btn{
+    color: rgba(255,255,255,1);
+    font-size: 8px;
+    padding: 5px 8px;
+    margin-top: 15px;
+    width: fit-content;
+    background: #459AFF;
+    border-radius: 5px;
+}
+#desktop-frame>div .ex-section .txt .slider-items>div{
+    color: rgba(255,255,255,1);
+    font-size: 8px;
+    padding-top: 8px;
+    text-transform: uppercase;
+
+}
+#desktop-frame>div .ex-section .txt .slider-items>div:not(:nth-child(1)){
+    color: rgba(255,255,255,.35);
+}
+#desktop-frame>div .ex-section .main-banner{
+    margin-top: 25px;
+    width: 100%;
+    height: auto;
+}
+#desktop-frame>div .ex-section .main-banner .ex-contain{
+    width: 100%;
+    height: 260px;
+    background: #1b1b1b;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 5px;
+}
+#desktop-frame>div .ex-section .main-banner .ex-contain .img{
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+}
+#desktop-frame>div .ex-section .main-banner .ex-contain .img img{
+    height: 100%;
+    width: 100%;
+    user-select: none;
+    object-fit: cover;
+    
+    border-radius: 5px;
+    display: block;
+}
+#desktop-frame>div .ex-section .grid{
+    margin-top: 25px;
+    gap: 10px;
+    display: grid;
+    grid-template-columns: 235px auto auto;
+}
+#desktop-frame>div .ex-section .grid >div{
+    height: 300px;
+    border-radius: 5px;
+    background: rgba(255,255,255,.1);
+}
+
+#mobile-frame > div{
+    padding: 15px;
+}
+#mobile-frame > div .header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#mobile-frame > div .header .mobile-logo svg{
+    height: 20px;
+    width: auto;
+}
+#mobile-frame > div .header .menu > div {
+    width: 15px;
+    height: 1px;
+    background: #fff;
+    border-radius: 5px;
+    
+}
+
+#mobile-frame > div .header .menu > div:not(:nth-child(1)){
+    margin-top: 5px;
+} 
+#mobile-frame > div .banner{
+    margin-top:15px;
+}
+#mobile-frame > div .banner .title h1{
+    color: rgba(255,255,255,1);
+    font-weight: 700;
+    font-size: 1.5em;
+    text-transform: uppercase;
+}
+#mobile-frame > div .banner .expl{
+    margin-top: 15px;
+}
+#mobile-frame > div .banner .expl p{
+    font-size:8px;
+    color: rgba(255,255,255,.5);
+    max-width: 190px;
+}
+#mobile-frame > div .banner .expl .btn{
+    color: rgba(255,255,255,1);
+    font-size: 600;
+    margin-top: 15px;
+    background: #459AFF;
+    border-radius: 5px;
+    font-size: 8px;
+    padding: 5px 8px;
+    width: fit-content;
+
+}
+#mobile-frame > div .banner .img{
+    margin-top: 15px;
+    width: 100%;
+    height: 100%;
+    background: #1b1b1b;
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 5px;
+}
+#mobile-frame > div .banner .img>div{
+    padding: 5px;
+    width: 100%;
+    height: 200px;
+}
+#mobile-frame > div .banner .img>div>img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+    user-select: none;;
+    display: block;
+}
+#right .tab{
+    width: 100%;
+    display: flex;
+
+    padding: 15px;
+    justify-content: space-between;
+}
+#right .tab>div p{
+    color: rgba(255,255,255,.35);
+    font-size: 15px;
+    font-weight: 600;
+}
+#right .tab>div.tab-active p{
+    color: rgba(255,255,255,1);
 }

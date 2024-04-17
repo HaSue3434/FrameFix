@@ -17,33 +17,34 @@ import { ReactComponent as SEO } from '../../img/icons/seo-icon.svg';
 import { ReactComponent as Community } from '../../img/icons/community-icon.svg';
 import { ReactComponent as NoneTxtLogo } from '../../img/icons/none-txt-logo.svg';
 import { ReactComponent as F } from '../../img/icons/f.svg';
-import { ReactComponent as Template } from '../../img/icons/framefix-plugins-icon/template.svg';
+
 import { ReactComponent as FrameLogo } from "../../img/logo/frame-logo.svg";
 import { ReactComponent as NextArrow } from '../../img/icons/next-arrow.svg';
-// framfix icon //
 
-import { ReactComponent as Layer } from '../../img/icons/framefix-plugins-icon/layer.svg';
-import { ReactComponent as Text } from '../../img/icons/framefix-plugins-icon/text.svg';
-import { ReactComponent as Menus } from '../../img/icons/framefix-plugins-icon/menus.svg';
-import { ReactComponent as Header } from '../../img/icons/framefix-plugins-icon/header.svg';
-import { ReactComponent as Footer } from '../../img/icons/framefix-plugins-icon/footer.svg';
-import { ReactComponent as Slides } from '../../img/icons/framefix-plugins-icon/slides.svg';
-import { ReactComponent as Button } from '../../img/icons/framefix-plugins-icon/button.svg';
-import { ReactComponent as Icons } from '../../img/icons/framefix-plugins-icon/icons.svg';
-import { ReactComponent as Magic } from '../../img/icons/framefix-plugins-icon/magic.svg';
-import { ReactComponent as Close } from '../../img/icons/framefix-plugins-icon/close.svg';
-import { ReactComponent as Add } from '../../img/icons/framefix-plugins-icon/add.svg';
+// framfix icon //
+import { ReactComponent as Template } from '../../img/icons/framefix-plugin-icons/template.svg';
+import { ReactComponent as Layer } from '../../img/icons/framefix-plugin-icons/layer.svg';
+import { ReactComponent as Text } from '../../img/icons/framefix-plugin-icons/text.svg';
+import { ReactComponent as Menus } from '../../img/icons/framefix-plugin-icons/menus.svg';
+import { ReactComponent as Header } from '../../img/icons/framefix-plugin-icons/header.svg';
+import { ReactComponent as Footer } from '../../img/icons/framefix-plugin-icons/footer.svg';
+import { ReactComponent as Slides } from '../../img/icons/framefix-plugin-icons/slides.svg';
+import { ReactComponent as Button } from '../../img/icons/framefix-plugin-icons/button.svg';
+import { ReactComponent as Icons } from '../../img/icons/framefix-plugin-icons/icons.svg';
+import { ReactComponent as Magic } from '../../img/icons/framefix-plugin-icons/magic.svg';
+import { ReactComponent as Close } from '../../img/icons/framefix-plugin-icons/close.svg';
+import { ReactComponent as Add } from '../../img/icons/framefix-plugin-icons/add.svg';
 import { ReactComponent as Minus } from '../../img/icons/framefix-plugins-icon/minus.svg';
-import { ReactComponent as AssetsBottomArrow } from '../../img/icons/framefix-plugins-icon/aseets-arrow-bottom.svg';
-import { ReactComponent as PageIcon } from '../../img/icons/framefix-plugins-icon/page-icon.svg';
-import { ReactComponent as FrameIcon } from '../../img/icons/framefix-plugins-icon/frame.svg';
-import { ReactComponent as Rect } from '../../img/icons/framefix-plugins-icon/Rect.svg';
-import { ReactComponent as CursorIcon } from '../../img/icons/framefix-plugins-icon/cursor.svg';
-import { ReactComponent as Locked } from '../../img/icons/framefix-plugins-icon/locked.svg';
-import { ReactComponent as Open } from '../../img/icons/framefix-plugins-icon/opened.svg';
-import { ReactComponent as Hand } from '../../img/icons/framefix-plugins-icon/hand.svg';
-import { ReactComponent as Settings } from '../../img/icons/framefix-plugins-icon/settings.svg';
-import { ReactComponent as Preview } from '../../img/icons/framefix-plugins-icon/view.svg';
+import { ReactComponent as AssetsBottomArrow } from '../../img/icons/framefix-plugin-icons/aseets-arrow-bottom.svg';
+import { ReactComponent as PageIcon } from '../../img/icons/framefix-plugin-icons/page-icon.svg';
+import { ReactComponent as FrameIcon } from '../../img/icons/framefix-plugin-icons/frame.svg';
+import { ReactComponent as Rect } from '../../img/icons/framefix-plugin-icons/Rect.svg';
+import { ReactComponent as CursorIcon } from '../../img/icons/framefix-plugin-icons/cursor.svg';
+import { ReactComponent as Locked } from '../../img/icons/framefix-plugin-icons/locked.svg';
+import { ReactComponent as Open } from '../../img/icons/framefix-plugin-icons/opened.svg';
+import { ReactComponent as Hand } from '../../img/icons/framefix-plugin-icons/hand.svg';
+import { ReactComponent as Settings } from '../../img/icons/framefix-plugin-icons/settings.svg';
+import { ReactComponent as Preview } from '../../img/icons/framefix-plugin-icons/view.svg';
 
 
 // framfix icon //
@@ -913,8 +914,21 @@ function Main() {
                                             
                                         </div>
                                     </div>
-                                    <div className='right si'>
-
+                                    <div className='right si' id='right'>
+                                        <div className="tab">
+                                            <div className='tab-active'>
+                                                <p>Design</p>
+                                            </div>
+                                            <div>
+                                                <p>Prototype</p>
+                                            </div>
+                                            <div>
+                                                <p>Handoff</p>
+                                            </div>
+                                        </div>
+                                        <div className="align">
+                                            
+                                        </div>
                                     </div>
                                 </div>
                                 <div className="elements">
@@ -925,17 +939,75 @@ function Main() {
                                                 <div className="header">
                                                     <div className="nav">
                                                         <div className='logo'>
-                                                            <FrameLogo/>
+                                                            <Logo/>
                                                         </div>
-                                                        <div className='items'></div>
-                                                        <div className='btn'></div>
+                                                        <div className='items'>
+                                                            <li>Features</li>
+                                                            <li>Updates</li>
+                                                            <li>Community</li>
+                                                            <li>Pricing</li>
+                                                        </div>
+                                                        <div className='btn'>Get Started</div>
+                                                    </div>
+                                                </div>
+                                                <div className="ex-section">
+                                                    <div className='txt'>
+                                                        <div className='title'><h1>The<br/>Smarter.</h1></div>
+                                                        <div className='start'>
+                                                            <div className="expl">
+                                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+                                                            </div>
+                                                            <div className="btn">Start FramFix</div>
+                                                        </div>
+                                                        <div className='slider-items'>
+                                                            <div>AI-POWERED</div>
+                                                            <div>CANVAS</div>
+                                                            <div>CODE-CONVERTS</div>
+                                                            <div>PUBLISH</div>
+                                                        </div>
+                                                    </div>
+                                                    <div className='main-banner'>
+                                                        <div className='ex-contain'>
+                                                            <div className="img">
+                                                                <img src={require("../../img/sample-img.jpg")} alt="" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="grid">
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div></div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="mobile">
+                                        <div className="mobile" id='mobile-frame'>
                                             <p>Mobile Frame</p>
-                                            <div></div>
+                                            <div>
+                                                <div className="header">
+                                                    <div className='mobile-logo'><Logo/></div>
+                                                    <div className='menu'>
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div></div>
+                                                    </div>
+                                                </div>
+                                                <div className="banner">
+                                                    <div className="title"><h1>The<br/>Smarter.</h1></div>
+                                                    <div className="expl">
+                                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+                                                        <div className="btn">Start FrameFix</div>
+                                                    </div>
+                                                    <div className="img">
+                                                        <div>
+                                                            <img src={require("../../img/sample-img.jpg")} alt="" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

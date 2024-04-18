@@ -1836,7 +1836,6 @@ section.main .wrapper  .main-framefix .frame>div .contain{
 }
 .framefix-footer .wrapper .contain .wrap .side .left .assets .layer .frame-contain .frame .h svg{
     height: 25px;
-    background: black;
 }
 .framefix-footer .wrapper .contain .wrap .side .left .assets .layer .frame-contain  p{
     color: rgba(255,255,255,1);
@@ -2270,12 +2269,45 @@ section.main .wrapper  .main-framefix .frame>div .contain{
     display: flex;
     align-items: center;
     gap: 5px;
-    padding: 5px;
+    padding: 8px;
 }
 #breakpoint .apply .position .xy>div span{
     color: rgba(255,255,255,.5);
 }
 #breakpoint .apply .size{
+    padding-top: 10px;
+}
+#breakpoint .apply .size .wh{
+    display: flex;
+    gap: 10px;
+}
+#breakpoint .apply .size .wh>div{
+    width: 70px;
+    height: 30px;
+    padding: 8px;
+    font-size: 13px;
+    border-radius: 5px;
+    color: rgba(255,255,255,.8);
+    gap: 5px;
+    background: rgba(255,255,255,.1);
+}
+#breakpoint .apply .size .wh >div span{
+    color: rgba(255,255,255,.5);
 
+}
+#breakpoint .apply .rotation{
+    padding-top: 10px;
+}
+#breakpoint .apply .rotation .rotate{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#breakpoint .apply .rotation .rotate .apply-rotation{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    width: 70px;
+    height: 30px;
 }
 /*styles*/

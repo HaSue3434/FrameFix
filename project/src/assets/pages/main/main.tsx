@@ -959,16 +959,27 @@ function Main() {
                                                     <div className='t'>Size</div>
                                                     <div className='wh'>
                                                         <div className='w'>
-                                                            
+                                                            <span>W : </span>1920
                                                         </div>
                                                         <div className='h'>
-
+                                                            <span>H : </span>5000
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div className='rotation between'>
                                                     <div className='t'>Rotation</div>
-
+                                                    <div className="rotate">
+                                                        <div className='apply-rotation'>
+                                                            
+                                                        </div>
+                                                        <div className="flip">
+                                                            <div></div>
+                                                            <div></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="radius between">
+                                                    
                                                 </div>
                                             </div>
                                         </div>

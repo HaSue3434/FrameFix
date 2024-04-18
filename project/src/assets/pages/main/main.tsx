@@ -4,7 +4,7 @@ import ScrollSmootherComponent from "./ScrollSmoother";
 import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { motion } from 'framer-motion';
+import { delay, motion } from 'framer-motion';
 
 import { ReactComponent as Logo } from '../../img/logo/logo.svg';
 
@@ -63,6 +63,8 @@ import { ReactComponent as Rotation } from '../../img/icons/framefix-style-icons
 import { ReactComponent as FlipVertical } from '../../img/icons/framefix-style-icons/flip-vertical.svg';
 import { ReactComponent as FlipHorizontal } from '../../img/icons/framefix-style-icons/flip-horizontal.svg';
 import { ReactComponent as Eye } from '../../img/icons/framefix-style-icons/eye.svg';
+import { ReactComponent as DefaultAll } from '../../img/icons/framefix-style-icons/default-all.svg';
+import { ReactComponent as PerSide } from '../../img/icons/framefix-style-icons/per-side.svg';
 
 // framefix style icons //
 
@@ -79,13 +81,20 @@ import {
     useInViewMainSpring,
     useInViewExContentSpring,
     useDescriptionFadeOut,
-    useDefaultFadeOut
+    useDefaultFadeOut,
+    useDelaySpring,
+
 } from './script';
 
 function Main() {
 
     const [ref1, controls1] = useInViewMainSpring();
     const [ref2, controls2] = useInViewExContentSpring();
+    const [ref3, controls3] = useInViewExContentSpring();
+    const [ref4, controls4] = useInViewExContentSpring();
+
+    const [delayRef, delayControls] = useDelaySpring(0.3);
+
     const [seoRef, seo1] = useInViewExContentSpring();
     const [quicklyDescriptionRef1, controlDescription1] = useDescriptionFadeOut();
     const [quicklyDescriptionRef2, controlDescription2] = useDescriptionFadeOut();
@@ -1039,27 +1048,58 @@ function Main() {
                                                 <Add/>
                                             </div>
                                             <div className='display'>
-                                                <div>
-                                                    <div><span>Block</span></div>
+                                                <div><span>Display</span></div>
+                                                <div className='grid'>
+                                                    <div className='active-selection'><span>Block</span></div>
                                                     <div><span>Flex</span></div>
                                                     <div><span>Grid</span></div>
                                                     <div><span>None</span></div>
                                                 </div>
                                             </div>
-                                            <div className='padding'></div>
-                                            <div className='margin'></div>
+                                            <div className='padding common'>
+                                                <div><span>Padding</span></div>
+                                                <div className='padding-value common-value'>
+                                                    <div className='value'><span>0</span><span>PX</span></div>
+                                                    <div className='per-side'>
+                                                        <div className='active-type-selection'><DefaultAll/></div>
+                                                        <div><PerSide/></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className='margin common'>
+                                                <div><span>Margin</span></div>
+                                                <div className="margin-value common-value">
+                                                    <div className='value'><span>0</span><span>PX</span></div>
+                                                    <div className='per-side'>
+                                                        <div className='active-type-selection'><DefaultAll/></div>
+                                                        <div><PerSide/></div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
+                                        <div className="stroke other"><div><h4>Stroke</h4><Add/></div></div>
+                                        <div className="Effects other"><div><h4>Effects</h4><Add/></div></div>
+                                        <div className="Export other"><div><h4>Export</h4><Add/></div></div>
                                     </div>
                                 </div>
                                 <div className="elements">
                                     <div className='work-contents'>
-                                        <div className="desktop" id='desktop-frame'>
-                                            <p id='desktop-frame-ti'>Desktop Frame</p>
+                                        <motion.div 
+                                        ref={ref3 as React.Ref<HTMLDivElement>}
+                                        initial={{ opacity: 0, scale: 0.5 }}
+                                        animate={controls3}
+                                        className="desktop" id='desktop-frame'>
                                             <div>
-                                                <div className="select">
-                                                    <div className="b"></div>
-                                                    <div className="b"></div>
-                                                </div>
+                                                <motion.div
+
+                                                ref={delayRef}
+                                                initial = {{scale : 0.5}}
+                                                animate={delayControls}
+
+                                                className="select">
+                                                <p className='frame-name'>Desktop frame</p>
+
+                                                </motion.div>
                                                 <div className="header">
                                                     <div className="nav">
                                                         <div className='logo'>
@@ -1107,8 +1147,12 @@ function Main() {
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div className="mobile" id='mobile-frame'>
+                                        </motion.div>
+                                        <motion.div 
+                                            ref={ref4 as React.Ref<HTMLDivElement>}
+                                            initial={{ opacity: 0, scale: 0.5 }}
+                                            animate={controls4}
+                                            className="mobile" id='mobile-frame'>
                                             <p>Mobile Frame</p>
                                             <div>
                                                 <div className="header">
@@ -1132,7 +1176,7 @@ function Main() {
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </motion.div>
                                     </div>
                                 </div>
                             </div>

@@ -1872,7 +1872,7 @@ section.main .wrapper  .main-framefix .frame>div .contain{
     color: rgba(255,255,255,1);
 }
 .framefix-footer .wrapper .contain .wrap .side .right{
-    width: 280px;
+    width: 300px;
     height: 100%;
     background: #000;
     z-index: 5;
@@ -2004,11 +2004,20 @@ section.main .wrapper  .main-framefix .frame>div .contain{
     left: 0;
     top: 0;
     outline: 2px solid #459AFF;
-
     display: flex;
     justify-content: space-between;
 }
-
+.elements .work-contents .desktop>div>.select p{
+    color: rgba(255,255,255,1);
+    position: relative;
+    font-size: 13px;
+    padding: 5px;
+    background: #459AFF;
+    height: fit-content;
+    position: relative;
+    top: -26px;
+    left: -2px;
+}
 #desktop-frame>div .header .nav{
     display: flex;
     justify-content: space-between;
@@ -2500,7 +2509,7 @@ section.main .wrapper  .main-framefix .frame>div .contain{
     padding-top: 10px;
     justify-content: space-between;
     align-items: center;
-    gap: 8px;
+    gap: 27px;
 }
 #styles .applys .overflow>div:nth-child(1) span{
     color: rgba(255,255,255,.5);
@@ -2543,5 +2552,110 @@ section.main .wrapper  .main-framefix .frame>div .contain{
 }
 #layout .display{
     padding-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#layout .display>.grid{
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(4,1fr);
+    background: rgba(255,255,255,.15);
+    border-radius: 5px;
+    height: 30px;
+}
+#layout .display>.grid>div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+#layout .display>div>div>span{
+    color: rgba(255,255,255,.8);
+    font-size: 13px;
+    padding: 5px;
+}
+#layout .display > div:nth-child(1) span{
+    font-size: 14px;
+    color: rgba(255,255,255,.5);
+    padding-right: 20px;
+}
+#layout .display>div>.active-selection{
+    background: rgba(255,255,255,.2);
+    border-radius: 5px;
+}
+#layout .common{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-top: 10px;
+}
+#layout .common>div:nth-child(1) span{
+    color: rgba(255,255,255,.5);
+    font-size: 14px;
+}
+#layout .common>.common-value{
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    justify-content:flex-end;
+}
+#layout .common>.common-value>div{
+    height: 30px;
+    background: rgba(255,255,255,.15);
+    border-radius: 5px;
+}
+#layout .common>.common-value{
+    width: 100%;
+}
+#layout .common>.common-value>.value{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 10px;
+    width: 110px;
+}
+#layout .common>.common-value>.value span{
+    color: rgba(255,255,255,.8);
+    font-size: 13px;
+}
+#layout .common>.common-value>.per-side{
+    width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#layout .common>.common-value>.per-side>div{
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+}
+#layout .common>.common-value>.per-side>div svg{
+    vertical-align: middle;
+}
+#layout .common>.common-value>.per-side>div.active-type-selection{
+    background: rgba(255,255,255,.25);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+}
+.other{
+    padding: 15px;
+    border-top: 1px solid rgba(255,255,255,.1);
+    border-bottom: 1px solid rgba(255,255,255,.1);
+}
+.other>div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.other>div h4{
+    color: rgba(255,255,255,1);
+    font-weight: 500;
+    font-size: 15px;
+    
 }
 /*styles*/

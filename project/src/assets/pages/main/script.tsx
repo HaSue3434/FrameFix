@@ -205,6 +205,33 @@ export const useInViewPluginsScale = (activate : any): [React.RefObject<HTMLDivE
   
     return [ref, controls];
 }
+export const useDelaySpring = (delay: number = 1): [React.RefObject<HTMLDivElement>, AnimationControls] => {
+    const controls = useAnimation();
+    const ref = useRef<HTMLDivElement>(null); 
+    const inViewRef = useInView();
+    const { ref: inViewRefCallback, inView } = inViewRef;
+
+    useEffect(() => {
+      if (inView) {
+        controls.start({
+          scale : 1,
+          opacity : 1,
+          transition: { duration: 1.5, ease : "anticipate" ,delay : delay},
+        });
+      } else {
+        controls.start({ scale : 0.5,opacity : 0,});
+      }
+    }, [controls, inView]);
+
+    useEffect(() => {
+      if (ref.current) {
+        inViewRefCallback(ref.current);
+      }
+    }, [inViewRefCallback]);
+
+    return [ref, controls];
+};
+
 export const useStepsDelayFadeOut = (activate : any, elements : Element): [React.RefObject<HTMLDivElement>,AnimationControls]=>{
   const controls = useAnimation();
   

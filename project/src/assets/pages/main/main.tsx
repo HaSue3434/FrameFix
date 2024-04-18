@@ -794,12 +794,6 @@ function Main() {
                                         <div className='hand'>
                                             <Hand/>
                                         </div>
-                                        <div className="hr"></div>
-                                        <div className="zoom-in">
-                                            <div className='miuns'><Minus/></div>
-                                            <div className='num'>100%</div>
-                                            <div className='plus'><Add/></div>
-                                        </div>
                                     </div>
                                     <div className='user-publish'>
                                         <div className='user-infor'>
@@ -809,6 +803,10 @@ function Main() {
                                         <div className='settings an'><Settings/></div>
                                         <div className='preview  an'><Preview/></div>
                                         <div className='publish-btn'>Publish</div>
+                                        <div className='zoom-in'>
+                                            <p>100%</p>
+                                            <AssetsBottomArrow/>
+                                        </div>
                                     </div>
                                 </div>
                                 <div className='side'>
@@ -939,26 +937,53 @@ function Main() {
                                                 <p>Handoff</p>
                                             </div>
                                         </div>
-                                        <div className="align">
-                                            <div><Left/></div>
-                                            <div><Center/></div>
-                                            <div><Right/></div>
-                                            <div><AlignTop/></div>
-                                            <div><AlignVerticalCenter/></div>
-                                            <div><AlignBottom/></div>
-                                            <div><VerticalSpacing/></div>
-                                            <div><HorizontalSpacing/></div>
+                                        <div id='breakpoint'>
+                                            <div className="breakpoint">
+                                                <h4>Breakpoint</h4>
+                                                <AssetsBottomArrow/>
+                                            </div>
+                                            <div className="apply">
+                                                <div className='position between'>
+                                                    <div className='t'>Position</div>
+                                                    <div className='xy'>
+                                                        <div className='x'>
+                                                            <span>X : </span>100
+                                                        </div>
+                                                        <div className='y'>
+                                                            <span>Y : </span>100
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                                <div className='size between'>
+                                                    <div className='t'>Size</div>
+                                                    <div className='wh'>
+                                                        <div className='w'>
+                                                            
+                                                        </div>
+                                                        <div className='h'>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className='rotation between'>
+                                                    <div className='t'>Rotation</div>
+
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div className="breakpoint">
-                                            
-                                        </div>
+
                                     </div>
                                 </div>
                                 <div className="elements">
                                     <div className='work-contents'>
                                         <div className="desktop" id='desktop-frame'>
-                                            <p>Desktop Frame</p>
+                                            <p id='desktop-frame-ti'>Desktop Frame</p>
                                             <div>
+                                                <div className="select">
+                                                    <div className="b"></div>
+                                                    <div className="b"></div>
+                                                </div>
                                                 <div className="header">
                                                     <div className="nav">
                                                         <div className='logo'>

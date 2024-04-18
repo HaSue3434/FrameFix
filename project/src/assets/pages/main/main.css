@@ -1679,18 +1679,6 @@ section.main .wrapper  .main-framefix .frame>div .contain{
     vertical-align: middle;
     margin-left: 5px;
 }
-.framefix-footer .wrapper .contain .wrap .head .u-interaction .hr {
-    width: 3px;
-    height: 30px;
-    background: rgba(255,255,255,.2);
-}
-.framefix-footer .wrapper .contain .wrap .head .u-interaction .zoom-in{
-    gap: 15px;
-}
-.framefix-footer .wrapper .contain .wrap .head .u-interaction .zoom-in .num{
-    font-size: 14px;
-    color: rgba(255,255,255,1);
-}
 .framefix-footer .wrapper .contain .wrap .head .user-publish{
     display: flex;
     gap: 15px;
@@ -1731,10 +1719,23 @@ section.main .wrapper  .main-framefix .frame>div .contain{
 }
 .framefix-footer .wrapper .contain .wrap .head .user-publish .publish-btn{
     color: rgba(255,255,255,1);
-    font-size: 13px;
+    font-size: 15px;
     background: #459AFF;
     border-radius: 5px;
-    padding: 8px 15px;
+    height: 100%;
+    padding: 8px 12px;
+}
+.framefix-footer .wrapper .contain .wrap .head .user-publish .zoom-in{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.framefix-footer .wrapper .contain .wrap .head .user-publish .zoom-in p{
+    color: rgba(255,255,255,1);
+    font-size: 15px;
+}
+.framefix-footer .wrapper .contain .wrap .head .user-publish .zoom-in svg{
+    height: 6px;
 }
 .framefix-footer .wrapper .contain .wrap .head .user-publish .an{
     padding: 8px 10px;
@@ -1830,9 +1831,8 @@ section.main .wrapper  .main-framefix .frame>div .contain{
     display: flex;
     align-items: center;
     padding: 8px;
-    padding-top: 0;
-    padding-bottom: 0;
     gap: 10px;
+    background: rgba(255,255,255,.1);
 }
 .framefix-footer .wrapper .contain .wrap .side .left .assets .layer .frame-contain .frame .h svg{
     height: 25px;
@@ -1894,9 +1894,6 @@ section.main .wrapper  .main-framefix .frame>div .contain{
     align-items: flex-end;
     gap: 15px;
     margin-left: 40px;
-}
-.elements .work-contents >div{
-    overflow: hidden;
 }
 .elements .work-contents .desktop>div{
     width: 550px;
@@ -1999,7 +1996,20 @@ section.main .wrapper  .main-framefix .frame>div .contain{
 
 .elements .work-contents .desktop>div{
     padding: 15px;
+    position: relative;
 }
+.elements .work-contents .desktop>div>.select{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    outline: 2px solid #459AFF;
+
+    display: flex;
+    justify-content: space-between;
+}
+
 #desktop-frame>div .header .nav{
     display: flex;
     justify-content: space-between;
@@ -2204,6 +2214,68 @@ section.main .wrapper  .main-framefix .frame>div .contain{
     height: 20px;
     vertical-align: middle;
 }
-#right .breakpoint{
-    
+#desktop-frame-ti{
+    color: #fff;
+    margin-left: -2px;
+    font-size: 12px;
+    margin-top: -2px;
+    padding: 5px;
+    background: #459AFF;
+    width: fit-content;
 }
+
+
+/*styles*/
+#breakpoint{
+    padding: 15px;
+    border-top: 1px solid rgba(255,255,255,.1);
+}
+#breakpoint .breakpoint{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+#breakpoint .breakpoint h4{
+    font-weight: 500;
+    color: rgba(255,255,255,1);
+    font-size: 15px;
+}
+#breakpoint .apply{
+    padding-top: 15px;
+
+}
+#breakpoint .apply .between{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#breakpoint .apply .between > div.t{
+    color: rgba(255,255,255,.5);
+    font-size: 14px;
+    font-weight: 500;
+}
+#breakpoint .apply .position .xy{
+    display: flex;
+    gap: 10px;
+}
+#breakpoint .apply .position .xy>div{
+    border-radius: 5px;
+    background: rgba(255,255,255,.1);
+    font-size: 13px;
+    width: 70px;
+    height: 30px;
+    color: rgba(255,255,255,.8);
+    text-align: start;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px;
+}
+#breakpoint .apply .position .xy>div span{
+    color: rgba(255,255,255,.5);
+}
+#breakpoint .apply .size{
+
+}
+/*styles*/

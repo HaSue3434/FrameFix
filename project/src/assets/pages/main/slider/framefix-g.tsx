@@ -93,7 +93,6 @@ const FrameFixGuide: React.FC = () => {
                         setTriggerTyping(false);
                     },
                     onUpdate: (self) => {
-                        console.log(self.progress)
                         if (progressBar) {
                             progressBar.style.height = `${self.progress * 100}%`;
                         }

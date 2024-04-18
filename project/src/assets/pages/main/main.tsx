@@ -59,6 +59,10 @@ import { ReactComponent as AlignVerticalCenter } from '../../img/icons/framefix-
 import { ReactComponent as AlignBottom } from '../../img/icons/framefix-style-icons/align-bottom.svg';
 import { ReactComponent as VerticalSpacing } from '../../img/icons/framefix-style-icons/vertical-spacing.svg';
 import { ReactComponent as HorizontalSpacing } from '../../img/icons/framefix-style-icons/horizontal-spacing.svg';
+import { ReactComponent as Rotation } from '../../img/icons/framefix-style-icons/rotation.svg';
+import { ReactComponent as FlipVertical } from '../../img/icons/framefix-style-icons/flip-vertical.svg';
+import { ReactComponent as FlipHorizontal } from '../../img/icons/framefix-style-icons/flip-horizontal.svg';
+import { ReactComponent as Eye } from '../../img/icons/framefix-style-icons/eye.svg';
 
 // framefix style icons //
 
@@ -67,6 +71,7 @@ import "./framefix-g.css"
 import DefaultUI from "./slider/project-maker";
 
 import FrameFixGuide from './slider/framefix-g';
+import FramefixUI from './framefix-ui';
 
 import {
     useTypingEffect,
@@ -970,20 +975,80 @@ function Main() {
                                                     <div className='t'>Rotation</div>
                                                     <div className="rotate">
                                                         <div className='apply-rotation'>
-                                                            
+                                                            <Rotation/>
+                                                            <span>0</span>
                                                         </div>
                                                         <div className="flip">
-                                                            <div></div>
-                                                            <div></div>
+                                                            <div><FlipHorizontal/></div>
+                                                            <div><FlipVertical/></div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div className="radius between">
+                                            </div>
+                                        </div>
+                                        <div id="layer-styles">
+                                            <div className="layer">
+                                                <div><h4>Layer</h4></div>
+                                                <div className='through'>
+                                                    <p>Pass Through</p>
+                                                    <AssetsBottomArrow/>
                                                     
                                                 </div>
                                             </div>
+                                            <div className='opacity'>
+                                                <div className='view-eye'><Eye/></div>
+                                                <div className='range'>
+                                                    <div className='range-progress'>
+                                                        <div className='circle'></div>
+                                                    </div>
+                                                </div>
+                                                <div className='percents'>100%</div>
+                                            </div>
                                         </div>
-
+                                        <div id="styles">
+                                            <div className="styles">
+                                                <h4>Styles</h4>
+                                                <Add/>
+                                            </div>
+                                            <div className='applys'>
+                                                <div className='fill-color'>
+                                                    <div className='fillColor'><span>Fill</span></div>
+                                                    <div className='color'>
+                                                        <div className='rgb'>
+                                                            <div className='preview'>
+                                                                <div className='view-color'></div>
+                                                                <div className='hex'>#000000</div>
+                                                            </div>
+                                                            <div className='picker'><AssetsBottomArrow/></div>
+                                                        </div>
+                                                        <div className='alpha'>100%</div>
+                                                    </div>
+                                                </div>
+                                                <div className='overflow'>
+                                                    <div className=''><span>Overflow</span></div>
+                                                    <div className='propertys'>
+                                                        <div className='property'><span>Hidden</span></div>
+                                                        <div className='option'><AssetsBottomArrow/></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="layout">
+                                            <div className="layout">
+                                                <h4>Layout</h4>
+                                                <Add/>
+                                            </div>
+                                            <div className='display'>
+                                                <div>
+                                                    <div><span>Block</span></div>
+                                                    <div><span>Flex</span></div>
+                                                    <div><span>Grid</span></div>
+                                                    <div><span>None</span></div>
+                                                </div>
+                                            </div>
+                                            <div className='padding'></div>
+                                            <div className='margin'></div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div className="elements">

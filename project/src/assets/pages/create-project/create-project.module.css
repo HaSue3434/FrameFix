@@ -14,20 +14,26 @@
 .createContain .createWrapper .common{
     width: 100%;
     height: auto;
-
+    
 }
 .createContain .createWrapper .common .createHeader{
     width: 100%;
-    padding: 25px;
-    background: #171717;
+    padding: 15px;
+    background: rgba(255,255,255,.05);
     display: grid;
     grid-template-columns: repeat(3,1fr);
     align-items: center;
+    z-index: 111;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+}
+.createContain .createWrapper .common .createHeader .headLogo,.prevBtn{
+    z-index: 11111;
 }
 .createContain .createWrapper .common .createHeader .headLogo{
     display: flex;
     justify-content: center;
 }
+
 .createContain .createWrapper .projectInit .userPrompt{
     width: 100%;
     height: 100vh;
@@ -37,7 +43,91 @@
     max-width: 100%;
     padding: 25px;
     flex-direction: column;
+    position: relative;
     margin-top: -100px;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+}
+.createContain .createWrapper .projectInit .userPrompt .sideImgView{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: calc(100vh - 102px);
+    width: 400px;
+    z-index: 111;
+    max-width: 400px;
+    padding: 15px;
+    background: rgba(255,255,255,.05);
+    overflow-x: hidden;
+    overflow-y: visible;
+    display: flex;
+    flex-direction: column;
+}
+.createContain .createWrapper .projectInit .userPrompt .sideImgView .close{
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: flex-end;
+    height: auto;
+    
+    
+}
+.createContain .createWrapper .projectInit .userPrompt .sideImgView .close .icon{
+    padding: 8px;
+    background: rgba(255,255,255,.1);
+    width: fit-content;
+    display: flex;
+    border-radius: 3px;
+    align-items: center;
+    
+    cursor: pointer;
+}
+.createContain .createWrapper .projectInit .userPrompt .sideImgView .sideImgViews{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.createContain .createWrapper .projectInit .userPrompt .sideImgView .sideImgViews .emptyViews{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 100%;
+}
+.createContain .createWrapper .projectInit .userPrompt .sideImgView .sideImgViews .emptyViews p{
+    font-weight: 600;
+    color: rgba(255,255,255,.8);
+}
+.createContain .createWrapper .projectInit .userPrompt .sideImgView .sideImgViews .dropzone >.imgIcon svg{ 
+    display: none;
+}
+.createContain .createWrapper .projectInit .userPrompt .sideImgView .sideImgViews .dropzone .placeholder p{
+    display: none;
+}
+.createContain .createWrapper .projectInit .userPrompt .sideImgView .close .icon svg{
+    vertical-align: middle;
+}
+.createContain .createWrapper .projectInit .userPrompt 
+.sideImgView .sideImgViews .desiredReferenced{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 45px;
+    gap: 10px;
+}
+.createContain .createWrapper .projectInit .userPrompt 
+.sideImgView .sideImgViews .desiredReferenced .img {
+    width: 100%;
+    cursor: pointer;
+    height: auto;
+}
+.createContain .createWrapper .projectInit .userPrompt 
+.sideImgView .sideImgViews .desiredReferenced .img img{
+    width: 100%;
+    border-radius: 10px;
+    height: auto;
+    user-select: none;
+    object-fit: cover;
 }
 .createContain .createWrapper .projectInit .userPrompt .tCommon{
     text-align: center;
@@ -74,6 +164,7 @@
     color: rgba(255,255,255,.8);
     border-radius: 5px;
     display: flex;
+    font-weight: 500;
     align-items: center;
 }
 .createContain .createWrapper .projectInit .form .inputprojectName input:focus{
@@ -100,8 +191,12 @@
     height: 100%;
     justify-content: space-between;
 }
+.createContain .createWrapper .projectInit .form .uploaderFile .upload .dropzone .imgIcon{
+    z-index: 333;
+}
 .createContain .createWrapper .projectInit .form .uploaderFile .upload .dropzone .placeholder p{
-    color: rgba(255,255,255,.5);
+    color: rgba(255,255,255,.35);
+    font-weight: 500;
 }
 .createContain .createWrapper .projectInit .form .uploaderFile .next{
     width: 35%;

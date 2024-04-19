@@ -98,7 +98,6 @@ header nav ul a li:hover{
 footer{
     width: 100vw;
     height: 100%;
-    background: red;
     padding-top: 20vh;
 }
 footer .f-wrapper{

@@ -1,17 +1,24 @@
 import React,{useState } from "react";
 import { ReactComponent as Logo } from "../../img/logo/logo.svg";
 import { ReactComponent as PrevArrow } from "../../img/icons/prev-arrow.svg";
+import { ReactComponent as Close } from "./project-maker-icons/close.svg";
 import axios from 'axios';
 import styles from './create-project.module.css';
 import { Link } from "react-router-dom";
+import { motion } from 'framer-motion';
+import { 
 
-import { FileUpload,ImagePreview } from './file-upload';
+    FileUpload,
+    ImagePreview,
+    SideImgViewsR,
+
+} from './file-upload';
 
 const CreateProject:React.FC = ()=>{
 
     const [files, setFiles] = useState<ImagePreview[]>([]); // Ensure this state is defined
     const [files2, setFiles2] = useState<ImagePreview[]>([]); // Ensure this state is defined
-
+    console.log(files2);
     return(
         <>
         <div className={styles.createContain}>
@@ -55,7 +62,17 @@ const CreateProject:React.FC = ()=>{
                                 </div>
                             </div>
                         </div>
+                        <div className={styles.sideImgView}>
+                            <div className={styles.close}>
+                                <div className={styles.icon}><Close/></div>
+                            </div>
+                            <div className={styles.sideImgViews}>
+                                <SideImgViewsR files={files} setFiles={setFiles} />
+                                {files.length > 0 ? '' : <div className={styles.emptyViews}><p>No images yet. Click to upload! </p></div>}
+                            </div>
+                        </div>
                     </div>
+                    
                 </div>
                 <div className={`${styles.SelectIndustry} ${styles.common}`}>
                     <div className={styles.createHeader}>

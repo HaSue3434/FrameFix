@@ -6,31 +6,37 @@ import Footer from './assets/components/footer';
 import Main from './assets/pages/main/main';
 import SignUp from './assets/pages/sign-up/sign';
 import FrameFix from './assets/pages/framefix-tool/mainComponent';
+import CreateProject from './assets/pages/create-project/create-project';
 
 
 function App() {
   
   return (
+    
     <Router>
-      <RoutesWithHeader />
+      <RoutesWithHeaderAndFooter />
     </Router>
   );
 }
 
-function RoutesWithHeader() {
+function RoutesWithHeaderAndFooter() {
   let location = useLocation();
+  const shouldHideHeader = location.pathname === "/file/framefix" || location.pathname === "/create-project/project";
+  const shouldHideFooter = location.pathname === "/file/framefix";
+
 
   return (
     <>
-      {location.pathname !== "/file/framefix" && <Header />}
+       {!shouldHideHeader && <Header />}
 
           <Routes>
             <Route path="/" element={<Main />} />
             <Route path="/sign-up" element={<SignUp />} />
             <Route path="/file/framefix" element={<FrameFix />} />
+            <Route path="/create-project/project" element={<CreateProject />} />
           </Routes>
       
-      {location.pathname !== "/file/framefix" && <Footer />}
+        {!shouldHideFooter && <Footer />}
     </>
   );
 }

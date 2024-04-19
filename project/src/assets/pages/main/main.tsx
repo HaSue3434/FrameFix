@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { delay, motion } from 'framer-motion';
-
+import FooterSection from "../../components/footer";
 import { ReactComponent as Logo } from '../../img/logo/logo.svg';
 
 import { ReactComponent as Share } from '../../img/icons/share.svg';
@@ -93,7 +93,7 @@ function Main() {
     const [ref3, controls3] = useInViewExContentSpring();
     const [ref4, controls4] = useInViewExContentSpring();
 
-    const [delayRef, delayControls] = useDelaySpring(0.3);
+    const [delayRef, delayControls] = useDelaySpring(0);
 
     const [seoRef, seo1] = useInViewExContentSpring();
     const [quicklyDescriptionRef1, controlDescription1] = useDescriptionFadeOut();
@@ -1184,7 +1184,7 @@ function Main() {
                     </div>
                     <div className="bottom-blur"></div>
                 </section>
-
+                <FooterSection/>
             </>
         </ScrollSmootherComponent>
     );

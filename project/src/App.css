@@ -93,11 +93,13 @@ header nav ul a li:hover{
     height: 2px;
     transition: left 0.3s ease, width 0.3s ease;
 }
+
+
 footer{
-    width: 100%;
-    height: 500px;
+    width: 100vw;
+    height: 100%;
     background: red;
-    margin-top: 50vh;
+    padding-top: 20vh;
 }
 footer .f-wrapper{
     width: 1680px;

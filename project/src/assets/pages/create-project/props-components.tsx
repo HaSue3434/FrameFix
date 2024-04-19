@@ -7,7 +7,7 @@ interface Form{
 export const PropsComponent: React.FC<Form>= ({ onSubmit }) => {
     return (
         <>
-
+            
         </>
     )
 }

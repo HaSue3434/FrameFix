@@ -1,0 +1,27 @@
+/* sign.module.css */
+.signInContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full height of the viewport */
+}
+
+.googleButtonContainer {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #fff; /* Google blue */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.googleButtonContainer > div > div{
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+.googleButtonContainer > div > div iframe{
+    width: 400px;
+    height: 400px;
+}

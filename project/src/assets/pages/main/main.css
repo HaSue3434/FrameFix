@@ -1600,6 +1600,36 @@ section.main .wrapper  .main-framefix .frame>div .contain{
     background: #171717;
     border-radius: 15px;
 }
+.framefix-footer .wrapper .contain .wrap .out-box{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 111111;
+    display: flex;
+    justify-content: space-between;
+}
+.framefix-footer .wrapper .contain .wrap .out-box .box{
+    border: 1px solid rgba(255,255,255,.1);
+    background: #000;
+    position: absolute;
+    border-radius: 10px;
+}
+.framefix-footer .wrapper .contain .wrap .out-box .left-side{
+    width: 300px;
+    height: 270px;
+    bottom: 165px;
+    left: 135px;
+    box-shadow: 5px -5px 15px 1px rgba(0,0,0,.35);
+}
+.framefix-footer .wrapper .contain .wrap .out-box .right-side{
+    width: 245px;
+    height: 270px;
+    right: 320px;
+    top: 95px;
+    box-shadow: -5px 5px 15px 1px rgba(0,0,0,.35);
+}
 .framefix-footer .wrapper .contain .wrap .head{
     width: 100%;
     height: 65px;

@@ -1,11 +1,11 @@
-import React,{useState } from "react";
+import React,{ useState,useEffect,useRef } from "react";
 import { ReactComponent as Logo } from "../../img/logo/logo.svg";
 import { ReactComponent as PrevArrow } from "../../img/icons/prev-arrow.svg";
 import { ReactComponent as Close } from "./project-maker-icons/close.svg";
 import axios from 'axios';
 import styles from './create-project.module.css';
 import { Link } from "react-router-dom";
-import { motion } from 'framer-motion';
+import { motion,AnimatePresence } from 'framer-motion';
 import { 
 
     FileUpload,
@@ -16,12 +16,19 @@ import {
 
 const CreateProject:React.FC = ()=>{
 
-    const [files, setFiles] = useState<ImagePreview[]>([]); // Ensure this state is defined
-    const [files2, setFiles2] = useState<ImagePreview[]>([]); // Ensure this state is defined
-    console.log(files2);
+    const [files, setFiles] = useState<ImagePreview[]>([]); 
+
+    useEffect(()=>{
+        
+    },[])
+
     return(
         <>
-        <div className={styles.createContain}>
+        <motion.div 
+        initial = {{opacity : 0}}
+        animate = {{opacity : 1}}
+        transition={{duration : 1, ease : "anticipate"}}
+        className={styles.createContain}>
             <div className={styles.createWrapper}>
                 <div className={`${styles.projectInit} ${styles.common}`}>
                     <div className={styles.createHeader}>
@@ -82,7 +89,7 @@ const CreateProject:React.FC = ()=>{
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
             
         </>
     )

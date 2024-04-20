@@ -215,7 +215,7 @@ function Main() {
                 }
             });
             
-           
+            
 
             ScrollTrigger.refresh();
             return () => {
@@ -786,6 +786,12 @@ function Main() {
                     <div className="wrapper">
                         <div className="contain">
                             <div className="wrap">
+                                <div className="out-box">
+                                    <motion.div className='left-side box is-inview' data-scroll data-scroll-speed = "-1"></motion.div>
+                                    <div className='right-side box is-inview' 
+                                    data-scroll data-scroll-speed = "1"
+                                    ></div>
+                                </div>
                                 <div className='head'>
                                     <div className='framefix-project'>
                                         <div className='logo'><FrameLogo/></div>
@@ -1151,6 +1157,7 @@ function Main() {
                                         <motion.div 
                                             ref={ref4 as React.Ref<HTMLDivElement>}
                                             initial={{ opacity: 0, scale: 0.5 }}
+                                            
                                             animate={controls4}
                                             className="mobile" id='mobile-frame'>
                                             <p>Mobile Frame</p>

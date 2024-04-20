@@ -24,13 +24,11 @@ const Sign = (): JSX.Element | null =>{
     const handleLogin = useGoogleLogin({
         onSuccess: async (tokenResponse) => {
             console.log('Login successful!', tokenResponse);
-
-            // 서버에 인증 코드를 전송하여 추가 검증 수행
-            axios.post('/sign-up', { code: tokenResponse.code })
+            axios.post('http://localhost:3000/sign-up', { code: tokenResponse.code })
                 .then(response => {
                     const userData = response.data;
                     setUser(userData);
-                    navigate('./'); // 로그인 성공 후 리디렉션
+                    navigate('/'); 
                 })
                 .catch(error => console.error('Error posting code to server', error));
         },

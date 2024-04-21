@@ -14,5 +14,5 @@ public class ProjectFrApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ProjectFrApplication.class, args);
 	}
-
+	
 }

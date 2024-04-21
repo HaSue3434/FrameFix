@@ -5,12 +5,13 @@ import { ReactComponent as Google } from "../../img/icons/google-icon.svg";
 import { ReactComponent as ThreePath } from "../../img/icons/3d-path.svg";
 import { ReactComponent as FLogo } from "../../img/logo/frame-logo.svg";
 
+
+
 import { ReactComponent as BottomArrow } from "../../img/icons/framefix-plugin-icons/aseets-arrow-bottom.svg";
 import { ReactComponent as Cursor } from "../../img/icons/framefix-plugin-icons/cursor.svg";
 import { ReactComponent as Frame } from "../../img/icons/framefix-plugin-icons/frame.svg";
 import { ReactComponent as Rect } from "../../img/icons/framefix-plugin-icons/Rect.svg";
 import { ReactComponent as Hand } from "../../img/icons/framefix-plugin-icons/hand.svg";
-import { ReactComponent as TextCanvas } from "../../img/text-canvas.svg";
 
 /* framefix icon*/
 import { ReactComponent as Template } from "../../img/icons/framefix-plugin-icons/template.svg";
@@ -37,6 +38,7 @@ import {
     GoogleOAuthProvider
     
 } from '@react-oauth/google';
+import AnimatedSVG from  './AnimatedSVG';
 
 import { jwtDecode } from 'jwt-decode'; 
 import { useNavigate } from 'react-router-dom';
@@ -170,12 +172,35 @@ const Sign = (): JSX.Element | null =>{
                             </div>
                             <div className={Styles.content}>
                                 <div className={Styles.fBox}>
-                                    <div className={Styles.textCanvas}></div>
-                                    <div className={Styles.item}></div>
+                                    <div className={Styles.textCanvas}><AnimatedSVG/></div>
+                                    <motion.div 
+
+                                    initial = {{scale : 0, opacity : 0}}
+                                    animate = {{scale : 1, opacity : 1}}
+                                    transition={{type : "spring", damping : 10, stiffness : 30, delay : .6,}}
+
+                                    className={Styles.item}>
+                                        <img src={require("../../img/component-ui.jpg")} alt="" />
+                                    </motion.div>
                                 </div>
                                 <div className={Styles.sBox}>
-                                    <div className={Styles.sItem}></div>
-                                    <div className={Styles.sItem}></div>
+                                    <motion.div 
+
+                                    initial = {{scale : 0, opacity : 0}}
+                                    animate = {{scale : 1, opacity : 1}}
+                                    transition={{type : "spring", damping : 10, stiffness : 40, delay : .8,}}
+
+                                    className={Styles.sItem}>
+                                        <img src={require("../../img/more-sample1.jpg")} alt="" />
+                                    </motion.div>
+                                    <motion.div 
+                                    initial = {{scale : 0, opacity : 0}}
+                                    animate = {{scale : 1, opacity : 1}}
+                                    transition={{type : "spring", damping : 10, stiffness : 40, delay : 1,}}
+
+                                    className={Styles.sItem}>
+                                        <img src={require("../../img/more-sample4.jpg")} alt="" />
+                                    </motion.div>
                                 </div>
                             </div>
                         </div>

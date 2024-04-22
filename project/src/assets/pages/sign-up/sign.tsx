@@ -62,7 +62,7 @@ const Sign = (): JSX.Element | null =>{
     const handleLogin = useGoogleLogin({
         onSuccess: async (tokenResponse) => {
             console.log('Login successful!', tokenResponse);
-            axios.post('http://localhost:3000/sign-up', { code: tokenResponse.code })
+            axios.post('/app-framefix', { code: tokenResponse.code })
                 .then(response => {
                     const userData = response.data;
                     setUser(userData);

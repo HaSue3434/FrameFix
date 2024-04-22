@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect,useState} from 'react';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import "./assets/pages/main/main.css"
 import Header from './assets/components/header';
@@ -8,16 +8,18 @@ import SignUp from './assets/pages/sign-up/sign';
 import FrameFix from './assets/pages/framefix-tool/mainComponent';
 import CreateProject from './assets/pages/create-project/create-project';
 import MyProject from './assets/pages/user-files/default';
+import axios from "axios";
 
 
 
 function App() {
-  
   return (
-    
-    <Router>
-      <RoutesWithHeaderAndFooter />
-    </Router>
+    <>
+      <Router>
+        <RoutesWithHeaderAndFooter />
+      </Router>
+    </>
+
   );
 }
 
@@ -26,11 +28,22 @@ function RoutesWithHeaderAndFooter(): JSX.Element | null {
   const shouldHideHeader = ['/file/framefix', '/create-project/project', '/user-files/default'].includes(location.pathname);
   const shouldHideFooter = ['/file/framefix', '/user-files/default'].includes(location.pathname);
 
+  const [ data , setData] = useState('');
+
+  useEffect(()=>{
+    axios.get("http://localhost:8080")
+      .then (res=> {
+        setData(res.data);
+        console.log(res.data)
+      } )
+      .catch(err=>console.log(err))
+  },[])
+  
   return (
     <>
-      
+        
         {!shouldHideHeader && <Header />}
-       
+        <div>{data}</div>
           <Routes>
             <Route path="/" element={<Main />} />
             <Route path="/sign-up" element={<SignUp />} />

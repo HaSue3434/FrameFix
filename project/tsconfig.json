@@ -23,5 +23,5 @@
   },
   "include": [
     "src"
-, "craco.config.js", "src/assets/pages/main/slider/project-maker.tsx"  ]
+, "craco.config.js", "src/assets/pages/main/slider/project-maker.tsx", "src/setupProxy.js"  ]
 }

@@ -22,6 +22,7 @@
     "axios": "^1.6.8",
     "framer-motion": "^11.0.24",
     "gsap": "^3.12.5",
+    "http-proxy-middleware": "^3.0.0",
     "jwt-decode": "^4.0.0",
     "locomotive-scroll": "^4.1.4",
     "react": "^18.2.0",
@@ -37,13 +38,13 @@
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
-  "proxy": "http://localhost:3000",
   "scripts": {
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject"
   },
+  "proxy": "http://localhost:8080",
   "eslintConfig": {
     "extends": [
       "react-app",

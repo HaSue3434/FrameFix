@@ -10,7 +10,7 @@ public class Controller {
     @CrossOrigin(origins = "http://localhost:3000/") 
     @GetMapping("/")
     public String getFrameFixData() {
-        return "hi h world";
+        return "hello world";
     }
 
 }

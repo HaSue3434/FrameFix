@@ -31,7 +31,7 @@ function RoutesWithHeaderAndFooter(): JSX.Element | null {
   const [ data , setData] = useState('');
 
   useEffect(()=>{
-    axios.get("http://localhost:8080")
+    axios.post("http://localhost:8080")
       .then (res=> {
         setData(res.data);
         console.log(res.data)

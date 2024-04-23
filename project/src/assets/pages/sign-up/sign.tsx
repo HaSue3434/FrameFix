@@ -61,17 +61,15 @@ const Sign = (): JSX.Element | null =>{
 
     const handleLogin = useGoogleLogin({
         onSuccess: async (tokenResponse) => {
-            console.log('Login successful!', tokenResponse);
             axios.post('/app-framefix', { code: tokenResponse.code })
                 .then(response => {
                     const userData = response.data;
                     setUser(userData);
-                    navigate('/'); 
                 })
                 .catch(error => console.error('Error posting code to server', error));
         },
         onError: errorResponse => {
-            console.error('Login failed!', errorResponse);
+            console.error(errorResponse);
         },
         scope: 'openid email profile',
         flow: 'auth-code',
@@ -128,7 +126,7 @@ const Sign = (): JSX.Element | null =>{
                         <div className={Styles.orGoogle}>
                             <div className={Styles.or}>
                                 <div className={Styles.line}></div>
-                                <div className={Styles.VsOr}>OR</div>
+                                <div className={Styles.VsOr}>Login with SNS</div>
                                 <div className={Styles.line}></div>
                             </div>
                             <div className={Styles.loginGoogle}>

@@ -41,7 +41,7 @@ function RoutesWithHeaderAndFooter(): JSX.Element | null {
   },[])
   
   return (
-    <>
+    <>   
         
         {!shouldHideHeader && <Header />}
         <div>{data}</div>

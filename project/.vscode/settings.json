@@ -1,8 +1,8 @@
 {
     "java.compile.nullAnalysis.mode": "automatic",
     "files.exclude": {
-        "**/.git": true, // 기본적으로 .git 폴더 숨김
-        "**/.gitignore": true, // .gitignore 파일 숨김
-        "**/backend/**": true // backend 폴더와 그 내용 전체 숨김
+        "**/.git": true, 
+        "**/.gitignore": true, 
+        "**/backend/**": true 
     }
 }

@@ -73,7 +73,6 @@ import "./framefix-g.css"
 import DefaultUI from "./slider/project-maker";
 
 import FrameFixGuide from './slider/framefix-g';
-import FramefixUI from './framefix-ui';
 
 import {
     useTypingEffect,

@@ -29,22 +29,11 @@ function RoutesWithHeaderAndFooter(): JSX.Element | null {
   const shouldHideHeader = ['/file/framefix', '/create-project/project', '/user-files/default'].includes(location.pathname);
   const shouldHideFooter = ['/file/framefix', '/user-files/default'].includes(location.pathname);
 
-  const [ data , setData] = useState('');
-
-  useEffect(()=>{
-    axios.post("http://localhost:8080")
-      .then (res=> {
-        setData(res.data);
-        console.log(res.data)
-      } )
-      .catch(err=>console.log(err))
-  },[])
   
   return (
     <>   
         
         {!shouldHideHeader && <Header />}
-        <div>{data}</div>
           <Routes>
             <Route path="/" element={<Main />} />
             <Route path="/sign-up" element={<SignUp />} />

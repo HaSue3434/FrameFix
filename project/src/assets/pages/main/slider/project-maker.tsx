@@ -200,49 +200,7 @@ const DefaultUI: React.FC = ()=>{
                             </div>
                         </div>
                     </div>
-                    <div className="industry-category">
-                        <div className="head">
-                            <div className="prev" onClick={handlePrevClick}>
-                                <PrevIcon/>
-                            </div>
-
-                            <div className="head-logo">
-                                <Logo/>
-                            </div>
-
-                        </div>
-                        <div className="contents-industry">
-                            <div className="select-contain">
-                                <div className="title">
-                                    <div className="h">
-                                        <h1>Select a industry</h1>
-                                    </div>
-                                    <div className="continue-btn" onClick={handleNextClick}>
-                                        Continue
-                                    </div>
-                                </div>
-                                <div className="items">
-                                    <motion.div
-                                    initial="hidden"
-                                    animate={animateInternal ?  'visible' : 'hidden'}
-                                    exit="exit"
-                                    >
-                                        {items.map((item, i) => (
-                                            <motion.div
-                                              key={item.id}
-                                              custom={i} 
-                                              variants={variants}
-                                            >
-                                                <item.Icon />
-                                                <p>{item.text}</p>
-                                            </motion.div>
-                                        ))}
-                                    </motion.div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
+                    
                     <div className="researched">
                             <div className="head">
                                 <div className="prev" onClick={handlePrevClick}>

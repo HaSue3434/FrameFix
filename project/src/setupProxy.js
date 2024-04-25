@@ -2,9 +2,9 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 
 module.exports = function(app) {
   app.use(
-    '/api', // 변경된 경로
+    '/app', // 변경된 경로
     createProxyMiddleware({
-      target: 'http://localhost:8080',	
+      target: 'http://localhost:8080/app-framefix/google',	
       changeOrigin: true,
     })
   );

@@ -1,10 +1,10 @@
 import React,{useEffect,useState}from 'react';
-import Styles from "./sign.module.css";
+
 import { ReactComponent as Logo } from "../../img/logo/logo.svg";
 import { ReactComponent as Google } from "../../img/icons/google-icon.svg";
 import { ReactComponent as ThreePath } from "../../img/icons/3d-path.svg";
 import { ReactComponent as FLogo } from "../../img/logo/frame-logo.svg";
-
+import Styles from "./sign.module.css";
 
 
 import { ReactComponent as BottomArrow } from "../../img/icons/framefix-plugin-icons/aseets-arrow-bottom.svg";
@@ -52,21 +52,23 @@ interface User {
 type FormData = {
     email: string;
 };
+const REACTAPPURL = process.env.REACT_APP_BACKEND_URL;
 
 const Sign = (): JSX.Element | null =>{
     const navigate = useNavigate();
     const [user, setUser] = React.useState<User | null>(null);
 
     const [formData, setFormData] = useState<FormData>({ email:''});
-
+    
     const handleLogin = useGoogleLogin({
         onSuccess: async (tokenResponse) => {
-            axios.post('/app-framefix', { code: tokenResponse.code })
-                .then(response => {
-                    const userData = response.data;
-                    setUser(userData);
-                })
-                .catch(error => console.error('Error posting code to server', error));
+            await axios.post(`${REACTAPPURL}/app-framefix/google`, {
+                code: tokenResponse.code
+            })
+            .then(({ data }) => {
+                console.log(data);
+            })
+            .catch(error => console.error('Error posting code to server', error));
         },
         onError: errorResponse => {
             console.error(errorResponse);
@@ -87,7 +89,7 @@ const Sign = (): JSX.Element | null =>{
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         try {
-            const response = await axios.post('http://your-java-server.com/api/data', formData);
+            const response = await axios.post('http://localhost:8080/email/app-framefix', formData);
             console.log('Server Response:', response.data);
         } catch (error) {
             console.error('Error sending data:', error);

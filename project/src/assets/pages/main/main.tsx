@@ -73,7 +73,7 @@ import "./slider/canvas.css"
 import "./framefix-g.css"
 import DefaultUI from "./slider/project-maker";
 import Canvas from "./slider/canvas";
-import CodeConverts from "./slider/canvas";
+import CodeConverts from "./slider/code-converts";
 
 import FrameFixGuide from './slider/framefix-g';
 
@@ -141,7 +141,7 @@ function Main() {
                 || items[activeIndex] === 'code-Converts'  
                 || items[activeIndex] === 'publish'  
             ) {
-                frameElement.current.style.height = '1080px';
+                frameElement.current.style.height = '924px';
             } else if (items[activeIndex] === 'ai-powered') {
                 frameElement.current.style.height = '824px';
             } else {

@@ -5,7 +5,7 @@
     overflow: hidden;
 }
 .project-maker-init>div{
-    width: 200%;
+    width: 100%;
     display: flex;
     flex-wrap: nowrap;
     position: relative;
@@ -131,6 +131,11 @@
     justify-content: center;
     align-items: center;
     padding: 5px;
+    transition: .3s;
+    outline: 1px solid transparent;
+}
+.project-maker-init .contents .user-interaction .file .upload-img .img-icon .guide:hover{
+    outline: 8px solid #4599ff75;
 }
 .project-maker-init .contents .user-interaction .file .upload-img .img-icon .guide svg{
 

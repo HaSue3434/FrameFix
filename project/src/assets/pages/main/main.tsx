@@ -1,10 +1,10 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef,FC} from 'react';
 
 import ScrollSmootherComponent from "./ScrollSmoother";
 import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { delay, motion } from 'framer-motion';
+import { delay, motion, useAnimation } from 'framer-motion';
 import FooterSection from "../../components/footer";
 import { ReactComponent as Logo } from '../../img/logo/logo.svg';
 
@@ -69,8 +69,11 @@ import { ReactComponent as PerSide } from '../../img/icons/framefix-style-icons/
 // framefix style icons //
 
 import "./slider/project-maker.css"
+import "./slider/canvas.css"
 import "./framefix-g.css"
 import DefaultUI from "./slider/project-maker";
+import Canvas from "./slider/canvas";
+import CodeConverts from "./slider/canvas";
 
 import FrameFixGuide from './slider/framefix-g';
 
@@ -84,6 +87,10 @@ import {
     useDelaySpring,
 
 } from './script';
+
+interface ComponentSlideMap {
+    [key: string]: React.ComponentType<any>; // Use any or a specific prop type
+  }
 
 function Main() {
 
@@ -114,7 +121,35 @@ function Main() {
     );
     const [startAnimation, setStartAnimation] = useState(false);
     const items = ['ai-powered', 'canvas', 'code-Converts', 'publish'];
-    const [activeIndex, setActiveIndex] = useState<number | null>(0);
+    const [activeIndex, setActiveIndex] = useState<number>(0);
+
+    const frameElement = useRef<HTMLDivElement>(null);
+    const slideControls = useAnimation();
+
+    const componentMap : ComponentSlideMap = {
+        "ai-powered": DefaultUI,
+        'canvas': Canvas,
+        'code-Converts' : CodeConverts,
+
+    }
+
+    const ActiveComponent = componentMap[items[activeIndex]];
+
+    useEffect(() => {
+        if (frameElement.current) { 
+            if (items[activeIndex] === 'canvas'
+                || items[activeIndex] === 'code-Converts'  
+                || items[activeIndex] === 'publish'  
+            ) {
+                frameElement.current.style.height = '1080px';
+            } else if (items[activeIndex] === 'ai-powered') {
+                frameElement.current.style.height = '824px';
+            } else {
+                frameElement.current.style.height = '824px'; 
+            }
+        }
+    }, [activeIndex]); 
+
 
     const itemVariants = {
         hidden: { opacity: 0, x: -50 },
@@ -315,8 +350,8 @@ function Main() {
                             animate={controls1}
 
                             className="main-framefix">
-                            <div className="frame">
-                                <DefaultUI />
+                            <div className="frame" ref={frameElement}>
+                                <ActiveComponent/>
                             </div>
                         </motion.div>
 
@@ -335,16 +370,6 @@ function Main() {
                 </section>
 
                 <section className='publish' data-scroll data-scroll-section id='publish'>
-                    <div ref={scrollEventIconRef} className="scrollEventIcon" id='internet-icon'>
-                        <div>deploy website</div>
-                    </div>
-                    <div className='scrollEvent' ref={scrollEventIconRef2}>
-                        <div>deploy website</div>
-                    </div>
-                    <div
-                        className='none-pin' ref={scrollEventNonePin}>
-                        <div>deploy website</div>
-                    </div>
                     <div className='wrapper' data-scroll>
 
                         <div className='txt'>

@@ -141,7 +141,7 @@ function Main() {
                 || items[activeIndex] === 'code-Converts'  
                 || items[activeIndex] === 'publish'  
             ) {
-                frameElement.current.style.height = '924px';
+                frameElement.current.style.height = '100%';
             } else if (items[activeIndex] === 'ai-powered') {
                 frameElement.current.style.height = '824px';
             } else {

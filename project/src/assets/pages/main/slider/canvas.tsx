@@ -14,6 +14,15 @@ import {ReactComponent as Slides} from "../../../img/icons/framefix-plugin-icons
 import {ReactComponent as Button} from "../../../img/icons/framefix-plugin-icons/button.svg";
 import {ReactComponent as Icons} from "../../../img/icons/framefix-plugin-icons/icons.svg";
 import {ReactComponent as Magic} from "../../../img/icons/framefix-plugin-icons/magic.svg";
+import { ReactComponent as Locked } from '../../../img/icons/framefix-plugin-icons/locked.svg';
+import { ReactComponent as Open } from '../../../img/icons/framefix-plugin-icons/opened.svg';
+import { ReactComponent as Close } from '../../../img/icons/framefix-plugin-icons/close.svg';
+import { ReactComponent as AssetsBottomArrow } from '../../../img/icons/framefix-plugin-icons/aseets-arrow-bottom.svg';
+import { ReactComponent as PageIcon } from '../../../img/icons/framefix-plugin-icons/page-icon.svg';
+import { ReactComponent as Add } from '../../../img/icons/framefix-plugin-icons/add.svg';
+import { ReactComponent as FrameIcon } from '../../../img/icons/framefix-plugin-icons/frame.svg';
+import { ReactComponent as Rect } from '../../../img/icons/framefix-plugin-icons/Rect.svg';
+
 
 const Canvas: React.FC = ()=>{
 
@@ -42,9 +51,8 @@ const Canvas: React.FC = ()=>{
                 >
                     <div className="ui-head">
                         <div className="project-name">
-                            <div><FrameLogo/></div>
-                            <div></div>
-                            <div></div>
+                            <div className="p-logo"><FrameLogo/></div>
+                            <div className="file-name"><p><span>Drafts / </span>Project name</p></div>
                         </div>
                         <div className="tools"></div>
                         <div className="settings"></div>
@@ -65,10 +73,82 @@ const Canvas: React.FC = ()=>{
                                 </motion.div>
                             ))}
                             </div>
-                            <div className="assets"></div>
+                            <div className="assets">
+                                <div className="t-layer">
+                                    <div><h4>Layer</h4></div>
+                                    <div className="close-btn"><Close/></div>
+                                </div>
+                                <div className="pages">
+                                    <div className="t-page">
+                                        <div><h4>Page</h4></div>
+                                        <div className="pbi"><Add/><AssetsBottomArrow/></div>
+                                    </div>
+                                    <div className="files">
+                                        <div className="page p1 current">
+                                            <div><PageIcon/></div>
+                                            <div><p>page1</p></div>
+                                        </div>
+                                        <div className="page p2">
+                                            <div><PageIcon/></div>
+                                            <div><p>page2</p></div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div className="layer">
+                                    <div><h4>Layer</h4></div>
+                                    <div className="layer-e">
+                                        <div className="frame-1">
+                                            <div className="frame-e"><AssetsBottomArrow/><FrameIcon/><p>Frame</p></div>
+                                            <div className="frame-wrap">
+                                                <div className="rect rect-1">
+                                                    <div>
+                                                        <Rect/>
+                                                        <p>Rectangle1</p>
+                                                    </div>
+                                                    <div className="check">
+                                                        <Locked/>
+                                                    </div>
+                                                    
+                                                </div>
+                                                <div className="rect rect-2">
+                                                    <div>
+                                                        <Rect/>
+                                                        <p>Rectangle2</p>
+                                                    </div>
+                                                    <div className="check">
+                                                        <Locked/>
+                                                    </div>
+                                                </div>
+                                                <div className="rect rect-3">
+                                                    <div>
+                                                        <Rect/>
+                                                        <p>Rectangle3</p>
+                                                    </div>
+
+                                                </div>
+                                                <div className="rect rect-4">
+                                                    <div>
+                                                        <Rect/>
+                                                        <p>Rectangle4</p>
+                                                    </div>
+
+                                                </div>
+                                                <div className="rect rect-5">
+                                                    <div>
+                                                        <Rect/>
+                                                        <p>Rectangle5</p>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div className="styles">
-
+                            
                         </div>
                     </div>
                 </motion.div>

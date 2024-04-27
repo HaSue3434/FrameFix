@@ -1,6 +1,5 @@
 import React, { useEffect,useRef,useState} from "react";
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { gsap,ScrollTrigger } from 'gsap/all';
 import { motion } from 'framer-motion';
 import { ReactComponent as Deploy } from '../../../img/icons/deploy-icon.svg';
 import { ReactComponent as OutContentAI } from '../../../img/icons/out content.svg';
@@ -30,6 +29,9 @@ import { ReactComponent as GenerateIcon} from "../../../img/icons/framefix-plugi
 // icon tools //
 
 import { Link } from 'react-router-dom';
+import ReactPlayer from 'react-player';
+
+import YouTube, { YouTubeProps } from 'react-youtube';
 
 import {
     useTypingEffect,
@@ -37,8 +39,9 @@ import {
 } from "../script";
 gsap.registerPlugin(ScrollTrigger);
 
-const FrameFixGuide: React.FC = () => {
 
+const FrameFixGuide: React.FC = ( videoId ) => {
+    
     const sectionsRef = useRef<HTMLDivElement>(null);
     const [activate, setActivate] = useState(false);
     const [outBoxRef, outBoxControls] = useInViewPluginsScale(activate);
@@ -50,10 +53,29 @@ const FrameFixGuide: React.FC = () => {
     const { typedText: typing } = useTypingEffect(triggerTyping ? "I would like to see a 3D image." : "", 10);
 
 
+    const playerRef = useRef<HTMLDivElement>(null);
+
     useEffect(() => {
+
+        let player: YT.Player;
+        window.onYouTubeIframeAPIReady = () => {
+            if (playerRef.current) {
+                player = new YT.Player(playerRef.current, {
+                height: '390',
+                width: '640',
+                videoId: videoId,
+                events: {
+                    onReady: (event) => {
+                        playerRef.current = event.target;  // 플레이어 참조 저장
+                    }
+                }
+                });
+            }
+        };
         if (sectionsRef.current) {
             const sections = gsap.utils.toArray<Element>('.section-i', sectionsRef.current);
             const createAI = document.querySelector(".create-ai") as HTMLElement;
+            
 
             gsap.set(sections, { autoAlpha: 0,});
 
@@ -98,6 +120,10 @@ const FrameFixGuide: React.FC = () => {
                         }
                         if(createAI){
                             createAI.style.top = `${self.progress * 100}px`;
+                        }
+                        const videoDuration = videoElement.duration;
+                        if (videoElement && !isNaN(videoDuration)) {
+                            videoElement.currentTime = self.progress * videoDuration;
                         }
 
                     }
@@ -312,6 +338,20 @@ const FrameFixGuide: React.FC = () => {
                                         <div className="project-name">
                                             <p> <span>Drafts /</span> Project name <DropDownArrow/></p>
                                         </div>
+                                        
+                                    </div>
+                                    <div className="view-effects">
+                                        <ReactPlayer
+                                        ref={playerRef}
+                                        className='react-player'
+                                        url={'/video/f-video.webm'}
+                                        playing = {true}
+                                        controls = {false}
+                                        poster={'/video/init-v.jpg'}
+                                        muted={true}
+                                        width={'1920px'}
+                                        height={'650px'}
+                                        />
                                     </div>
                                 </div>
                             </div>

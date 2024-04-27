@@ -4,7 +4,7 @@ import ScrollSmootherComponent from "./ScrollSmoother";
 import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { delay, motion, useAnimation } from 'framer-motion';
+import { delay, frame, motion, useAnimation } from 'framer-motion';
 import FooterSection from "../../components/footer";
 import { ReactComponent as Logo } from '../../img/logo/logo.svg';
 
@@ -87,6 +87,8 @@ import {
     useDelaySpring,
 
 } from './script';
+import { transform } from 'typescript';
+
 
 interface ComponentSlideMap {
     [key: string]: React.ComponentType<any>; // Use any or a specific prop type
@@ -141,7 +143,7 @@ function Main() {
                 || items[activeIndex] === 'code-Converts'  
                 || items[activeIndex] === 'publish'  
             ) {
-                frameElement.current.style.height = '100%';
+                frameElement.current.style.height = '924px';
             } else if (items[activeIndex] === 'ai-powered') {
                 frameElement.current.style.height = '824px';
             } else {
@@ -168,6 +170,7 @@ function Main() {
 
     const scrollEventIconRef = useRef<HTMLDivElement>(null);
     const scrollEventIconRef2 = useRef<HTMLDivElement>(null);
+    const scrollEventIconRef3 = useRef<HTMLDivElement>(null);
     const scrollEventNonePin = useRef<HTMLDivElement>(null);
     const fullScreenRef = useRef<HTMLDivElement>(null);
     const f = useRef<SVGSVGElement>(null);
@@ -177,47 +180,7 @@ function Main() {
         const t1 = gsap.timeline();
 
         let ctx = gsap.context(() => {
-            t1.to(scrollEventIconRef.current, {
-                x: 2000,
-                opacity: 1,
-                scrollTrigger: {
-                    trigger: scrollEventIconRef.current,
-                    start: "50% 50%",
-                    end: "800% 80%",
-                    scrub: true,
-                    toggleActions: "play none none none",
-                    refreshPriority: 1,
-                    pinType: "transform",
-                },
-            });
-
-            t1.to(scrollEventIconRef2.current, {
-                x: -2000,
-                opacity: 1,
-                scrollTrigger: {
-                    trigger: scrollEventIconRef2.current,
-                    start: "50% 50%",
-                    end: "800% 80%",
-                    scrub: true,
-                    toggleActions: "play none none none",
-                    refreshPriority: 1,
-                    pinType: "transform",
-                },
-            });
-
-            t1.to(scrollEventNonePin.current, {
-                x: 2000,
-                opacity: 1,
-                scrollTrigger: {
-                    trigger: scrollEventNonePin.current,
-                    start: "top 50%",
-                    end: "800% 80%",
-                    scrub: true,
-                    toggleActions: "play none none none",
-                    refreshPriority: 1,
-                    pinType: "transform",
-                },
-            });
+           
             t1.to(f.current, {
                 scrollTrigger: {
                     trigger: f.current,
@@ -248,8 +211,6 @@ function Main() {
                     scrub: true,
                 }
             });
-            
-            
 
             ScrollTrigger.refresh();
             return () => {
@@ -346,6 +307,7 @@ function Main() {
                         </div>
                         <motion.div
                             ref={ref1 as React.Ref<HTMLDivElement>}
+                            
                             initial={{ opacity: 0, scale: 0.5 }}
                             animate={controls1}
 

@@ -435,3 +435,15 @@
     -webkit-text-fill-color: transparent;
 
 }
+.view-effects{
+    width: 100%;
+    height: 100%;
+}
+.view-effects .react-player{
+    left: -15%;
+    position: relative;
+}
+.view-effects video{
+    width: 100%;
+    height: 100%;
+}

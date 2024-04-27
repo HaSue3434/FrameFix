@@ -15,13 +15,15 @@ import {ReactComponent as Button} from "../../../img/icons/framefix-plugin-icons
 import {ReactComponent as Icons} from "../../../img/icons/framefix-plugin-icons/icons.svg";
 import {ReactComponent as Magic} from "../../../img/icons/framefix-plugin-icons/magic.svg";
 import { ReactComponent as Locked } from '../../../img/icons/framefix-plugin-icons/locked.svg';
-import { ReactComponent as Open } from '../../../img/icons/framefix-plugin-icons/opened.svg';
 import { ReactComponent as Close } from '../../../img/icons/framefix-plugin-icons/close.svg';
 import { ReactComponent as AssetsBottomArrow } from '../../../img/icons/framefix-plugin-icons/aseets-arrow-bottom.svg';
 import { ReactComponent as PageIcon } from '../../../img/icons/framefix-plugin-icons/page-icon.svg';
 import { ReactComponent as Add } from '../../../img/icons/framefix-plugin-icons/add.svg';
 import { ReactComponent as FrameIcon } from '../../../img/icons/framefix-plugin-icons/frame.svg';
 import { ReactComponent as Rect } from '../../../img/icons/framefix-plugin-icons/Rect.svg';
+import { ReactComponent as Folder } from '../../../img/icons/framefix-plugin-icons/folder.svg';
+import { ReactComponent as Settings } from '../../../img/icons/framefix-plugin-icons/settings.svg';
+import { ReactComponent as Preview } from '../../../img/icons/framefix-plugin-icons/view.svg';
 
 
 const Canvas: React.FC = ()=>{
@@ -55,7 +57,19 @@ const Canvas: React.FC = ()=>{
                             <div className="file-name"><p><span>Drafts / </span>Project name</p></div>
                         </div>
                         <div className="tools"></div>
-                        <div className="settings"></div>
+                        <div className="settings">
+                            <div className="user">
+                                <div className="profile">U</div>
+                                <div><AssetsBottomArrow/></div>
+                            </div>
+                            <div className="m-preview common"><Settings/></div>
+                            <div className="m-settings common"><Preview/></div>
+                            <div className="m-publish">Publish</div>
+                            <div className="zoom-in">
+                                <span>100%</span>
+                                <AssetsBottomArrow/>
+                            </div>
+                        </div>
                     </div>
                     <div className="ui-body">
                         <div className="plugins">
@@ -91,6 +105,10 @@ const Canvas: React.FC = ()=>{
                                         <div className="page p2">
                                             <div><PageIcon/></div>
                                             <div><p>page2</p></div>
+                                        </div>
+                                        <div className="page folder p2">
+                                            <div><Folder/></div>
+                                            <div><p><span>/</span>New Folder</p></div>
                                         </div>
                                     </div>
                                     
@@ -148,7 +166,11 @@ const Canvas: React.FC = ()=>{
                             </div>
                         </div>
                         <div className="styles">
-                            
+                            <div className="tabs">
+                                <div>Design</div>
+                                <div>Prototype</div>
+                                <div>Handoff</div>
+                            </div>
                         </div>
                     </div>
                 </motion.div>

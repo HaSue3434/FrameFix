@@ -29,9 +29,8 @@ import { ReactComponent as GenerateIcon} from "../../../img/icons/framefix-plugi
 // icon tools //
 
 import { Link } from 'react-router-dom';
-import ReactPlayer from 'react-player';
+import ReactPlayer from 'react-player/youtube'
 
-import YouTube, { YouTubeProps } from 'react-youtube';
 
 import {
     useTypingEffect,
@@ -39,8 +38,7 @@ import {
 } from "../script";
 gsap.registerPlugin(ScrollTrigger);
 
-
-const FrameFixGuide: React.FC = ( videoId ) => {
+const FrameFixGuide: React.FC = () => {
     
     const sectionsRef = useRef<HTMLDivElement>(null);
     const [activate, setActivate] = useState(false);
@@ -52,26 +50,12 @@ const FrameFixGuide: React.FC = ( videoId ) => {
     const [ triggerTyping, setTriggerTyping ] = useState(false);
     const { typedText: typing } = useTypingEffect(triggerTyping ? "I would like to see a 3D image." : "", 10);
 
-
-    const playerRef = useRef<HTMLDivElement>(null);
+    const player = document.querySelector(".react-player");
+    const playerRef = player?.querySelector("video");
 
     useEffect(() => {
 
-        let player: YT.Player;
-        window.onYouTubeIframeAPIReady = () => {
-            if (playerRef.current) {
-                player = new YT.Player(playerRef.current, {
-                height: '390',
-                width: '640',
-                videoId: videoId,
-                events: {
-                    onReady: (event) => {
-                        playerRef.current = event.target;  // 플레이어 참조 저장
-                    }
-                }
-                });
-            }
-        };
+
         if (sectionsRef.current) {
             const sections = gsap.utils.toArray<Element>('.section-i', sectionsRef.current);
             const createAI = document.querySelector(".create-ai") as HTMLElement;
@@ -121,15 +105,20 @@ const FrameFixGuide: React.FC = ( videoId ) => {
                         if(createAI){
                             createAI.style.top = `${self.progress * 100}px`;
                         }
-                        const videoDuration = videoElement.duration;
-                        if (videoElement && !isNaN(videoDuration)) {
-                            videoElement.currentTime = self.progress * videoDuration;
-                        }
+                        const handleSeek = (progress: number) => {
+                            const video = playerRef;
+                            if (video) {
+                                const duration = video.duration;
+                                video.currentTime = progress * duration;
+                            }
+                        };
+                        handleSeek(self.progress);
 
                     }
                 });
             });
         }
+
     }, []);
 
     return (
@@ -342,12 +331,11 @@ const FrameFixGuide: React.FC = ( videoId ) => {
                                     </div>
                                     <div className="view-effects">
                                         <ReactPlayer
-                                        ref={playerRef}
                                         className='react-player'
-                                        url={'/video/f-video.webm'}
+                                        url={`${process.env.REACT_APP_URL}/src/assets/img/f-video.webm`}
                                         playing = {true}
                                         controls = {false}
-                                        poster={'/video/init-v.jpg'}
+                                        poster={`${process.env.REACT_APP_URL}/src/assets/img/init-v.jpg`}
                                         muted={true}
                                         width={'1920px'}
                                         height={'650px'}

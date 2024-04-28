@@ -298,25 +298,7 @@ section.main .wrapper  .main-framefix .frame>div .contain{
     color: rgba(255,255,255,1);
     background: #459AFF;
 }
-.publish-ex> .contents{
-    display: flex;
-    gap: 27px;
-    width: 100vw;
-    justify-content: center;
-}
-.publish-ex> .contents > div{
-    width: 1180px;
-    height: 750px;
-    min-width: 1180px;
-    border: 1px solid rgba(255,255,255,.2);
-    background: #1a1a1a;
-    border-radius: 15px;
-    
-}
-.publish-ex> .contents > div.right-content{
-    background: rgb(226, 226, 226);
-    z-index: 10;
-}
+
 .seo-contain{
     width: 100%;
     height: 100%;
@@ -2023,7 +2005,7 @@ section.main .wrapper  .main-framefix .frame>div .contain{
     height: 70%;
     z-index: -1;
     background: linear-gradient(to right, #2562FF ,#E960FF);
-    filter: blur(35px);
+    filter: blur(85px);
 }
 
 

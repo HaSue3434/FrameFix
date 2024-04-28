@@ -437,13 +437,12 @@
 }
 .view-effects{
     width: 100%;
-    height: 100%;
 }
 .view-effects .react-player{
-    left: -15%;
     position: relative;
+    height: 100%;
 }
-.view-effects video{
+.view-effects .react-player video{
     width: 100%;
     height: 100%;
 }

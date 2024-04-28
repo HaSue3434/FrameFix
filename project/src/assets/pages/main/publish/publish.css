@@ -1,0 +1,155 @@
+.publish-ex{
+    width: 1680px;
+    padding: 25px;
+    max-width: 100%;
+    height: 300vh;
+    margin: 0 auto;
+    opacity: 0.5;
+    transform:  scale(0.95);
+    border-radius: 15px;
+    perspective: 1000px;
+
+}
+.publish-ex .publish-contain{
+    width: 100%;
+    height: 100vh;
+    max-width: 100%;
+    margin: 25px;
+    background: #171717;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,.1);
+    margin: 0px auto;
+}
+.publish-ex .publish-contain .wrap{
+    width: 100%;
+}
+
+.publish-ex .publish-contain .wrap .head{
+    width: 100%;
+    height:60px;
+    background: #000;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    align-items: center;
+}
+.publish-ex .publish-contain .wrap .head > .f-project-name{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.publish-ex .publish-contain .wrap .head > .f-project-name .o-frame-logo svg{
+    width: auto;
+    height: 35px;
+    margin-top: 5px;
+}
+.publish-ex .publish-contain .wrap .head > .f-project-name  .setting-name{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.publish-ex .publish-contain .wrap .head > .f-project-name  .setting-name p{
+    font-size: 14px;
+    color: rgba(255,255,255,1);
+    font-weight: 500;
+    line-height: 60px;
+}
+.publish-ex .publish-contain .wrap .head > .f-project-name  .setting-name p span{
+    color: rgba(255,255,255,.35);
+}
+.publish-ex .publish-contain .wrap .head > .f-project-name  .setting-name svg{
+    vertical-align: middle;
+    width: 10px;
+    margin-top: 2px;
+}
+.publish-ex .publish-contain .wrap .head > .publish-settings{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.publish-ex .publish-contain .wrap .head > .publish-settings .publish-btn{
+    position: relative;
+    width: 80px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background: #459AFF;
+}
+.publish-ex .publish-contain .wrap .head > .publish-settings .zoom-in{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.publish-ex .publish-contain .wrap .head > .publish-settings .zoom-in  p{
+    color: rgba(255,255,255,1);
+    font-size: 14px;
+}
+.publish-ex .publish-contain .wrap .head > .publish-settings .zoom-in svg{
+    vertical-align: middle;
+    width: 10px;
+    margin-top: 2px;
+}
+.publish-ex .publish-contain .wrap .head > .publish-settings .publish-btn p{
+    color: rgba(255,255,255,1);
+    font-weight: 500;
+    font-size: 14px;
+}
+.publish-ex .publish-contain .wrap .head > .publish-settings .common{
+    height: 35px;
+    width: 35px;
+    background: #2b2b2b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+.publish-ex .publish-contain .wrap .head > .publish-settings .common svg{
+    margin-top: -2px;
+    height: 20px;
+    width: 100%;
+}
+.publish-ex .publish-contain .wrap .head > .publish-settings  .user-profile{
+    height: 35px;
+    width: 60px;
+    background: #2b2b2b;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    padding: 3px;
+    border-radius: 55px;
+}
+.publish-ex .publish-contain .wrap .head > .publish-settings  .user-profile .profile{
+    width: 30px;
+    height: 30px;
+    background: #459AFF;
+    color: rgba(255,255,255,1);
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 17px;
+}
+.publish-ex .publish-contain .wrap .head > .publish-settings  .user-profile svg{
+    width: 10px;
+    margin-left: 2px;
+}
+.publish-ex .publish-contain .wrap .contents{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+}
+.publish-ex .publish-contain .wrap .contents>div{
+    width: 100%;
+    height: 100%;
+    padding: 25px;
+}
+.publish-ex .publish-contain .wrap .contents>div .content{
+    width: calc(100vw - 45px);
+    height: calc(100vh - 115px);
+    max-width: 100%;
+    background: red;
+}

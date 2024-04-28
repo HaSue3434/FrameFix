@@ -71,9 +71,13 @@ import { ReactComponent as PerSide } from '../../img/icons/framefix-style-icons/
 import "./slider/project-maker.css"
 import "./slider/canvas.css"
 import "./framefix-g.css"
+import "./publish/publish.css"
 import DefaultUI from "./slider/project-maker";
 import Canvas from "./slider/canvas";
 import CodeConverts from "./slider/code-converts";
+
+import Publish from "./publish/publish";
+
 
 import FrameFixGuide from './slider/framefix-g';
 
@@ -87,7 +91,6 @@ import {
     useDelaySpring,
 
 } from './script';
-import { transform } from 'typescript';
 
 
 interface ComponentSlideMap {
@@ -363,13 +366,7 @@ function Main() {
 
 
                     </div>
-
-                    <div className='publish-ex'>
-                        <div className='contents'>
-                            <div className='left-content'></div>
-                            <div className='right-content'></div>
-                        </div>
-                    </div>
+                    <Publish/>
                 </section>
 
 

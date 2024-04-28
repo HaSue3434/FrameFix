@@ -29,7 +29,7 @@ import { ReactComponent as GenerateIcon} from "../../../img/icons/framefix-plugi
 // icon tools //
 
 import { Link } from 'react-router-dom';
-import ReactPlayer from 'react-player/youtube'
+import ReactPlayer from 'react-player'
 
 
 import {
@@ -50,12 +50,17 @@ const FrameFixGuide: React.FC = () => {
     const [ triggerTyping, setTriggerTyping ] = useState(false);
     const { typedText: typing } = useTypingEffect(triggerTyping ? "I would like to see a 3D image." : "", 10);
 
-    const player = document.querySelector(".react-player");
-    const playerRef = player?.querySelector("video");
+    const playerRef = useRef<any>(null); 
+    const [duration, setDuration] = useState(0); 
+
+    const handler = (seconds : number) =>{
+        setDuration(seconds)
+    }
 
     useEffect(() => {
+        if (!playerRef) return;
 
-
+        
         if (sectionsRef.current) {
             const sections = gsap.utils.toArray<Element>('.section-i', sectionsRef.current);
             const createAI = document.querySelector(".create-ai") as HTMLElement;
@@ -105,15 +110,9 @@ const FrameFixGuide: React.FC = () => {
                         if(createAI){
                             createAI.style.top = `${self.progress * 100}px`;
                         }
-                        const handleSeek = (progress: number) => {
-                            const video = playerRef;
-                            if (video) {
-                                const duration = video.duration;
-                                video.currentTime = progress * duration;
-                            }
-                        };
-                        handleSeek(self.progress);
-
+                        if (playerRef.current) {
+                            handler(self.progress*7)
+                        }
                     }
                 });
             });
@@ -332,13 +331,17 @@ const FrameFixGuide: React.FC = () => {
                                     <div className="view-effects">
                                         <ReactPlayer
                                         className='react-player'
-                                        url={`${process.env.REACT_APP_URL}/src/assets/img/f-video.webm`}
-                                        playing = {true}
-                                        controls = {false}
-                                        poster={`${process.env.REACT_APP_URL}/src/assets/img/init-v.jpg`}
+                                        ref={playerRef}
+                                        
+                                        url={`/video/f-video.webm`}
+                                        controls = {true}
+                                        poster={`/video/init-v.jpg`}
                                         muted={true}
-                                        width={'1920px'}
-                                        height={'650px'}
+                                        width={'1300px'}
+                                        height={'100%'}
+                                        playing = {false}
+                                        loop = { true }
+                                        onDuration={setDuration}
                                         />
                                     </div>
                                 </div>

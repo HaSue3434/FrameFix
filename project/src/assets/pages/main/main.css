@@ -830,6 +830,9 @@ section.main .wrapper  .main-framefix .frame>div .contain{
     color: rgba(255,255,255,1);
     max-width: 1150px;
 }
+.community .wrapper .community-title .txt h1 span{
+    color: #459AFF;
+}
 .community .wrapper>.contents{
     margin-top: 50vh;
     width: 100%;

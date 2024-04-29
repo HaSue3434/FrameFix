@@ -33,13 +33,6 @@ const ScrollSmootherComponent: React.FC<ScrollSmootherProps> = ({ children }) =>
       ScrollTrigger.refresh();
     });
 
-    (ls.on as any)('call', (func: any, direction: any, obj: any) => {
-      if(func){
-        ScrollTrigger.refresh();
-      }
-      
-    });
-
     ScrollTrigger.scrollerProxy(scrollRef.current,{
       scrollTop(value) {
         

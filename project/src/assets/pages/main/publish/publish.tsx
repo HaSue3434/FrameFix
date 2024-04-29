@@ -52,7 +52,7 @@ const Publish:React.FC = ()=>{
                         end: "200% 50%",
                         scrub: true,
                         pin: true,
-                        pinType: "transform",
+                        pinType: "transform",     
                         onEnter: () => {
                             gsap.to(enterTrigger, {
                                 opacity: 1,
@@ -118,7 +118,6 @@ const Publish:React.FC = ()=>{
                                 <div className="profile">U</div>
                                 <div><AssetsBottomArrow/></div>
                             </div>
-                            <div className="common"><Preview/></div>
                             <div className="common"><Settings/></div>
                             <div className="publish-btn"><p>Publish</p></div>
                             <div className="zoom-in">
@@ -131,6 +130,7 @@ const Publish:React.FC = ()=>{
                         <div className="contents-wrap">
                             <div>
                                 <div className="content" ref={enterTriggerRef}>
+                                    
                                     {loadSpline && <Spline scene="https://prod.spline.design/0znOG4ZR1X5C25yq/scene.splinecode" ref={splineHiddenRef}  />}
 
                                 </div>

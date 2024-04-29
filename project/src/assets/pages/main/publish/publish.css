@@ -44,7 +44,7 @@
 }
 .publish-ex .publish-contain .wrap .head > .f-project-name  .setting-name{
     display: flex;
-    gap: 10px;
+    gap: 5px;
     align-items: center;
 }
 .publish-ex .publish-contain .wrap .head > .f-project-name  .setting-name p{
@@ -59,7 +59,6 @@
 .publish-ex .publish-contain .wrap .head > .f-project-name  .setting-name svg{
     vertical-align: middle;
     width: 10px;
-    margin-top: 2px;
 }
 .publish-ex .publish-contain .wrap .head > .publish-settings{
     display: flex;
@@ -88,7 +87,6 @@
 .publish-ex .publish-contain .wrap .head > .publish-settings .zoom-in svg{
     vertical-align: middle;
     width: 10px;
-    margin-top: 2px;
 }
 .publish-ex .publish-contain .wrap .head > .publish-settings .publish-btn p{
     color: rgba(255,255,255,1);
@@ -134,6 +132,7 @@
 .publish-ex .publish-contain .wrap .head > .publish-settings  .user-profile svg{
     width: 10px;
     margin-left: 2px;
+    vertical-align: middle;
 }
 .publish-ex .publish-contain .wrap .contents{
     width: 100%;

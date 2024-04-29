@@ -329,20 +329,7 @@ const FrameFixGuide: React.FC = () => {
                                         
                                     </div>
                                     <div className="view-effects">
-                                        <ReactPlayer
-                                        className='react-player'
-                                        ref={playerRef}
-                                        
-                                        url={`/video/f-video.webm`}
-                                        controls = {true}
-                                        poster={`/video/init-v.jpg`}
-                                        muted={true}
-                                        width={'1300px'}
-                                        height={'100%'}
-                                        playing = {false}
-                                        loop = { true }
-                                        onDuration={setDuration}
-                                        />
+
                                     </div>
                                 </div>
                             </div>

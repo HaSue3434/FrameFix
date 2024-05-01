@@ -206,7 +206,7 @@ section.main .wrapper .main-framefix .frame>div.framefix-ui
     padding: 0px 30px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
 }
 section.main .wrapper .main-framefix .frame>div.framefix-ui 
 .ui-body > div.plugins .assets .pages .files .page{
@@ -331,7 +331,7 @@ section.main .wrapper .main-framefix .frame>div.framefix-ui
 section.main .wrapper .main-framefix .frame>div.framefix-ui 
 .ui-body > div.styles .breakpoint .position{
     display: flex;
-    gap: 29px;
+    gap: 33px;
     align-items: center;
 }
 section.main .wrapper .main-framefix .frame>div.framefix-ui 
@@ -413,4 +413,65 @@ section.main .wrapper .main-framefix .frame>div.framefix-ui
 section.main .wrapper .main-framefix .frame>div.framefix-ui 
 .ui-body > div.styles .breakpoint .rotation{
     margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .breakpoint .rotation .RP p{
+    color: rgba(255,255,255,1);
+    font-size: 12px;
+    color: rgba(255,255,255,.5);
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .breakpoint .rotation .r-value{
+    display: flex;
+    gap: 10px;
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .breakpoint .rotation .r-value .rotate{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    height: 30px;
+    width: 70px;
+    border-radius: 3px;
+    background: rgba(255,255,255,.15);
+    padding-left: 8px;
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .breakpoint .rotation .r-value .rotate svg{
+    opacity: 0.5;
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .breakpoint .rotation .r-value .rotate p{
+    color: rgba(255,255,255,.8);
+    font-size: 12px;
+    position: relative;
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .breakpoint .rotation .r-value .rotate p::after{
+    content: '';
+    position: absolute;
+    right: -5px;
+    top: 0;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;    
+    border: 1px solid rgba(255,255,255,.8);
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .breakpoint .rotation .r-value .rotate~.flip{
+    height: 30px;
+    display: flex;
+    gap: 10px;
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .breakpoint .rotation .r-value .rotate~.flip>div{
+    width: 30px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,.15);
 }

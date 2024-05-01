@@ -26,6 +26,9 @@ import {ReactComponent as Settings } from '../../../img/icons/framefix-plugin-ic
 import {ReactComponent as Preview } from '../../../img/icons/framefix-plugin-icons/view.svg';
 
 import {ReactComponent as Contrains } from '../../../img/icons/framefix-style-icons/constrain.svg';
+import {ReactComponent as Rotation } from '../../../img/icons/framefix-style-icons/rotation.svg';
+import {ReactComponent as HorizontalFlip } from '../../../img/icons/framefix-style-icons/flip-horizontal.svg';
+import {ReactComponent as VerticalFlip } from '../../../img/icons/framefix-style-icons/flip-vertical.svg';
 
 
 const Canvas: React.FC = ()=>{
@@ -180,14 +183,14 @@ const Canvas: React.FC = ()=>{
                                 </div>
                                 <div className="apply">
                                     <div className="position">
-                                        <div className="LP"><p>Position : </p></div>
+                                        <div className="LP"><p>Position </p></div>
                                         <div className="p-value">
                                             <div><p><span>X : </span>100</p></div>
                                             <div><p><span>Y : </span>100</p></div>
                                         </div>
                                     </div>
                                     <div className="size">
-                                        <div className="SP"><p>Size : </p></div>
+                                        <div className="SP"><p>Size </p></div>
                                         <div className="s-value">
                                             <div className="common"><p><span>W : </span>1920</p></div>
                                             <div className="common"><p><span>H : </span>1080</p></div>
@@ -196,6 +199,13 @@ const Canvas: React.FC = ()=>{
                                     </div>
                                     <div className="rotation">
                                         <div className="RP"><p>Rotation</p></div>
+                                        <div className="r-value">
+                                            <div className="rotate"><Rotation/><p>0</p></div>
+                                            <div className="flip">
+                                                <div className="horizontal-flip"><HorizontalFlip/></div>
+                                                <div className="vertical-flip"><VerticalFlip/></div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 

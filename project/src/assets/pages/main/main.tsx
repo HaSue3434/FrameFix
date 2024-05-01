@@ -103,6 +103,8 @@ function Main() {
     const [ref2, controls2] = useInViewExContentSpring();
     const [ref3, controls3] = useInViewExContentSpring();
     const [ref4, controls4] = useInViewExContentSpring();
+    const [ref5, controls5] = useInViewExContentSpring();
+    const [ref6, controls6] = useInViewExContentSpring();
 
     const [delayRef, delayControls] = useDelaySpring(0);
 
@@ -770,10 +772,19 @@ function Main() {
                         <div className="contain">
                             <div className="wrap">
                                 <div className="out-box">
-                                    <motion.div className='left-side box is-inview' data-scroll data-scroll-speed = "-1"></motion.div>
-                                    <div className='right-side box is-inview' 
+                                    <motion.div
+                                    ref={ref5 as React.Ref<HTMLDivElement>}
+                                    initial={{ opacity: 0, scale: 0.7 }}
+                                    animate={controls5}
+                                    className='left-side box ' data-scroll data-scroll-speed = "-1"></motion.div>
+
+                                    <motion.div 
+                                    ref={ref6 as React.Ref<HTMLDivElement>}
+                                    initial={{ opacity: 0, scale: 0.7 }}
+                                    animate={controls6}
+                                    className='right-side box is-inview' 
                                     data-scroll data-scroll-speed = "1"
-                                    ></div>
+                                    ></motion.div>
                                 </div>
                                 <div className='head'>
                                     <div className='framefix-project'>

@@ -48,11 +48,13 @@ interface User {
     name: string;
     picture: string;
     email?: string;
+    token: string; 
 }
 type FormData = {
     email: string;
 };
 const REACTAPPURL = process.env.REACT_APP_BACKEND_URL;
+axios.defaults.withCredentials = true; 
 
 const Sign = (): JSX.Element | null =>{
     const navigate = useNavigate();
@@ -62,13 +64,16 @@ const Sign = (): JSX.Element | null =>{
     
     const handleLogin = useGoogleLogin({
         onSuccess: async (tokenResponse) => {
-            await axios.post(`${REACTAPPURL}/app-framefix/google`, {
-                code: tokenResponse.code
-            })
-            .then(({ data }) => {
+            try {
+                const { data } = await axios.post(`${REACTAPPURL}/sign-up`, {
+                    code: tokenResponse.code
+                });
+                setUser(data); 
+                navigate('/');
                 console.log(data);
-            })
-            .catch(error => console.error('Error posting code to server', error));
+            } catch (error) {
+                console.error('Error posting code to server', error);
+            }
         },
         onError: errorResponse => {
             console.error(errorResponse);
@@ -76,7 +81,6 @@ const Sign = (): JSX.Element | null =>{
         scope: 'openid email profile',
         flow: 'auth-code',
     });
-
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
         setFormData(prevState => ({
@@ -208,15 +212,6 @@ const Sign = (): JSX.Element | null =>{
                 </div>
                 <div className={Styles.b}></div>
             </div>
-    
-        {/*}
-           <div className={Styles.loginGoogle}>
-               <button onClick={() => handleLogin()} className={Styles.signInButton}>
-                   Login with Google
-               </button>
-           </div>
-        
-        */}
 
         </motion.div>
         </>

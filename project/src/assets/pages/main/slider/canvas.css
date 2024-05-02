@@ -475,3 +475,202 @@ section.main .wrapper .main-framefix .frame>div.framefix-ui
     justify-content: center;
     background: rgba(255,255,255,.15);
 }
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .layer-apply{
+    padding: 15px;
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .layer-apply .pass-through{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .layer-apply .pass-through .option{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .layer-apply .pass-through .option svg{
+    width: 10px;
+    height: auto ;
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .layer-apply .pass-through h4{
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255,255,255,1);
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .layer-apply .option p{
+    color: rgba(255,255,255,1);
+    font-weight: 500;
+    font-size: 14px;
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .layer-apply .opacity-value{
+    padding-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .layer-apply .opacity-value .opacity-range{
+    width: 100%;
+    border-radius: 5px;
+    height: 3px;
+    position: relative;
+    background: #459AFF;
+
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .layer-apply .opacity-value .percents{
+    background: #2b2b2b;
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 3px;
+    color: rgba(255,255,255,.8);
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .layer-apply .opacity-value .opacity-range::after{
+    content: "";
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #459AFF;
+    display: flex;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(0,-50%);
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .style-apply{
+    padding: 15px;
+}
+
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .style-apply .style-add{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .style-apply .style-add h4{
+    color: rgba(255,255,255,1);
+    font-size: 14px;
+    font-weight: 500;
+
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .style-apply .style-add .style-add-icon svg{
+    vertical-align: middle;
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .style-apply .fill-color{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+    gap: 15px;
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .style-apply .fill-color .t{
+    color: rgba(255,255,255,.5);
+    font-size: 12px;
+
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .style-apply .fill-color .color-p{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .style-apply .fill-color .color-p .color-value{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px;
+    background: #2b2b2b;
+    border-radius: 3px;
+    justify-content: space-between;
+    height: 30px;
+    width: 115px;
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .style-apply .fill-color .color-p .color-value .hex{
+    display: flex;
+    gap: 5px;
+    width: 85%;
+    height: 100%;
+    align-items: center;
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .style-apply .fill-color .color-p .color-value .hex p{
+    color: rgba(255,255,255,.8);
+    font-size: 12px;
+
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .style-apply .fill-color .color-p .color-value .hex .fill{
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
+    background: #000;
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .style-apply .fill-color .color-p .color-value svg{
+    width: 10px;
+    height: auto;
+    vertical-align: middle;
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .style-apply .fill-color .color-p .alpha-percents{
+    font-size: 12px;
+    color: rgba(255,255,255,.8);
+    background: #2b2b2b;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    border-radius: 3px;
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .style-apply .overflow{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .style-apply .overflow>div p {
+    color: rgba(255,255,255,.5);
+    font-size: 12px;
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .style-apply .overflow .overflow-option{
+    height: 30px;
+    width: 170px;
+    background: #2b2b2b;
+    border-radius: 3px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .style-apply .overflow .overflow-option p{
+    color: rgba(255,255,255,.8);
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .style-apply .overflow .overflow-option svg{
+    height: auto;
+    width: 10px;
+    vertical-align: middle;
+}

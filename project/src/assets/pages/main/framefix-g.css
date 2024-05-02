@@ -366,10 +366,14 @@
     align-items: flex-end;
 }
 .section-i .framefix>.box > .contents .ai-generate .contain  .btn .example{
-    padding: 12px;
+    padding: 10px;
     background: #459AFF;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 500;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: rgba(255,255,255,1);
     border-radius: 5px;
 }
@@ -379,12 +383,20 @@
     gap: 5px;
     border-radius: 5px;
     padding: 10px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-weight: 500;
     color: rgba(255,255,255,1);
     background: #C362FF;
 }
 .section-i .framefix>.box > .contents .ai-generate .contain  .btn .generate .t{
     font-size: 12px;
+}
+.section-i .framefix>.box > .contents .ai-generate .contain  .btn .generate svg{
+    vertical-align: middle;
+    margin-top: -2px;
 }
 .create-ai{
     width: 100%;

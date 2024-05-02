@@ -4,31 +4,32 @@ import { ReactComponent as FrameLogo } from "../../../img/logo/frame-logo.svg";
 
 
 
-import {ReactComponent as Template} from "../../../img/icons/framefix-plugin-icons/template.svg";
-import {ReactComponent as Layer} from "../../../img/icons/framefix-plugin-icons/layer.svg";
-import {ReactComponent as Text } from "../../../img/icons/framefix-plugin-icons/text.svg";
-import {ReactComponent as Menus } from "../../../img/icons/framefix-plugin-icons/menus.svg";
-import {ReactComponent as Header} from "../../../img/icons/framefix-plugin-icons/header.svg";
-import {ReactComponent as Footer} from "../../../img/icons/framefix-plugin-icons/footer.svg";
-import {ReactComponent as Slides} from "../../../img/icons/framefix-plugin-icons/slides.svg";
-import {ReactComponent as Button} from "../../../img/icons/framefix-plugin-icons/button.svg";
-import {ReactComponent as Icons} from "../../../img/icons/framefix-plugin-icons/icons.svg";
-import {ReactComponent as Magic} from "../../../img/icons/framefix-plugin-icons/magic.svg";
-import {ReactComponent as Locked } from '../../../img/icons/framefix-plugin-icons/locked.svg';
-import {ReactComponent as Close } from '../../../img/icons/framefix-plugin-icons/close.svg';
-import {ReactComponent as AssetsBottomArrow } from '../../../img/icons/framefix-plugin-icons/aseets-arrow-bottom.svg';
-import {ReactComponent as PageIcon } from '../../../img/icons/framefix-plugin-icons/page-icon.svg';
-import {ReactComponent as Add } from '../../../img/icons/framefix-plugin-icons/add.svg';
-import {ReactComponent as FrameIcon } from '../../../img/icons/framefix-plugin-icons/frame.svg';
-import {ReactComponent as Rect } from '../../../img/icons/framefix-plugin-icons/Rect.svg';
-import {ReactComponent as Folder } from '../../../img/icons/framefix-plugin-icons/folder.svg';
-import {ReactComponent as Settings } from '../../../img/icons/framefix-plugin-icons/settings.svg';
-import {ReactComponent as Preview } from '../../../img/icons/framefix-plugin-icons/view.svg';
-
-import {ReactComponent as Contrains } from '../../../img/icons/framefix-style-icons/constrain.svg';
-import {ReactComponent as Rotation } from '../../../img/icons/framefix-style-icons/rotation.svg';
-import {ReactComponent as HorizontalFlip } from '../../../img/icons/framefix-style-icons/flip-horizontal.svg';
-import {ReactComponent as VerticalFlip } from '../../../img/icons/framefix-style-icons/flip-vertical.svg';
+import { ReactComponent as Template} from "../../../img/icons/framefix-plugin-icons/template.svg";
+import { ReactComponent as Layer} from "../../../img/icons/framefix-plugin-icons/layer.svg";
+import { ReactComponent as Text } from "../../../img/icons/framefix-plugin-icons/text.svg";
+import { ReactComponent as Menus } from "../../../img/icons/framefix-plugin-icons/menus.svg";
+import { ReactComponent as Header} from "../../../img/icons/framefix-plugin-icons/header.svg";
+import { ReactComponent as Footer} from "../../../img/icons/framefix-plugin-icons/footer.svg";
+import { ReactComponent as Slides} from "../../../img/icons/framefix-plugin-icons/slides.svg";
+import { ReactComponent as Button} from "../../../img/icons/framefix-plugin-icons/button.svg";
+import { ReactComponent as Icons} from "../../../img/icons/framefix-plugin-icons/icons.svg";
+import { ReactComponent as Magic} from "../../../img/icons/framefix-plugin-icons/magic.svg";
+import { ReactComponent as Locked } from '../../../img/icons/framefix-plugin-icons/locked.svg';
+import { ReactComponent as Close } from '../../../img/icons/framefix-plugin-icons/close.svg';
+import { ReactComponent as AssetsBottomArrow } from '../../../img/icons/framefix-plugin-icons/aseets-arrow-bottom.svg';
+import { ReactComponent as PageIcon } from '../../../img/icons/framefix-plugin-icons/page-icon.svg';
+import { ReactComponent as Add } from '../../../img/icons/framefix-plugin-icons/add.svg';
+import { ReactComponent as FrameIcon } from '../../../img/icons/framefix-plugin-icons/frame.svg';
+import { ReactComponent as Rect } from '../../../img/icons/framefix-plugin-icons/Rect.svg';
+import { ReactComponent as Folder } from '../../../img/icons/framefix-plugin-icons/folder.svg';
+import { ReactComponent as Settings } from '../../../img/icons/framefix-plugin-icons/settings.svg';
+import { ReactComponent as Preview } from '../../../img/icons/framefix-plugin-icons/view.svg';
+ 
+import { ReactComponent as Contrains } from '../../../img/icons/framefix-style-icons/constrain.svg';
+import { ReactComponent as Rotation } from '../../../img/icons/framefix-style-icons/rotation.svg';
+import { ReactComponent as HorizontalFlip } from '../../../img/icons/framefix-style-icons/flip-horizontal.svg';
+import { ReactComponent as VerticalFlip } from '../../../img/icons/framefix-style-icons/flip-vertical.svg';
+import { ReactComponent as Eye } from '../../../img/icons/framefix-style-icons/eye.svg';
 
 
 const Canvas: React.FC = ()=>{
@@ -173,7 +174,7 @@ const Canvas: React.FC = ()=>{
                         <div className="styles">
                             <div className="tabs">
                                 <div>Design</div>
-                                <div>Prototype</div>
+                                <div>Interactive</div>
                                 <div>Handoff</div>
                             </div>
                             <div className="breakpoint">
@@ -209,6 +210,51 @@ const Canvas: React.FC = ()=>{
                                     </div>
                                 </div>
                                 
+                            </div>
+                            <div className="layer-apply">
+                                <div className="pass-through">
+                                    <div className="">
+                                        <h4>Layer</h4>
+                                    </div>
+                                    <div className="option">
+                                        <p>Pass Through</p>
+                                        <AssetsBottomArrow/>
+                                    </div>
+                                </div>
+                                <div className="opacity-value">
+                                    <div className="v-h"><Eye/></div>
+                                    <div className="opacity-range"></div>
+                                    <div className="percents">100%</div>
+                                </div>
+                            </div>
+                            <div className="style-apply">
+                                <div className="style-add">
+                                    <div><h4>Styles</h4></div>
+                                    <div className="style-add-icon"><Add/></div>
+                                </div>
+                                <div className="fill-color">
+                                    <div className="t"><p>FillColor</p></div>
+                                    <div className="color-p">
+                                        <div className="color-value">
+                                            <div className="hex">
+                                                <div className="fill"></div>
+                                                <p>#000000</p>
+                                            </div>
+                                            <div><AssetsBottomArrow/></div>
+                                        </div>
+                                        <div className="alpha-percents">100%</div>
+                                    </div>
+                                </div>
+                                <div className="overflow">
+                                    <div><p>Overflow</p></div>
+                                    <div className="overflow-option">
+                                        <div><p>Visible</p></div>
+                                        <div><AssetsBottomArrow/></div>
+                                    </div>
+                                </div>
+                                <div className="layout">
+
+                                </div>
                             </div>
                         </div>
                     </div>

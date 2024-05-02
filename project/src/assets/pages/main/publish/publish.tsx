@@ -142,7 +142,7 @@ const Publish:React.FC = ()=>{
                                 <div className="content" ref={enterTriggerRef}>
                                     
                                     {loadSpline && <Spline scene="https://prod.spline.design/0znOG4ZR1X5C25yq/scene.splinecode" ref={splineHiddenRef}  />}
-
+                                    
                                 </div>
                             </div>
                         </div>

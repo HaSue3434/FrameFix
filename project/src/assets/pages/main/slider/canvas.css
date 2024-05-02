@@ -669,8 +669,16 @@ section.main .wrapper .main-framefix .frame>div.framefix-ui
     color: rgba(255,255,255,.8);
 }
 section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .style-apply .overflow .overflow-option p span{
+    color: rgba(255,255,255,.35);
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
 .ui-body > div.styles .style-apply .overflow .overflow-option svg{
     height: auto;
     width: 10px;
     vertical-align: middle;
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .style-apply .layout{
+    
 }

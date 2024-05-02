@@ -248,7 +248,7 @@ const Canvas: React.FC = ()=>{
                                 <div className="overflow">
                                     <div><p>Overflow</p></div>
                                     <div className="overflow-option">
-                                        <div><p>Visible</p></div>
+                                        <div><p><span>X :</span> Hidden</p></div>
                                         <div><AssetsBottomArrow/></div>
                                     </div>
                                 </div>

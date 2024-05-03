@@ -2,6 +2,9 @@ import React,{ useState,useEffect,useRef } from "react";
 import { ReactComponent as Logo } from "../../img/logo/logo.svg";
 import { ReactComponent as PrevArrow } from "../../img/icons/prev-arrow.svg";
 import { ReactComponent as Close } from "./project-maker-icons/close.svg";
+import { ReactComponent as Open } from "./project-maker-icons/open-imgview.svg";
+
+
 import axios from 'axios';
 import styles from './create-project.module.css';
 import { Link } from "react-router-dom";
@@ -14,8 +17,19 @@ import {
 
 } from './file-upload';
 
+const variants = {
+    hidden  : {},
+
+}
+
 const CreateProject:React.FC = ()=>{
 
+    const [isOpen, setIsOpen] = useState(true); 
+
+    const toggleSidebar = () => {
+        setIsOpen(!isOpen); 
+      };
+    
     const [files, setFiles] = useState<ImagePreview[]>([]); 
 
     useEffect(()=>{
@@ -24,6 +38,7 @@ const CreateProject:React.FC = ()=>{
 
     return(
         <>
+        <AnimatePresence>
         <motion.div 
         initial = {{opacity : 0}}
         animate = {{opacity : 1}}
@@ -69,15 +84,30 @@ const CreateProject:React.FC = ()=>{
                                 </div>
                             </div>
                         </div>
-                        <div className={styles.sideImgView}>
-                            <div className={styles.close}>
-                                <div className={styles.icon}><Close/></div>
-                            </div>
+                        <motion.div
+                            className={styles.openButton}
+                            onClick={toggleSidebar}
+                            initial={{ x: '-150%' }}
+                            animate={{ x: isOpen ? '-150%' : 0 }} 
+                            transition={{ duration: 0.25 }}>
+                          <div><p>Click to open the menu and delete images!</p></div>
+                          <Open />
+                        </motion.div>
+                        <motion.div 
+
+                        initial={{ x: 0 }}
+                        animate={{ x: isOpen ? 0 : '-100%' }}
+                        transition={{ duration: 0.25}} 
+
+                        className={styles.sideImgView}>
+                            <motion.div className={styles.close}>
+                                <div className={styles.icon} onClick={toggleSidebar}><Close/></div>
+                            </motion.div>
                             <div className={styles.sideImgViews}>
                                 <SideImgViewsR files={files} setFiles={setFiles} />
                                 {files.length > 0 ? '' : <div className={styles.emptyViews}><p>No images yet. Click to upload! </p></div>}
                             </div>
-                        </div>
+                        </motion.div>
                     </div>
                     
                 </div>
@@ -90,7 +120,7 @@ const CreateProject:React.FC = ()=>{
                 </div>
             </div>
         </motion.div>
-            
+        </AnimatePresence>
         </>
     )
 }

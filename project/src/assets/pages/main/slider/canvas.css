@@ -701,20 +701,106 @@ section.main .wrapper .main-framefix .frame>div.framefix-ui
 section.main .wrapper .main-framefix .frame>div.framefix-ui 
 .ui-body > div.styles .layout .property{
     padding-top: 15px;
-    display: grid;
     width: 100%;
     gap: 10px;
-    grid-template-columns: repeat(1,1fr);
 }
 section.main .wrapper .main-framefix .frame>div.framefix-ui 
 .ui-body > div.styles .layout .property>div.default-property{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 35px;
+    
 }
 section.main .wrapper .main-framefix .frame>div.framefix-ui 
-.ui-body > div.styles .layout .property>div.default-property.display .display-t p{
+.ui-body > div.styles .layout .property>div.default-property .common-t p{
     color: rgba(255,255,255,.5);
     font-size: 12px;
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .layout .property>div.default-property.display .option{
+    width: 170px;
+    height: 30px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    background: #2b2b2b;
+    border-radius: 3px;
+    overflow: hidden;
+    align-items: center;
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .layout .property>div.default-property.display .option > div{
+    font-size: 12px;
+    height: 100%;
+    line-height: 30px;
+    color: rgba(255,255,255,.8);
+    text-align: center;
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .layout .property>div.default-property.display .option > div.selection{
+    background: rgba(255,255,255,.2);
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .layout .property>div.default-property.cmm .value-selections{
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .layout .property>div.default-property.cmm .value-selections .v{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 105px;
+    height: 30px;
+    background: #2b2b2b;
+    border-radius: 3px;
+    padding: 5px;
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .layout .property>div.default-property.cmm .value-selections .v p{
+    font-size: 12px;
+    color: rgba(255,255,255,.8);
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .layout .property>div.default-property.cmm .value-selections .parts{
+    width: 55px;
+    background: #2b2b2b;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .layout .property>div.default-property.cmm 
+.value-selections .parts>div{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .layout .property>div.default-property.cmm 
+.value-selections .parts svg{
+    vertical-align: middle;
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .layout .property>div.default-property.cmm 
+.value-selections .parts>div.selection{
+    background: rgba(255,255,255,.2);
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .defalult-cmm{
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255,255,255,.1);
+    border-bottom: 1px solid rgba(255,255,255,.1);
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .defalult-cmm h4{
+    color: rgba(255,255,255,1);
+    font-weight: 500;
+    font-size: 14px;
 }

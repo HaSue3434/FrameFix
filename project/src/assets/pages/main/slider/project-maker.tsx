@@ -28,6 +28,8 @@ import { ReactComponent as Other } from "../../../img/icons/other.svg";
 import { ReactComponent as Guide } from "../../../img/icons/guide.svg";
 
 /*icon import */
+
+/*
 const variants = {
     hidden: { scale: 0 },
     visible: (i : number) => ({
@@ -40,79 +42,7 @@ const variants = {
       transition: { delay: (8 - i) * 0.1 },
     }),
 };
-const PreferVariants1 = {
-    hidden: {opacity : 0, y : 50},
-    
-    visible: (i : number) => ({
-        opacity : 1, y : 0,
-        transition : { ease : "anticipate", duration : 1}
-    }),
-    exit: (i : number) => ({
-        opacity : 0,
-        y : 0,
-        transition : {duration : 1, ease : "anticipate"}
-    })
-}
-const PreferVariants2 = {
-    hidden: {opacity : 0, y : 50},
-    
-    visible:{
-        opacity : 1, y : 0,
-        transition : { ease : "anticipate", duration : 1, delay : 0.15}
-    },
-    exit:{
-        opacity : 0,
-        y : 0,
-        transition : {duration : 1, ease : "anticipate", delay : 0.15}
-    }
-}
-
-const PreferredListEx = { 
-    noneSize: {height : 0},
-    size : {
-        height : '500px',
-        transition : {duration : 1, ease : "anticipate", delay : 0.15,}
-    },
-    exit : {
-        height : 0,
-        transition : {duration : 1, ease : "anticipate", delay : 0.15,}
-    }
-}
-
-const listItems = [1,2,3,4,5,6,7];
-
-const PreferredList = (index:number) => ({
-    noneSize: { height: 0 },
-    size: {
-      height: '500px',
-      transition: { duration: 1, ease: "anticipate", delay: 0.25+index * 0.10 }
-    },
-    exit: {
-      height: 0,
-      transition: { delay: (8 - index) * 0.1 },
-    }
-  });
-
-const items = [
-    { id: 1, Icon: Finance, text: "Finance" },
-    { id: 2, Icon: Medical, text: "Medical" },
-    { id: 3, Icon: Sports, text: "Leisure & Sports" },
-    { id: 4, Icon: Tech, text: "Technology" },
-    { id: 5, Icon: Beauty, text: "Beauty" },
-    { id: 6, Icon: Food, text: "Food & Drink" },
-    { id: 7, Icon: Edu, text: "Education" },
-    { id: 8, Icon: Travel, text: "Travel & Tourism" },
-    { id: 9, Icon: Furniture, text: "Home & Interior" },
-    { id: 10, Icon: Build, text: "Build & Land" },
-    { id: 11, Icon: Group, text: "Group & Company" },
-    { id: 12, Icon: Internet, text: "Internet" },
-    { id: 13, Icon: Flim, text: "Entertainment" },
-    { id: 14, Icon: Retail, text: "E-Commerce" },
-    { id: 15, Icon: Arts, text: "Arts & Culture" },
-    { id: 16, Icon: Automotive, text: "Flight & Shipping" },
-    { id: 17, Icon: Science, text: "Science & Research" },
-    { id: 18, Icon: Other, text: "Other..." },
-];
+*/
 
 const DefaultUI: React.FC = ()=>{
 

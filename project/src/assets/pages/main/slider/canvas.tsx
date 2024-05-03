@@ -30,7 +30,8 @@ import { ReactComponent as Rotation } from '../../../img/icons/framefix-style-ic
 import { ReactComponent as HorizontalFlip } from '../../../img/icons/framefix-style-icons/flip-horizontal.svg';
 import { ReactComponent as VerticalFlip } from '../../../img/icons/framefix-style-icons/flip-vertical.svg';
 import { ReactComponent as Eye } from '../../../img/icons/framefix-style-icons/eye.svg';
-
+import { ReactComponent as DefaultAll } from '../../../img/icons/framefix-style-icons/default-all.svg';
+import { ReactComponent as PerSide } from '../../../img/icons/framefix-style-icons/per-side.svg';
 
 const Canvas: React.FC = ()=>{
 
@@ -261,12 +262,49 @@ const Canvas: React.FC = ()=>{
                                 </div>
                                 <div className="property">
                                     <div className="default-property display">
-                                        <div className="display-t"><p>Display</p></div>
-                                        <div className="option"></div>
+                                        <div className="display-t common-t"><p>Display</p></div>
+                                        <div className="option">
+                                            <div className="selection">Block</div>
+                                            <div>Flex</div>
+                                            <div>Grid</div>
+                                            <div>None</div>
+                                        </div>
                                     </div>
-                                    <div className="default-property pdading"></div>
-                                    <div className="default-property margin"></div>
+                                    <div className="default-property pdading cmm">
+                                        <div className="padding-t common-t"><p>Padding</p></div>
+                                        <div className="value-selections">
+                                            <div className="v">
+                                                <p>0</p>
+                                                <p>PX</p>
+                                            </div>
+                                            <div className="parts">
+                                                <div className="selection"><DefaultAll/></div>
+                                                <div><PerSide/></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="default-property margin cmm">
+                                        <div className="padding-t common-t"><p>Margin</p></div>
+                                        <div className="value-selections">
+                                            <div className="v">
+                                                <p>0</p>
+                                                <p>PX</p>
+                                            </div>
+                                            <div className="parts">
+                                                <div className="selection"><DefaultAll/></div>
+                                                <div><PerSide/></div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+                            </div>
+                            <div className="effects defalult-cmm">
+                                <div><h4>Effects</h4></div>
+                                <div><Add/></div>
+                            </div>
+                            <div className="export defalult-cmm">
+                                <div><h4>Export</h4></div>
+                                <div><Add/></div>
                             </div>
                         </div>
                     </div>

@@ -3,7 +3,8 @@ import { useDropzone } from 'react-dropzone';
 import styles from './create-project.module.css';
 import { ReactComponent as Img } from "../../img/icons/img-icon.svg";
 import { motion, AnimatePresence } from 'framer-motion';
-
+import { ReactComponent as Del } from "./project-maker-icons/del.svg";
+import { ReactComponent as Replace } from "./project-maker-icons/replace.svg";
 
 interface ImagePreview {
     file: File;
@@ -64,7 +65,7 @@ export const FileUpload:React.FC<FileUploadProps> = ({files , setFiles }) => {
                             width : 35,
                             height : 35,
                             userSelect : "none",
-                            marginLeft: index === 0 ? 0 : -25// Adjust negative margin to stack images
+                            marginLeft: index === 0 ? 0 : -25
                         }} />
                     </motion.div>
                 ))}
@@ -82,25 +83,52 @@ export const FileUpload:React.FC<FileUploadProps> = ({files , setFiles }) => {
 
 export const SideImgViewsR : React.FC<FileUploadProps> = ({files , setFiles }) => {
 
-    const onDrop = (acceptedFiles: File[]) => {
-        const newFiles = acceptedFiles.map(file => ({
-            file,
-            previewUrl: URL.createObjectURL(file)
-        }));
-        
-        const totalFiles = [...files, ...newFiles];
-        if (totalFiles.length > 20) { 
-            setFiles(totalFiles.slice(0, 20));
-        } else {
-            setFiles(totalFiles);
-        }
-    };
-
     const { getRootProps, getInputProps } = useDropzone({
-        onDrop,
-        accept: { 'image/*': [] }
+        onDrop: acceptedFiles => {
+            const newFiles = acceptedFiles.map(file => ({
+                file,
+                previewUrl: URL.createObjectURL(file)
+            }));
+            setFiles([...files, ...newFiles]);
+        },
+        accept: { 'image/*': [] },
+        multiple: false // Assuming replace should work with one file at a time
     });
 
+    // Function to delete an image
+    const deleteImage = (index: number) => {
+        setFiles(prevFiles => prevFiles.filter((_, i) => i !== index));
+    };
+
+    // Ref for the hidden input used for replacing images
+    const replaceInputRef = React.useRef<HTMLInputElement>(null);
+
+    // Function to handle image replacement
+    const replaceImage = (index: number, file: File) => {
+        const newFile = {
+            file,
+            previewUrl: URL.createObjectURL(file)
+        };
+        setFiles(prevFiles => [
+            ...prevFiles.slice(0, index),
+            newFile,
+            ...prevFiles.slice(index + 1)
+        ]);
+    };
+
+    // Function to trigger file input for replacement
+    const handleReplaceClick = (index: number) => {
+        const input = replaceInputRef.current;
+        if (input) {
+            input.onchange = (event: any) => {
+                const file = event.target.files[0];
+                if (file) {
+                    replaceImage(index, file);
+                }
+            };
+            input.click();
+        }
+    };
     return(
         <>
         <div {...getRootProps({ className: styles.dropzone })}>
@@ -122,10 +150,21 @@ export const SideImgViewsR : React.FC<FileUploadProps> = ({files , setFiles }) =
                         className={styles.img}>
 
                         <img src={file.previewUrl} alt={`preview ${index}`}/>
+                        <div>
+                            <div className={styles.replace} onClick={() => handleReplaceClick(index)}><Replace/></div>
+                            <div className={styles.del} onClick={() => deleteImage(index)}><Del/></div>
+                        </div>
                     </motion.div>
                 ))}
             </AnimatePresence>
         </div>
+        {/* Hidden input for file replacement */}
+        <input
+        type="file"
+        style={{ display: 'none' }}
+        ref={replaceInputRef}
+        accept="image/*"
+        />
         </>
     )
 }

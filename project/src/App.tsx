@@ -8,6 +8,10 @@ import SignUp from './assets/pages/sign-up/sign';
 import FrameFix from './assets/pages/framefix-tool/mainComponent';
 import CreateProject from './assets/pages/create-project/create-project';
 import MyProject from './assets/pages/user-files/default';
+
+import Preview from './assets/pages/framefix-tool/preview/preview';
+
+
 import axios from "axios";
 
 
@@ -26,8 +30,8 @@ function App() {
 
 function RoutesWithHeaderAndFooter(): JSX.Element | null {
   let location = useLocation();
-  const shouldHideHeader = ['/file/framefix', '/create-project/project', '/user-files/default'].includes(location.pathname);
-  const shouldHideFooter = ['/file/framefix', '/user-files/default'].includes(location.pathname);
+  const shouldHideHeader = ['/file/framefix', '/create-project/project', '/user-files/default','/proto-view'].includes(location.pathname);
+  const shouldHideFooter = ['/file/framefix', '/user-files/default','/proto-view'].includes(location.pathname);
 
   
   return (
@@ -39,6 +43,7 @@ function RoutesWithHeaderAndFooter(): JSX.Element | null {
             <Route path="/sign-up" element={<SignUp />} />
             <Route path="/file/framefix" element={<FrameFix />} />
             <Route path="/create-project/project" element={<CreateProject />} />
+            <Route path="/proto-view" element={<Preview />} />
           </Routes>
         {!shouldHideFooter && <Footer />}
     </>

@@ -252,8 +252,20 @@ const Canvas: React.FC = ()=>{
                                         <div><AssetsBottomArrow/></div>
                                     </div>
                                 </div>
-                                <div className="layout">
-
+                                
+                            </div>
+                            <div className="layout">
+                                <div className="layout-option">
+                                    <div><h4>Layout</h4></div>
+                                    <div><Add/></div>
+                                </div>
+                                <div className="property">
+                                    <div className="default-property display">
+                                        <div className="display-t"><p>Display</p></div>
+                                        <div className="option"></div>
+                                    </div>
+                                    <div className="default-property pdading"></div>
+                                    <div className="default-property margin"></div>
                                 </div>
                             </div>
                         </div>

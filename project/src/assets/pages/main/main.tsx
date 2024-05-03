@@ -17,7 +17,7 @@ import { ReactComponent as SEO } from '../../img/icons/seo-icon.svg';
 import { ReactComponent as Community } from '../../img/icons/community-icon.svg';
 import { ReactComponent as NoneTxtLogo } from '../../img/icons/none-txt-logo.svg';
 import { ReactComponent as F } from '../../img/icons/f.svg';
-import { ReactComponent as CanvasBackground } from '../../img/blur-deco.svg';
+import { ReactComponent as DeployDeco } from '../../img/deploy-deco.svg';
 
 import { ReactComponent as FrameLogo } from "../../img/logo/frame-logo.svg";
 import { ReactComponent as NextArrow } from '../../img/icons/next-arrow.svg';
@@ -323,7 +323,7 @@ function Main() {
                             </div>
                         </motion.div>
 
-                        <div className="canvas-blur-back"><CanvasBackground/></div>
+                        <div className="canvas-blur-back"><div></div></div>
                     </div>
                     <div className='txt-back-contain'>
                         <TxtAnimation text='AI-POWERED BUILD WEBSITES' />
@@ -340,7 +340,7 @@ function Main() {
 
                 <section className='publish' data-scroll data-scroll-section id='publish'>
                     <div className='wrapper' data-scroll>
-
+                        <div className='back-deco '><div></div></div>
                         <div className='txt'>
                             <div
                                 data-scroll

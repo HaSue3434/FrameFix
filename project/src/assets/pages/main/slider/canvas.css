@@ -679,6 +679,42 @@ section.main .wrapper .main-framefix .frame>div.framefix-ui
     vertical-align: middle;
 }
 section.main .wrapper .main-framefix .frame>div.framefix-ui 
-.ui-body > div.styles .style-apply .layout{
-    
+.ui-body > div.styles .layout{
+    padding: 15px;
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .layout .layout-option{
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .layout .layout-option h4{
+    color: rgba(255,255,255,1);
+    font-size: 14px;
+    font-weight: 500;
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .layout .layout-option svg{
+    vertical-align: middle;
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .layout .property{
+    padding-top: 15px;
+    display: grid;
+    width: 100%;
+    gap: 10px;
+    grid-template-columns: repeat(1,1fr);
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .layout .property>div.default-property{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 35px;
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.styles .layout .property>div.default-property.display .display-t p{
+    color: rgba(255,255,255,.5);
+    font-size: 12px;
 }

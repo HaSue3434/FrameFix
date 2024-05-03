@@ -162,9 +162,17 @@ section.main .wrapper  .main-framefix{
 section.main .wrapper .canvas-blur-back{
     position: absolute;
     left: 50%;
-    top: 0;
+    top: 15%;
+    width: 150vw;
+    height: 100%;
     z-index: -1;
     transform: translate(-50%,0);
+}
+section.main .wrapper .canvas-blur-back > div{
+    width: 150vw;
+    height: 85%;
+    background: linear-gradient(to bottom, #357AFF 25%, #459AFF, #E960FF);
+    filter: blur(111px);
 }
 section.main .wrapper  .main-framefix .frame{
     height: 824px;
@@ -221,45 +229,21 @@ section.main .wrapper  .main-framefix .frame>div .contain{
     padding: 25px;
     position: relative;
 }
-.publish  .scrollEventIcon{
+.publish .wrapper>.back-deco{
     position: absolute;
-    top:400px;
-    width: 100%;
-    display: flex;
-    left: 0;
-    z-index: -10;
-    opacity:0;
-    justify-content: flex-start;
-    white-space: nowrap;
-    transform: scale(1);
+    z-index: -1;
+    width: 800px;
+    left: 50%;
+    top: 100%;
+    transform: translate(-50%,-50%);
+    height: 800px;
 }
-.publish  .scrollEventIcon div{
-    text-transform: uppercase;
-    color: rgba(255,255,255,1);
-    font-size: 10em;
-    font-weight: bold;
-    -webkit-text-fill-color: transparent;
-    font-family: 'Times New Roman', Times, serif;
-    -webkit-text-stroke: 1px rgba(255,255,255,.35);
-}
-.publish .scrollEvent{
-    position: absolute;
-    top: 650px;
-    right: 0;
-    z-index: -1111;
-    opacity: 0;
-    display: flex;
-    justify-content: flex-end;
-}
-.publish .scrollEvent > div{
-    text-transform: uppercase;
-    color: rgba(255,255,255,1);
-    font-size: 10em;
-    font-weight: bold;
-    -webkit-text-fill-color: transparent;
-    font-family: 'Times New Roman', Times, serif;
-    -webkit-text-stroke: 1px rgba(255,255,255,.35);
-    
+.publish .wrapper>.back-deco>div{
+    width: inherit;
+    height: inherit;
+    filter: blur(251px);
+    background: radial-gradient(#459AFF,#357AFF);
+    border-radius:100%;
 }
 .publish .none-pin{
     position: absolute;

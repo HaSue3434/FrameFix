@@ -1,7 +1,11 @@
 import React from "react";
 
-function Default(){
-    
+const DefaultAll: React.FC = () =>{
+    return(
+        <>
+            
+        </>
+    )
 }
-export default Default;
+export default DefaultAll;
 

@@ -100,28 +100,21 @@
     font-weight: 400;
 }
 .section-i>div .txt .see-all a {
-    color: #459AFF;
-    font-weight: bold;
+    color: #fff;
+    font-weight: 700;
     cursor: pointer;
     font-size: 1.25em;
     z-index: 5;
     position: relative;
     transition: .3s;
+    padding: 15px 20px;
+    border-radius: 5px;
+    background: #459AFF;
+    box-shadow: 0 1px 1px rgba(8,8,8,.08),0 1px 1px rgba(8,8,8,.2),inset 0 6px 12px rgba(255,255,255,.12),inset 0 1px 1px rgba(255,255,255,.2);
+
 }
 .section-i>div .txt .see-all a:hover{
-    color: #C362FF;
-}
-.section-i>div .txt .see-all a::after{
-    content: " -->";
-    display: inline-block;
-    transition: 0.3s;
-    transform: translateX(-20px);
-    opacity: 0;
-    color: #C362FF;
-}
-.section-i>div .txt .see-all a:hover::after{
-    opacity: 1;
-    transform: translateX(10px);
+    background: #E960FF;
 }
 .section-i .framefix{
     height: 700px;

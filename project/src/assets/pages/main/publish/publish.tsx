@@ -39,9 +39,8 @@ const Publish:React.FC = ()=>{
 
                         trigger : cRef,
                         start : "top 50%",
-                        end : "35% 50%",
+                        end : "15% 50%",
                         scrub : true,
-
                     }
                 });
 
@@ -52,7 +51,7 @@ const Publish:React.FC = ()=>{
                         end: "300% 50%",
                         scrub: true,
                         pin: true,
-                        pinType: "transform",     
+                        pinType: "transform", 
                         onEnter: () => {
                             gsap.to(enterTrigger, {
                                 opacity: 1,
@@ -66,13 +65,13 @@ const Publish:React.FC = ()=>{
                             gsap.to(enterTrigger, {
                                 opacity: 0.0,
                                 transform: "scale(0.5)",
-                                duration: 1,
                                 ease: "power3.inOut",
                                 scrollTrigger:{
                                     trigger : enterTrigger,
-                                    start : "100% top ",
-                                    end : "100% top",
-                                    onLeave : () =>{
+                                    start : "70% top ",
+                                    scrub : 1,
+                                    end : "70% top",
+                                    onEnter : () =>{
                                         setLoadSpline(false);
                                     }
                                 }

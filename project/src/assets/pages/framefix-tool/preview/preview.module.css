@@ -1,0 +1,68 @@
+.prototypeContainer{
+    width: 100%;
+    position: relative;
+    height: 100vh;
+    overflow:hidden;
+}
+.prototypeContainer .headControls{
+    height: 55px;
+    width: 100%;
+    background: #000;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+}
+.prototypeContainer .headControls .head{
+    display: flex;
+    width: 100%;
+    padding: 15px;
+    height: 100%;
+    gap: 35px;
+    white-space: nowrap;
+    align-items: center;
+    justify-content: space-between;
+}
+.prototypeContainer .headControls .head .headLeftCol{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.prototypeContainer .headControls .head .headLeftCol .framefixLogo{
+    width: auto;
+    height: auto;
+}
+.prototypeContainer .headControls .head .headLeftCol .framefixLogo svg{
+    width: 35px;
+    vertical-align: middle;
+    height: 35px;
+}
+.prototypeContainer .headControls .head .headLeftCol .projectName p{
+    font-size: 14px;
+    color: rgba(255,255,255,1);
+    font-weight: 400;
+}
+.prototypeContainer .headControls .head .headLeftCol .plans a{
+    padding: 3px 10px;
+    font-size: 12px;
+    color: rgba(255,255,255,1);
+    border-radius: 3px;
+    background: #459AFF;
+}
+.prototypeContainer .headControls .head .headCenterCol{
+    display: flex;
+    gap: 20px;
+}
+.prototypeContainer .headControls .head .headCenterCol .hr{
+    height: 30px;
+    width: 3px;
+    background: rgba(255,255,255,.15);
+    border-radius: 5px;
+}
+.prototypeContainer .headControls .head .headCenterCol .common{
+    display: flex;
+    cursor: pointer;
+    gap: 10px;
+    align-items: center;
+}
+.prototypeContainer .headControls .head .headCenterCol .common p{
+    color: rgba(255,255,255,1);
+    font-size: 14px;
+}

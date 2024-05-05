@@ -1,0 +1,152 @@
+.prototypeContainer{
+    width: 100%;
+    position: relative;
+    height: 100vh;
+    overflow:hidden;
+}
+.prototypeContainer .headControls{
+    height: 55px;
+    width: 100%;
+    background: #000;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+}
+.prototypeContainer .headControls .head{
+    display: flex;
+    width: 100%;
+    padding: 15px;
+    height: 100%;
+    gap: 35px;
+    white-space: nowrap;
+    align-items: center;
+    justify-content: space-between;
+}
+.prototypeContainer .headControls .head .headLeftCol{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.prototypeContainer .headControls .head .headLeftCol .framefixLogo{
+    width: auto;
+    height: auto;
+}
+.prototypeContainer .headControls .head .headLeftCol .framefixLogo svg{
+    width: 35px;
+    vertical-align: middle;
+    height: 35px;
+}
+.prototypeContainer .headControls .head .headLeftCol .projectName p{
+    font-size: 14px;
+    color: rgba(255,255,255,1);
+    font-weight: 400;
+}
+.prototypeContainer .headControls .head .headLeftCol .plans a{
+    padding: 3px 10px;
+    font-size: 12px;
+    color: rgba(255,255,255,1);
+    border-radius: 3px;
+    background: #459AFF;
+}
+.prototypeContainer .headControls .head .headCenterCol{
+    display: flex;
+    gap: 20px;
+}
+.prototypeContainer .headControls .head .headCenterCol .hr{
+    height: 30px;
+    width: 3px;
+    background: rgba(255,255,255,.15);
+    border-radius: 5px;
+}
+.prototypeContainer .headControls .head .headCenterCol .common{
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    overflow: hidden;
+}
+.prototypeContainer .headControls .head .headCenterCol .common.previewPrototype {
+    position: relative;
+}
+.prototypeContainer .headControls .head .headCenterCol .common p{
+    color: rgba(255,255,255,.0);
+    font-size: 14px;
+    transition: .25s;
+    visibility: hidden;
+    margin-left: -35px;
+    padding-left: 10px;
+    font-weight: 500;
+}
+.prototypeContainer .headControls .head .headCenterCol .common.previewPrototype p{
+    margin-left: -65px;
+}
+.prototypeContainer .headControls .head .headCenterCol .common.activeProtoType p{
+    color: rgba(255,255,255,1);
+    margin-left: 0;
+    visibility: visible;
+}
+
+.prototypeContainer .ViewContainer .sideViewContainer{
+    position: relative;
+    height: 100%;
+    width: 250px;
+    background: black;
+    border-right: 1px solid rgba(255,255,255,.1);
+}
+.prototypeContainer .ViewContainer .sideViewContainer .flows{
+    padding: 15px;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+}
+.prototypeContainer .ViewContainer .sideViewContainer .flows .flowH h4{
+    color: rgba(255,255,255,1);
+    font-size: 1em;
+    font-weight: 600;
+}
+.prototypeContainer .ViewContainer .sideViewContainer .flows .flowList{
+    margin-top: 7.5px;
+}
+.prototypeContainer .ViewContainer .sideViewContainer .flows .flowList .flow{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    cursor: pointer;
+    align-items: center;
+    padding-top: 7.5px;
+    padding-bottom: 7.5px;
+    transition: .25s;
+    opacity: .5;
+}
+.prototypeContainer .ViewContainer .sideViewContainer .flows .flowList .flow.activeFlow{
+    opacity: 1;
+    padding: 8px;
+    background: rgba(255,255,255,.1);
+}
+.prototypeContainer .ViewContainer .sideViewContainer .flows .flowList .flow svg{
+    vertical-align: middle;
+}
+.prototypeContainer .ViewContainer .sideViewContainer .flows .flowList .flow p{
+    color: rgba(255,255,255,1);
+    font-size: 12px;
+    font-weight: 500;
+    
+}
+.prototypeContainer .ViewContainer .sideViewContainer .flows .flowList .flow:hover{
+    background: rgba(255,255,255,.1);
+    padding: 8px;
+}
+.prototypeContainer .ViewContainer{
+    width: 100vw;
+    height: calc(100vh - 55px);
+    
+    display: flex;
+    
+}
+.prototypeContainer .ViewContainer .sideViewContainer .effects{
+    padding: 15px;
+}
+.prototypeContainer .ViewContainer .viewBox{
+    width: 100%;
+    height: 100%;
+}
+.prototypeContainer .ViewContainer .viewBox img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

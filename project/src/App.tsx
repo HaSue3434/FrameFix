@@ -9,7 +9,7 @@ import FrameFix from './assets/pages/framefix-tool/mainComponent';
 import CreateProject from './assets/pages/create-project/create-project';
 import MyProject from './assets/pages/user-files/default';
 
-import Preview from './assets/pages/framefix-tool/preview/preview';
+import Preview from './assets/pages/framefix-tool/preview/views';
 
 
 import axios from "axios";

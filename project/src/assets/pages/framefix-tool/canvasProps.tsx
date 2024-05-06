@@ -17,18 +17,18 @@ const Canvas: React.FC = () => {
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    const context = canvas?.getContext('2d');
-    if (canvas && context) {
-        canvas.width = canvasSize.width;
-        canvas.height = canvasSize.height;
-        context.fillStyle = 'rgba(69,154,255,.15)';  
-        context.strokeStyle = 'rgba(69,154,255,1)';
+    const ctx = canvas?.getContext('2d');
+    if (canvas && ctx) {
+      const devicePixelRatio = window.devicePixelRatio || 1;
+      const rect = canvas.getBoundingClientRect();
 
+      canvas.width = rect.width * devicePixelRatio;
+      canvas.height = rect.height * devicePixelRatio;
 
-        context.beginPath(); 
-        context.rect(10, 10, 100, 50); 
-        context.fill();  
-        context.stroke();
+      ctx.fillStyle = 'rgba(69,154,255,.15)';
+      ctx.strokeStyle = 'rgba(69,154,255,1)';
+      ctx.lineWidth = 1; 
+
     }
   }, [canvasSize]);
 
@@ -45,21 +45,24 @@ const Canvas: React.FC = () => {
 
   const handleMouseMove = (event: React.MouseEvent<HTMLCanvasElement>) => {
     if (isDrawing && canvasRef.current) {
-      const rect = canvasRef.current.getBoundingClientRect();
-      const currentX = event.clientX - rect.left;
-      const currentY = event.clientY - rect.top;
-      const ctx = canvasRef.current.getContext('2d');
-      if (ctx) {
-        ctx.clearRect(0, 0, canvasSize.width, canvasSize.height);
-        ctx.fillRect(startPos.x, startPos.y, currentX - startPos.x, currentY - startPos.y);
-        ctx.beginPath();
-        ctx.lineWidth =1; // 테두리 두께 설정
-        ctx.fillStyle = 'rgba(69,154,255,.05)'; // 내부 채울 색 지정
-        ctx.strokeStyle = 'rgba(69,154,255,1)'; // 테두리 색 지정
-        ctx.rect(startPos.x, startPos.y, currentX - startPos.x, currentY - startPos.y);
-        ctx.stroke(); // 테두리 그리기
+        const rect = canvasRef.current.getBoundingClientRect();
+        const devicePixelRatio = window.devicePixelRatio || 1;
+        const currentX = (event.clientX - rect.left) * devicePixelRatio;
+        const currentY = (event.clientY - rect.top) * devicePixelRatio;
+    
+        const ctx = canvasRef.current.getContext('2d');
+        if (ctx) {
+          ctx.clearRect(0, 0, canvasSize.width * devicePixelRatio, canvasSize.height * devicePixelRatio);
+          ctx.fillStyle = 'rgba(69,154,255,.07)'; 
+          ctx.fillRect(startPos.x * devicePixelRatio, startPos.y * devicePixelRatio, (currentX - startPos.x * devicePixelRatio), (currentY - startPos.y * devicePixelRatio));
+          
+          ctx.strokeStyle = 'rgba(69,154,255,1)';
+          ctx.lineWidth = 1.5; 
+          ctx.beginPath();
+          ctx.rect(startPos.x * devicePixelRatio, startPos.y * devicePixelRatio, (currentX - startPos.x * devicePixelRatio), (currentY - startPos.y * devicePixelRatio));
+          ctx.stroke();
+        }
       }
-    }
   };
 
   const handleMouseUp = () => {
@@ -74,12 +77,13 @@ const Canvas: React.FC = () => {
 
   return (
     <canvas
-      ref={canvasRef}
-      onMouseDown={handleMouseDown}
-      onMouseMove={handleMouseMove}
-      onMouseUp={handleMouseUp}
-      onMouseOut={handleMouseUp}
-    />
+        ref={canvasRef}
+        style={{ width: `${canvasSize.width}px`, height: `${canvasSize.height}px` }}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+        onMouseOut={handleMouseUp}
+    />  
   );
 };
 

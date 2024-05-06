@@ -1,9 +1,11 @@
 import React from "react";
+import Iframe from 'react-iframe';
+import Canvas from './canvasProps';
 
-const IframeCanvas:React.FC = () =>{
+export const IframeCanvas:React.FC = () =>{
     return(
         <>
-            
+            <Canvas/>
         </>
     )
 }

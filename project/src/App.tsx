@@ -5,7 +5,7 @@ import Header from './assets/components/header';
 import Footer from './assets/components/footer';
 import Main from './assets/pages/main/main';
 import SignUp from './assets/pages/sign-up/sign';
-import FrameFix from './assets/pages/framefix-tool/mainComponent';
+import FrameFix from './assets/pages/framefix-tool/main';
 import CreateProject from './assets/pages/create-project/create-project';
 import MyProject from './assets/pages/user-files/default';
 

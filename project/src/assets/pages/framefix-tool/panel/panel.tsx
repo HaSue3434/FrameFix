@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Styles from '../framefix.module.css';
 
 // icon plugin //
@@ -15,6 +15,7 @@ import {ReactComponent as Button } from "../../../img/icons/framefix-plugin-icon
 import {ReactComponent as Icons } from "../../../img/icons/framefix-plugin-icons/icons.svg";
 import {ReactComponent as Images } from "../../../img/icons/framefix-plugin-icons/images.svg";
 import {ReactComponent as Magic } from "../../../img/icons/framefix-plugin-icons/magic.svg";
+import {ReactComponent as SidebarOpen } from "../../../img/icons/framefix-style-icons/sidebar-open.svg";
 
 import { motion,AnimatePresence } from 'framer-motion';
 
@@ -131,11 +132,26 @@ export const LeftPanel: React.FC = () => {
 
 export const RightPanel:React.FC = () =>{
 
-    
+    const [stylesVisible, setStylesVisible] = useState(false);
+    const sidebarOpenRef = useRef<HTMLDivElement>(null);
 
+    useEffect(() => {
+
+        console.log(stylesVisible);
+
+    }, [stylesVisible]);
+
+    const handleClick = () => {
+        const hiddenOpenSide = sidebarOpenRef.current;
+        
+    }
     return(
         <>
-            <div>
+            <div className={Styles.openPanel} onClick={handleClick} ref={sidebarOpenRef}>
+                <p>pen up and specify the style!</p>
+                <div className={Styles.openI}>
+                    <SidebarOpen/>
+                </div>
                 
             </div>
         </>

@@ -173,7 +173,39 @@ iframe{
     height: 100%;
     width: 80px;
     background: #000;
+    cursor: pointer;
+}
+.wrapperRightPanel .openPanel{
+    height: 100%;
+    width: 100%;
+    display: flex;
     position: relative;
+    align-items: center;
+    justify-content: center;
+}
+.wrapperRightPanel .openPanel .openI{
+    position: absolute;
+    top: 50%;
+    left: -30px;
+    width: 30px;
+    transform: translate(0,-50%);
+}
+.wrapperRightPanel .openPanel .openI svg{
+    opacity: 0.5;
+    transition: .25s;
+}
+.wrapperRightPanel .openPanel p{
+    writing-mode: vertical-rl;
+    color: rgba(255,255,255,.5);
+    letter-spacing: 1px;
+    font-weight: 500;
+    transition: .25s;
+}
+.wrapperRightPanel .openPanel:hover p{
+    color: rgba(255,255,255,1);
+}
+.wrapperRightPanel .openPanel:hover svg{
+    opacity: 1;
 }
 #moveLine{
     position: absolute;

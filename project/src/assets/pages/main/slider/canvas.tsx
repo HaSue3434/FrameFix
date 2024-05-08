@@ -19,7 +19,7 @@ import { ReactComponent as Close } from '../../../img/icons/framefix-plugin-icon
 import { ReactComponent as AssetsBottomArrow } from '../../../img/icons/framefix-plugin-icons/aseets-arrow-bottom.svg';
 import { ReactComponent as PageIcon } from '../../../img/icons/framefix-plugin-icons/page-icon.svg';
 import { ReactComponent as Add } from '../../../img/icons/framefix-plugin-icons/add.svg';
-import { ReactComponent as FrameIcon } from '../../../img/icons/framefix-plugin-icons/frame.svg';
+import { ReactComponent as FrameIcon } from '../../../img/icons/framefix-plugin-icons/layer-frame.svg';
 import { ReactComponent as Rect } from '../../../img/icons/framefix-plugin-icons/Rect.svg';
 import { ReactComponent as Folder } from '../../../img/icons/framefix-plugin-icons/folder.svg';
 import { ReactComponent as Settings } from '../../../img/icons/framefix-plugin-icons/settings.svg';

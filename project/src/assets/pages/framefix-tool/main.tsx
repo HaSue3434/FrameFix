@@ -73,7 +73,7 @@ const MainComponent: React.FC=()=>{
                         </div>
                         <IframeCanvas/>
                         <div className={styles.wrapperRightPanel}>
-
+                            <RightPanel/>
                         </div>
                     </div>
                     

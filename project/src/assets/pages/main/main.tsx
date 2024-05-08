@@ -38,7 +38,7 @@ import { ReactComponent as Add } from '../../img/icons/framefix-plugin-icons/add
 import { ReactComponent as Minus } from '../../img/icons/framefix-plugin-icons/minus.svg';
 import { ReactComponent as AssetsBottomArrow } from '../../img/icons/framefix-plugin-icons/aseets-arrow-bottom.svg';
 import { ReactComponent as PageIcon } from '../../img/icons/framefix-plugin-icons/page-icon.svg';
-import { ReactComponent as FrameIcon } from '../../img/icons/framefix-plugin-icons/frame.svg';
+import { ReactComponent as FrameIcon } from '../../img/icons/framefix-plugin-icons/layer-frame.svg';
 import { ReactComponent as Rect } from '../../img/icons/framefix-plugin-icons/Rect.svg';
 import { ReactComponent as CursorIcon } from '../../img/icons/framefix-plugin-icons/cursor.svg';
 import { ReactComponent as Locked } from '../../img/icons/framefix-plugin-icons/locked.svg';

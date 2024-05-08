@@ -12,13 +12,14 @@
 .container .wrapper{
     width: 100%;
     height: 100%;
-    max-width: 100%;
+    min-width: 724px;
 }
 .container .wrapper .headAppPointerFramefix{
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 11111;
+    position: relative;
     height: 55px;
     width: 100%;
     border-bottom: 1px solid rgba(255,255,255,.1);
@@ -89,29 +90,96 @@ iframe{
     position: absolute;
     left:0;
     top: 0;
-    width: 100%;
-    height: 100%;
-    outline: none;
-    
-    border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     
 }
 .wrapperLeftPanel{
     z-index: 5;
     height:100%;
-    width: 250px;
-    background: #000;
+    width: auto;
+}
+.wrapperLeftPanel .panel{
+    display: flex;
 }
 .wrapperLeftPanel .panel .plugins{
-    width: 80px;
-    height: 100%;
+    gap: 35px;
+    border-right: 1px solid rgba(255,255,255,.1);
+    background: #000;
+    overflow-y: scroll;
+    height: 100vh;
+}
+.wrapperLeftPanel .panel .plugins ul{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    margin-bottom: 60px;
+}
+.wrapperLeftPanel .panel .plugins ul li{
+    display: flex;
+    flex-direction: column;
+    padding-top: 15.5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    cursor: pointer;
+    padding-bottom: 15.5px;
+    gap: 10px;
+    position: relative;
+    width: 100%;
+    align-items: center;
+}
+.wrapperLeftPanel .panel .plugins ul li.activePlugin{
+   box-shadow: -1px 0px 0 0 #459AFF inset; 
+}
+.wrapperLeftPanel .panel .plugins ul li p{
+    color: rgba(255,255,255,1);
+    font-size: 12px;
+    text-transform: capitalize;
+    font-weight: 500;
+}
+.wrapperLeftPanel .panel .leftSideComponents{
+    width: 250px;
+    height: 100vh;
+    display: none;
+    background: #000;
+}
+.wrapperLeftPanel .panel .leftSideComponents .assetsWrapperPlugin .T_H{
+    padding: 15px;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.wrapperLeftPanel .panel .leftSideComponents .assetsWrapperPlugin .T_H h4{
+    color: rgba(255,255,255,1);
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+.wrapperLeftPanel .panel .leftSideComponents .assetsWrapperPlugin .T_H .closeBtn{
+    padding: 5px 8px;
+    display: flex;
+    cursor: pointer;
+    background: rgba(255,255,255,.1);
+    border-radius: 3px;
+}
+.wrapperLeftPanel .panel .leftSideComponents .assetsWrapperPlugin .T_H .closeBtn svg{
+    height: auto;
+    width: 7px;
+}
+.wrapperLeftPanel .panel .leftSideComponents .assetsWrapperPlugin .contentsPlugins p{
+    color: rgba(255,255,255,1);
 }
 .wrapperRightPanel{
     z-index: 5;
     height: 100%;
-    width: 250px;
+    width: 80px;
     background: #000;
+    position: relative;
+}
+#moveLine{
+    position: absolute;
+    top: 0;
+    background: hsl(213, 100%, 64%);
+    right: 0;
+    width: 1px;
+    transition: right 0.3s ease, height 0.3s ease;
 }

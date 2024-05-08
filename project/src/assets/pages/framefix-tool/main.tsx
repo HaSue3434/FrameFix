@@ -69,7 +69,7 @@ const MainComponent: React.FC=()=>{
                     </div>
                     <div className={styles.mainContents}>
                         <div className={styles.wrapperLeftPanel}>
-                            
+                            <LeftPanel/>
                         </div>
                         <IframeCanvas/>
                         <div className={styles.wrapperRightPanel}>

@@ -13,7 +13,7 @@ const Header = () =>{
 
     if (lineRef.current) {
       lineRef.current.style.width = `${itemWidth}px`;
-      lineRef.current.style.left = `${itemLeft}px`;
+      lineRef.current.style.left  = `${itemLeft}px`;
     }
   };
 

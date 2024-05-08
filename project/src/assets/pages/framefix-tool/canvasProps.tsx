@@ -12,7 +12,9 @@ const Canvas: React.FC = () => {
     };
 
     window.addEventListener('resize', updateCanvasSize);
-    return () => window.removeEventListener('resize', updateCanvasSize);
+    return () => {
+      window.removeEventListener('resize', updateCanvasSize);
+    };
   }, []);
 
   useEffect(() => {
@@ -20,15 +22,14 @@ const Canvas: React.FC = () => {
     const ctx = canvas?.getContext('2d');
     if (canvas && ctx) {
       const devicePixelRatio = window.devicePixelRatio || 1;
-      const rect = canvas.getBoundingClientRect();
-
-      canvas.width = rect.width * devicePixelRatio;
-      canvas.height = rect.height * devicePixelRatio;
+      canvas.width = canvasSize.width * devicePixelRatio;
+      canvas.height = canvasSize.height * devicePixelRatio;
+      canvas.style.width = `${canvasSize.width}px`;
+      canvas.style.height = `${canvasSize.height}px`;
 
       ctx.fillStyle = 'rgba(69,154,255,.15)';
       ctx.strokeStyle = 'rgba(69,154,255,1)';
-      ctx.lineWidth = 1; 
-
+      ctx.lineWidth = 0;
     }
   }, [canvasSize]);
 
@@ -37,39 +38,35 @@ const Canvas: React.FC = () => {
     if (rect) {
       setIsDrawing(true);
       setStartPos({
-        x: event.clientX - rect.left,
-        y: event.clientY - rect.top,
+        x: (event.clientX - rect.left) * window.devicePixelRatio,
+        y: (event.clientY - rect.top) * window.devicePixelRatio,
       });
     }
   };
 
   const handleMouseMove = (event: React.MouseEvent<HTMLCanvasElement>) => {
     if (isDrawing && canvasRef.current) {
+      const ctx = canvasRef.current.getContext('2d');
+      if (ctx) {
         const rect = canvasRef.current.getBoundingClientRect();
         const devicePixelRatio = window.devicePixelRatio || 1;
         const currentX = (event.clientX - rect.left) * devicePixelRatio;
         const currentY = (event.clientY - rect.top) * devicePixelRatio;
-    
-        const ctx = canvasRef.current.getContext('2d');
-        if (ctx) {
-          ctx.clearRect(0, 0, canvasSize.width * devicePixelRatio, canvasSize.height * devicePixelRatio);
-          ctx.fillStyle = 'rgba(69,154,255,.07)'; 
-          ctx.fillRect(startPos.x * devicePixelRatio, startPos.y * devicePixelRatio, (currentX - startPos.x * devicePixelRatio), (currentY - startPos.y * devicePixelRatio));
-          
-          ctx.strokeStyle = 'rgba(69,154,255,1)';
-          ctx.lineWidth = 1.5; 
-          ctx.beginPath();
-          ctx.rect(startPos.x * devicePixelRatio, startPos.y * devicePixelRatio, (currentX - startPos.x * devicePixelRatio), (currentY - startPos.y * devicePixelRatio));
-          ctx.stroke();
-        }
+  
+        ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
+        ctx.beginPath();
+        ctx.rect(startPos.x, startPos.y, currentX - startPos.x, currentY - startPos.y);
+        ctx.fill();
+        ctx.stroke();
       }
+    }
   };
-
   const handleMouseUp = () => {
     if (canvasRef.current) {
       const ctx = canvasRef.current.getContext('2d');
       if (ctx) {
-        ctx.clearRect(0, 0, canvasSize.width, canvasSize.height); 
+        // Clear the entire canvas
+        ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
       }
     }
     setIsDrawing(false);
@@ -78,12 +75,11 @@ const Canvas: React.FC = () => {
   return (
     <canvas
         ref={canvasRef}
-        style={{ width: `${canvasSize.width}px`, height: `${canvasSize.height}px` }}
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
         onMouseOut={handleMouseUp}
-    />  
+    />
   );
 };
 

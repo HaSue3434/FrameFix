@@ -4,11 +4,21 @@ import { motion,AnimatePresence } from 'framer-motion';
 import {ReactComponent as Close} from '../../../img/icons/framefix-plugin-icons/close.svg';
 
 // module import //
-import LayerModule from './modules/layout/layerModule';
-import FrameModule from './modules/layout/frameModule';
-import ShapeModule from './modules/features/shapeModule';
-import TextModule from './modules/features/textModule';
-import MenuModule from './modules/features/menuModule';
+import {
+    LayerModule,
+    FrameModule,
+    HeaderModule,
+    SectionModule,
+    FooterModule,
+    ShapeModule,
+    TextModule,
+    MenuModule,
+    SlidesModule,
+    ButtonModule,
+    IconModule,
+    ImageModule,
+    MagicModule,
+} from './modules/exportModule';
 
 // module import //
 
@@ -66,9 +76,17 @@ interface ComponentMap {
 const componentMap: ComponentMap = {
     layer: LayerModule,
     frame: FrameModule,
+    header : HeaderModule,
+    section : SectionModule,
+    footer : FooterModule,
     shape: ShapeModule,
     text: TextModule,
     menu: MenuModule,
+    slides: SlidesModule,
+    button: ButtonModule,
+    icons: IconModule,
+    images: ImageModule,
+    magic: MagicModule,
 };
 
 const PluginItems: React.FC<{ activePluginText: string }> = ({ activePluginText }) => {
@@ -94,7 +112,13 @@ const PluginItems: React.FC<{ activePluginText: string }> = ({ activePluginText 
             {ActiveComponent ? (
                 <ActiveComponent />
             ) : (
-                <div>모듈을 찾을 수 없습니다: {activePluginText}</div>
+                <div
+                style={{
+                    padding : "15px", width : "100%", height : "100%",
+                    color : "#fff", fontWeight : "600", fontSize : "12px",
+
+                }}
+                >모듈을 찾을 수 없습니다: {activePluginText}</div>
             )}
         </>
     )

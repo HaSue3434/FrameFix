@@ -7,3 +7,4 @@ const MagicModule = () =>{
         </>
     )
 }
+export default MagicModule;

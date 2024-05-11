@@ -114,11 +114,7 @@ export const LeftPanel: React.FC = () => {
                         <div id={Styles.moveLine} ref={lineRef}></div>
                     </ul>
                 </div>
-                <motion.div className={Styles.leftSideComponents} style={{ display: assetsVisible ? 'block' : 'none' }} ref={sideRef}
-                initial = {{width : 0, opacity : 0}}
-                animate = {{width : 250, opacity : 1}}
-                transition={{duration : 0.75, ease : "anticipate", delay : 1}}
-                >
+                <motion.div className={Styles.leftSideComponents} style={{ display: assetsVisible ? 'block' : 'none' }} ref={sideRef}>
                     <AnimatePresence>
                         <PluginsCommon activePluginText={`${activePluginText}`} sideElement={sideRef.current as HTMLDivElement} setAssetsVisible={setAssetsVisible}/>
                     </AnimatePresence>

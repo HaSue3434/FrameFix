@@ -31,7 +31,7 @@ export const IframeCanvas:React.FC = () =>{
             e.preventDefault();
             if (drawingCanvas.current && zIndexCanvasEditor.current) {
                 drawingCanvas.current.style.zIndex = "3";
-                zIndexCanvasEditor.current.style.zIndex = "0";
+                zIndexCanvasEditor.current.style.zIndex = "1";
             }
         }
         
@@ -56,7 +56,7 @@ export const IframeCanvas:React.FC = () =>{
         }
         if (drawingCanvas.current && zIndexCanvasEditor.current) {
             drawingCanvas.current.style.zIndex = "0";
-            zIndexCanvasEditor.current.style.zIndex = "1";
+            zIndexCanvasEditor.current.style.zIndex = "0";
         }
     };
 
@@ -79,7 +79,10 @@ export const IframeCanvas:React.FC = () =>{
 
     return(
         <>
-        <div className={Styles.canvasEditorContain} ref={draggCursor}>
+        <div className={Styles.canvasEditorContain} 
+        ref={draggCursor}
+        onMouseDown={handleMouseDown}
+        onMouseUp={handleMouseUp}>
             <div className={Styles.drawingCanvas} ref={drawingCanvas}>
                 <Canvas/>
             </div>
@@ -87,8 +90,7 @@ export const IframeCanvas:React.FC = () =>{
                 
                 <div className={Styles.layerSC}
                 ref={zIndexCanvasEditor} 
-                onMouseDown={handleMouseDown}
-                onMouseUp={handleMouseUp} >
+                >
                     
                     <div className={Styles.canvasEditor} 
                         style={{ top: `${position.top}px`, left: `${position.left}px` }}>

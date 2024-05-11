@@ -81,7 +81,7 @@ const componentMap: ComponentMap = {
     footer : FooterModule,
     shape: ShapeModule,
     text: TextModule,
-    menu: MenuModule,
+    menus: MenuModule,
     slides: SlidesModule,
     button: ButtonModule,
     icons: IconModule,

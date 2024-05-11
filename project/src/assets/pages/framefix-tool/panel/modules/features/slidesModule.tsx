@@ -1,10 +1,10 @@
 import React from "react";
 
-const FooterModule = () =>{
+const SlidesModule = () =>{
     return (
         <>
-            
+        
         </>
     )
 }
-export default FooterModule;
+export default SlidesModule;

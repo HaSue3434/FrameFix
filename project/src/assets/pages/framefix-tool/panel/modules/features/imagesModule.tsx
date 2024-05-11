@@ -1,10 +1,11 @@
 import React from "react";
 
-const FooterModule = () =>{
+const ImagesModule = () =>{
     return (
         <>
-            
+        
         </>
     )
 }
-export default FooterModule;
+export default ImagesModule;
+

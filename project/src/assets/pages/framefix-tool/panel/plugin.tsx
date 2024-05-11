@@ -3,15 +3,14 @@ import Styles from "../framefix.module.css";
 import { motion,AnimatePresence } from 'framer-motion';
 import {ReactComponent as Close} from '../../../img/icons/framefix-plugin-icons/close.svg';
 
-import {
-    TemplateModule,
-    LayerModule,
-    FrameModule,
-    TextModule,
-    MenuModule,
-    HeaderModule,
-    FooterModule,
-} from './items/items';
+// module import //
+import LayerModule from './modules/layout/layerModule';
+import FrameModule from './modules/layout/frameModule';
+import ShapeModule from './modules/features/shapeModule';
+import TextModule from './modules/features/textModule';
+import MenuModule from './modules/features/menuModule';
+
+// module import //
 
 interface PluginsCommonProps {
     activePluginText: string;
@@ -65,13 +64,11 @@ interface ComponentMap {
 }
 
 const componentMap: ComponentMap = {
-    template: TemplateModule,
     layer: LayerModule,
-    fFrame: FrameModule,
+    frame: FrameModule,
+    shape: ShapeModule,
     text: TextModule,
     menu: MenuModule,
-    header: HeaderModule,
-    footer: FooterModule,
 };
 
 const PluginItems: React.FC<{ activePluginText: string }> = ({ activePluginText }) => {

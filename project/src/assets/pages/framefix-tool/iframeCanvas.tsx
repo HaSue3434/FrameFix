@@ -27,7 +27,7 @@ export const IframeCanvas:React.FC = () =>{
                 current.style.cursor = "grab";
             }
         }
-        if (e.button === 0) { // Left mouse button
+        if (e.button === 0) { 
             e.preventDefault();
             if (drawingCanvas.current && zIndexCanvasEditor.current) {
                 drawingCanvas.current.style.zIndex = "3";

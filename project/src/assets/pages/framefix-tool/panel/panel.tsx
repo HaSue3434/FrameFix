@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Styles from '../framefix.module.css';
+import { motion,AnimatePresence } from 'framer-motion';
 
 // icon plugin //
 import {ReactComponent as Template } from "../../../img/icons/framefix-plugin-icons/template.svg";
@@ -9,6 +10,7 @@ import {ReactComponent as Shape } from "../../../img/icons/framefix-plugin-icons
 import {ReactComponent as Text } from "../../../img/icons/framefix-plugin-icons/text.svg";
 import {ReactComponent as Menus } from "../../../img/icons/framefix-plugin-icons/menus.svg";
 import {ReactComponent as Header } from "../../../img/icons/framefix-plugin-icons/header.svg";
+import {ReactComponent as Section } from "../../../img/icons/framefix-plugin-icons/section.svg";
 import {ReactComponent as Footer } from "../../../img/icons/framefix-plugin-icons/footer.svg";
 import {ReactComponent as Slides } from "../../../img/icons/framefix-plugin-icons/slides.svg";
 import {ReactComponent as Button } from "../../../img/icons/framefix-plugin-icons/button.svg";
@@ -17,32 +19,27 @@ import {ReactComponent as Images } from "../../../img/icons/framefix-plugin-icon
 import {ReactComponent as Magic } from "../../../img/icons/framefix-plugin-icons/magic.svg";
 import {ReactComponent as SidebarOpen } from "../../../img/icons/framefix-style-icons/sidebar-open.svg";
 
-import { motion,AnimatePresence } from 'framer-motion';
 
 
 // icon plugin //
 
 import { PluginsCommon } from "./plugin";
-import { 
-    TemplateModule,
-    LayerModule,
-    TextModule,
-} from "./items/items";     
-import Control from "../styles-panel/tabs";
+
 
 
 const variantsPlugin = [
-    
-    {plugin: Template,  text : "template"   },
-    {plugin: Layer,     text : "layer"      },
+
+    {plugin: Template,  text : "layer"      },
     {plugin: Frame,     text : "frame"      },
     {plugin: Shape,     text : "shape"      },
     {plugin: Text,      text : "text"       },
     {plugin: Menus,     text : "menus"      },
     {plugin: Header,    text : "header"     },
+    {plugin: Section,   text : "section"   },
     {plugin: Footer,    text : "footer"     },
     {plugin: Slides,    text : "slides"     },
     {plugin: Button,    text : "button"     },
+    {plugin: Images,    text : "images"     },
     {plugin: Icons,     text : "icons"      },
     {plugin: Magic,     text : "magic"      },
      
@@ -117,11 +114,15 @@ export const LeftPanel: React.FC = () => {
                         <div id={Styles.moveLine} ref={lineRef}></div>
                     </ul>
                 </div>
-                <div className={Styles.leftSideComponents} style={{ display: assetsVisible ? 'block' : 'none' }} ref={sideRef}>
+                <motion.div className={Styles.leftSideComponents} style={{ display: assetsVisible ? 'block' : 'none' }} ref={sideRef}
+                initial = {{width : 0, opacity : 0}}
+                animate = {{width : 250, opacity : 1}}
+                transition={{duration : 0.75, ease : "anticipate", delay : 1}}
+                >
                     <AnimatePresence>
                         <PluginsCommon activePluginText={`${activePluginText}`} sideElement={sideRef.current as HTMLDivElement} setAssetsVisible={setAssetsVisible}/>
                     </AnimatePresence>
-                </div>
+                </motion.div>
             </div>
         </>
     );
@@ -147,7 +148,6 @@ export const RightPanel:React.FC = () =>{
 
         if(openSide){
             openSide.style.opacity = "0";
-            openSide.style.transition = ".25s";
 
             setTimeout(()=>{
                 openSide.style.display = "none";
@@ -162,7 +162,7 @@ export const RightPanel:React.FC = () =>{
             animate = {{
                 width : stylesVisible ? 250 : 60
             }}
-            transition={{ duration : 0.75, ease: "anticipate"}}
+            transition={{ duration : 0, ease: "anticipate"}}
             className={Styles.openPanel} onClick={handleClick}>
 
                 <motion.div ref={sidebarOpenRef}>
@@ -176,8 +176,12 @@ export const RightPanel:React.FC = () =>{
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        transition={{ delay: 0.75, duration: 0.5 }}>
-                        
+                        transition={{  duration: 0.5 }}>
+                        <div className={Styles.rightPanelTab}>
+                            <div className={Styles.tabDesign}></div>
+                            <div className={Styles.tabPrototype}></div>
+                            <div className={Styles.tabHandoff}></div>
+                        </div>
                     </motion.div>
                 )}
                 

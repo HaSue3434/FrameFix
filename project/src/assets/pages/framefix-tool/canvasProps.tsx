@@ -93,7 +93,7 @@ const Canvas: React.FC = () => {
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
       onMouseOut={handleMouseUp}
-      style={{ position: "absolute" }}  // 초기 zIndex 설정
+      style={{ position: "absolute" }}  
     />
   );
 };

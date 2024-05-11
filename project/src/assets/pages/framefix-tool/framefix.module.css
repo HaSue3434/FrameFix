@@ -75,7 +75,6 @@
     width: 100%;
     height: 100%;
     justify-content: space-between;
-    gap: 5em;
     position: relative;
     white-space: nowrap;
 }
@@ -93,9 +92,10 @@ iframe{
     
 }
 .wrapperLeftPanel{
-    z-index: 5;
+    z-index: 88;
     height:100%;
     width: auto;
+    position: relative;
 }
 .wrapperLeftPanel .panel{
     display: flex;
@@ -171,13 +171,16 @@ iframe{
 .wrapperRightPanel{
     z-index: 5;
     height: 100%;
-    width: 80px;
-    background: #000;
+    width:auto;
     cursor: pointer;
+    align-items: center;
+    justify-content: center;
 }
 .wrapperRightPanel .openPanel{
     height: 100%;
-    width: 100%;
+    width: 60px;
+    z-index: 5;
+    background: #000;
     display: flex;
     position: relative;
     align-items: center;
@@ -199,6 +202,7 @@ iframe{
     color: rgba(255,255,255,.5);
     letter-spacing: 1px;
     font-weight: 500;
+    font-size: 12px;
     transition: .25s;
 }
 .wrapperRightPanel .openPanel:hover p{
@@ -214,4 +218,49 @@ iframe{
     right: 0;
     width: 1px;
     transition: right 0.3s ease, height 0.3s ease;
+}
+.canvasEditorContain{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+    cursor: url('./icons//cursor-icon//cursor.svg'), auto;
+}
+.canvasEditorContain .stylesLayer{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.canvasEditorContain .drawingCanvas{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+.canvasEditorContain .stylesLayer .layerSC{
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translateZ(0px);
+    width: 100%;
+    height: 100%;
+}
+.canvasEditorContain .stylesLayer .layerSC .canvasEditor {
+    position: absolute;
+    transform: translate3d(0, 0, 0);
+}
+.canvasEditorContain .stylesLayer .layerSC .canvasEditor .editor{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    
+}
+.canvasEditorContain .stylesLayer .layerSC > .canvasEditor .frame{
+    width: 600px;
+    height:1900px;
+    background: #fff;
+    left: 500px;
+    top: 155px;
+    position: absolute;
 }

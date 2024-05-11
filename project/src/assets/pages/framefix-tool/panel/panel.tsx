@@ -24,12 +24,12 @@ import { motion,AnimatePresence } from 'framer-motion';
 
 import { PluginsCommon } from "./plugin";
 import { 
-    
     TemplateModule,
     LayerModule,
     TextModule,
+} from "./items/items";     
+import Control from "../styles-panel/tabs";
 
-} from "./items/items";       
 
 const variantsPlugin = [
     
@@ -134,26 +134,55 @@ export const RightPanel:React.FC = () =>{
 
     const [stylesVisible, setStylesVisible] = useState(false);
     const sidebarOpenRef = useRef<HTMLDivElement>(null);
+    const openConrols = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-
-        console.log(stylesVisible);
-
+        
     }, [stylesVisible]);
 
     const handleClick = () => {
-        const hiddenOpenSide = sidebarOpenRef.current;
-        
+
+        const openSide = sidebarOpenRef.current;
+        setStylesVisible(true);
+
+        if(openSide){
+            openSide.style.opacity = "0";
+            openSide.style.transition = ".25s";
+
+            setTimeout(()=>{
+                openSide.style.display = "none";
+            },250)
+        }
     }
     return(
         <>
-            <div className={Styles.openPanel} onClick={handleClick} ref={sidebarOpenRef}>
-                <p>pen up and specify the style!</p>
-                <div className={Styles.openI}>
-                    <SidebarOpen/>
-                </div>
+        <AnimatePresence>
+            <motion.div 
+            initial = {{width : 60}}
+            animate = {{
+                width : stylesVisible ? 250 : 60
+            }}
+            transition={{ duration : 0.75, ease: "anticipate"}}
+            className={Styles.openPanel} onClick={handleClick}>
+
+                <motion.div ref={sidebarOpenRef}>
+                    <p>pen up and specify the style!</p>
+                    <div className={Styles.openI}>
+                        <SidebarOpen/>
+                    </div>
+                </motion.div>
                 
-            </div>
+               {stylesVisible && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.75, duration: 0.5 }}>
+                        
+                    </motion.div>
+                )}
+                
+            </motion.div>
+        </AnimatePresence>    
         </>
     )
 }

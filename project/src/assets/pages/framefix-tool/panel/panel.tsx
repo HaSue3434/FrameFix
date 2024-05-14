@@ -35,7 +35,7 @@ const variantsPlugin = [
     {plugin: Text,      text : "text"       },
     {plugin: Menus,     text : "menus"      },
     {plugin: Header,    text : "header"     },
-    {plugin: Section,   text : "section"   },
+    {plugin: Section,   text : "section"    },
     {plugin: Footer,    text : "footer"     },
     {plugin: Slides,    text : "slides"     },
     {plugin: Button,    text : "button"     },

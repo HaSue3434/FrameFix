@@ -220,10 +220,12 @@ iframe{
     transition: right 0.3s ease, height 0.3s ease;
 }
 .canvasEditorContain{
-    position: relative;
+    position: absolute;
+    /*position: relative;*/
     width: 100%;
+    top: 0;
+    left: 0;
     height: 100%;
-    overflow: scroll;
     cursor: url('./icons//cursor-icon//cursor.svg'), auto;
 }
 .canvasEditorContain .stylesLayer{
@@ -236,8 +238,10 @@ iframe{
 .canvasEditorContain .drawingCanvas{
     width: 100%;
     height: 100%;
-    z-index: 5;
     position: absolute;
+    z-index: 3;
+    left: 0;
+    top: 0;
 }
 .canvasEditorContain .stylesLayer .layerSC{
     position: absolute;
@@ -264,4 +268,10 @@ iframe{
     left: 500px;
     top: 155px;
     position: absolute;
+}
+#canvas{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    cursor: url('./icons//cursor-icon//cursor.svg'), auto;
 }

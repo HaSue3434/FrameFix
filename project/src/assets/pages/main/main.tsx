@@ -1,10 +1,10 @@
-import React, { useEffect, useState, useRef,FC} from 'react';
+import React, { useEffect, useState, useRef} from 'react';
 
 import ScrollSmootherComponent from "./ScrollSmoother";
 import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { delay, frame, motion, useAnimation } from 'framer-motion';
+import { motion} from 'framer-motion';
 import FooterSection from "../../components/footer";
 import { ReactComponent as Logo } from '../../img/logo/logo.svg';
 
@@ -17,14 +17,12 @@ import { ReactComponent as SEO } from '../../img/icons/seo-icon.svg';
 import { ReactComponent as Community } from '../../img/icons/community-icon.svg';
 import { ReactComponent as NoneTxtLogo } from '../../img/icons/none-txt-logo.svg';
 import { ReactComponent as F } from '../../img/icons/f.svg';
-import { ReactComponent as DeployDeco } from '../../img/deploy-deco.svg';
 
 import { ReactComponent as FrameLogo } from "../../img/logo/frame-logo.svg";
 import { ReactComponent as NextArrow } from '../../img/icons/next-arrow.svg';
 
 // framfix icon //
 import { ReactComponent as Template } from '../../img/icons/framefix-plugin-icons/template.svg';
-import { ReactComponent as Layer } from '../../img/icons/framefix-plugin-icons/layer.svg';
 import { ReactComponent as Text } from '../../img/icons/framefix-plugin-icons/text.svg';
 import { ReactComponent as Menus } from '../../img/icons/framefix-plugin-icons/menus.svg';
 import { ReactComponent as Header } from '../../img/icons/framefix-plugin-icons/header.svg';
@@ -35,15 +33,12 @@ import { ReactComponent as Icons } from '../../img/icons/framefix-plugin-icons/i
 import { ReactComponent as Magic } from '../../img/icons/framefix-plugin-icons/magic.svg';
 import { ReactComponent as Close } from '../../img/icons/framefix-plugin-icons/close.svg';
 import { ReactComponent as Add } from '../../img/icons/framefix-plugin-icons/add.svg';
-import { ReactComponent as Minus } from '../../img/icons/framefix-plugin-icons/minus.svg';
 import { ReactComponent as AssetsBottomArrow } from '../../img/icons/framefix-plugin-icons/aseets-arrow-bottom.svg';
 import { ReactComponent as PageIcon } from '../../img/icons/framefix-plugin-icons/page-icon.svg';
 import { ReactComponent as FrameIcon } from '../../img/icons/framefix-plugin-icons/layer-frame.svg';
 import { ReactComponent as Rect } from '../../img/icons/framefix-plugin-icons/Rect.svg';
-import { ReactComponent as CursorIcon } from '../../img/icons/framefix-plugin-icons/cursor.svg';
 import { ReactComponent as Locked } from '../../img/icons/framefix-plugin-icons/locked.svg';
 import { ReactComponent as Open } from '../../img/icons/framefix-plugin-icons/opened.svg';
-import { ReactComponent as Hand } from '../../img/icons/framefix-plugin-icons/hand.svg';
 import { ReactComponent as Settings } from '../../img/icons/framefix-plugin-icons/settings.svg';
 import { ReactComponent as Preview } from '../../img/icons/framefix-plugin-icons/view.svg';
 
@@ -51,22 +46,12 @@ import { ReactComponent as Preview } from '../../img/icons/framefix-plugin-icons
 // framfix icon //
 
 // framefix style icons //
-
-import { ReactComponent as Left } from '../../img/icons/framefix-style-icons/left.svg';
-import { ReactComponent as Center } from '../../img/icons/framefix-style-icons/center.svg';
-import { ReactComponent as Right } from '../../img/icons/framefix-style-icons/right.svg';
-import { ReactComponent as AlignTop } from '../../img/icons/framefix-style-icons/align-top.svg';
-import { ReactComponent as AlignVerticalCenter } from '../../img/icons/framefix-style-icons/align-vertical-center.svg';
-import { ReactComponent as AlignBottom } from '../../img/icons/framefix-style-icons/align-bottom.svg';
-import { ReactComponent as VerticalSpacing } from '../../img/icons/framefix-style-icons/vertical-spacing.svg';
-import { ReactComponent as HorizontalSpacing } from '../../img/icons/framefix-style-icons/horizontal-spacing.svg';
 import { ReactComponent as Rotation } from '../../img/icons/framefix-style-icons/rotation.svg';
 import { ReactComponent as FlipVertical } from '../../img/icons/framefix-style-icons/flip-vertical.svg';
 import { ReactComponent as FlipHorizontal } from '../../img/icons/framefix-style-icons/flip-horizontal.svg';
 import { ReactComponent as Eye } from '../../img/icons/framefix-style-icons/eye.svg';
 import { ReactComponent as DefaultAll } from '../../img/icons/framefix-style-icons/default-all.svg';
 import { ReactComponent as PerSide } from '../../img/icons/framefix-style-icons/per-side.svg';
-
 // framefix style icons //
 
 import "./slider/project-maker.css"
@@ -132,13 +117,12 @@ function Main() {
     const [activeIndex, setActiveIndex] = useState<number>(0);
 
     const frameElement = useRef<HTMLDivElement>(null);
-    const slideControls = useAnimation();
+    const hoverCursor = useRef<HTMLDivElement>(null);
 
     const componentMap : ComponentSlideMap = {
         "ai-powered": DefaultUI,
         'canvas': Canvas,
         'code-Converts' : CodeConverts,
-
     }
 
     const ActiveComponent = componentMap[items[activeIndex]];
@@ -173,11 +157,6 @@ function Main() {
         }, 600);
         return () => clearTimeout(timer);
     }, []);
-
-    const scrollEventIconRef = useRef<HTMLDivElement>(null);
-    const scrollEventIconRef2 = useRef<HTMLDivElement>(null);
-    const scrollEventIconRef3 = useRef<HTMLDivElement>(null);
-    const scrollEventNonePin = useRef<HTMLDivElement>(null);
     const fullScreenRef = useRef<HTMLDivElement>(null);
     const f = useRef<SVGSVGElement>(null);
     const typingContents = useRef<HTMLDivElement>(null);
@@ -798,18 +777,7 @@ function Main() {
                                         <div className="option"><AssetsBottomArrow/></div>
                                     </div>
                                     <div className='u-interaction'>
-                                        <div className='cursor'>
-                                            <CursorIcon/>
-                                        </div>
-                                        <div className='frame'>
-                                            <FrameIcon/><AssetsBottomArrow/>
-                                        </div>
-                                        <div className='rect'>
-                                            <Rect/><AssetsBottomArrow/>
-                                        </div>
-                                        <div className='hand'>
-                                            <Hand/>
-                                        </div>
+
                                     </div>
                                     <div className='user-publish'>
                                         <div className='user-infor'>
@@ -828,12 +796,8 @@ function Main() {
                                 <div className='side'>
                                     <div className='left si'>
                                         <div className='category'>
-                                            <div>
-                                                <div className="icon"><Template/></div>
-                                                <div className="t"><span>Template</span></div>
-                                            </div>
                                             <div className='layer'>
-                                                <div className="icon"><Layer/></div>
+                                                <div className="icon"><Template/></div>
                                                 <div className="t"><span>Layer</span></div>
                                             </div>
                                             <div>

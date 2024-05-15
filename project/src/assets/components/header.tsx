@@ -1,22 +1,22 @@
 import React, {useRef, useEffect, useState} from 'react';
 import { ReactComponent as Logo } from "../img/logo/logo.svg";
-import {Link} from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
+import {ReactComponent as Arrow} from "../img/icons/framefix-plugin-icons/aseets-arrow-bottom.svg";
 
 const Header = () =>{
+    /*
+    const lineRef = useRef<HTMLDivElement>(null);
+    
+    const handleMouseOver = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+      const itemWidth = event.currentTarget.offsetWidth;
+      const itemLeft = event.currentTarget.offsetLeft;
 
-  const lineRef = useRef<HTMLDivElement>(null);
-  
-  const handleMouseOver = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-    const itemWidth = event.currentTarget.offsetWidth;
-    const itemLeft = event.currentTarget.offsetLeft;
-
-    if (lineRef.current) {
-      lineRef.current.style.width = `${itemWidth}px`;
-      lineRef.current.style.left  = `${itemLeft}px`;
-    }
-  };
-
+      if (lineRef.current) {
+        lineRef.current.style.width = `${itemWidth}px`;
+        lineRef.current.style.left  = `${itemLeft}px`;
+      }
+    };
+    */
 
     return (
         <header id='header'>
@@ -25,18 +25,26 @@ const Header = () =>{
                    <Link to='/'><Logo /></Link>
                 </div>
                 <ul className='nav'>
-                  <Link to='/' onMouseOver={handleMouseOver}>
+                    <Link to='/'>
                       <li className = 'framefix-features' >
-                          <div className='f'>Features</div>
+                          <div className='f'>Features <Arrow/></div>
                           <ul>
 
                           </ul>
                       </li>
                     </Link>
-                    <Link to='/' onMouseOver={handleMouseOver}><li>Updates</li></Link>
-                    <Link to='/' onMouseOver={handleMouseOver}><li>Community</li></Link>
-                    <Link to='/' onMouseOver={handleMouseOver}><li>Pricing</li></Link>
-                    <div id="move-line" ref={lineRef}></div>
+                    <Link to='/'>
+                      <li className = 'framefix-resource' >
+                          <div className='f'>Resource <Arrow/></div>
+                          <ul>
+
+                          </ul>
+                      </li>
+                    </Link>
+                    <Link to='/'><li>Updates</li></Link>
+                    <Link to='/'><li>Community</li></Link>
+                    <Link to='/'><li>Pricing</li></Link>
+                    <div id="move-line"></div>
                 </ul>
                 <div className='start-link'>
                     <Link to = '/sign-up'>

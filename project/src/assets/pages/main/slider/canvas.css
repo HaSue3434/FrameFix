@@ -114,6 +114,7 @@ section.main .wrapper .main-framefix .frame>div.framefix-ui .ui-body{
     justify-content: space-between;
     gap: 35px;
     height: 100%;
+    position: relative;
 }
 section.main .wrapper .main-framefix .frame>div.framefix-ui .ui-body > div{
     height: 100%;
@@ -131,7 +132,7 @@ section.main .wrapper .main-framefix .frame>div.framefix-ui
 }
 section.main .wrapper .main-framefix .frame>div.framefix-ui 
 .ui-body > div.plugins .option>div{
-    padding: 20px 15px;
+    padding: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -255,6 +256,11 @@ section.main .wrapper .main-framefix .frame>div.framefix-ui
     align-items: center;
 }
 section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.plugins .assets .layer .layer-e .frame-e .arrow{
+    width: auto;
+    height: 6px;
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
 .ui-body > div.plugins .assets .layer .layer-e .frame-1 
 .frame-e~.frame-wrap {
     padding-top: 10px;
@@ -272,6 +278,7 @@ section.main .wrapper .main-framefix .frame>div.framefix-ui
     align-items: center;
     justify-content: space-between;
     padding: 5px;
+    padding-right: 0;
 }
 section.main .wrapper .main-framefix .frame>div.framefix-ui 
 .ui-body > div.plugins .assets .layer .layer-e .frame-1 
@@ -803,4 +810,20 @@ section.main .wrapper .main-framefix .frame>div.framefix-ui
     color: rgba(255,255,255,1);
     font-weight: 500;
     font-size: 14px;
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui .ui-body .canvas-editor{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui .ui-body .canvas-editor .frame1{
+    width: 550px;
+    height: 750px;
+    background: rgb(0, 0, 0);
 }

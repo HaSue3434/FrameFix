@@ -9,6 +9,8 @@ import { ReactComponent as FrameLogo } from "../../../img/logo/frame-logo.svg";
 import { ReactComponent as AiPoweredIcon } from "../../../img/icons/ai-powered-icon.svg";
 import { ReactComponent as DropDownArrow } from "../../../img/icons/bottom-arrow.svg";
 import { ReactComponent as Star } from "../../../img/icons/star.svg";
+import { ReactComponent as Effect } from "../../../img/icons/effect.svg";
+import { ReactComponent as Layout } from "../../../img/icons/framefix-plugin-icons/template.svg";
 
 // icon tools //
 
@@ -295,7 +297,7 @@ const FrameFixGuide: React.FC = () => {
                         <div className="txt">
                         <div>
                             <div className='type-icon'>
-                                <div className="icon"><Deploy/></div>
+                                <div className="icon"><Effect/></div>
                                 <div className="txt">effects</div>
                             </div>
                             <h1> <span>Add effects</span> to delight your audience.</h1>
@@ -329,7 +331,7 @@ const FrameFixGuide: React.FC = () => {
                                         
                                     </div>
                                     <div className="view-effects">
-
+                                        <div className="back-white"></div>
                                     </div>
                                 </div>
                             </div>
@@ -344,7 +346,7 @@ const FrameFixGuide: React.FC = () => {
                         <div className="txt">
                         <div>
                             <div className='type-icon'>
-                                <div className="icon"><Deploy/></div>
+                                <div className="icon"><Layout/></div>
                                 <div className="txt">layouts</div>
                             </div>
                             <h1> Structure with a few <span>clicks.</span></h1>

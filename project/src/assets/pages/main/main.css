@@ -10,9 +10,9 @@ body{
 }
 .type-icon .icon svg{width: 20px;height: 20px;}
 .type-icon .icon{
-    width: 40px;
-    min-width: 40px;
-    height: 40px;
+    width: 35px;
+    min-width: 35px;
+    height: 35px;
     background: linear-gradient(120deg, #459AFF,rgba(0,117,255,1));
     border-radius: 5px;
     display: flex;
@@ -23,8 +23,8 @@ body{
 }
 .type-icon .icon~div{
     font-weight: bold;
-    text-transform: uppercase;
-    font-size: 1.50em;
+    text-transform: capitalize;
+    font-size: 1.13em;
     color: #fff;
 }
 section.main{
@@ -179,8 +179,8 @@ section.main .wrapper  .main-framefix .frame{
     width: 100%;
     transform: translateX(0);
     border-radius: 15px;
-    
 }
+
 section.main .wrapper  .main-framefix .frame>div{
     width: 100%;
     height: 100%;
@@ -1777,12 +1777,9 @@ section.main .wrapper  .main-framefix .frame>div .contain{
 .framefix-footer .wrapper .contain .wrap .side .left .category>div.layer{
     border-right: 1px solid #459AFF;
 }
-.framefix-footer .wrapper .contain .wrap .side .left .category>div>.t{
-    padding-top: 5px;
-}
 .framefix-footer .wrapper .contain .wrap .side .left .category>div>.t span{
     color: rgba(255,255,255,1);
-    font-size: 14px;
+    font-size: 12px;
     text-transform: capitalize;
 }
 .framefix-footer .wrapper .contain .wrap .side .left .assets{

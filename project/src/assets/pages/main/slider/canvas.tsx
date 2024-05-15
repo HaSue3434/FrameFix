@@ -5,10 +5,12 @@ import { ReactComponent as FrameLogo } from "../../../img/logo/frame-logo.svg";
 
 
 import { ReactComponent as Template} from "../../../img/icons/framefix-plugin-icons/template.svg";
-import { ReactComponent as Layer} from "../../../img/icons/framefix-plugin-icons/layer.svg";
+import { ReactComponent as Frame} from "../../../img/icons/framefix-plugin-icons/frame.svg";
+import { ReactComponent as Shape} from "../../../img/icons/framefix-plugin-icons/shape.svg";
 import { ReactComponent as Text } from "../../../img/icons/framefix-plugin-icons/text.svg";
 import { ReactComponent as Menus } from "../../../img/icons/framefix-plugin-icons/menus.svg";
 import { ReactComponent as Header} from "../../../img/icons/framefix-plugin-icons/header.svg";
+import { ReactComponent as Section} from "../../../img/icons/framefix-plugin-icons/section.svg";
 import { ReactComponent as Footer} from "../../../img/icons/framefix-plugin-icons/footer.svg";
 import { ReactComponent as Slides} from "../../../img/icons/framefix-plugin-icons/slides.svg";
 import { ReactComponent as Button} from "../../../img/icons/framefix-plugin-icons/button.svg";
@@ -36,11 +38,13 @@ import { ReactComponent as PerSide } from '../../../img/icons/framefix-style-ico
 const Canvas: React.FC = ()=>{
 
     const plugins = [
-        { id: 1, Component: Template, text: "Template", pClass : "p-template" },
-        { id: 2, Component: Layer, text: "Layer", pClass : "p-layer"  },
+        { id: 2, Component: Template, text: "Layer", pClass : "p-layer"  },
+        { id: 2, Component: Frame, text: "Frame", pClass : "p-frame"  },
+        { id: 2, Component: Shape, text: "Shape", pClass : "p-shape"  },
         { id: 3, Component: Text, text: "Text", pClass : "p-text"  },
         { id: 4, Component: Menus, text: "Menus", pClass : "p-menus"  },
         { id: 5, Component: Header, text: "Header", pClass : "p-header"  },
+        { id: 5, Component: Section, text: "Section", pClass : "p-section"  },
         { id: 6, Component: Footer, text: "Footer", pClass : "p-footer"  },
         { id: 7, Component: Slides, text: "Slides", pClass : "p-slides"  },
         { id: 8, Component: Button, text: "Button", pClass : "p-button"  },
@@ -124,7 +128,7 @@ const Canvas: React.FC = ()=>{
                                     <div><h4>Layer</h4></div>
                                     <div className="layer-e">
                                         <div className="frame-1">
-                                            <div className="frame-e"><AssetsBottomArrow/><FrameIcon/><p>Frame</p></div>
+                                            <div className="frame-e"><AssetsBottomArrow className="arrow"/><FrameIcon/><p>Desktop frame</p></div>
                                             <div className="frame-wrap">
                                                 <div className="rect rect-1">
                                                     <div>
@@ -168,6 +172,7 @@ const Canvas: React.FC = ()=>{
                                                 </div>
                                             </div>
                                         </div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -306,6 +311,11 @@ const Canvas: React.FC = ()=>{
                                 <div><h4>Export</h4></div>
                                 <div><Add/></div>
                             </div>
+                        </div>
+                        <div className="canvas-editor">
+                            <div className="frame1"></div>
+                            <div className="frame2"></div>
+                            <div className="frame3"></div>
                         </div>
                     </div>
                 </motion.div>

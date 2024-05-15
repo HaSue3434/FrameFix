@@ -102,11 +102,9 @@ export const IframeCanvas:React.FC = () =>{
                     <div className={Styles.canvasEditor} 
                         style={{ top: `${position.top}px`, left: `${position.left}px` }}>
                         <div className={Styles.editor}>
-                            <div className={`${Styles.frame}`} data-frame = "frame" data-frame-layer = "frame1">
-
-                            </div>
-                            <div className={`${Styles.frame}`} data-frame = "frame" data-frame-layer = "frame2">
-
+                            <div className={`${Styles.frame}`}  data-frame-layer = "frame1">
+                                <div className={Styles.boardName}><p>frame1</p></div>
+                                <div data-frame = "frame" className={Styles.boardFrame}></div>
                             </div>
                         </div>
                     </div>

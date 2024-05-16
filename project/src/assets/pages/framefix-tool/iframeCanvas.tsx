@@ -9,7 +9,7 @@ import Cursor from './icons/cursor-icon/cursor.svg';
 export const IframeCanvas:React.FC = () =>{
     
     const [position, setPosition] = useState({ top: 0, left: 0, scale: 1, originX: 0, originY: 0 });
-    const posRef = useRef({ x: 0, y: 0 });
+    const posRef = useRef<{ x: number; y: number; originX: number; originY: number; }>({ x: 0, y: 0, originX: 0, originY: 0 });
     const layerSCRef = useRef<HTMLDivElement>(null);
     const canvasRef = useRef<HTMLDivElement>(null);
     const draggingRef = useRef(false);
@@ -32,6 +32,8 @@ export const IframeCanvas:React.FC = () =>{
             posRef.current = {
                 x: e.clientX - rect.left,
                 y: e.clientY - rect.top,
+                originX: e.clientX, 
+                originY: e.clientY, 
             };
             draggingRef.current = true;
             draggCursor.current!.style.cursor = "grab";
@@ -41,18 +43,22 @@ export const IframeCanvas:React.FC = () =>{
     const handleMouseMove = (e: MouseEvent) => {
         if (draggingRef.current && layerSCRef.current) {
             const rect = layerSCRef.current.getBoundingClientRect();
-
             const deltaX = e.clientX - (rect.left + posRef.current.x);
             const deltaY = e.clientY - (rect.top + posRef.current.y);
-            console.log("Mouse Move Delta:", { deltaX, deltaY }); 
+
             setPosition(prev => ({
                 ...prev,
                 left: prev.left + deltaX,
                 top: prev.top + deltaY,
+                originX: prev.originX + deltaX, 
+                originY: prev.originY + deltaY, 
             }));
             posRef.current = {
                 x: e.clientX - rect.left,
                 y: e.clientY - rect.top,
+
+                originX: e.clientX, 
+                originY: e.clientY, 
             };
         }
     };
@@ -64,12 +70,29 @@ export const IframeCanvas:React.FC = () =>{
     };
 
     const handleWheel = (e: WheelEvent) => {
+        const deltaY = e.deltaY;
+        const speedFactor = 0.5; // 이동 속도를 조절하는 상수
+        const scaleDelta = deltaY > 0 ? 0.9 : 1.1; // 확대 또는 축소에 따라 스케일링 팩터 설정
+            
+        if (canvasRef.current) {
+            const rect = canvasRef.current.getBoundingClientRect();
+            const mouseY = e.clientY - rect.top;
+        
+            setPosition(prev => ({
+                ...prev,
+                top: prev.top - deltaY * speedFactor, // deltaY에 속도 조절 상수를 곱하여 이동 거리를 조절
+                originY: prev.originY + (mouseY - prev.top) * (1 - scaleDelta), // 마우스 위치에 따라 originY를 조절
+            }));
+        }
         if (e.ctrlKey && canvasRef.current) {
             e.preventDefault();
             const rect = canvasRef.current.getBoundingClientRect();
             const scaleDelta = e.deltaY > 0 ? 0.9 : 1.1;
             
-            const { newTop,newLeft,originX, originY } = updatePosition(
+            const mouseX = e.clientX - rect.left;
+            const mouseY = e.clientY - rect.top;
+            
+            const { newTop, newLeft, originX, originY } = updatePosition(
                 position.scale * scaleDelta, 
                 e.clientX,
                 e.clientY,
@@ -77,13 +100,14 @@ export const IframeCanvas:React.FC = () =>{
                 position.originX,
                 position.originY
             );
+    
             setPosition(prev => ({
                 ...prev,
-                top: prev.top,
-                left: prev.left,
                 scale: prev.scale * scaleDelta,
-                originX : originX * 100,
-                originY : originY * 100,
+                left: prev.left - (mouseX - prev.left) * (scaleDelta - 1),
+                top: prev.top - (mouseY - prev.top) * (scaleDelta - 1),
+                originX: prev.originX + (mouseX - prev.left) * (1 - scaleDelta),
+                originY: prev.originY + (mouseY - prev.top) * (1 - scaleDelta), 
             }));
         }
     };
@@ -124,7 +148,7 @@ export const IframeCanvas:React.FC = () =>{
                             top: `${position.top}px`,
                             left: `${position.left}px`,
                             transform: `scale(${position.scale}) translateZ(0px)`,
-                            transformOrigin: `${position.originX}px ${position.originY}px`
+                            transformOrigin: `${position.originX}% ${position.originY}%`
                         }}>
                         <div className={Styles.editor}>
                             <div className={`${Styles.frame1}`}  data-frame-layer = "frame1">

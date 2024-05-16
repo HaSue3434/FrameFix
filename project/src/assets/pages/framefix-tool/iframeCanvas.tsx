@@ -15,6 +15,7 @@ export const IframeCanvas:React.FC = () =>{
     const draggingRef = useRef(false);
     const draggCursor = useRef<HTMLDivElement>(null);
 
+    /*
     const updatePosition = (scale: number, clientX: number, clientY: number, rect: DOMRect, oldOriginX: number, oldOriginY: number) => {
         const newOriginX = (clientX - rect.left) / rect.width;
         const newOriginY = (clientY - rect.top) / rect.height;
@@ -24,7 +25,7 @@ export const IframeCanvas:React.FC = () =>{
     
         return { newLeft, newTop, originX: newOriginX, originY: newOriginY };
     };
-
+    */
     const handleMouseDown = (e: React.MouseEvent) => {
         e.preventDefault();
         if (e.button === 1 && layerSCRef.current) {
@@ -71,35 +72,23 @@ export const IframeCanvas:React.FC = () =>{
 
     const handleWheel = (e: WheelEvent) => {
         const deltaY = e.deltaY;
-        const speedFactor = 0.5; // 이동 속도를 조절하는 상수
-        const scaleDelta = deltaY > 0 ? 0.9 : 1.1; // 확대 또는 축소에 따라 스케일링 팩터 설정
-            
-        if (canvasRef.current) {
-            const rect = canvasRef.current.getBoundingClientRect();
-            const mouseY = e.clientY - rect.top;
+        const speedFactor = 0.5; 
+    
+        if (canvasRef.current && !e.ctrlKey) {
+            e.preventDefault(); 
         
             setPosition(prev => ({
                 ...prev,
-                top: prev.top - deltaY * speedFactor, // deltaY에 속도 조절 상수를 곱하여 이동 거리를 조절
-                originY: prev.originY + (mouseY - prev.top) * (1 - scaleDelta), // 마우스 위치에 따라 originY를 조절
+                top: prev.top - (deltaY * speedFactor), 
+                originY: prev.originY - (deltaY * speedFactor),  
             }));
         }
         if (e.ctrlKey && canvasRef.current) {
-            e.preventDefault();
+            e.preventDefault(); 
             const rect = canvasRef.current.getBoundingClientRect();
-            const scaleDelta = e.deltaY > 0 ? 0.9 : 1.1;
-            
             const mouseX = e.clientX - rect.left;
             const mouseY = e.clientY - rect.top;
-            
-            const { newTop, newLeft, originX, originY } = updatePosition(
-                position.scale * scaleDelta, 
-                e.clientX,
-                e.clientY,
-                rect, 
-                position.originX,
-                position.originY
-            );
+            const scaleDelta = deltaY > 0 ? 0.9 : 1.1; 
     
             setPosition(prev => ({
                 ...prev,
@@ -107,7 +96,7 @@ export const IframeCanvas:React.FC = () =>{
                 left: prev.left - (mouseX - prev.left) * (scaleDelta - 1),
                 top: prev.top - (mouseY - prev.top) * (scaleDelta - 1),
                 originX: prev.originX + (mouseX - prev.left) * (1 - scaleDelta),
-                originY: prev.originY + (mouseY - prev.top) * (1 - scaleDelta), 
+                originY: prev.originY + (mouseY - prev.top) * (1 - scaleDelta),
             }));
         }
     };

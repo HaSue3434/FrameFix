@@ -8,69 +8,90 @@ import Cursor from './icons/cursor-icon/cursor.svg';
 
 export const IframeCanvas:React.FC = () =>{
     
-    const [position, setPosition] = useState({ top: 0, left: 0, width: '100%', height: '100%' });
+    const [position, setPosition] = useState({ top: 0, left: 0, scale: 1, originX: 0, originY: 0 });
     const posRef = useRef({ x: 0, y: 0 });
+    const layerSCRef = useRef<HTMLDivElement>(null);
+    const canvasRef = useRef<HTMLDivElement>(null);
     const draggingRef = useRef(false);
     const draggCursor = useRef<HTMLDivElement>(null);
-    const zIndexCanvasEditor = useRef<HTMLDivElement>(null);
-    const canvasRef = useRef<HTMLDivElement>(null);
-    const [pointer,setPointer] = useState(false);
+
+    const updatePosition = (scale: number, clientX: number, clientY: number, rect: DOMRect, oldOriginX: number, oldOriginY: number) => {
+        const newOriginX = (clientX - rect.left) / rect.width;
+        const newOriginY = (clientY - rect.top) / rect.height;
+        
+        const newLeft = (rect.width * scale - rect.width) * -newOriginX;
+        const newTop = (rect.height * scale - rect.height) * -newOriginY;
+    
+        return { newLeft, newTop, originX: newOriginX, originY: newOriginY };
+    };
 
     const handleMouseDown = (e: React.MouseEvent) => {
-        
-        if (e.button === 1) {
-            
-            e.preventDefault();
-
+        e.preventDefault();
+        if (e.button === 1 && layerSCRef.current) {
+            const rect = layerSCRef.current.getBoundingClientRect();
             posRef.current = {
-                x: e.clientX - position.left,
-                y: e.clientY - position.top
+                x: e.clientX - rect.left,
+                y: e.clientY - rect.top,
             };
             draggingRef.current = true;
             draggCursor.current!.style.cursor = "grab";
-        
-        } else if (e.button === 0) {
-
-            setPointer(true);
         }
-        
-
     };
-    
+
     const handleMouseMove = (e: MouseEvent) => {
-        if (draggingRef.current) {
-            const newLeft = e.clientX - posRef.current.x;
-            const newTop = e.clientY - posRef.current.y;
-            setPosition({ left: newLeft, top: newTop, width: '100%', height: '100%' });
-        }
-        if(pointer){
-            
-            
+        if (draggingRef.current && layerSCRef.current) {
+            const rect = layerSCRef.current.getBoundingClientRect();
+
+            const deltaX = e.clientX - (rect.left + posRef.current.x);
+            const deltaY = e.clientY - (rect.top + posRef.current.y);
+            console.log("Mouse Move Delta:", { deltaX, deltaY }); 
+            setPosition(prev => ({
+                ...prev,
+                left: prev.left + deltaX,
+                top: prev.top + deltaY,
+            }));
+            posRef.current = {
+                x: e.clientX - rect.left,
+                y: e.clientY - rect.top,
+            };
         }
     };
 
     const handleMouseUp = () => {
         draggingRef.current = false;
-        draggCursor.current!.style.cursor = `url(${Cursor}),auto`;
-        setPointer(false)
+        draggCursor.current!.style.cursor = 'auto';
+        
     };
 
     const handleWheel = (e: WheelEvent) => {
-        
-        const delta = e.deltaY * 0.5;
-        console.log(delta)
-        setPosition(prev => ({
-            ...prev, 
-            top: prev.top - delta, width: '100%', height: '100%'
-        }));
-        
+        if (e.ctrlKey && canvasRef.current) {
+            e.preventDefault();
+            const rect = canvasRef.current.getBoundingClientRect();
+            const scaleDelta = e.deltaY > 0 ? 0.9 : 1.1;
+            
+            const { newTop,newLeft,originX, originY } = updatePosition(
+                position.scale * scaleDelta, 
+                e.clientX,
+                e.clientY,
+                rect, 
+                position.originX,
+                position.originY
+            );
+            setPosition(prev => ({
+                ...prev,
+                top: prev.top,
+                left: prev.left,
+                scale: prev.scale * scaleDelta,
+                originX : originX * 100,
+                originY : originY * 100,
+            }));
+        }
     };
 
     useEffect(() => {
         const currentDraggCursor = draggCursor.current;
         const handleMouseLeave = () => {
             draggingRef.current = false;
-            setPointer(false);
         };
 
         currentDraggCursor?.addEventListener('wheel', handleWheel);
@@ -84,8 +105,7 @@ export const IframeCanvas:React.FC = () =>{
             window.removeEventListener('mouseup', handleMouseUp);
             window.removeEventListener('mouseleave', handleMouseLeave);
         };
-    }, [pointer]);
-
+    }, []);
 
     return(
         <>
@@ -98,12 +118,21 @@ export const IframeCanvas:React.FC = () =>{
             
             <div className={Styles.stylesLayer} >
                 
-                <div className={Styles.layerSC} ref={zIndexCanvasEditor}>
+                <div className={Styles.layerSC} ref={layerSCRef}>
                     <div className={Styles.canvasEditor} 
-                        style={{ top: `${position.top}px`, left: `${position.left}px` }}>
+                        style={{
+                            top: `${position.top}px`,
+                            left: `${position.left}px`,
+                            transform: `scale(${position.scale}) translateZ(0px)`,
+                            transformOrigin: `${position.originX}px ${position.originY}px`
+                        }}>
                         <div className={Styles.editor}>
-                            <div className={`${Styles.frame}`}  data-frame-layer = "frame1">
+                            <div className={`${Styles.frame1}`}  data-frame-layer = "frame1">
                                 <div className={Styles.boardName}><p>frame1</p></div>
+                                <div data-frame = "frame" className={Styles.boardFrame}></div>
+                            </div>
+                            <div className={`${Styles.frame2}`}  data-frame-layer = "frame2">
+                                <div className={Styles.boardName}><p>frame2</p></div>
                                 <div data-frame = "frame" className={Styles.boardFrame}></div>
                             </div>
                         </div>

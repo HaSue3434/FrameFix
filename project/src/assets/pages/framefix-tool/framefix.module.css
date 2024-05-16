@@ -261,11 +261,20 @@ iframe{
     height: 100%;
     
 }
-.canvasEditorContain .stylesLayer .layerSC > .canvasEditor .frame{
+.canvasEditorContain .stylesLayer .layerSC > .canvasEditor .frame1{
     width: 600px;
     height:1900px;
     left: 500px;
     top: 155px;
+    position: absolute;
+    background: #fff;
+}
+.canvasEditorContain .stylesLayer .layerSC > .canvasEditor .frame2{
+    left: 1900px;
+    top: 3000px;
+    width: 600px;
+    height:1900px;
+    background: #fff;
     position: absolute;
 }
 .canvasEditorContain .stylesLayer .layerSC > .canvasEditor .frame .boardFrame{

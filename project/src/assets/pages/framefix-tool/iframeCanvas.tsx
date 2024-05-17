@@ -66,7 +66,7 @@ export const IframeCanvas:React.FC = () =>{
 
     const handleMouseUp = () => {
         draggingRef.current = false;
-        draggCursor.current!.style.cursor = 'auto';
+        draggCursor.current!.style.cursor = `url(${Cursor}), auto`;
         
     };
 
@@ -127,11 +127,12 @@ export const IframeCanvas:React.FC = () =>{
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}>
             
-            <Canvas ref={canvasRef}/>
+            
             
             <div className={Styles.stylesLayer} >
                 
                 <div className={Styles.layerSC} ref={layerSCRef}>
+                    <Canvas ref={canvasRef}/>
                     <div className={Styles.canvasEditor} 
                         style={{
                             top: `${position.top}px`,

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Styles from '../framefix.module.css';
+
 import { motion,AnimatePresence } from 'framer-motion';
 
 // icon plugin //
@@ -145,9 +146,9 @@ export const RightPanel:React.FC = () =>{
         if(openSide){
             openSide.style.opacity = "0";
 
-            setTimeout(()=>{
+
                 openSide.style.display = "none";
-            },250)
+
         }
     }
     return(
@@ -162,7 +163,7 @@ export const RightPanel:React.FC = () =>{
             className={Styles.openPanel} onClick={handleClick}>
 
                 <motion.div ref={sidebarOpenRef}>
-                    <p>pen up and specify the style!</p>
+                    <p className={Styles.noneParam}>pen up and specify the style!</p>
                     <div className={Styles.openI}>
                         <SidebarOpen/>
                     </div>
@@ -170,14 +171,13 @@ export const RightPanel:React.FC = () =>{
                 
                {stylesVisible && (
                     <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{  duration: 0.5 }}>
+                        id={Styles.rightPanelWrapper}>
                         <div className={Styles.rightPanelTab}>
-                            <div className={Styles.tabDesign}></div>
-                            <div className={Styles.tabPrototype}></div>
-                            <div className={Styles.tabHandoff}></div>
+                            <div className={`${Styles.designTab}  ${Styles.commTab} ${Styles.activeTab}`}><p className={Styles.tab}>Design</p></div>
+                            <div className={`${Styles.ProtoTab}   ${Styles.commTab}`}><p className={Styles.tab}>Prototype</p></div>
+                            <div className={`${Styles.HandoffTab} ${Styles.commTab}`}><p className={Styles.tab}>Handoff</p></div>
                         </div>
+                        
                     </motion.div>
                 )}
                 

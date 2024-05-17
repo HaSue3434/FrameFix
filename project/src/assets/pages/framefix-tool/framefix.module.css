@@ -204,7 +204,7 @@ iframe{
     opacity: 0.5;
     transition: .25s;
 }
-.wrapperRightPanel .openPanel p{
+.wrapperRightPanel .openPanel .noneParam{
     writing-mode: vertical-rl;
     color: rgba(255,255,255,.5);
     letter-spacing: 1px;
@@ -212,7 +212,7 @@ iframe{
     font-size: 12px;
     transition: .25s;
 }
-.wrapperRightPanel .openPanel:hover p{
+.wrapperRightPanel .openPanel:hover .noneParam{
     color: rgba(255,255,255,1);
 }
 .wrapperRightPanel .openPanel:hover svg{
@@ -268,20 +268,25 @@ iframe{
     height: 100%;
     
 }
+.canvasEditorContain .stylesLayer .layerSC .canvasEditor .editor .frame .boardName{
+    width: 100%;
+    background: rgba(255,255,255,.1);
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
 .canvasEditorContain .stylesLayer .layerSC > .canvasEditor .frame1{
     width: 600px;
     height:1900px;
     left: 500px;
     top: 155px;
     position: absolute;
-    background: #fff;
 }
 .canvasEditorContain .stylesLayer .layerSC > .canvasEditor .frame2{
     left: 1900px;
     top: 3000px;
     width: 600px;
     height:1900px;
-    background: #fff;
     position: absolute;
 }
 .canvasEditorContain .stylesLayer .layerSC > .canvasEditor .frame .boardFrame{
@@ -296,4 +301,24 @@ iframe{
     height: 100%;
     position: absolute;
     cursor: url('./icons//cursor-icon//cursor.svg'), auto;
+}
+#rightPanelWrapper{
+    width: 100%;
+    height: 100%;
+}
+#rightPanelWrapper .rightPanelTab{
+    height: auto;
+    display: flex;
+    width: 100%;
+    padding: 15px;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+}
+#rightPanelWrapper .rightPanelTab .commTab .tab{
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.5);
+}
+#rightPanelWrapper .rightPanelTab .commTab.activeTab .tab{
+    color: rgba(255,255,255,1);
 }

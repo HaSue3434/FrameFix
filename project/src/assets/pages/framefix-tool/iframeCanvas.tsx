@@ -153,11 +153,19 @@ export const IframeCanvas:React.FC = () =>{
                             transformOrigin: `${position.originX}% ${position.originY}%`
                         }}>
                         <div className={Styles.editor}>
-                            <div className={`${Styles.frame1}`}  data-frame-layer = "frame1">
+
+                            {/* block */}
+                            <div className={`${Styles.frame1} ${Styles.frame}`}  data-frame-layer = "frame1">
+                                
                                 <div className={Styles.boardName}><p>frame1</p></div>
-                                <div data-frame = "frame" className={Styles.boardFrame}></div>
+
+                                <div data-frame = "frame" className={Styles.boardFrame}>
+
+                                </div>
                             </div>
-                            <div className={`${Styles.frame2}`}  data-frame-layer = "frame2">
+                            {/* */}
+
+                            <div className={`${Styles.frame2} ${Styles.frame}`}  data-frame-layer = "frame2">
                                 <div className={Styles.boardName}><p>frame2</p></div>
                                 <div data-frame = "frame" className={Styles.boardFrame}></div>
                             </div>

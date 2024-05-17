@@ -1,6 +1,11 @@
 import React from "react";
+import Styles from './stylesPanel.module.css';
 
-const tabDesign = () =>{
-
+export const tabDesign = () =>{
+    
+    return(
+        <>
+            
+        </>
+    )
 }
-export default tabDesign;

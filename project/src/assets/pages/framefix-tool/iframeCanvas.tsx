@@ -14,6 +14,7 @@ export const IframeCanvas:React.FC = () =>{
     const canvasRef = useRef<HTMLDivElement>(null);
     const draggingRef = useRef(false);
     const draggCursor = useRef<HTMLDivElement>(null);
+    const [ canvasState , setCanvasState ] = useState(false);
 
     /*
     const updatePosition = (scale: number, clientX: number, clientY: number, rect: DOMRect, oldOriginX: number, oldOriginY: number) => {
@@ -39,6 +40,13 @@ export const IframeCanvas:React.FC = () =>{
             draggingRef.current = true;
             draggCursor.current!.style.cursor = "grab";
         }
+        else if(e.button === 0){
+            setCanvasState(true);
+        }
+
+        // canvas
+        
+        
     };
 
     const handleMouseMove = (e: MouseEvent) => {
@@ -67,7 +75,7 @@ export const IframeCanvas:React.FC = () =>{
     const handleMouseUp = () => {
         draggingRef.current = false;
         draggCursor.current!.style.cursor = `url(${Cursor}), auto`;
-        
+        setCanvasState(false);
     };
 
     const handleWheel = (e: WheelEvent) => {
@@ -105,7 +113,11 @@ export const IframeCanvas:React.FC = () =>{
         const currentDraggCursor = draggCursor.current;
         const handleMouseLeave = () => {
             draggingRef.current = false;
+            
         };
+        if(canvasRef.current){
+            canvasRef.current.style.zIndex = canvasState ? '5' : '-1';
+        }
 
         currentDraggCursor?.addEventListener('wheel', handleWheel);
         window.addEventListener('mousemove', handleMouseMove);
@@ -118,7 +130,7 @@ export const IframeCanvas:React.FC = () =>{
             window.removeEventListener('mouseup', handleMouseUp);
             window.removeEventListener('mouseleave', handleMouseLeave);
         };
-    }, []);
+    }, [canvasState]);
 
     return(
         <>
@@ -212,10 +224,22 @@ export const Canvas = React.forwardRef<HTMLDivElement, CanvasProps>((props, ref)
                 });
             }
         }
+        else if(event.button === 1){
+            setIsMiddleButtonDown(true);
+            canvasRef.current!.style.cursor = `grab`;
+            setIsDrawing(false);
+            if (canvasRef.current) {
+                const ctx = canvasRef.current.getContext('2d');
+                if (ctx) {
+                    ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
+                }
+            }
+        }
         
     };
 
     const handleMouseMove = (event: React.MouseEvent<HTMLCanvasElement>) => {
+        if (isMiddleButtonDown) return;
         if (isDrawing && !isMiddleButtonDown && canvasRef.current) {
             const ctx = canvasRef.current.getContext('2d');
             if (ctx) {

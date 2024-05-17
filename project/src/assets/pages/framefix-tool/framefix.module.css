@@ -60,7 +60,6 @@
 .container .wrapper .headAppPointerFramefix .headLeftColPointer .projectFrameFix >svg{
     height: auto;
     width: 10px;
-    margin-top: 5px;
     vertical-align: middle;
 }
 .container .wrapper .headAppPointerFramefix .headLeftColPointer  .plans a{
@@ -69,6 +68,10 @@
     border-radius: 3px;
     background: #459AFF;
     font-size: 12px;
+}
+.container .wrapper .headAppPointerFramefix .headRightColPointer{
+    height: 100%;
+    width: auto;
 }
 .container .wrapper .mainContents{
     display: flex;
@@ -239,14 +242,14 @@ iframe{
     top: 0;
     left: 0;
 }
-.canvasEditorContain .layerSC > .canvas{
+.canvasEditorContain .layerSC #canvas{
     width: 100%;
     height: 100%;
     position: absolute;
-    z-index: 5;
     left: 0;
     top: 0;
 }
+
 .canvasEditorContain .stylesLayer .layerSC{
     position: absolute;
     left: 0;

@@ -31,8 +31,9 @@ const MainComponent: React.FC=()=>{
                                    </Link>
                                </div>
                            </div>
-                           <div></div>
-                           <div></div>
+                           <div className={styles.headRightColPointer}>
+                                
+                           </div>
                         </div>
                     </CtrlWheelBlocker>    
                     <div className={styles.mainContents}>

@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styles from './framefix.module.css';
-import FrameFix from './framefix';
 import {ReactComponent as FrameLogo} from "../../img/logo/frame-logo.svg";
 import {ReactComponent as AssetBottomArrow} from "../../img/icons/framefix-plugin-icons/aseets-arrow-bottom.svg";
 import { Link } from 'react-router-dom';

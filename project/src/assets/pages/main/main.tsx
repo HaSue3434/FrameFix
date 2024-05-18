@@ -41,6 +41,10 @@ import { ReactComponent as Locked } from '../../img/icons/framefix-plugin-icons/
 import { ReactComponent as Open } from '../../img/icons/framefix-plugin-icons/opened.svg';
 import { ReactComponent as Settings } from '../../img/icons/framefix-plugin-icons/settings.svg';
 import { ReactComponent as Preview } from '../../img/icons/framefix-plugin-icons/view.svg';
+import { ReactComponent as Frame } from '../../img/icons/framefix-plugin-icons/frame.svg';
+import { ReactComponent as Shape } from '../../img/icons/framefix-plugin-icons/shape.svg';
+import { ReactComponent as Section } from '../../img/icons/framefix-plugin-icons/section.svg';
+import { ReactComponent as Images } from '../../img/icons/framefix-plugin-icons/images.svg';
 
 
 // framfix icon //
@@ -319,7 +323,6 @@ function Main() {
 
                 <section className='publish' data-scroll data-scroll-section id='publish'>
                     <div className='wrapper' data-scroll>
-                        <div className='back-deco '><div></div></div>
                         <div className='txt'>
                             <div
                                 data-scroll
@@ -328,7 +331,7 @@ function Main() {
 
                                 <div className='type-icon'>
                                     <div className="icon"><Deploy /></div>
-                                    <div className="txt">Deploy</div>
+                                    <div className="txt">publish</div>
                                 </div>
                                 <motion.h1
                                     ref={defaultFadeOut1 as React.Ref<HTMLDivElement>}
@@ -536,6 +539,7 @@ function Main() {
                         </div>
                     </div>
                 </section>
+                {/** 
                 <section className="community" data-scroll data-scroll-section>
                     <div className='wrapper'>
                         <div className="community-title">
@@ -733,7 +737,7 @@ function Main() {
                         </div>
                     </div>
                 </section>
-
+*/}
                 <section className='framefix-footer' data-scroll data-scroll-section>
                     <div className='title'>
                         <div>
@@ -801,6 +805,10 @@ function Main() {
                                                 <div className="t"><span>Layer</span></div>
                                             </div>
                                             <div>
+                                                <div className="icon"><Frame/></div>
+                                                <div className="t"><span>frame</span></div>
+                                            </div>
+                                            <div>
                                                 <div className="icon"><Text/></div>
                                                 <div className="t"><span>Text</span></div>
                                             </div>
@@ -813,6 +821,10 @@ function Main() {
                                                 <div className="t"><span>Header</span></div>
                                             </div>
                                             <div>
+                                                <div className="icon"><Section/></div>
+                                                <div className="t"><span>section</span></div>
+                                            </div>
+                                            <div>
                                                 <div className="icon"><Footer/></div>
                                                 <div className="t"><span>Footer</span></div>
                                             </div>
@@ -821,7 +833,7 @@ function Main() {
                                                 <div className="t"><span>Slides</span></div>
                                             </div>
                                             <div>
-                                                <div className="icon"><Button/></div>
+                                                <div className="icon" id='button'><Button/></div>
                                                 <div className="t"><span>Button</span></div>
                                             </div>
                                             <div>

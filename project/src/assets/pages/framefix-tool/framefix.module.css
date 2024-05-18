@@ -322,3 +322,6 @@ iframe{
 #rightPanelWrapper .rightPanelTab .commTab.activeTab .tab{
     color: rgba(255,255,255,1);
 }
+.frameActive .boardFrame{
+    outline: 2px solid #459AFF;
+}

@@ -347,7 +347,7 @@ const FrameFixGuide: React.FC = () => {
                         <div>
                             <div className='type-icon'>
                                 <div className="icon"><Layout/></div>
-                                <div className="txt">layouts</div>
+                                <div className="txt">Layout</div>
                             </div>
                             <h1> Structure with a few <span>clicks.</span></h1>
                         </div>
@@ -356,7 +356,7 @@ const FrameFixGuide: React.FC = () => {
                                 <div className="progress"></div>
                             </div>
                             <div className="explain">
-                                <p className="sub-title">Layouts</p>
+                                <p className="sub-title">layout</p>
                                 <p>Effective visual effects guide user focus, enhance interaction with websites and apps, and enrich the user experience.</p>
                             </div>
                         </div>

@@ -89,7 +89,7 @@ interface ComponentSlideMap {
 
 function Main() {
 
-    const [ref1, controls1] = useInViewMainSpring();
+    const [ref1, controls1] = useInViewExContentSpring();
     const [ref2, controls2] = useInViewExContentSpring();
     const [ref3, controls3] = useInViewExContentSpring();
     const [ref4, controls4] = useInViewExContentSpring();

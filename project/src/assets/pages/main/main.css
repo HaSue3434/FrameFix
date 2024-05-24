@@ -158,13 +158,7 @@ section.main .wrapper .canvas-blur-back{
     z-index: -1;
     transform: translate(-50%,0);
 }
-section.main .wrapper .canvas-blur-back > div{
-    width: 150vw;
-    height: 85%;
-    
-    background: linear-gradient(to bottom, #357AFF 25%, #459AFF, #E960FF);
-    filter: blur(111px);
-}
+
 section.main .wrapper  .main-framefix .frame{
     height: 824px;
     width: 100%;

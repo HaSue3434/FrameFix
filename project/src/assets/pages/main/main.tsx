@@ -354,8 +354,12 @@ function Main() {
                     </div>
                     <Publish/>
                 </section>
-
-
+                <section className="seo-contain">
+                    <div className="wrapper">
+                        
+                    </div>
+                </section>
+                {/**           
                 <section className='seo-contain' data-scroll data-scroll-section>
                     <div className='wrapper'>
                         <div className="deco">
@@ -539,6 +543,7 @@ function Main() {
                         </div>
                     </div>
                 </section>
+                */} 
                 {/** 
                 <section className="community" data-scroll data-scroll-section>
                     <div className='wrapper'>

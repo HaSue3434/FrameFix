@@ -448,7 +448,74 @@
 .view-effects > div{
     width: 1045px;
     height: 100%;
+    position: relative;
 }
-.view-effects > div.back-white{
+.view-effects > div.back .wrap{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+.view-effects > div .img {
+    width: 100%;
+    height: 100%;
+}
+.view-effects > div .img img{
+    width: inherit;
+    height: inherit;
+    user-select: none;
+    object-fit: cover;
+}
+.view-effects > div .contents{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+}
+.view-effects > div .contents .view-head{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15%;
+    height: auto;
+    width: 100%;
+    padding: 12px;
+}
+.view-effects > div .contents .view-head>div{
+    font-size: 14px;
+    font-family: "Prata", serif;
+}
+.view-effects > div .contents .view-head>div .triangle{
+    clip-path: polygon(50% 100%, 0 12%, 100% 12%);
     background: #fff;
+    width: 7px;
+    height: 5px;
+}
+.view-effects > div .contents .view-head>div.common{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+.view-effects > div .contents .view-head .logo{
+    color: #fff;
+    
+    letter-spacing: -2px;
+}
+.view-effects > div .contents .view-main{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.view-effects > div .contents .view-main{
+
+}
+.view-effects > div.back{
+    background: #000;
 }

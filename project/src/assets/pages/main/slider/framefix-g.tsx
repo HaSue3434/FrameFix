@@ -3,6 +3,7 @@ import { gsap,ScrollTrigger } from 'gsap/all';
 import { motion } from 'framer-motion';
 import { ReactComponent as Deploy } from '../../../img/icons/deploy-icon.svg';
 import { ReactComponent as OutContentAI } from '../../../img/icons/out content.svg';
+import { ReactComponent as TextSvg } from '../../../img/text-svg.svg';
 
 import { ReactComponent as Logo } from "../../../img/logo/logo.svg";
 import { ReactComponent as FrameLogo } from "../../../img/logo/frame-logo.svg";
@@ -331,7 +332,36 @@ const FrameFixGuide: React.FC = () => {
                                         
                                     </div>
                                     <div className="view-effects">
-                                        <div className="back-white"></div>
+                                        <div className="back">
+                                            <div className="wrap">
+                                                <div className="contents">
+                                                    <div className="view-head">
+                                                        <div className="logo">
+                                                            DESIGNING
+                                                        </div>
+                                                        <div className="start">
+                                                            Let's Start
+                                                        </div>
+                                                        <div className="menu common ">
+                                                            <div className="triangle"></div>
+                                                            Menu
+                                                        </div>
+                                                        <div className="about common">
+                                                            <div className="triangle"></div>
+                                                            About us
+                                                        </div>
+                                                        <div className="contact">Help Center</div>
+                                                    </div>
+                                                    <div className="view-main">
+                                                        <div>
+                                                            <TextSvg/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="img"><img src={require("../../../img/effects-img.jpg")} alt="" /></div>
+                                            </div>
+                                            
+                                        </div>
                                     </div>
                                 </div>
                             </div>

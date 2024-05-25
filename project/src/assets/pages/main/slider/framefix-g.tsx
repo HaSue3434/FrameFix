@@ -32,7 +32,6 @@ import { ReactComponent as GenerateIcon} from "../../../img/icons/framefix-plugi
 // icon tools //
 
 import { Link } from 'react-router-dom';
-import ReactPlayer from 'react-player'
 
 
 import {
@@ -40,6 +39,15 @@ import {
     useInViewPluginsScale
 } from "../script";
 gsap.registerPlugin(ScrollTrigger);
+
+const items = [
+    { text: 'DESIGNING', className: 'logo' },
+    { text: 'Let\'s Start', className: 'start' },
+    { text: 'Menu', className: 'menu common' },
+    { text: 'About us', className: 'about common' },
+    { text: 'Help Center', className: 'contact' }
+];
+
 
 const FrameFixGuide: React.FC = () => {
     
@@ -54,11 +62,19 @@ const FrameFixGuide: React.FC = () => {
     const { typedText: typing } = useTypingEffect(triggerTyping ? "I would like to see a 3D image." : "", 10);
 
     const playerRef = useRef<any>(null); 
-    const [duration, setDuration] = useState(0); 
 
-    const handler = (seconds : number) =>{
-        setDuration(seconds)
-    }
+    const scrolling = useRef<HTMLDivElement>(null)
+    const [scrollingStateValue , setScrollingStateValue] = useState(0);
+
+    const [viewElement, setViewElement] = useState(false);
+    const [ourSite, setOutSite] = useState(false);
+    const [designingChanges, setDesigningChanges] = useState(false);
+    const [text1, setText1] = useState('');
+    const [text2, setText2] = useState('');
+
+    const [viewLoad, setViewLoad] = useState(false);
+    const [percent, setPercent] = useState(0);
+    const loader =  useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         if (!playerRef) return;
@@ -81,30 +97,51 @@ const FrameFixGuide: React.FC = () => {
                     pinSpacing: false,
                     pinType : "transform",
                     onEnter: () => {
-                        gsap.to(section, { autoAlpha: 1, zIndex: 5, duration: 0.5 });
+                        gsap.to(section, { autoAlpha: 1, zIndex: 5, duration: 0.35 });
                         setActivate(true); 
                         setGenerate(true);
+                        
+
                         setTimeout(()=>{
+                            setText1('Digital Soultions');
+                            setText2("Creativity Digital");
+                            setViewElement(true);
                             setTriggerTyping(true);
+                            setDesigningChanges(true);
+                            setOutSite(true);
+                            setViewLoad(true);
+
                         },500)
                         
                     },
                     onLeave: () => {
-                        gsap.to(section, { autoAlpha: 0, zIndex: -11, duration: 0.5 });
+                        gsap.to(section, { autoAlpha: 0, zIndex: -11, duration: 0.35 });
                     },
                     onEnterBack: () => {
-                        gsap.to(section, { autoAlpha: 1, zIndex: 5, duration: 0.5 });
+                        gsap.to(section, { autoAlpha: 1, zIndex: 5, duration: 0.35 });
                         setActivate(true); 
                         setGenerate(true);
                         setTimeout(()=>{
+                            setText1('Digital Soultions');
+                            setText2("Creativity Digital");
+                            setViewElement(true)
                             setTriggerTyping(true);
+                            setDesigningChanges(true);
+                            setOutSite(true);                            
+                            setViewLoad(true);
                         },500)
                     },
                     onLeaveBack: () => {
-                        gsap.to(section, { autoAlpha: 0, zIndex: -11, duration: 0.5 });
+                        gsap.to(section, { autoAlpha: 0, zIndex: -11, duration: 0.35 });
                         setActivate(false);
                         setGenerate(false);
+                        setText1('');
+                        setText2('');
                         setTriggerTyping(false);
+                        setDesigningChanges(false);
+                        setViewElement(false);
+                        setOutSite(false);
+                        setViewLoad(false);
                     },
                     onUpdate: (self) => {
                         if (progressBar) {
@@ -113,15 +150,45 @@ const FrameFixGuide: React.FC = () => {
                         if(createAI){
                             createAI.style.top = `${self.progress * 100}px`;
                         }
-                        if (playerRef.current) {
-                            handler(self.progress*7)
-                        }
-                    }
+
+                    },
+                    
                 });
             });
         }
 
     }, []);
+
+    useEffect(() => {
+        if (scrolling.current) {
+            gsap.to(scrolling.current, { top: scrollingStateValue, duration: 0, ease: 'power2.inOut' });
+        }
+    }, [scrollingStateValue]);
+
+    
+    const intervalLoading = (e: boolean) => {
+        if (e) {
+            const interval = setInterval(() => {
+                setPercent(prevPercent => {
+                    const randomIncrement = Math.floor(Math.random() * (20 - 5 + 1)) + 5;
+                    const newPercent = Math.min(prevPercent + randomIncrement, 100);
+                    return newPercent;
+                });
+            }, 300); 
+            return () => clearInterval(interval); 
+        } else {
+            setPercent(0);
+            if (loader.current) {
+                loader.current.style.visibility = "visible";
+            }
+        }
+    }
+    
+    
+
+    useEffect(() => {
+        intervalLoading(viewLoad);
+    }, [viewLoad]);
 
     return (
         <>  
@@ -207,7 +274,7 @@ const FrameFixGuide: React.FC = () => {
                                             <div className="txt"><p>Slides</p></div>
                                         </div>
                                         <div className="plugin">
-                                            <div className="icon"><Button/></div>
+                                            <div className="icon button-icon"><Button/></div>
                                             <div className="txt"><p>Button</p></div>
                                         </div>
                                         <div className="plugin">
@@ -309,7 +376,8 @@ const FrameFixGuide: React.FC = () => {
                             </div>
                             <div className="explain">
                                 <p className="sub-title">Effects</p>
-                                <p>Enhance user interactions and focus by adding effects to websites and apps, enriching the overall user experience. These visual enhancements encourage intuitive navigation and a more user-friendly environment.</p>
+                                <p>
+To enhance user interactions and focus, effects are added to websites and apps, enriching the overall user experience.</p>
                             </div>
                         </div>
                         <div className="see-all">
@@ -331,42 +399,83 @@ const FrameFixGuide: React.FC = () => {
                                         </div>
                                         
                                     </div>
+
                                     <div className="view-effects">
                                         <div className="back">
-                                            <div className="wrap">
+                                            <motion.div 
+                                            className="loading-contents"
+                                            ref={loader}  
+                                            initial={{ opacity: 0, top: "0%" }}
+                                            animate={{ opacity: 1, top: percent === 100 ? "-100%" : "0%" }}
+                                            transition={{ duration : 1, ease : "anticipate", delay : 0.3}}
+
+                                            >
+                                                <div className="contain-box">
+                                                    <div className="loading-box">
+                                                        <motion.div 
+                                                        initial={{ width: "0%" }}
+                                                        animate={{ width: `${percent}%` }}
+                                                        transition={{ duration: 0.25 }}
+                                                        className="process" style={{ width: `${percent}%` }}></motion.div>
+                                                    </div>
+                                                    <div className="p">
+                                                        <div className="loading-t"><span>Loading</span></div>
+                                                        <div className="percents"><span>{percent}%</span></div>
+                                                    </div>
+                                                </div>
+                                            </motion.div>
+                                            <motion.div 
+                                            initial = {{display : "none"}}
+                                            animate = {{display : percent === 100 ? "block" : 'none'}}
+                                            className="wrap" ref={scrolling}>
                                                 <div className="contents">
                                                     <div className="view-head">
-                                                        <div className="logo">
-                                                            DESIGNING
-                                                        </div>
-                                                        <div className="start">
-                                                            Let's Start
-                                                        </div>
-                                                        <div className="menu common ">
-                                                            <div className="triangle"></div>
-                                                            Menu
-                                                        </div>
-                                                        <div className="about common">
-                                                            <div className="triangle"></div>
-                                                            About us
-                                                        </div>
-                                                        <div className="contact">Help Center</div>
+                                                    {items.map((item, index) => (
+                                                    <motion.div
+                                                      key={index}
+                                                      className={item.className}
+                                                      initial={{ opacity: 0, y: 25 }}
+                                                      animate={viewElement ? { opacity: 1, y: 0 } : {}}
+                                                      transition={{ delay: viewElement ? index * 0.05 : 0, duration: viewElement ? 0.5:0  }}
+                                                    >
+                                                      {item.text}
+                                                      {item.className.includes('common') && <div className="triangle"></div>}
+                                                    </motion.div>
+                                                    ))}
                                                     </div>
                                                     <div className="view-main">
-                                                        <div>
-                                                            <TextSvg/>
+                                                        <div className="text-svg">
+                                                           <div className="text-effect"><AnimatedText text={text1} /></div>
+                                                           <div className="text-effect"><AnimatedText text={text2} /></div>
                                                         </div>
+                                                        <motion.div 
+                                                        initial={{opacity : 0, x : -25}}
+                                                        animate={ourSite ? {opacity : 1, x : 0} : {}}
+                                                        transition={{delay : ourSite ? 0.7 : 0, ease : "anticipate", duration : ourSite ? 1 : 0}}
+                                                        className="our-website">
+                                                            <div className="img-our">
+                                                                <img src={require("../../../img/view-our.jpg")} alt="" />
+                                                            </div>
+                                                            <div className="our-website-t">
+                                                                <p>our-website</p>
+                                                            </div>
+                                                        </motion.div>
+                                                        <motion.div 
+                                                        initial={{opacity : 0, x : -25}}
+                                                        animate={designingChanges ? {opacity : 1, x : 0} : {}}
+                                                        transition={{delay : designingChanges ? 1 : 0, ease : "anticipate", duration : designingChanges ? 1 : 0}}
+                                                        className="designing-changes">
+                                                            <div>Designing</div>
+                                                            <div>Changes</div>
+                                                        </motion.div>
                                                     </div>
                                                 </div>
                                                 <div className="img"><img src={require("../../../img/effects-img.jpg")} alt="" /></div>
-                                            </div>
+                                            </motion.div>
                                             
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="out-box">
-
                             </div>
                         </div>
                     </div>
@@ -386,7 +495,7 @@ const FrameFixGuide: React.FC = () => {
                                 <div className="progress"></div>
                             </div>
                             <div className="explain">
-                                <p className="sub-title">layout</p>
+                                <p className="sub-title">Layout</p>
                                 <p>Effective visual effects guide user focus, enhance interaction with websites and apps, and enrich the user experience.</p>
                             </div>
                         </div>
@@ -422,4 +531,22 @@ const FrameFixGuide: React.FC = () => {
 
 }
 
-export default FrameFixGuide
+export default FrameFixGuide;
+
+
+const AnimatedText: React.FC<{ text: string }> = ({ text }) => {
+    return (
+      <>
+        {text.split('').map((char, index) => (
+          <motion.span key={index} style={{position:'relative'}}
+
+                initial={{opacity : 0, top : -50}} 
+                animate={{opacity : 1, top : 0}} 
+                transition={{ delay: index * 0.05, duration : 0.5, ease : "easeInOut"}}>
+                
+            {char}
+          </motion.span>
+        ))}
+      </>
+    );
+};

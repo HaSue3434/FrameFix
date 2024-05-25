@@ -122,7 +122,7 @@ function Main() {
 
     const frameElement = useRef<HTMLDivElement>(null);
     const hoverCursor = useRef<HTMLDivElement>(null);
-
+    
     const componentMap : ComponentSlideMap = {
         "ai-powered": DefaultUI,
         'canvas': Canvas,
@@ -356,7 +356,9 @@ function Main() {
                 </section>
                 <section className="seo-contain">
                     <div className="wrapper">
-                        
+                        <div>
+
+                        </div>
                     </div>
                 </section>
                 {/**           

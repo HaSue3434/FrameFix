@@ -105,12 +105,8 @@ const FrameFixGuide: React.FC = () => {
                         setTimeout(()=>{
                             setText1('Digital Soultions');
                             setText2("Creativity Digital");
-                            setViewElement(true);
                             setTriggerTyping(true);
-                            setDesigningChanges(true);
-                            setOutSite(true);
                             setViewLoad(true);
-
                         },500)
                         
                     },
@@ -124,7 +120,7 @@ const FrameFixGuide: React.FC = () => {
                         setTimeout(()=>{
                             setText1('Digital Soultions');
                             setText2("Creativity Digital");
-                            setViewElement(true)
+                            setViewElement(true);
                             setTriggerTyping(true);
                             setDesigningChanges(true);
                             setOutSite(true);                            
@@ -141,7 +137,6 @@ const FrameFixGuide: React.FC = () => {
                         setDesigningChanges(false);
                         setViewElement(false);
                         setOutSite(false);
-                        setViewLoad(false);
                     },
                     onUpdate: (self) => {
                         if (progressBar) {
@@ -170,8 +165,22 @@ const FrameFixGuide: React.FC = () => {
         if (e) {
             const interval = setInterval(() => {
                 setPercent(prevPercent => {
-                    const randomIncrement = Math.floor(Math.random() * (20 - 5 + 1)) + 5;
+                    const randomIncrement = Math.floor(Math.random() * (30 - 5 + 1)) + 5;
                     const newPercent = Math.min(prevPercent + randomIncrement, 100);
+
+                    if(newPercent === 100){
+                        setTimeout(()=>{
+                            if(loader.current && scrolling.current) {
+                                loader.current.style.display = "none";
+                                setOutSite(true);
+                                setDesigningChanges(true);
+                                setViewElement(true);
+                            }
+                            
+                        },1000)
+                        
+                    }
+
                     return newPercent;
                 });
             }, 300); 
@@ -179,7 +188,7 @@ const FrameFixGuide: React.FC = () => {
         } else {
             setPercent(0);
             if (loader.current) {
-                loader.current.style.visibility = "visible";
+                loader.current.style.top = "0";
             }
         }
     }
@@ -188,6 +197,7 @@ const FrameFixGuide: React.FC = () => {
 
     useEffect(() => {
         intervalLoading(viewLoad);
+        
     }, [viewLoad]);
 
     return (
@@ -405,19 +415,21 @@ To enhance user interactions and focus, effects are added to websites and apps, 
                                             <motion.div 
                                             className="loading-contents"
                                             ref={loader}  
-                                            initial={{ opacity: 0, top: "0%" }}
-                                            animate={{ opacity: 1, top: percent === 100 ? "-100%" : "0%" }}
+                                            initial={{ opacity: 0, top: "0" }}
+                                            animate={{ opacity: 1, top: percent === 100 ? "-100%" : "0" }}
                                             transition={{ duration : 1, ease : "anticipate", delay : 0.3}}
 
                                             >
                                                 <div className="contain-box">
-                                                    <div className="loading-box">
+                                                    <motion.div className="loading-box">
+                                                        
                                                         <motion.div 
-                                                        initial={{ width: "0%" }}
+                                                        initial={{ width: "0" }}
                                                         animate={{ width: `${percent}%` }}
                                                         transition={{ duration: 0.25 }}
                                                         className="process" style={{ width: `${percent}%` }}></motion.div>
-                                                    </div>
+
+                                                    </motion.div>
                                                     <div className="p">
                                                         <div className="loading-t"><span>Loading</span></div>
                                                         <div className="percents"><span>{percent}%</span></div>
@@ -425,8 +437,9 @@ To enhance user interactions and focus, effects are added to websites and apps, 
                                                 </div>
                                             </motion.div>
                                             <motion.div 
-                                            initial = {{display : "none"}}
-                                            animate = {{display : percent === 100 ? "block" : 'none'}}
+                                            initial = {{top : "100%"}}
+                                            animate = {percent === 100 ? {top : "0"} : {}}
+                                            transition={{duration : 1, ease : "anticipate", }}
                                             className="wrap" ref={scrolling}>
                                                 <div className="contents">
                                                     <div className="view-head">
@@ -435,8 +448,8 @@ To enhance user interactions and focus, effects are added to websites and apps, 
                                                       key={index}
                                                       className={item.className}
                                                       initial={{ opacity: 0, y: 25 }}
-                                                      animate={viewElement ? { opacity: 1, y: 0 } : {}}
-                                                      transition={{ delay: viewElement ? index * 0.05 : 0, duration: viewElement ? 0.5:0  }}
+                                                      animate={{ opacity: viewElement ? 1 : 0, y: viewElement ? 0 : 25 }}
+                                                      transition={viewElement ? { delay: index * 0.05, duration: 0.5} : {}}
                                                     >
                                                       {item.text}
                                                       {item.className.includes('common') && <div className="triangle"></div>}
@@ -445,8 +458,8 @@ To enhance user interactions and focus, effects are added to websites and apps, 
                                                     </div>
                                                     <div className="view-main">
                                                         <div className="text-svg">
-                                                           <div className="text-effect"><AnimatedText text={text1} /></div>
-                                                           <div className="text-effect"><AnimatedText text={text2} /></div>
+                                                           <div className="text-effect"><AnimatedText text={text1} percent = {percent} setElement = {viewElement}/></div>
+                                                           <div className="text-effect"><AnimatedText text={text2} percent = {percent} setElement = {viewElement}/></div>
                                                         </div>
                                                         <motion.div 
                                                         initial={{opacity : 0, x : -25}}
@@ -534,15 +547,15 @@ To enhance user interactions and focus, effects are added to websites and apps, 
 export default FrameFixGuide;
 
 
-const AnimatedText: React.FC<{ text: string }> = ({ text }) => {
+const AnimatedText: React.FC<{ text: string, percent : number, setElement : boolean}> = ({ text,percent,setElement }) => {
     return (
       <>
         {text.split('').map((char, index) => (
           <motion.span key={index} style={{position:'relative'}}
 
-                initial={{opacity : 0, top : -50}} 
-                animate={{opacity : 1, top : 0}} 
-                transition={{ delay: index * 0.05, duration : 0.5, ease : "easeInOut"}}>
+                initial={{opacity : percent === 100 && setElement ? 0:1, top : percent === 100 && setElement ? -50 : 0}} 
+                animate={{opacity : percent === 100 && setElement ? 1:0, top : percent === 100 && setElement ? 0 : -50}} 
+                transition={percent === 100 && setElement ? { delay: index * 0.05, duration : 0.5, ease : "easeInOut"} : {}}>
                 
             {char}
           </motion.span>

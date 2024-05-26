@@ -81,13 +81,14 @@
     position: relative;
     white-space: nowrap;
 }
-canvas {
+#canvas>canvas {
     position: absolute;
     top: 0;
     left: 0;
     overflow: hidden;
     cursor: url('./icons//cursor-icon/cursor.svg'), auto;
 }
+
 iframe{
     position: absolute;
     left:0;

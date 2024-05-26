@@ -91,10 +91,10 @@ export const useInViewMainSpring = (): [React.RefObject<HTMLDivElement>, Animati
       controls.start({
         opacity: 1,
         scale: 1,
-        transition: { type: 'spring', stiffness: 100, damping: 15 },
+        transition: { duration : 1, ease:"backInOut",delay : 0.5,},
       });
     } else {
-      controls.start({ opacity: 0, scale: 0.8 });
+      controls.start({ opacity: 0.8, scale: 0.8 });
     }
   }, [controls, inView]);
 

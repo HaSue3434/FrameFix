@@ -84,6 +84,7 @@ import {
 
 } from './script';
 
+import Smoke from './publish/publish';
 
 interface ComponentSlideMap {
     [key: string]: React.ComponentType<any>; // Use any or a specific prop type
@@ -91,8 +92,7 @@ interface ComponentSlideMap {
 
 function Main() {
 
-    const [ref1, controls1] = useInViewExContentSpring();
-    const [ref2, controls2] = useInViewExContentSpring();
+    const [ref1, controls1] = useInViewMainSpring();
     const [ref3, controls3] = useInViewExContentSpring();
     const [ref4, controls4] = useInViewExContentSpring();
     const [ref5, controls5] = useInViewExContentSpring();
@@ -304,7 +304,7 @@ function Main() {
                         <motion.div
                             ref={ref1 as React.Ref<HTMLDivElement>}
                             
-                            initial={{ opacity: 0, scale: 0.5 }}
+                            initial={{ opacity: 0.8, scale: 0.8 }}
                             animate={controls1}
 
                             className="main-framefix">
@@ -329,38 +329,11 @@ function Main() {
                 </section>
 
                 <section className='publish' data-scroll data-scroll-section id='publish'>
-                    <div className='wrapper' data-scroll>
-                        <div className='txt'>
-                            <div
-                                data-scroll
-                                data-scroll-speed="-3"
-                                className='title'>
-
-                                <div className='type-icon'>
-                                    <div className="icon"><Deploy /></div>
-                                    <div className="txt">publish</div>
-                                </div>
-                                <motion.h1
-                                    ref={defaultFadeOut1 as React.Ref<HTMLDivElement>}
-                                    initial={{ opacity: 0 }}
-                                    animate={constrolFadeOut1}
-                                >In a click Website Deploy.</motion.h1>
-                            </div>
-                        </div>
-
-                        <motion.div
-                            ref={quicklyDescriptionRef1 as React.Ref<HTMLDivElement>}
-                            initial={{ opacity: 0, x: -100 }}
-                            animate={controlDescription1}
-
-                            className='description'>
-                            <p>Experience swift and efficient website deployment with just a click. Launch your online presence easily without hassle.</p>
-                        </motion.div>
-
-
+                    <div className="wrapper">
+                        <Smoke/>
                     </div>
-                    <Publish/>
                 </section>
+
                 <section className="seo-contain">
                     <div className="wrapper">
                         <div>

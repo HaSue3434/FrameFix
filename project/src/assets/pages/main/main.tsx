@@ -4,9 +4,11 @@ import ScrollSmootherComponent from "./ScrollSmoother";
 import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { motion} from 'framer-motion';
+import { frame, motion} from 'framer-motion';
+
 import FooterSection from "../../components/footer";
 import { ReactComponent as Logo } from '../../img/logo/logo.svg';
+import { ReactComponent as Background } from '../../img/background.svg';
 
 import { ReactComponent as Share } from '../../img/icons/share.svg';
 import { ReactComponent as URL } from '../../img/icons/url.svg';
@@ -120,7 +122,7 @@ function Main() {
     const items = ['ai-powered', 'canvas', 'code-Converts', 'publish'];
     const [activeIndex, setActiveIndex] = useState<number>(0);
 
-    const frameElement = useRef<HTMLDivElement>(null);
+    const frameElement = useRef<any>(null);
     const hoverCursor = useRef<HTMLDivElement>(null);
     
     const componentMap : ComponentSlideMap = {
@@ -143,6 +145,7 @@ function Main() {
             } else {
                 frameElement.current.style.height = '824px'; 
             }
+            console.log(frameElement.current)
         }
     }, [activeIndex]); 
 
@@ -209,12 +212,15 @@ function Main() {
         });
         return () => ctx.revert();
     }, []);
-
+  
 
     return (
         <ScrollSmootherComponent>
             <>
-                <section className='main' data-scroll data-scroll-section>
+                <section className='main' data-scroll data-scroll-section >
+                    <div id="background">
+                        <div className="bottom-blur"></div>
+                    </div>
                     <div className='wrapper'>
                         <div className='main'>
                             <div className='title'>
@@ -294,6 +300,7 @@ function Main() {
                                 ))}
                             </div>
                         </div>
+
                         <motion.div
                             ref={ref1 as React.Ref<HTMLDivElement>}
                             

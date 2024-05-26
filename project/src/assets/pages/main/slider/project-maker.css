@@ -48,6 +48,9 @@
     display: flex;
     align-items: center;
     padding: 12em 25px 25px 25px;
+    transform: translateZ(-1000px) rotate(0);
+    perspective: 1000px;
+    transform-style: preserve-3d;
     flex-direction: column;
 }
 .project-maker-init .contents .t{

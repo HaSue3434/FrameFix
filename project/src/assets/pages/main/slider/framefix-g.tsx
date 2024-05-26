@@ -1,6 +1,9 @@
 import React, { useEffect,useRef,useState} from "react";
 import { gsap,ScrollTrigger } from 'gsap/all';
 import { motion } from 'framer-motion';
+import VanillaTilt from 'vanilla-tilt';
+
+
 import { ReactComponent as Deploy } from '../../../img/icons/deploy-icon.svg';
 import { ReactComponent as OutContentAI } from '../../../img/icons/out content.svg';
 import { ReactComponent as TextSvg } from '../../../img/text-svg.svg';
@@ -519,7 +522,7 @@ To enhance user interactions and focus, effects are added to websites and apps, 
                            
                         </div>
                         </div>
-                        <div className="framefix">
+                        <div className="framefix layout">
                             <div className="box">
                                 <div className="contents">
                                     <div className="head">
@@ -530,10 +533,19 @@ To enhance user interactions and focus, effects are added to websites and apps, 
                                             <p> <span>Drafts /</span> Project name <DropDownArrow/></p>
                                         </div>
                                     </div>
+                                    <div className="contents-layout">
+                                        <div className="layout-line">
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div className="out-box">
-
+                                    
                             </div>
                         </div>
                     </div>

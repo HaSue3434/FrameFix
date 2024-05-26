@@ -650,3 +650,23 @@
     transform:  translateY(-50%);
     background: #fff;
 }   
+.layout .box .contents .contents-layout{
+    width: 1045px;
+    position: relative;
+    height: 100%;
+    background: #fff;
+}
+.layout .box .contents .contents-layout .layout-line{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.layout .box .contents .contents-layout .layout-line>div{
+    width: 1px;
+    height: 100%;
+    background: rgba(0,0,0,.1);
+}

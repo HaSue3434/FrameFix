@@ -353,6 +353,10 @@ section.main .wrapper  .main-framefix .frame>div .contain{
 .framefix-footer{
     position: relative;
     margin-top: 50vh;
+    padding-top: 5em;
+    padding-bottom: 5em;
+    background-image: url('../../img//background.jpg');
+    background-size: cover;
 }
 .framefix-footer .wrapper{
     width: 1680px;
@@ -612,12 +616,22 @@ section.main .wrapper  .main-framefix .frame>div .contain{
 .framefix-footer .wrapper .contain .wrap .side .left .assets .pages .icons > div:nth-child(2) svg{
     vertical-align: middle;
 }
+.framefix-footer .top-blur{
+    top: -100px;
+    left: -35px;
+    width: 150vw;
+    height: 100px;
+    position: absolute;
+    background: #000;
+    filter: blur(25px);
+    z-index: 5555;
+}
 .framefix-footer .bottom-blur{
     bottom: -50px;
-    width: 100%;
+    width: 150vw;
     height: 200px;
     position: absolute;
-    left: 0;
+    left: -35px;
     background: #000;
     filter: blur(25px);
     z-index: 5555;

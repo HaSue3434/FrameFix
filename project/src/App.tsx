@@ -10,34 +10,32 @@ import FrameFix from './assets/pages/framefix-tool/main';
 import CreateProject from './assets/pages/create-project/create-project';
 import Preview from './assets/pages/framefix-tool/preview/views';
 
-
-import axios from "axios";
-
-
  
 function App() {
   
   return (
     <>
       <Router>
-        <RoutesWithHeaderAndFooter />
+        <RoutesWithComponents />
       </Router>
     </>
 
   );
 }
 
-function RoutesWithHeaderAndFooter(): JSX.Element | null {
+function RoutesWithComponents(): JSX.Element | null {
   let location = useLocation();
   const { pathname } = useLocation();
   const shouldHideHeader = ['/file/framefix', '/create-project/project', '/user-files/default','/proto-view'].includes(location.pathname);
   const shouldHideFooter = ['/file/framefix', '/user-files/default','/proto-view'].includes(location.pathname);
-  const title = 'FrameFix Canvas Tool'; 
+  const title = 'FrameFix canvas tool'; 
 
   useEffect(() => {
     const page = pages.find((p) => p.path === pathname);
     if (page) {
-      document.title = title + ' - ' + page.title; 
+      if(page.title.toUpperCase()==='framefix'.toUpperCase()){
+        document.title = title;
+      } else document.title = title + ' - ' + page.title; 
     }
   }, [pathname,pages]);
 

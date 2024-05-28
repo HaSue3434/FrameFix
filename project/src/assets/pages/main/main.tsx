@@ -343,6 +343,7 @@ function Main() {
                 </section>
 
                 <section className='framefix-footer' data-scroll data-scroll-section>
+                    <div className="top-blur"></div>
                     <div className='title'>
                         <div>
                             <div className="logo"><Logo/></div>

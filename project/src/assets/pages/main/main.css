@@ -46,16 +46,6 @@ section.main{
     display: flex;
     align-items: flex-end;
 }
-#background>.bottom-blur{
-    width: 150vw;
-    position: absolute;
-    
-    bottom: -35px;
-    left: -35px;
-    height: 55px;
-    background: #000;
-    filter: blur(15px);
-}
 section.main .txt-back-contain{
     position: absolute;
     top: 50px;
@@ -170,7 +160,7 @@ section.main .wrapper  .main-framefix{
     width: 100%;
     height: 100%;
     border-radius: 15px;
-    perspective: 1000px;
+    perspective: 500px;
     position: relative;
 }
 section.main .wrapper .canvas-blur-back{
@@ -249,13 +239,117 @@ section.main .wrapper  .main-framefix .frame>div .contain{
     max-width: 100%;
     margin: 0 auto;
     padding: 25px;
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    align-items: center;
-    position: relative;
+    height: 745px;
     gap: 35px;
 }
+.seo-contain .wrapper .contents{
+    width:inherit;
+    height: inherit;
+    background: #000;
+    border-radius: 15px;
+    padding: 3.13em;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid rgba(255,255,255,.25);
+    gap: 25px;
+}
+.seo-contain .wrapper .contents .txt-content{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
 
+    height: 100%;
+}
+.seo-contain .wrapper .contents .txt-content p,h1{
+    color: rgba(255,2552,255,1);
+}
+.seo-contain .wrapper .contents .txt-content .title {
+    padding-bottom: 20px;
+
+}
+.seo-contain .wrapper .contents .txt-content .title h1{
+    font-size: 2.5em;
+}
+.seo-contain .wrapper .contents .txt-content .sub-txt{
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+.seo-contain .wrapper .contents .txt-content .sub-txt p{
+    font-size: 1.25em;
+    color: rgba(255,255,255,.8);
+    max-width: 500px;
+}
+.seo-contain .wrapper .contents .txt-content .link-to-framefix{
+    padding-top: 20px;
+}
+.seo-contain .wrapper .contents .txt-content .link-to-framefix a{
+    color: rgba(255,255,255,1);
+}
+.seo-contain .wrapper .contents .txt-content  .img{
+    width: 90%;
+    height: 90%;
+    
+    padding: 15px;
+    margin-top: 65px;
+}
+.seo-contain .wrapper .contents .txt-content  .img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    user-select: none;
+    border-radius: 8px;
+    outline: 13px solid rgba(255,255,255,.10);
+}
+.seo-contain .wrapper .contents .animation-content {
+    height: 100%;
+    width: 100%;
+    background-image: url('../../img//gradients.jpg');
+    background-size: cover;
+    border-radius: 10px;
+    padding: 25px;
+    overflow: hidden;
+}
+.seo-contain .wrapper .contents .animation-content .title{
+    padding-bottom: 12.5px;
+}
+.seo-contain .wrapper .contents .animation-content .title h1{
+    font-size: 1.5em;
+}
+.seo-contain .wrapper .contents .animation-content .sub-txt{
+    padding-top: 12.5px;
+}
+.seo-contain .wrapper .contents .animation-content .sub-txt p{
+    color: rgba(255,255,255,1);
+    max-width: 500px;
+    font-size: 1em;
+}
+.content-view-hosting-box{
+    margin-top: 35px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: flex-end;
+}
+.content-view-hosting-box .view-box{
+    height: 435px;
+    width: 800px;
+    background: #fff;
+    position: relative;
+    left: 2.5em;
+    top: 2.5em;
+    padding: 15px;
+    border-radius: 10px;
+    border-bottom-left-radius: 0;
+    outline: 15px solid rgba(255,255,255,.2);
+}
+.content-view-hosting-box .view-box .view-box-head{
+    width: 100%;
+    height: 45px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 .framefix-footer{
     position: relative;
     margin-top: 50vh;
@@ -272,7 +366,6 @@ section.main .wrapper  .main-framefix .frame>div .contain{
     height:900px;
     border-radius: 15px;
     overflow: hidden;
-    outline: 25px solid rgba(255,255,255,.1);
     
 }
 .framefix-footer .wrapper .contain .wrap{
@@ -280,8 +373,9 @@ section.main .wrapper  .main-framefix .frame>div .contain{
     position: relative;
     width: 100%;
     height: 100%;
+    outline: 5px solid rgba(255,255,255,.1);
+    border-radius: 10px;
     background: #171717;
-    border-radius: 15px;
 }
 .framefix-footer .wrapper .contain .wrap .out-box{
     position: absolute;
@@ -662,6 +756,7 @@ section.main .wrapper  .main-framefix .frame>div .contain{
     font-weight: 600;
     font-size: 1.5em;
     padding-top: 35px;
+    padding-bottom: 35px;
 }
 .framefix-footer>.title>div .btn{
     padding-top: 35px;
@@ -712,17 +807,6 @@ section.main .wrapper  .main-framefix .frame>div .contain{
     fill: #459AFF;
 
 }
-.background{
-    position: absolute;
-    left: -100px;
-    top: 0;
-    width: 130vw;
-    height: 70%;
-    z-index: -1;
-    background: linear-gradient(to right, #2562FF ,#E960FF);
-    filter: blur(125px);
-}
-
 
 .elements .work-contents .desktop>div{
     padding: 15px;

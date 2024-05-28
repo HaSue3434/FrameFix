@@ -590,6 +590,7 @@
     display: inline-block;
     letter-spacing: 3px;
     user-select: none;
+    overflow: hidden;
 }
 .view-effects > div .contents .view-main >.text-svg div span{
     font-family: "Prata", serif;

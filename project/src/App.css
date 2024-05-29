@@ -18,7 +18,6 @@ header{
     width: 100%;
     z-index: 10;
     height: 80px;
-    background: black;
     transition: .3s;
 }
 header nav{

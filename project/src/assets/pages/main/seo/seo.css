@@ -1,0 +1,121 @@
+.seo-contain{
+    width: 100%;
+    height: 100%;
+    padding-top: 50vh;
+}
+.seo-contain .wrapper{
+    width: 1680px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 25px;
+    height: 745px;
+    gap: 35px;
+}
+.seo-contain .wrapper .contents{
+    width:inherit;
+    height: inherit;
+    background: #000;
+    border-radius: 15px;
+    padding: 3.13em;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid rgba(255,255,255,.25);
+    gap: 25px;
+}
+.seo-contain .wrapper .contents .txt-content{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+}
+.seo-contain .wrapper .contents .txt-content p,h1{
+    color: rgba(255,2552,255,1);
+}
+.seo-contain .wrapper .contents .txt-content .title {
+    padding-bottom: 20px;
+
+}
+.seo-contain .wrapper .contents .txt-content .title h1{
+    font-size: 2.5em;
+}
+.seo-contain .wrapper .contents .txt-content .sub-txt{
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+.seo-contain .wrapper .contents .txt-content .sub-txt p{
+    font-size: 1.25em;
+    color: rgba(255,255,255,.8);
+    max-width: 500px;
+}
+.seo-contain .wrapper .contents .txt-content .link-to-framefix{
+    padding-top: 20px;
+}
+.seo-contain .wrapper .contents .txt-content .link-to-framefix a{
+    color: rgba(255,255,255,1);
+}
+.seo-contain .wrapper .contents .txt-content  .img{
+    width: 90%;
+    height: 90%;
+    
+    padding: 15px;
+    margin-top: 65px;
+}
+.seo-contain .wrapper .contents .txt-content  .img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    user-select: none;
+    border-radius: 8px;
+    outline: 13px solid rgba(255,255,255,.10);
+}
+.seo-contain .wrapper .contents .animation-content {
+    height: 100%;
+    width: 100%;
+    background-image: url('../../../img/gradients.jpg');
+    background-size: cover;
+    border-radius: 10px;
+    padding: 25px;
+    overflow: hidden;
+}
+.seo-contain .wrapper .contents .animation-content .title{
+    padding-bottom: 12.5px;
+}
+.seo-contain .wrapper .contents .animation-content .title h1{
+    font-size: 1.5em;
+}
+.seo-contain .wrapper .contents .animation-content .sub-txt{
+    padding-top: 12.5px;
+}
+.seo-contain .wrapper .contents .animation-content .sub-txt p{
+    color: rgba(255,255,255,1);
+    max-width: 500px;
+    font-size: 1em;
+}
+.content-view-hosting-box{
+    margin-top: 35px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: flex-end;
+}
+.content-view-hosting-box .view-box{
+    height: 435px;
+    width: 800px;
+    background: #fff;
+    position: relative;
+    left: 2.5em;
+    top: 2.5em;
+    padding: 15px;
+    border-radius: 10px;
+    border-bottom-left-radius: 0;
+    outline: 15px solid rgba(255,255,255,.2);
+}
+.content-view-hosting-box .view-box .view-box-head{
+    width: 100%;
+    height: 45px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

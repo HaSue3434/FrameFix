@@ -40,7 +40,7 @@ import { Link } from 'react-router-dom';
 import {
     useTypingEffect,
     useInViewPluginsScale
-} from "../script";
+} from "../animation-script";
 gsap.registerPlugin(ScrollTrigger);
 
 const items = [

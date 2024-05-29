@@ -4,22 +4,10 @@ import ScrollSmootherComponent from "./ScrollSmoother";
 import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { frame, motion} from 'framer-motion';
+import { motion} from 'framer-motion';
 
 import FooterSection from "../../components/footer";
 import { ReactComponent as Logo } from '../../img/logo/logo.svg';
-import { ReactComponent as Background } from '../../img/background.svg';
-
-import { ReactComponent as Share } from '../../img/icons/share.svg';
-import { ReactComponent as URL } from '../../img/icons/url.svg';
-import { ReactComponent as Heart } from '../../img/icons/heart.svg';
-import { ReactComponent as View } from '../../img/icons/user-view.svg';
-import { ReactComponent as Deploy } from '../../img/icons/deploy-icon.svg';
-import { ReactComponent as SEO } from '../../img/icons/seo-icon.svg';
-import { ReactComponent as Community } from '../../img/icons/community-icon.svg';
-import { ReactComponent as NoneTxtLogo } from '../../img/icons/none-txt-logo.svg';
-import { ReactComponent as F } from '../../img/icons/f.svg';
-
 import { ReactComponent as FrameLogo } from "../../img/logo/frame-logo.svg";
 import { ReactComponent as NextArrow } from '../../img/icons/next-arrow.svg';
 
@@ -60,39 +48,25 @@ import { ReactComponent as DefaultAll } from '../../img/icons/framefix-style-ico
 import { ReactComponent as PerSide } from '../../img/icons/framefix-style-icons/per-side.svg';
 // framefix style icons //
 
-import "./slider/project-maker.css"
 import "./slider/canvas.css"
 import "./framefix-g.css"
 import "./publish/publish.css"
-import DefaultUI from "./slider/project-maker";
-import Canvas from "./slider/canvas";
-import CodeConverts from "./slider/code-converts";
+import "./seo/seo.css"
 
-import Publish from "./publish/publish";
+import Canvas from "./slider/canvas";
 import Seo from './seo/seo';
 
 import FrameFixGuide from './slider/framefix-g';
 
 import {
-    useTypingEffect,
     TxtAnimation,
-    useInViewMainSpring,
     useInViewExContentSpring,
-    useDescriptionFadeOut,
-    useDefaultFadeOut,
     useDelaySpring,
 
-} from './script';
+} from './animation-script';
 
-import Smoke from './publish/publish';
+const Main = () => {
 
-interface ComponentSlideMap {
-    [key: string]: React.ComponentType<any>; // Use any or a specific prop type
-  }
-
-function Main() {
-
-    const [ref1, controls1] = useInViewMainSpring();
     const [ref3, controls3] = useInViewExContentSpring();
     const [ref4, controls4] = useInViewExContentSpring();
     const [ref5, controls5] = useInViewExContentSpring();
@@ -100,73 +74,10 @@ function Main() {
 
     const [delayRef, delayControls] = useDelaySpring(0);
 
-    const [seoRef, seo1] = useInViewExContentSpring();
-    const [quicklyDescriptionRef1, controlDescription1] = useDescriptionFadeOut();
-    const [quicklyDescriptionRef2, controlDescription2] = useDescriptionFadeOut();
-
-    const [defaultFadeOut1, constrolFadeOut1] = useDefaultFadeOut();
-    const [defaultFadeOut2, constrolFadeOut2] = useDefaultFadeOut();
-    const [defaultFadeOut3, constrolFadeOut3] = useDefaultFadeOut();
-    const [defaultFadeOut4, constrolFadeOut4] = useDefaultFadeOut();
-
-    const [triggerMetaTitle, setTriggerMeta1] = useState(false);
-    const [triggerMetaURL, setTriggerMeta2] = useState(false);
-    const [triggerMetaDescription, setTriggerMeta3] = useState(false);
-
-    const { typedText: metaTitle, isCompleted: isCompleted1 } = useTypingEffect(triggerMetaTitle ? "FrameFix" : "", 50);
-    const { typedText: metaUrl, isCompleted: isCompleted2 } = useTypingEffect(triggerMetaURL ? "FrameFix.com" : "", 50);
-    const { typedText: metaDescription, isCompleted: isCompleted3 } = useTypingEffect(
-        triggerMetaDescription ? "Framefix leads in revolutionizing web design by leveraging AI to provide unique design references and innovative creations inspired by these insights." : "", 5
-    );
-    const [startAnimation, setStartAnimation] = useState(false);
-    const items = ['ai-powered', 'canvas', 'code-Converts', 'publish'];
-    const [activeIndex, setActiveIndex] = useState<number>(0);
-
-    const frameElement = useRef<any>(null);
-    const hoverCursor = useRef<HTMLDivElement>(null);
+    const frameElement = useRef<any>(null);    
     
-    const componentMap : ComponentSlideMap = {
-        "ai-powered": DefaultUI,
-        'canvas': Canvas,
-        'code-Converts' : CodeConverts,
-    }
-
-    const ActiveComponent = componentMap[items[activeIndex]];
-
-    useEffect(() => {
-        if (frameElement.current) { 
-            if (items[activeIndex] === 'canvas'
-                || items[activeIndex] === 'code-Converts'  
-                || items[activeIndex] === 'publish'  
-            ) {
-                frameElement.current.style.height = '924px';
-            } else if (items[activeIndex] === 'ai-powered') {
-                frameElement.current.style.height = '824px';
-            } else {
-                frameElement.current.style.height = '824px'; 
-            }
-            console.log(frameElement.current)
-        }
-    }, [activeIndex]); 
-
-
-    const itemVariants = {
-        hidden: { opacity: 0, x: -50 },
-        visible: (custom: number) => ({
-            opacity: 1,
-            x: 0,
-            transition: { delay: custom * 0.1, duration: 1, ease: "anticipate" }
-        }),
-    };
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setStartAnimation(true);
-        }, 600);
-        return () => clearTimeout(timer);
-    }, []);
     const fullScreenRef = useRef<HTMLDivElement>(null);
     const f = useRef<SVGSVGElement>(null);
-    const typingContents = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const t1 = gsap.timeline();
@@ -182,18 +93,7 @@ function Main() {
                     refreshPriority: 1,
                 },
             });
-            t1.to(typingContents.current, {
-                scrollTrigger: {
-                    trigger: typingContents.current,
-                    start: "top 50%",
-                    end: "top 50%",
-                    onEnter: () => {
-                        setTriggerMeta1(true);
-                        setTriggerMeta2(true);
-                        setTriggerMeta3(true);
-                    }
-                }
-            });
+
             t1.from(fullScreenRef.current, {
                 background: "rgba(0,0,0,0)",
                 scrollTrigger: {
@@ -222,94 +122,30 @@ function Main() {
                         <div className="bottom-blur"></div>
                     </div>
                     <div className='wrapper'>
-                        <div className='main'>
-                            <div className='title'>
-                                <div>
-                                    <motion.h1
-                                        initial={{
-                                            opacity: 0,
-                                            y: 50
-                                        }}
-                                        animate={{
-                                            opacity: 1,
-                                            y: 0,
-                                        }}
-                                        transition={{
-                                            duration: 1,
-                                            ease: "anticipate",
-                                        }}
-                                    >the
-                                    </motion.h1>
+                        <div className="main-contents-txt">
+                            <div className="title">
+                                <div className='ai-powered'>
+                                    <h1 className='color'>AI-POWERED</h1>
+                                    <div className="d"></div>
+                                    <h1><span>Turning</span> </h1>
                                 </div>
-                                <div>
-                                    <motion.h1
-                                        initial={{
-                                            opacity: 0,
-                                            y: 50
-                                        }}
-                                        animate={{
-                                            opacity: 1,
-                                            y: 0,
-                                        }}
-
-                                        transition={{
-                                            duration: 1,
-                                            delay: 0.2,
-                                            ease: "anticipate",
-                                        }}
-                                    >smarter.</motion.h1>
-                                </div>
+                                
+                                <h1><span>Ideas</span> <span>into Reality</span> </h1>
                             </div>
-                            <motion.div
-                                initial={{
-                                    opacity: 0,
-                                    x: -50
-                                }}
-                                animate={{
-                                    opacity: 1,
-                                    x: 0,
-                                }}
-                                transition={{
-                                    duration: 1,
-                                    delay: 0.5,
-                                    ease: "anticipate",
-                                }}
-                                className='description'>
-                                <div className='txt'>
-                                    <p>Leverage AI for a transformative design workflow: create effortlessly and deploy with a single click, streamlining your process and speeding up idea realization.</p>
-                                </div>
-                                <div className='start-framefix'>
-                                    <Link to="/file/framefix">
-                                        Start FrameFix
-                                    </Link>
-                                </div>
-                            </motion.div>
-                            <div className='slider'>
-                                {items.map((item, index) => (
-                                    <motion.div
-                                        key={item}
-                                        custom={index}
-                                        variants={itemVariants}
-                                        initial="hidden"
-                                        animate={startAnimation ? "visible" : "hidden"}
-                                        onClick={() => setActiveIndex(index)}
-                                        className={`item ${activeIndex === index ? 'active' : ''}`}
-                                    >
-                                        {item}
-                                    </motion.div>
-                                ))}
+                            <div className="sub-title">
+                                <p>We build easy and fast workflows through AI.</p>
+                            </div>
+                            <div className="link-to-dashboard">
+                                <Link to={'./'}>
+                                    Go to dashboard
+                                </Link>
                             </div>
                         </div>
-
                         <motion.div
-                            ref={ref1 as React.Ref<HTMLDivElement>}
-                            
-                            initial={{ opacity: 0.8, scale: 0.8}}
-                            animate={controls1}
 
                             className="main-framefix">
                             <div className="frame" ref={frameElement}>
-                                <ActiveComponent/>
+                                <Canvas/>
                             </div>
                         </motion.div>
 

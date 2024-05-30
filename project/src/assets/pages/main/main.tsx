@@ -4,7 +4,7 @@ import ScrollSmootherComponent from "./ScrollSmoother";
 import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { motion} from 'framer-motion';
+import { frame, motion} from 'framer-motion';
 
 import FooterSection from "../../components/footer";
 import { ReactComponent as Logo } from '../../img/logo/logo.svg';
@@ -35,8 +35,8 @@ import { ReactComponent as Frame } from '../../img/icons/framefix-plugin-icons/f
 import { ReactComponent as Shape } from '../../img/icons/framefix-plugin-icons/shape.svg';
 import { ReactComponent as Section } from '../../img/icons/framefix-plugin-icons/section.svg';
 import { ReactComponent as Images } from '../../img/icons/framefix-plugin-icons/images.svg';
-
-
+import { ReactComponent as PinkCursor } from '../../img/pink-cursor.svg';
+import { ReactComponent as BlueCursor } from '../../img/blue-cursor.svg';
 // framfix icon //
 
 // framefix style icons //
@@ -64,6 +64,7 @@ import {
     useDelaySpring,
 
 } from './animation-script';
+import Particles from './particle';
 
 const Main = () => {
 
@@ -74,10 +75,10 @@ const Main = () => {
 
     const [delayRef, delayControls] = useDelaySpring(0);
 
-    const frameElement = useRef<any>(null);    
     
     const fullScreenRef = useRef<HTMLDivElement>(null);
     const f = useRef<SVGSVGElement>(null);
+    const frameElement = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const t1 = gsap.timeline();
@@ -103,7 +104,9 @@ const Main = () => {
                     scrub: true,
                 }
             });
+            t1.from(frameElement.current,{
 
+            })
             ScrollTrigger.refresh();
             return () => {
                 ScrollTrigger.getAll().forEach(trigger => trigger.kill());
@@ -119,6 +122,7 @@ const Main = () => {
             <>
                 <section className='main' data-scroll data-scroll-section >
                     <div id="background">
+                        <Particles/>
                         <div className="bottom-blur"></div>
                     </div>
                     <div className='wrapper'>
@@ -153,7 +157,7 @@ const Main = () => {
                                 initial = {{opacity : 0, y : 80}}
                                 animate = {{opacity : 1, y : 0}}
                                 transition={{duration : 1, ease : "backInOut",delay : 0.35,}}
-                                >  Reality</motion.span> </h1>
+                                >  Reality.</motion.span> </h1>
                             </div>
                             <div className="sub-title">
                                 <p>We build easy and fast workflows through AI.</p>

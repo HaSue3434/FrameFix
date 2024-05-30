@@ -1,25 +1,13 @@
-import React, {useRef, useEffect, useState} from 'react';
+import React from 'react';
 import { ReactComponent as Logo } from "../img/logo/logo.svg";
 import { Link } from 'react-router-dom';
 import {ReactComponent as Arrow} from "../img/icons/framefix-plugin-icons/aseets-arrow-bottom.svg";
 
 const Header = () =>{
-    /*
-    const lineRef = useRef<HTMLDivElement>(null);
-    
-    const handleMouseOver = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-      const itemWidth = event.currentTarget.offsetWidth;
-      const itemLeft = event.currentTarget.offsetLeft;
 
-      if (lineRef.current) {
-        lineRef.current.style.width = `${itemWidth}px`;
-        lineRef.current.style.left  = `${itemLeft}px`;
-      }
-    };
-    */
 
     return (
-        <header id='header'>
+        <header id='header' >
             <nav>
                 <div className = 'logo'>
                    <Link to='/'><Logo /></Link>

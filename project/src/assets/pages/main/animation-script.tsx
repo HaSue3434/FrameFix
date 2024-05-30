@@ -80,7 +80,7 @@ export const TxtAnimation: React.FC<TxtAnimationProps> = ({ text }) => {
   );
 };
 
-export const useInViewMainSpring = (): [React.RefObject<HTMLDivElement>, AnimationControls] => {
+export const useInViewMain = (): [React.RefObject<HTMLDivElement>, AnimationControls] => {
   const controls = useAnimation();
   const ref = useRef<HTMLDivElement>(null); 
   const inViewRef = useInView();

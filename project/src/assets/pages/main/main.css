@@ -156,13 +156,11 @@ section.main .wrapper .canvas-blur-back{
     z-index: -1;
     transform: translate(-50%,0);
 }
-
 section.main .wrapper  .main-framefix .frame{
     height: 924px;
     width: 100%;
     border-radius: 15px;
     transition: 0.25s;
-    perspective: 1000px;
 }
 
 section.main .wrapper  .main-framefix .frame>div{
@@ -170,7 +168,6 @@ section.main .wrapper  .main-framefix .frame>div{
     height: 100%;
     border-radius: 12px;
     border: 2px solid rgba(255,255,255,.1);
-    outline: 15px solid rgba(255,255,255,.1);
 }
 section.main .wrapper  .main-framefix .frame>div .contain{
     width: 100%;

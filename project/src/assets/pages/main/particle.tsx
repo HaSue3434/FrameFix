@@ -25,8 +25,8 @@ const Particles: React.FC = () => {
     const border = false;
     const minRadius = 1;
     const maxRadius = 2;
-    const minOpacity = 0.005;
-    const maxOpacity = 0.75;
+    const minOpacity = 0.1;
+    const maxOpacity = 1;
     const minSpeed = 0.05;
     const maxSpeed = 0.5;
     const numParticles = 55;

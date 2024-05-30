@@ -59,9 +59,11 @@ import Seo from './seo/seo';
 import FrameFixGuide from './slider/framefix-g';
 
 import {
+
     TxtAnimation,
     useInViewExContentSpring,
     useDelaySpring,
+    useInViewCursorScale,
 
 } from './animation-script';
 import Particles from './particle';
@@ -75,10 +77,16 @@ const Main = () => {
 
     const [delayRef, delayControls] = useDelaySpring(0);
 
+    const [cursorRefMainPink, setCursorPink] = useInViewCursorScale(200,-200);
+    const [cursorRefMainBlue, setCursorBlue] = useInViewCursorScale(-250,45);
     
     const fullScreenRef = useRef<HTMLDivElement>(null);
     const f = useRef<SVGSVGElement>(null);
     const frameElement = useRef<HTMLDivElement>(null);
+
+    const mainCursorScrolling1 = useRef<HTMLDivElement>(null);
+    const mainCursorScrolling2 = useRef<HTMLDivElement>(null);
+    const mainFrameFixWrapperRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const t1 = gsap.timeline();
@@ -104,8 +112,25 @@ const Main = () => {
                     scrub: true,
                 }
             });
-            t1.from(frameElement.current,{
-
+            t1.to(cursorRefMainPink.current,{
+                left : 500,
+                top : -250,
+                scrollTrigger : {
+                    trigger : mainFrameFixWrapperRef.current,
+                    start : "00% 50%",
+                    end : '300% 50%',
+                    scrub : 1,
+                }
+            })
+            t1.to(cursorRefMainBlue.current,{
+                right : 700,
+                top : 700,
+                scrollTrigger : {
+                    trigger : mainFrameFixWrapperRef.current,
+                    start : "00% 50%",
+                    end : '300% 50%',
+                    scrub : 1,
+                }
             })
             ScrollTrigger.refresh();
             return () => {
@@ -125,7 +150,20 @@ const Main = () => {
                         <Particles/>
                         <div className="bottom-blur"></div>
                     </div>
-                    <div className='wrapper'>
+                    <div className='wrapper' ref={mainFrameFixWrapperRef}>
+                        <div className="cursor">
+                            <motion.div
+                            ref = {cursorRefMainPink as React.Ref<HTMLDivElement>}
+                            initial={{ opacity : 0, scale: 0.5 }}
+                            animate = {setCursorPink}
+                            className='pink-cursor c'><PinkCursor/></motion.div>
+
+                            <motion.div 
+                            ref = {cursorRefMainBlue as React.Ref<HTMLDivElement>}
+                            initial={{ opacity : 0,scale: 0.5 }}
+                            animate = {setCursorBlue}
+                            className='blue-cursor c'><BlueCursor/></motion.div>
+                        </div>
                         <div className="main-contents-txt">
                             <div className="title">
                                 <div className='ai-powered'>

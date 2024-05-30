@@ -80,23 +80,23 @@ export const TxtAnimation: React.FC<TxtAnimationProps> = ({ text }) => {
   );
 };
 
-export const useInViewMain = (): [React.RefObject<HTMLDivElement>, AnimationControls] => {
+export const useInViewCursorScale = (x: number, y: number): [React.RefObject<HTMLDivElement>, AnimationControls] => {
   const controls = useAnimation();
-  const ref = useRef<HTMLDivElement>(null); 
+  const ref = useRef<HTMLDivElement>(null);
   const inViewRef = useInView();
   const { ref: inViewRefCallback, inView } = inViewRef;
 
   useEffect(() => {
     if (inView) {
       controls.start({
-        opacity: 1,
+        opacity : 1,
         scale: 1,
-        transition: { duration : 1, ease:"backInOut",delay : 0.5,},
-      });
+        transition: { duration: 1, ease: 'anticipate', delay: 0.5 }
+      })
     } else {
-      controls.start({ opacity: 0.8, scale: 0.8 });
+      controls.start({ opacity : 0,scale: 0.5 });
     }
-  }, [controls, inView]);
+  }, [controls, inView, x, y]);
 
   useEffect(() => {
     if (ref.current) {

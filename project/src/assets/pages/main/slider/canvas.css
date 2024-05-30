@@ -113,6 +113,7 @@ section.main .wrapper .main-framefix .frame>div.framefix-ui .ui-body{
     display: flex;
     justify-content: space-between;
     gap: 35px;
+    z-index: 11;
     height: 100%;
     position: relative;
 }
@@ -826,4 +827,6 @@ section.main .wrapper .main-framefix .frame>div.framefix-ui .ui-body .canvas-edi
     width: 550px;
     height: 800px;
     background: rgb(0, 0, 0);
+    position: relative;
+    z-index: -1;
 }

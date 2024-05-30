@@ -565,9 +565,9 @@ const AnimatedText: React.FC<{ text: string, percent : number, setElement : bool
         {text.split('').map((char, index) => (
           <motion.span key={index} style={{position:'relative'}}
 
-                initial={{opacity : percent === 100 && setElement ? 0:1, top : percent === 100 && setElement ? -80 : 0}} 
-                animate={{opacity : percent === 100 && setElement ? 1:0, top : percent === 100 && setElement ? 0 : -80}} 
-                transition={percent === 100 && setElement ? { delay: index * 0.05, duration : 0.5, ease : "easeInOut"} : {}}>
+                initial={{opacity : percent === 100 && setElement ? 0:1, top : percent === 100 && setElement ? 50 : 0}} 
+                animate={{opacity : percent === 100 && setElement ? 1:0, top : percent === 100 && setElement ? 0 : 50}} 
+                transition={percent === 100 && setElement ? { delay: index * 0.03, duration : 0.5, ease : "easeInOut"} : {}}>
                 
             {char}
           </motion.span>

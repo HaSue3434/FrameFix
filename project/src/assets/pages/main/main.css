@@ -110,6 +110,9 @@ section.main .wrapper .main-contents-txt .title .ai-powered .d{
 section.main .wrapper .main-contents-txt .title .ideas{
     overflow: hidden;
 }
+section.main .wrapper .main-contents-txt .title .ideas span{
+    display: inline-block;
+}
 section.main .wrapper .main-contents-txt .sub-title{
     padding-top: 55px;
     padding-bottom: 55px;

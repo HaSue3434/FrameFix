@@ -125,15 +125,35 @@ const Main = () => {
                         <div className="main-contents-txt">
                             <div className="title">
                                 <div className='ai-powered'>
-                                    <div className='t'>
+                                    <motion.div 
+                                    initial = {{opacity : 0, y : 80}}
+                                    animate = {{opacity : 1, y : 0}}
+                                    transition={{duration : 1, ease : "backInOut"}}
+                                    className='t'>
                                         <h1 className='color'>AI-POWERED</h1>
                                         <div className="d"></div>
-                                    </div>
+                                    </motion.div>
                                     
-                                    <h1><span>Turning</span> </h1>
+                                    <motion.h1 
+                                    initial = {{opacity : 0, y : 80}}
+                                    animate = {{opacity : 1, y : 0}}
+                                    transition={{duration : 1, ease : "backInOut",delay : 0.2,}}
+                                    ><span>Turning</span> </motion.h1>
                                 </div>
                                 
-                                <h1 className='ideas'><span>Ideas</span> <span>into Reality</span> </h1>
+                                <h1 className='ideas'>
+                                <motion.span
+                                initial = {{opacity : 0, y : 80}}
+                                animate = {{opacity : 1, y : 0}}
+                                transition={{duration : 1, ease : "backInOut",delay : 0.25,}}
+                                >Ideas </motion.span> <motion.span
+                                initial = {{opacity : 0, y : 80}}
+                                animate = {{opacity : 1, y : 0}}
+                                transition={{duration : 1, ease : "backInOut",delay : 0.3,}}>into</motion.span> <motion.span
+                                initial = {{opacity : 0, y : 80}}
+                                animate = {{opacity : 1, y : 0}}
+                                transition={{duration : 1, ease : "backInOut",delay : 0.35,}}
+                                >  Reality</motion.span> </h1>
                             </div>
                             <div className="sub-title">
                                 <p>We build easy and fast workflows through AI.</p>

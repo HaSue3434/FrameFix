@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef} from 'react';
 
 import ScrollSmootherComponent from "./ScrollSmoother";
 import { Link } from 'react-router-dom';
-import { gsap } from 'gsap';
+import { gsap,TimelineLite, Power2  } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { frame, motion} from 'framer-motion';
 
@@ -83,10 +83,42 @@ const Main = () => {
     const fullScreenRef = useRef<HTMLDivElement>(null);
     const f = useRef<SVGSVGElement>(null);
     const frameElement = useRef<HTMLDivElement>(null);
-
-    const mainCursorScrolling1 = useRef<HTMLDivElement>(null);
-    const mainCursorScrolling2 = useRef<HTMLDivElement>(null);
     const mainFrameFixWrapperRef = useRef<HTMLDivElement>(null);
+
+    const [rotationX, setRotationX] = useState(0);
+    const [rotationY, setRotationY] = useState(0);
+    const [scale, setScale] = useState(0.8);
+
+    useEffect(() => {
+        const handleMouseMove = (event: MouseEvent) => {
+          const wrapper = frameElement.current;
+          if (wrapper) {
+            const wrapperRect = wrapper.getBoundingClientRect();
+            const centerX = wrapperRect.left + wrapperRect.width / 2;
+            const centerY = wrapperRect.top + wrapperRect.height / 2;
+
+            const angleX = (event.clientY - centerY) / centerY * 1;
+            const angleY = (event.clientX - centerX) / centerX * 1;
+
+            const newRotationX = Math.min(Math.max(-1, angleX), 1) * 2; // Adjust the angle as needed
+            const newRotationY = Math.min(Math.max(-1, angleY), 1) * 2; // Adjust the angle as needed
+
+            gsap.to(wrapper, {
+              rotationX: newRotationX,
+              rotationY: newRotationY,
+              duration: 0.5,
+              scale : scale,
+              ease: 'power2.out',
+            });
+          }
+        };
+      
+        window.addEventListener('mousemove', handleMouseMove);
+      
+        return () => {
+          window.removeEventListener('mousemove', handleMouseMove);
+        };
+      }, [scale]);
 
     useEffect(() => {
         const t1 = gsap.timeline();
@@ -132,6 +164,27 @@ const Main = () => {
                     scrub : 1,
                 }
             })
+            t1.to(frameElement.current,{
+                
+                scrollTrigger : {
+                    trigger : frameElement.current,
+                    start : "-10% 50%",
+                    end : "100% 50%",
+                    scrub : true,
+                    onEnter : () =>{
+                        setScale(0.9);
+                        t1.to(frameElement.current,{
+                            scale : scale,
+                        })
+                    },
+                    onLeaveBack : () =>{
+                        setScale(0.8);
+                        t1.to(frameElement.current,{
+                            scale : scale,
+                        })
+                    }
+                }
+            })
             ScrollTrigger.refresh();
             return () => {
                 ScrollTrigger.getAll().forEach(trigger => trigger.kill());
@@ -140,7 +193,6 @@ const Main = () => {
         });
         return () => ctx.revert();
     }, []);
-  
 
     return (
         <ScrollSmootherComponent>
@@ -198,18 +250,28 @@ const Main = () => {
                                 >  Reality.</motion.span> </h1>
                             </div>
                             <div className="sub-title">
-                                <p>We build easy and fast workflows through AI.</p>
+                                <motion.p
+                                initial = {{opacity : 0, y : 50}}
+                                animate = {{opacity : 1, y : 0}}
+                                transition={{duration : 1, ease : 'backInOut', delay : 0.35}}
+                                >We build easy and fast workflows through AI.</motion.p>
                             </div>
-                            <div className="link-to-dashboard">
+                            <motion.div 
+                            initial = {{opacity : 0, y : 50}}
+                            animate = {{opacity : 1, y : 0}}
+                            transition={{duration : 1, ease : 'backInOut', delay : 0.45}}
+                            className="link-to-dashboard">
                                 <Link to={'./'}>
                                     Go to dashboard
                                 </Link>
-                            </div>
+                            </motion.div>
                         </div>
                         <motion.div
 
                             className="main-framefix">
-                            <div className="frame" ref={frameElement}>
+                            <div className="frame" ref={frameElement} style={{ 
+                                transform: `scale(${scale}) rotateX(${rotationX}deg) rotateY(${rotationY}deg)`,
+                                }}>
                                 <Canvas/>
                             </div>
                         </motion.div>

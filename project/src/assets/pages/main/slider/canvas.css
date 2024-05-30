@@ -829,4 +829,5 @@ section.main .wrapper .main-framefix .frame>div.framefix-ui .ui-body .canvas-edi
     background: rgb(0, 0, 0);
     position: relative;
     z-index: -1;
+    transform: translateZ(500px) rotateY(15deg);
 }

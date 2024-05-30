@@ -91,7 +91,7 @@ export const useInViewCursorScale = (x: number, y: number): [React.RefObject<HTM
       controls.start({
         opacity : 1,
         scale: 1,
-        transition: { duration: 1, ease: 'anticipate', delay: 0.5 }
+        transition: { duration: 1, ease: 'anticipate', delay: 0.25 }
       })
     } else {
       controls.start({ opacity : 0,scale: 0.5 });

@@ -125,12 +125,15 @@ const Main = () => {
                         <div className="main-contents-txt">
                             <div className="title">
                                 <div className='ai-powered'>
-                                    <h1 className='color'>AI-POWERED</h1>
-                                    <div className="d"></div>
+                                    <div className='t'>
+                                        <h1 className='color'>AI-POWERED</h1>
+                                        <div className="d"></div>
+                                    </div>
+                                    
                                     <h1><span>Turning</span> </h1>
                                 </div>
                                 
-                                <h1><span>Ideas</span> <span>into Reality</span> </h1>
+                                <h1 className='ideas'><span>Ideas</span> <span>into Reality</span> </h1>
                             </div>
                             <div className="sub-title">
                                 <p>We build easy and fast workflows through AI.</p>

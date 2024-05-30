@@ -32,7 +32,7 @@ section.main{
     width: 100%;
     position: relative;
     height: 100%;
-    padding-bottom: 8em;
+    padding-bottom: 12em;
 }   
 #background{
     position: absolute;
@@ -78,6 +78,7 @@ section.main .wrapper .main-contents-txt{
     display: flex;
     align-items: center;
     flex-direction: column;
+    
 }
 section.main .wrapper .main-contents-txt .title h1{
     text-align: center;
@@ -86,7 +87,13 @@ section.main .wrapper .main-contents-txt .title h1{
 section.main .wrapper .main-contents-txt .title .ai-powered{
     display: flex;
     align-items: center;
-    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow: hidden;
+}
+section.main .wrapper .main-contents-txt .title .ai-powered .t{
+    display: flex;
+    align-items: center;
 }
 section.main .wrapper .main-contents-txt .title .ai-powered .color{
     color: #459AFF;
@@ -94,18 +101,40 @@ section.main .wrapper .main-contents-txt .title .ai-powered .color{
 section.main .wrapper .main-contents-txt .title .ai-powered .d{
     width: 135px;
     height: 30px;
+    margin-right: 15px;
+    margin-left: 15px;
     border: 5px solid rgba(255,255,255,1);
     border-radius: 50px;
     
 }
+section.main .wrapper .main-contents-txt .title .ideas{
+    overflow: hidden;
+}
 section.main .wrapper .main-contents-txt .sub-title{
-    padding-top: 65px;
-    padding-bottom: 65px;
+    padding-top: 55px;
+    padding-bottom: 55px;
 }
 section.main .wrapper .main-contents-txt .sub-title p{
-    color: rgba(255,255,255,1);
+    color: rgba(255,255,255,.8);
     font-weight: 500;
     font-size: 1.5em;
+    text-align: center;
+}
+section.main .wrapper .main-contents-txt .link-to-dashboard{
+    margin-top: 15px;
+}
+section.main .wrapper .main-contents-txt .link-to-dashboard a{
+    padding: 15px 25px;
+    background: #459AFF;
+    color: rgba(255,255,255,1);
+    font-weight: 600;
+    font-size: 1.13em;
+    border-radius: 5px;
+    box-shadow: 0 4px 4px rgba(8,8,8,.08),0 1px 2px rgba(8,8,8,.2),inset 0 6px 12px rgba(255,255,255,.12),inset 0 1px 1px rgba(255,255,255,.2);
+    transition: background .25s ;
+}
+section.main .wrapper .main-contents-txt .link-to-dashboard a:hover{
+    background: #E960FF;
 }
 section.main .wrapper  .main-framefix{
     margin-top: 8em;

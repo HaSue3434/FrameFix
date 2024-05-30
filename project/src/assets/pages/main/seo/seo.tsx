@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import {ReactComponent as FrameLogo} from '../../../img/logo/fill-logo.svg';
 
 const Seo = () =>{
     return(
@@ -31,9 +32,18 @@ const Seo = () =>{
                 <div className="content-view-hosting-box">
                     <div className="view-box">
                         <div className="hosting-domain">
-
+                            <p>https://www.framefix.com</p>
                         </div>
-                        <div className="view-box-head"></div>
+                        <div className="view-box-head">
+                            <div className="framefix-logo"><FrameLogo/></div>
+                            <div className="navbar">
+                                <div>Resource</div>
+                                <div>Features</div>
+                                <div>Partner with us</div>
+                                <div>About us</div>
+                            </div>
+                            <div className="sign"></div>
+                        </div>
                         <div className="view-box-main"></div>
                     </div>
                 </div>

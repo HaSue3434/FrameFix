@@ -200,7 +200,6 @@ const Main = () => {
                 <section className='main' data-scroll data-scroll-section >
                     <div id="background">
                         <Particles/>
-                        <div className="bottom-blur"></div>
                     </div>
                     <div className='wrapper' ref={mainFrameFixWrapperRef}>
                         <div className="cursor">
@@ -281,6 +280,7 @@ const Main = () => {
                     <div className='txt-back-contain'>
                         <TxtAnimation text='AI-POWERED BUILD WEBSITES' />
                     </div>
+                    <div className="bottom-blur"></div>
                 </section>
 
                 <section data-scroll data-scroll-section className='f-g' id='f-g' ref={fullScreenRef}>
@@ -325,15 +325,9 @@ const Main = () => {
                             <div className="wrap">
                                 <div className="out-box">
                                     <motion.div
-                                    ref={ref5 as React.Ref<HTMLDivElement>}
-                                    initial={{ opacity: 0, scale: 0.7 }}
-                                    animate={controls5}
                                     className='left-side box ' data-scroll data-scroll-speed = "-1"></motion.div>
 
                                     <motion.div 
-                                    ref={ref6 as React.Ref<HTMLDivElement>}
-                                    initial={{ opacity: 0, scale: 0.7 }}
-                                    animate={controls6}
                                     className='right-side box is-inview' 
                                     data-scroll data-scroll-speed = "1"
                                     ></motion.div>

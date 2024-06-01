@@ -20,9 +20,12 @@
     height: 100%;
     display: flex;
     align-items: center;
-    background: linear-gradient(120deg, #00c9ff 50%,#92fe9d 100%);
+    background: url("../../img//background.jpg");
     grid-template-columns: repeat(2,1fr);
     position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:  100%;
 }
 .signInContainer .wrapper .signin{
     background: #000;
@@ -176,9 +179,8 @@
     background: #0D131D;
     position: relative;
     left: 5vw;
-    outline: 25px solid rgba(255,255,255,.25);
+    outline: 15px solid rgba(255,255,255,.25);
     border-radius: 15px;
-    backdrop-filter: blur(35px);
     overflow: hidden;
 }
 .signInContainer .wrapper .views  .viewFrameFix .head {

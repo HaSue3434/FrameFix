@@ -117,11 +117,27 @@ footer{
     width: 100vw;
     height: 100%;
     padding-top: 20vh;
+    padding-bottom: 8em;
 }
 footer .f-wrapper{
     width: 1680px;
     margin: 0 auto;
     max-width: 100%;
     padding: 25px;
-
+}
+footer .f-wrapper .footer-logo{
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    width: auto;
+}
+footer .f-wrapper .footer-logo .logo svg{
+    height: 40px;
+    width: auto;
+}
+footer .f-wrapper .footer-logo .full-line{
+    width: 100vmax;
+    height: 1px;
+    
+    background:rgba(255,255,255,.25);
 }

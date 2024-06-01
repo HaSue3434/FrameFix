@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import {ReactComponent as FrameLogo} from '../../../img/logo/fill-logo.svg';
+import { ReactComponent as CanvasImg } from '../../../img/canvas-hosting.svg';
 
 const Seo = () =>{
     return(
@@ -42,9 +43,16 @@ const Seo = () =>{
                                 <div>Partner with us</div>
                                 <div>About us</div>
                             </div>
-                            <div className="sign"></div>
+                            <div className="sign">
+                                <div className="login">Login</div>
+                                <div className="sign-up">Sign up</div>
+                            </div>
                         </div>
-                        <div className="view-box-main"></div>
+                        <div className="view-box-main">
+                            <CanvasImg/>
+                            <div className="top-right-blur"></div>
+                            <div className="bottom-left-blur"></div>
+                        </div>
                     </div>
                 </div>
            </div>

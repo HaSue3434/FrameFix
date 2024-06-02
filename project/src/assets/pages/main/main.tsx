@@ -2,9 +2,9 @@ import React, { useEffect, useState, useRef} from 'react';
 
 import ScrollSmootherComponent from "./ScrollSmoother";
 import { Link } from 'react-router-dom';
-import { gsap,TimelineLite, Power2  } from 'gsap';
+import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { frame, motion} from 'framer-motion';
+import { motion} from 'framer-motion';
 
 import FooterSection from "../../components/footer";
 import { ReactComponent as Logo } from '../../img/logo/logo.svg';
@@ -72,14 +72,13 @@ const Main = () => {
 
     const [ref3, controls3] = useInViewExContentSpring();
     const [ref4, controls4] = useInViewExContentSpring();
-    const [ref5, controls5] = useInViewExContentSpring();
-    const [ref6, controls6] = useInViewExContentSpring();
 
     const [delayRef, delayControls] = useDelaySpring(0);
 
     const [cursorRefMainPink, setCursorPink] = useInViewCursorScale(200,-200);
     const [cursorRefMainBlue, setCursorBlue] = useInViewCursorScale(-250,45);
-    
+
+
     const fullScreenRef = useRef<HTMLDivElement>(null);
     const f = useRef<SVGSVGElement>(null);
     const frameElement = useRef<HTMLDivElement>(null);
@@ -87,7 +86,7 @@ const Main = () => {
 
     const [rotationX, setRotationX] = useState(0);
     const [rotationY, setRotationY] = useState(0);
-    const [scale, setScale] = useState(0.8);
+    const [scale, setScale] = useState(0.95);
 
     useEffect(() => {
         const handleMouseMove = (event: MouseEvent) => {
@@ -100,14 +99,13 @@ const Main = () => {
             const angleX = (event.clientY - centerY) / centerY * 1;
             const angleY = (event.clientX - centerX) / centerX * 1;
 
-            const newRotationX = Math.min(Math.max(-1, angleX), 1) * 2; // Adjust the angle as needed
-            const newRotationY = Math.min(Math.max(-1, angleY), 1) * 2; // Adjust the angle as needed
+            const newRotationX = Math.min(Math.max(-1, angleX), 1) * 2; 
+            const newRotationY = Math.min(Math.max(-1, angleY), 1) * 2; 
 
             gsap.to(wrapper, {
               rotationX: newRotationX,
               rotationY: newRotationY,
-              duration: 0.5,
-              scale : scale,
+              duration: 1,
               ease: 'power2.out',
             });
           }
@@ -164,27 +162,9 @@ const Main = () => {
                     scrub : 1,
                 }
             })
-            t1.to(frameElement.current,{
-                
-                scrollTrigger : {
-                    trigger : frameElement.current,
-                    start : "-10% 50%",
-                    end : "100% 50%",
-                    scrub : true,
-                    onEnter : () =>{
-                        setScale(0.9);
-                        t1.to(frameElement.current,{
-                            scale : scale,
-                        })
-                    },
-                    onLeaveBack : () =>{
-                        setScale(0.8);
-                        t1.to(frameElement.current,{
-                            scale : scale,
-                        })
-                    }
-                }
-            })
+
+
+
             ScrollTrigger.refresh();
             return () => {
                 ScrollTrigger.getAll().forEach(trigger => trigger.kill());
@@ -193,6 +173,7 @@ const Main = () => {
         });
         return () => ctx.revert();
     }, []);
+
 
     return (
         <ScrollSmootherComponent>

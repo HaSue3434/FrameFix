@@ -1,7 +1,9 @@
-import React,{useState} from "react";
+import React,{useEffect, useRef, useState} from "react";
 import { motion } from 'framer-motion';
 import { ReactComponent as FrameLogo } from "../../../img/logo/frame-logo.svg";
-
+import {ReactComponent as CanvasImg} from "../../../img/main-canvas-img.svg";
+import {ReactComponent as FrameToolbar} from "../../../img/frame-toolbar-icon.svg";
+import { gsap } from 'gsap';
 
 
 import { ReactComponent as Template} from "../../../img/icons/framefix-plugin-icons/template.svg";
@@ -35,22 +37,51 @@ import { ReactComponent as Eye } from '../../../img/icons/framefix-style-icons/e
 import { ReactComponent as DefaultAll } from '../../../img/icons/framefix-style-icons/default-all.svg';
 import { ReactComponent as PerSide } from '../../../img/icons/framefix-style-icons/per-side.svg';
 
+import {useFrameScale} from "../animation-script";
+
 const Canvas: React.FC = ()=>{
 
     const plugins = [
         { id: 2, Component: Template, text: "Layer", pClass : "p-layer"  },
-        { id: 2, Component: Frame, text: "Frame", pClass : "p-frame"  },
-        { id: 2, Component: Shape, text: "Shape", pClass : "p-shape"  },
-        { id: 3, Component: Text, text: "Text", pClass : "p-text"  },
-        { id: 4, Component: Menus, text: "Menus", pClass : "p-menus"  },
-        { id: 5, Component: Header, text: "Header", pClass : "p-header"  },
-        { id: 5, Component: Section, text: "Section", pClass : "p-section"  },
-        { id: 6, Component: Footer, text: "Footer", pClass : "p-footer"  },
-        { id: 7, Component: Slides, text: "Slides", pClass : "p-slides"  },
-        { id: 8, Component: Button, text: "Button", pClass : "p-button"  },
-        { id: 9, Component: Icons, text: "Icons", pClass : "p-icons"  },
-        { id: 10, Component: Magic, text: "Magic", pClass : "p-magic"  }
+        { id: 3, Component: Frame, text: "Frame", pClass : "p-frame"  },
+        { id: 4, Component: Shape, text: "Shape", pClass : "p-shape"  },
+        { id: 5, Component: Text, text: "Text", pClass : "p-text"  },
+        { id: 6, Component: Menus, text: "Menus", pClass : "p-menus"  },
+        { id: 7, Component: Header, text: "Header", pClass : "p-header"  },
+        { id: 8, Component: Section, text: "Section", pClass : "p-section"  },
+        { id: 9, Component: Footer, text: "Footer", pClass : "p-footer"  },
+        { id: 10, Component: Slides, text: "Slides", pClass : "p-slides"  },
+        { id: 11, Component: Button, text: "Button", pClass : "p-button"  },
+        { id: 12, Component: Icons, text: "Icons", pClass : "p-icons"  },
+        { id: 13, Component: Magic, text: "Magic", pClass : "p-magic"  }
     ];
+      
+    const canvasFrame = useRef<HTMLDivElement>(null);
+    const [transform,setTransform] = useFrameScale();
+
+    useEffect(()=>{
+
+        if(!canvasFrame.current) return;
+
+        const t1 = gsap.timeline();
+
+        let ctx = gsap.context(()=>{
+
+            t1.from(canvasFrame.current,{
+                rotateX : 15,
+                translateY : 65,
+                scale : 0.85,
+                scrollTrigger : {
+                    trigger : canvasFrame.current,
+                    start : "-50% 50%",
+                    end : "50% 50%",
+                    scrub : 1,
+                }
+            })
+
+        })
+        return () => ctx.revert();
+    },[])
 
     return(
         <>
@@ -312,11 +343,15 @@ const Canvas: React.FC = ()=>{
                                 <div><Add/></div>
                             </div>
                         </div>
-                        <div className="canvas-editor">
-                            <div className="frame1"></div>
-                            <div className="frame2"></div>
-                            <div className="frame3"></div>
-                        </div>
+                        <motion.div className="canvas-editor">
+                            <div className="frame1" ref={canvasFrame}>
+                                <div className="head-selected-frame">
+                                    <div className="frame-title"><p><span className="desktop">Desktop / </span>Desktop frame</p></div>
+                                    <div className="frame-toolbar-selection"><FrameToolbar/></div>
+                                </div>
+                                <CanvasImg/>
+                            </div>
+                        </motion.div>
                     </div>
                 </motion.div>
             </motion.div>

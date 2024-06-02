@@ -231,14 +231,54 @@ export const useDelaySpring = (delay: number = 1): [React.RefObject<HTMLDivEleme
 
     return [ref, controls];
 };
-
-export const useStepsDelayFadeOut = (activate : any, elements : Element): [React.RefObject<HTMLDivElement>,AnimationControls]=>{
+export const useSeoAnimation = ():[React.RefObject<HTMLDivElement>, AnimationControls] =>{
   const controls = useAnimation();
-  
+  const ref = useRef<HTMLDivElement>(null); 
+  const inViewRef = useInView();
+  const { ref: inViewRefCallback, inView } = inViewRef;
+  useEffect(() => {
+    if (inView) {
+      controls.start({
+        x : 0,
+        y : 0,
+        transition: { duration: 1.5, ease : "anticipate", delay : 0.35,},
+      });
+    } else {
+      controls.start({x : 50, y : 50});
+    }
+  }, [controls, inView]);
 
-  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (ref.current) {
+      inViewRefCallback(ref.current);
+    }
+  }, [inViewRefCallback]);
 
+  return [ref, controls];
+}
 
+export const useFrameScale = ():[React.RefObject<HTMLDivElement>, AnimationControls] =>{
+  const controls = useAnimation();
+  const ref = useRef<HTMLDivElement>(null); 
+  const inViewRef = useInView();
+  const { ref: inViewRefCallback, inView } = inViewRef;
+  useEffect(() => {
+    if (inView) {
+      controls.start({
+        scale : 1,
+        
+        transition: { duration: 1.5, ease : "anticipate", delay : 0.35,},
+      });
+    } else {
+      controls.start({scale : 0.8});
+    }
+  }, [controls, inView]);
 
-  return [ref,controls];
+  useEffect(() => {
+    if (ref.current) {
+      inViewRefCallback(ref.current);
+    }
+  }, [inViewRefCallback]);
+
+  return [ref, controls];
 }

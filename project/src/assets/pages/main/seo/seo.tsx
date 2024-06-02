@@ -2,8 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import {ReactComponent as FrameLogo} from '../../../img/logo/fill-logo.svg';
 import { ReactComponent as CanvasImg } from '../../../img/canvas-hosting.svg';
+import { useSeoAnimation } from '../animation-script';
+import { motion } from "framer-motion";
 
 const Seo = () =>{
+    const [animation,setAnimation] = useSeoAnimation();
+
     return(
         <>
            <div className="txt-content">
@@ -18,9 +22,7 @@ const Seo = () =>{
                         Start Framefix 
                     </Link>
                 </div>  
-                <div className="img">
-                    <img src={require("../../../img/sample-img.jpg")} alt="" />
-                </div>
+
            </div>
            <div className="animation-content">
                 <div className="title">
@@ -30,7 +32,11 @@ const Seo = () =>{
                     <p>FrameFix enables swift and effortless discovery through an optimized search engine.</p>
                 </div>
 
-                <div className="content-view-hosting-box">
+                <motion.div 
+                ref={animation as React.Ref<HTMLDivElement> }
+                initial = {{x : 0, y : 0, }}
+                animate = {setAnimation}
+                className="content-view-hosting-box">
                     <div className="view-box">
                         <div className="hosting-domain">
                             <p>https://www.framefix.com</p>
@@ -54,7 +60,7 @@ const Seo = () =>{
                             <div className="bottom-left-blur"></div>
                         </div>
                     </div>
-                </div>
+                </motion.div>
            </div>
         </>
     )

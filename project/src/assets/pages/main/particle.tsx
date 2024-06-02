@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 
 interface Particle {
+  key: number; // id 속성 추가
   radius: number;
   xPos: number;
   yPos: number;
@@ -120,6 +121,7 @@ const Particles: React.FC = () => {
         const color = colors[~~rand(0, colors.length)];
 
         particles[i] = {
+          key: i, // 각 입자에 대한 고유한 식별자 할당
           radius: rand(minRadius, maxRadius),
           xPos: rand(0, canvas.width),
           yPos: rand(0, canvas.height),

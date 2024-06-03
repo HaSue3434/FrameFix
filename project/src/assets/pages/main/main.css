@@ -103,6 +103,7 @@ section.main .wrapper .main-contents-txt{
 section.main .wrapper .main-contents-txt .title h1{
     text-align: center;
     font-size: 5.00em;
+    font-weight: 700;
 }
 section.main .wrapper .main-contents-txt .title .ai-powered{
     display: flex;

@@ -68,8 +68,9 @@ const Canvas: React.FC = ()=>{
         let ctx = gsap.context(()=>{
 
             t1.from(canvasFrame.current,{
-                rotateX : 15,
-                translateY : 65,
+                rotateX : 20,
+                translateY : 125,
+                translateZ : 100,
                 scale : 0.85,
                 scrollTrigger : {
                     trigger : canvasFrame.current,

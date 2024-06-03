@@ -163,6 +163,9 @@ const Main = () => {
                 }
             })
 
+            t1.from(frameElement.current,{
+                
+            })
 
 
             ScrollTrigger.refresh();

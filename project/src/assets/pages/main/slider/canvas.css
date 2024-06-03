@@ -830,7 +830,7 @@ section.main .wrapper .main-framefix .frame>div.framefix-ui .ui-body .canvas-edi
     position: relative;
     transform-origin: top;
     z-index: -1;
-    transform: scale(1) rotateX(0) translateY(0);
+    transform: scale(1) rotateX(0) translateY(0) translateZ(0);
 }
 section.main .wrapper .main-framefix .frame>div.framefix-ui .ui-body .canvas-editor .frame1 > svg{
     box-shadow: 0px 4px 12px rgba(0,0,0,1);

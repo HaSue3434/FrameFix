@@ -119,7 +119,8 @@ section.main .wrapper .main-framefix .frame>div.framefix-ui .ui-body{
 }
 section.main .wrapper .main-framefix .frame>div.framefix-ui .ui-body > div{
     height: 100%;
-    background: #000;
+    background: #060606;
+    
 }
 section.main .wrapper .main-framefix .frame>div.framefix-ui 
 .ui-body > div.plugins {
@@ -168,7 +169,7 @@ section.main .wrapper .main-framefix .frame>div.framefix-ui
 .ui-body > div.plugins .assets .t-layer>div h4{
     color: rgba(255,255,255,1);
     font-weight: 500;
-    font-size: 14px;
+    font-size: 13px;
 }
 section.main .wrapper .main-framefix .frame>div.framefix-ui 
 .ui-body > div.plugins .assets .t-layer .close-btn{
@@ -195,7 +196,7 @@ section.main .wrapper .main-framefix .frame>div.framefix-ui
 .ui-body > div.plugins .assets .t-page h4{
     color: rgba(255,255,255,1);
     font-weight: 500;
-    font-size: 14px;
+    font-size: 13px;
 }
 section.main .wrapper .main-framefix .frame>div.framefix-ui 
 .ui-body > div.plugins .assets .t-page .pbi{
@@ -224,7 +225,7 @@ section.main .wrapper .main-framefix .frame>div.framefix-ui
 .ui-body > div.plugins .assets .pages .files .page p{
     color: rgba(255,255,255,1);
     text-transform: capitalize;
-    font-size: 12px;
+    font-size: 11px;
     letter-spacing: 0.5px;
 }
 section.main .wrapper .main-framefix .frame>div.framefix-ui 
@@ -236,25 +237,24 @@ section.main .wrapper .main-framefix .frame>div.framefix-ui
 .ui-body > div.plugins .assets .pages .files .page.p2{
     opacity: 0.5;
 }
-section.main .wrapper .main-framefix .frame>div.framefix-ui 
-.ui-body > div.plugins .assets .layer{
-    padding: 15px;
-}
+
 section.main .wrapper .main-framefix .frame>div.framefix-ui 
 .ui-body > div.plugins .assets .layer>div h4 {
     color: rgba(255,255,255);
     font-weight: 500;
-    font-size: 14px;
+    font-size: 13px;
+    padding: 15px;
 }
-section.main .wrapper .main-framefix .frame>div.framefix-ui 
-.ui-body > div.plugins .assets .layer .layer-e .frame-1{
-    padding-top: 15px;
-}
+
 section.main .wrapper .main-framefix .frame>div.framefix-ui 
 .ui-body > div.plugins .assets .layer .layer-e .frame-e{
     display: flex;
     gap: 10px;
     align-items: center;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 8px;
+    background: rgba(255,255,255,.15);
 }
 section.main .wrapper .main-framefix .frame>div.framefix-ui 
 .ui-body > div.plugins .assets .layer .layer-e .frame-e .arrow{
@@ -262,15 +262,17 @@ section.main .wrapper .main-framefix .frame>div.framefix-ui
     height: 6px;
 }
 section.main .wrapper .main-framefix .frame>div.framefix-ui 
-.ui-body > div.plugins .assets .layer .layer-e .frame-1 
-.frame-e~.frame-wrap {
-    padding-top: 10px;
-}
-section.main .wrapper .main-framefix .frame>div.framefix-ui 
 .ui-body > div.plugins .assets .layer .layer-e .frame-e p{
     color: rgba(255,255,255,1);
-    font-size: 12px;
+    font-size: 11px;
 }
+section.main .wrapper .main-framefix .frame>div.framefix-ui 
+.ui-body > div.plugins .assets .layer .layer-e .frame-1 
+.frame-e~.frame-wrap>div{
+
+    background: rgba(255,255,255,.05);
+}
+
 section.main .wrapper .main-framefix .frame>div.framefix-ui 
 .ui-body > div.plugins .assets .layer .layer-e .frame-1 
 .frame-e~.frame-wrap div{
@@ -278,18 +280,18 @@ section.main .wrapper .main-framefix .frame>div.framefix-ui
     gap: 10px;
     align-items: center;
     justify-content: space-between;
-    padding: 5px;
-    padding-right: 0;
+    padding: 6px;
+    padding-right: 6px;
 }
 section.main .wrapper .main-framefix .frame>div.framefix-ui 
 .ui-body > div.plugins .assets .layer .layer-e .frame-1 
 .frame-e~.frame-wrap div>div:nth-child(1){
-    padding-left: 30px;
+    padding-left: 45px;
 }
 section.main .wrapper .main-framefix .frame>div.framefix-ui 
 .ui-body > div.plugins .assets .layer .layer-e .frame-1 
 .frame-e~.frame-wrap div p{
-    font-size: 12px;
+    font-size: 11px;
     color: rgba(255,255,255,1);
 }
 section.main .wrapper .main-framefix .frame>div.framefix-ui .ui-body > div.styles{
@@ -327,7 +329,7 @@ section.main .wrapper .main-framefix .frame>div.framefix-ui
 section.main .wrapper .main-framefix .frame>div.framefix-ui 
 .ui-body > div.styles .breakpoint .breakpoint-option h4{
     color: rgba(255,255,255,1);
-    font-size: 14px;
+    font-size: 13px;
     
     font-weight: 500;
 }
@@ -508,7 +510,7 @@ section.main .wrapper .main-framefix .frame>div.framefix-ui
 }
 section.main .wrapper .main-framefix .frame>div.framefix-ui 
 .ui-body > div.styles .layer-apply .pass-through h4{
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 500;
     color: rgba(255,255,255,1);
 }
@@ -516,7 +518,7 @@ section.main .wrapper .main-framefix .frame>div.framefix-ui
 .ui-body > div.styles .layer-apply .option p{
     color: rgba(255,255,255,1);
     font-weight: 500;
-    font-size: 14px;
+    font-size: 13px;
 }
 section.main .wrapper .main-framefix .frame>div.framefix-ui 
 .ui-body > div.styles .layer-apply .opacity-value{
@@ -570,7 +572,7 @@ section.main .wrapper .main-framefix .frame>div.framefix-ui
 section.main .wrapper .main-framefix .frame>div.framefix-ui 
 .ui-body > div.styles .style-apply .style-add h4{
     color: rgba(255,255,255,1);
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 500;
 
 }
@@ -699,7 +701,7 @@ section.main .wrapper .main-framefix .frame>div.framefix-ui
 section.main .wrapper .main-framefix .frame>div.framefix-ui 
 .ui-body > div.styles .layout .layout-option h4{
     color: rgba(255,255,255,1);
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 500;
 }
 section.main .wrapper .main-framefix .frame>div.framefix-ui 
@@ -810,7 +812,7 @@ section.main .wrapper .main-framefix .frame>div.framefix-ui
 .ui-body > div.styles .defalult-cmm h4{
     color: rgba(255,255,255,1);
     font-weight: 500;
-    font-size: 14px;
+    font-size: 13px;
 }
 section.main .wrapper .main-framefix .frame>div.framefix-ui .ui-body .canvas-editor{
     position: absolute;
@@ -823,14 +825,36 @@ section.main .wrapper .main-framefix .frame>div.framefix-ui .ui-body .canvas-edi
     justify-content: center;
     align-items: flex-end;
     perspective: 1000px;
+    z-index: -1;
 }
 section.main .wrapper .main-framefix .frame>div.framefix-ui .ui-body .canvas-editor .frame1{
     width: auto;
     height: 800px;
     position: relative;
     transform-origin: top;
-    z-index: -1;
-    transform: scale(1) rotateX(0) translateY(0) translateZ(0);
+    opacity: 1;
+    transform: scale(0.8) rotateX(0) translateY(-150px) translateZ(0);
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui .ui-body .canvas-editor .left-frame{
+    height: 800px;
+    width: 250px;
+    background: #000;
+    position: absolute;
+    left: 250px;
+    transform: scale(0.9) translateY(-50%);
+    opacity: 0.6;
+    top: 50%;
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui .ui-body .canvas-editor .right-frame{
+    height: 800px;
+    width: 250px;
+    background: #000;
+    position: absolute;
+    right: 250px;
+    transform: scale(0.9) translateY(-50%);
+    top: 50%;
+    z-index: -2;
+    opacity: 0.6;
 }
 section.main .wrapper .main-framefix .frame>div.framefix-ui .ui-body .canvas-editor .frame1 > svg{
     box-shadow: 0px 4px 12px rgba(0,0,0,1);

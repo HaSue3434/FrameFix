@@ -241,10 +241,10 @@ export const useSeoAnimation = ():[React.RefObject<HTMLDivElement>, AnimationCon
       controls.start({
         x : 0,
         y : 0,
-        transition: { duration: 1.5, ease : "anticipate", delay : 0.35,},
+        transition: { duration: 1.5, ease : "anticipate", delay : 0.25,},
       });
     } else {
-      controls.start({x : 50, y : 50});
+      controls.start({x : 50, y : 50,});
     }
   }, [controls, inView]);
 

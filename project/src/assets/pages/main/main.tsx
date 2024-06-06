@@ -4,7 +4,7 @@ import ScrollSmootherComponent from "./ScrollSmoother";
 import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { motion} from 'framer-motion';
+import { frame, motion, scroll} from 'framer-motion';
 
 import FooterSection from "../../components/footer";
 import { ReactComponent as Logo } from '../../img/logo/logo.svg';
@@ -83,43 +83,42 @@ const Main = () => {
     const f = useRef<SVGSVGElement>(null);
     const frameElement = useRef<HTMLDivElement>(null);
     const mainFrameFixWrapperRef = useRef<HTMLDivElement>(null);
+    
+    const [rotationX, setRotationX] = useState(7);
+    const [rotationY, setRotationY] = useState();
 
-    const [rotationX, setRotationX] = useState(0);
-    const [rotationY, setRotationY] = useState(0);
-    const [scale, setScale] = useState(0.95);
+    const t1 = gsap.timeline();
+
+    
+useEffect(() => {
+    
+
+    let tx = gsap.context(() => {
+        
+        t1.from(frameElement.current, {
+            rotationX: 10,
+            translateY: -180,
+            translateZ: -100,
+            scrollTrigger: {
+                trigger: frameElement.current,
+                start: "-40% 50%",
+                end: "20% 50%",
+                scrub: 1,
+                onUpdate: (scrollTrigger) => {
+
+                },
+            },
+        });
+    });
+    
+    return () => {
+        
+        tx.revert();
+    };
+    }, []);
 
     useEffect(() => {
-        const handleMouseMove = (event: MouseEvent) => {
-          const wrapper = frameElement.current;
-          if (wrapper) {
-            const wrapperRect = wrapper.getBoundingClientRect();
-            const centerX = wrapperRect.left + wrapperRect.width / 2;
-            const centerY = wrapperRect.top + wrapperRect.height / 2;
-
-            const angleX = (event.clientY - centerY) / centerY * 1;
-            const angleY = (event.clientX - centerX) / centerX * 1;
-
-            const newRotationX = Math.min(Math.max(-1, angleX), 1) * 2; 
-            const newRotationY = Math.min(Math.max(-1, angleY), 1) * 2; 
-
-            gsap.to(wrapper, {
-              rotationX: newRotationX,
-              rotationY: newRotationY,
-              duration: 1,
-              ease: 'power2.out',
-            });
-          }
-        };
-      
-        window.addEventListener('mousemove', handleMouseMove);
-      
-        return () => {
-          window.removeEventListener('mousemove', handleMouseMove);
-        };
-      }, [scale]);
-
-    useEffect(() => {
-        const t1 = gsap.timeline();
+        
 
         let ctx = gsap.context(() => {
            
@@ -162,11 +161,6 @@ const Main = () => {
                     scrub : 1,
                 }
             })
-
-            t1.from(frameElement.current,{
-                
-            })
-
 
             ScrollTrigger.refresh();
             return () => {
@@ -253,7 +247,10 @@ const Main = () => {
 
                             className="main-framefix">
                             <div className="frame" ref={frameElement} style={{ 
-                                transform: `scale(${scale}) rotateX(${rotationX}deg) rotateY(${rotationY}deg)`,
+                                transform: `rotateX(${rotationX}deg) rotateY(${rotationY}deg) `,
+                                backfaceVisibility : "hidden",
+                                willChange : "transform",
+                                WebkitFontSmoothing : "subpixel-antialiased",
                                 }}>
                                 <Canvas/>
                             </div>
@@ -335,6 +332,7 @@ const Main = () => {
                                         </div>
                                         <div className='settings an'><Settings/></div>
                                         <div className='preview  an'><Preview/></div>
+                                        <div className='publish-btn'>Share</div>
                                         <div className='publish-btn'>Publish</div>
                                         <div className='zoom-in'>
                                             <p>100%</p>
@@ -600,7 +598,6 @@ const Main = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="stroke other"><div><h4>Stroke</h4><Add/></div></div>
                                         <div className="Effects other"><div><h4>Effects</h4><Add/></div></div>
                                         <div className="Export other"><div><h4>Export</h4><Add/></div></div>
                                     </div>

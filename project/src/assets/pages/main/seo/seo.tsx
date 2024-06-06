@@ -34,7 +34,7 @@ const Seo = () =>{
 
                 <motion.div 
                 ref={animation as React.Ref<HTMLDivElement> }
-                initial = {{x : 0, y : 0, }}
+                initial = {{x : 0, y : 0,}}
                 animate = {setAnimation}
                 className="content-view-hosting-box">
                     <div className="view-box">

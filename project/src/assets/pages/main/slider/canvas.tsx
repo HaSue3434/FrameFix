@@ -57,7 +57,8 @@ const Canvas: React.FC = ()=>{
     ];
       
     const canvasFrame = useRef<HTMLDivElement>(null);
-    const [transform,setTransform] = useFrameScale();
+
+    const [scaleAnimation,setScaleAnimation] = useFrameScale();
 
     useEffect(()=>{
 
@@ -68,14 +69,13 @@ const Canvas: React.FC = ()=>{
         let ctx = gsap.context(()=>{
 
             t1.from(canvasFrame.current,{
-                rotateX : 20,
-                translateY : 125,
-                translateZ : 100,
-                scale : 0.85,
+                rotateX : 10,
+                translateY : -150,
+                opacity : 1,
                 scrollTrigger : {
                     trigger : canvasFrame.current,
-                    start : "-50% 50%",
-                    end : "50% 50%",
+                    start : "-45% 50%",
+                    end : "40% 50%",
                     scrub : 1,
                 }
             })
@@ -107,6 +107,7 @@ const Canvas: React.FC = ()=>{
                             </div>
                             <div className="m-preview common"><Settings/></div>
                             <div className="m-settings common"><Preview/></div>
+                            <div className="m-publish">Share</div>
                             <div className="m-publish">Publish</div>
                             <div className="zoom-in">
                                 <span>100%</span>
@@ -345,13 +346,17 @@ const Canvas: React.FC = ()=>{
                             </div>
                         </div>
                         <motion.div className="canvas-editor">
-                            <div className="frame1" ref={canvasFrame}>
+                            <div className="left-frame"></div>
+                            <motion.div 
+                            
+                            className="frame1" ref={canvasFrame}>
                                 <div className="head-selected-frame">
                                     <div className="frame-title"><p><span className="desktop">Desktop / </span>Desktop frame</p></div>
                                     <div className="frame-toolbar-selection"><FrameToolbar/></div>
                                 </div>
                                 <CanvasImg/>
-                            </div>
+                            </motion.div>
+                            <div className="right-frame"></div>
                         </motion.div>
                     </div>
                 </motion.div>

@@ -10,6 +10,11 @@
     list-style: none;
     text-decoration: none;
     font-family: 'Poppins', sans-serif,serif;
+    backface-visibility: hidden;
+    -webkit-font-smoothing : "subpixel-antialiased";
+    
+
+
 }
 body{
     overflow-x: hidden;

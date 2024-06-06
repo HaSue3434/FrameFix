@@ -7,6 +7,15 @@ import VanillaTilt from 'vanilla-tilt';
 import { ReactComponent as Deploy } from '../../../img/icons/deploy-icon.svg';
 import { ReactComponent as OutContentAI } from '../../../img/icons/out content.svg';
 import { ReactComponent as TextSvg } from '../../../img/text-svg.svg';
+import { ReactComponent as LinkToProduct } from '../../../img/link-to-project.svg';
+import { ReactComponent as PR } from '../../../img/PR.svg';
+import { ReactComponent as Ducts } from '../../../img/ducts.svg';
+import { ReactComponent as Design } from '../../../img/design.svg';
+import { ReactComponent as Studio } from '../../../img/studio.svg';
+import { ReactComponent as Circle } from '../../../img/circle.svg';
+import { ReactComponent as FirstTx } from '../../../img/first-tx.svg';
+import { ReactComponent as SecondTx } from '../../../img/second-tx.svg';
+import { ReactComponent as ThirdTx } from '../../../img/third-tx.svg';
 
 import { ReactComponent as Logo } from "../../../img/logo/logo.svg";
 import { ReactComponent as FrameLogo } from "../../../img/logo/frame-logo.svg";
@@ -229,7 +238,7 @@ const FrameFixGuide: React.FC = () => {
                             </div>
                             <div className="explain">
                                 <p className="sub-title">Utilize</p>
-                                <p>FrameFix utilizes AI technology to allow for precise and quick adjustments in layouts. This tool supports efficient workflow, enhancing project completion speeds. Experience perfect layouts with the help of AI.</p>
+                                <p>FrameFix utilizes AI technology to allow for precise and quick adjustments in layouts. This tool supports efficient workflow, enhancing project completion speeds.</p>
                             </div>
                         </div>
                         <div className="see-all">
@@ -390,7 +399,7 @@ const FrameFixGuide: React.FC = () => {
                             <div className="explain">
                                 <p className="sub-title">Effects</p>
                                 <p>
-To enhance user interactions and focus, effects are added to websites and apps, enriching the overall user experience.</p>
+                                Capture audience interest and elevate user experience by a clicks only add effects into your website.</p>
                             </div>
                         </div>
                         <div className="see-all">
@@ -414,15 +423,15 @@ To enhance user interactions and focus, effects are added to websites and apps, 
                                     </div>
 
                                     <div className="view-effects">
+                                        
                                         <div className="back">
+                                            {/** 
                                             <motion.div 
                                             className="loading-contents"
                                             ref={loader}  
                                             initial={{ opacity: 0, top: "0" }}
                                             animate={{ opacity: 1, top: percent === 100 ? "-100%" : "0" }}
-                                            transition={{ duration : 1, ease : "anticipate", delay : 0.3}}
-
-                                            >
+                                            transition={{ duration : 1, ease : "anticipate", delay : 0.3}}>
                                                 <div className="contain-box">
                                                     <motion.div className="loading-box">
                                                         
@@ -439,55 +448,43 @@ To enhance user interactions and focus, effects are added to websites and apps, 
                                                     </div>
                                                 </div>
                                             </motion.div>
-                                            <motion.div 
-                                            initial = {{top : "100%"}}
-                                            animate = {percent === 100 ? {top : "0"} : {}}
-                                            transition={{duration : 1, ease : "anticipate", }}
-                                            className="wrap" ref={scrolling}>
-                                                <div className="contents">
-                                                    <div className="view-head">
-                                                    {items.map((item, index) => (
-                                                    <motion.div
-                                                      key={index}
-                                                      className={item.className}
-                                                      initial={{ opacity: 0, y: 25 }}
-                                                      animate={{ opacity: viewElement ? 1 : 0, y: viewElement ? 0 : 25 }}
-                                                      transition={viewElement ? { delay: index * 0.05, duration: 0.5} : {}}
-                                                    >
-                                                      {item.text}
-                                                      {item.className.includes('common') && <div className="triangle"></div>}
-                                                    </motion.div>
-                                                    ))}
-                                                    </div>
-                                                    <div className="view-main">
-                                                        <div className="text-svg">
-                                                           <div className="text-effect"><AnimatedText text={text1} percent = {percent} setElement = {viewElement}/></div>
-                                                           <div className="text-effect"><AnimatedText text={text2} percent = {percent} setElement = {viewElement}/></div>
-                                                        </div>
-                                                        <motion.div 
-                                                        initial={{opacity : 0, x : -25}}
-                                                        animate={ourSite ? {opacity : 1, x : 0} : {}}
-                                                        transition={{delay : ourSite ? 0.7 : 0, ease : "anticipate", duration : ourSite ? 1 : 0}}
-                                                        className="our-website">
-                                                            <div className="img-our">
-                                                                <img src={require("../../../img/view-our.jpg")} alt="" />
-                                                            </div>
-                                                            <div className="our-website-t">
-                                                                <p>our-website</p>
-                                                            </div>
-                                                        </motion.div>
-                                                        <motion.div 
-                                                        initial={{opacity : 0, x : -25}}
-                                                        animate={designingChanges ? {opacity : 1, x : 0} : {}}
-                                                        transition={{delay : designingChanges ? 1 : 0, ease : "anticipate", duration : designingChanges ? 1 : 0}}
-                                                        className="designing-changes">
-                                                            <div>Designing</div>
-                                                            <div>Changes</div>
-                                                        </motion.div>
-                                                    </div>
+                                            */}
+                                            <div className="contents">
+                                                <div className="main-img">
+                                                    <div className="img"></div>
                                                 </div>
-                                                <div className="img"><img src={require("../../../img/effects-img.jpg")} alt="" /></div>
-                                            </motion.div>
+                                                <div className="view-head">
+                                                    <div className="designing-logo"><p>DESIGNING</p></div>
+                                                    <div className="start"><p>Let's start</p></div>
+                                                    <div className="menu"><p>Menu</p></div>
+                                                    <div className="about-us"><p>About-us</p></div>
+                                                    <div className="sign-up"><p>Sign up</p></div>
+                                                </div>
+                                                <div className="view-main">
+                                                    <div className="titles">
+                                                        <div className="product">
+                                                            <div className="PR"><PR/></div>
+                                                            <div className="link-to-product"><LinkToProduct/></div>
+                                                            <div className="duct"><Ducts/></div>
+                                                        </div>
+                                                        <div className="studio">
+                                                            <div className="design-h"><Design/></div>
+                                                            <div className="studio-h"><Studio/></div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="main-sub-txt">
+                                                        <div>
+                                                            <div></div>
+                                                            <div></div>
+                                                            <div></div>
+                                                            <div></div>
+                                                            <div></div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="next-section"><Circle/></div>
+                                                    
+                                                </div>
+                                            </div>
                                             
                                         </div>
                                     </div>
@@ -557,21 +554,3 @@ To enhance user interactions and focus, effects are added to websites and apps, 
 }
 
 export default FrameFixGuide;
-
-
-const AnimatedText: React.FC<{ text: string, percent : number, setElement : boolean}> = ({ text,percent,setElement }) => {
-    return (
-      <>
-        {text.split('').map((char, index) => (
-          <motion.span key={index} style={{position:'relative'}}
-
-                initial={{opacity : percent === 100 && setElement ? 0:1, top : percent === 100 && setElement ? 50 : 0}} 
-                animate={{opacity : percent === 100 && setElement ? 1:0, top : percent === 100 && setElement ? 0 : 50}} 
-                transition={percent === 100 && setElement ? { delay: index * 0.03, duration : 0.5, ease : "easeInOut"} : {}}>
-                
-            {char}
-          </motion.span>
-        ))}
-      </>
-    );
-};

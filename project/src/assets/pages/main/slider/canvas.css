@@ -867,6 +867,7 @@ section.main .wrapper .main-framefix .frame>div.framefix-ui .ui-body .canvas-edi
     background: rgba(255,255,255,.15);
     display: flex;
     justify-content: space-between;
+    position: relative;
     align-items: center;
     box-shadow: 0px 4px 12px rgba(0,0,0,1);
 }

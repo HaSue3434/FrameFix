@@ -98,7 +98,8 @@
     color: rgba(255,255,255,0.5);
     font-size: 1em;
     max-width: 500px;
-    font-weight: 400;
+    font-weight: 300;
+    letter-spacing: 0.5px;
 }
 .section-i>div .txt .see-all a {
     color: #fff;
@@ -521,136 +522,102 @@
     overflow: hidden;
     position: relative;
 }
-.view-effects > div .img {
+.view-effects .back .contents{
     width: 100%;
     height: 100%;
-}
-.view-effects > div .img img{
-    width: inherit;
-    height: inherit;
-    user-select: none;
-    object-fit: cover;
-}
-.view-effects > div .contents{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    background: #000;
     color: #fff;
+    position: relative;
 }
-.view-effects > div .contents .view-head{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 15%;
-    height: auto;
-    width: 100%;
-    padding: 12px;
-}
-.view-effects > div .contents .view-head>div{
-    font-size: 14px;
-    font-family: "Prata", serif;
-}
-.view-effects > div .contents .view-head>div .triangle{
-    clip-path: polygon(50% 100%, 0 12%, 100% 12%);
-    background: #fff;
-    width: 7px;
-    height: 5px;
-}
-.view-effects > div .contents .view-head>div.common{
-    display: flex;
-    gap: 5px;
-    align-items: center;
-}
-.view-effects > div .contents .view-head .logo{
-    color: #fff;
-    
-    letter-spacing: -2px;
-}
-.view-effects > div .contents .view-main{
-    width: 100%;
-    height: 100%;
+.view-effects .back .contents .view-head {
+    padding: 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: absolute;
-    top: 0;
-    left: 0;
+    width: 100%;
 }
-.view-effects > div .contents .view-main >.text-svg{
-    position: relative;
-    left: -150px;
-    top: -15px;
-    white-space: nowrap;
+.view-effects .back .contents .view-head > div.designing-logo p{
+    letter-spacing: -2.5px;
 }
-.view-effects > div .contents .view-main >.text-svg div{
-    font-size: 72px;
-    font-family: "Prata", serif;
-    display: inline-block;
-    letter-spacing: 3px;
-    user-select: none;
-    overflow: hidden;
+.view-effects .back .contents .view-head > div p{
+    font-family: "Prata";
+    font-size: 14px;
 }
-.view-effects > div .contents .view-main >.text-svg div span{
-    font-family: "Prata", serif;
+.view-effects .back .contents .view-head > div.sign-up{
+    padding: 8px 10px;
+    border-radius: 500px;
+    border: 1px solid rgba(255,255,255,1);
 }
-.view-effects > div .contents .view-main >.text-svg div:nth-child(2){
-    padding-left: 55px;
+.view-effects .back .contents .view-head > div.sign-up p{
+    font-family: "Poppins";
 }
-.view-effects > div .contents .view-main .our-website{
-    position: absolute;
-    left: 145px;
-    margin-top: 110px;
-}
-.view-effects > div .contents .view-main .our-website .img-our{
-    width: 170px;
-    height: 120px;
-}
-.view-effects > div .contents .view-main .our-website .img-our img{
+.view-effects .back .contents .view-main{
+    margin-top: 35px;
     width: 100%;
     height: 100%;
-    user-select: none;
-    object-fit: cover;
-}
-.view-effects > div .contents .view-main .our-website .our-website-t p{
-    font-family: "Prata", serif;
-    white-space: nowrap;
-    font-size: 12px;
-    user-select: none;
-}
-.view-effects > div.back{
-    background: #000;
-}
-.designing-changes{
-    position: absolute;
-    left: 65%;
-    top: 150px;
-}
-.designing-changes>div{
-    font-size: 12px;
-    font-family: "Prata", serif;
-    line-height: 25px;
-    letter-spacing: 0.5px;
-    vertical-align: middle;
-}
-.designing-changes>div:nth-child(2){
-    padding-left: 30px;
-}
-.designing-changes>div:nth-child(1){
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     position: relative;
 }
-.designing-changes>div:nth-child(1)::before{
-    content: '';
-    display: flex;
-    left: -25px;
-    top: 10.5px;
+.view-effects .back .contents .main-img{
     position: absolute;
-    width: 15px;
-    height: 1px;
-    transform:  translateY(-50%);
-    background: #fff;
-}   
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    height: 100%;
+}
+.view-effects .back .contents .main-img{
+
+}
+.view-effects .back .contents .view-main .titles>div>div{
+    overflow: hidden;
+}
+.view-effects .back .contents .view-main .titles h1,
+.view-effects .back .contents .view-main .titles p{
+    font-family: "Prata";
+}
+.view-effects .back .contents .view-main .titles .product{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.view-effects .back .contents .view-main .titles .product h1{
+    text-transform: uppercase;
+    font-weight: 500;
+}
+.view-effects .back .contents .view-main .titles .product .link-to-product{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #E960FF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.view-effects .back .contents .view-main .studio{
+    display: flex;
+    gap: 10px;
+    margin-top: 35px;
+}
+.view-effects .back .contents .view-main .studio>div{
+    overflow: hidden;
+}
+.view-effects .back .contents .view-main .studio>div h1{
+    text-transform: uppercase;
+    font-weight: 500;
+}
+.view-effects .back .contents .view-main .next-section{
+    height: 150px;
+    width: 100%;
+    border-top: 1px solid rgba(255,255,255,1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+}
 .layout .box .contents .contents-layout{
     width: 1045px;
     position: relative;

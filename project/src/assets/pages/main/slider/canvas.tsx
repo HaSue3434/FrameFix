@@ -351,7 +351,10 @@ const Canvas: React.FC = ()=>{
                             
                             className="frame1" ref={canvasFrame}>
                                 <div className="head-selected-frame">
-                                    <div className="frame-title"><p><span className="desktop">Desktop / </span>Desktop frame</p></div>
+                                    <div className="frame-title">
+                                        <p><span className="desktop">Desktop / </span>Desktop frame</p>
+                                        
+                                    </div>
                                     <div className="frame-toolbar-selection"><FrameToolbar/></div>
                                 </div>
                                 <CanvasImg/>

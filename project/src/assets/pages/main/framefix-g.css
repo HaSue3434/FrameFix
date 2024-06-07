@@ -576,6 +576,7 @@
 .view-effects .back .contents .main-img .img{
     width: 250px;
     height: 350px;
+    transform-origin: center center;
 }
 .view-effects .back .contents .main-img .img img{
     width: 100%;

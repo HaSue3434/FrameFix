@@ -45,13 +45,6 @@ import ViewMain from "./view-main";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const items = [
-    { text: 'DESIGNING', className: 'logo' },
-    { text: 'Let\'s Start', className: 'start' },
-    { text: 'Menu', className: 'menu common' },
-    { text: 'About us', className: 'about common' },
-    { text: 'Help Center', className: 'contact' }
-];
 
 
 const FrameFixGuide: React.FC = () => {
@@ -109,6 +102,7 @@ const FrameFixGuide: React.FC = () => {
                     },
                     onLeave: () => {
                         gsap.to(section, { autoAlpha: 0, zIndex: -11, duration: 0.35 });
+                        setViewLoad(false)
                     },
                     onEnterBack: () => {
                         gsap.to(section, { autoAlpha: 1, zIndex: 5, duration: 0.35 });
@@ -122,6 +116,8 @@ const FrameFixGuide: React.FC = () => {
                         gsap.to(section, { autoAlpha: 0, zIndex: -11, duration: 0.35 });
                         setActivate(false);
                         setGenerate(false);
+                        setViewLoad(false)
+
                     },
                     onUpdate: (self) => {
                         if (progressBar) {
@@ -491,3 +487,13 @@ const FrameFixGuide: React.FC = () => {
 }
 
 export default FrameFixGuide;
+
+
+
+export const ViewLoading = () => {
+    return (
+        <>
+        
+        </>
+    )
+}

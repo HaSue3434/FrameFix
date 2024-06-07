@@ -352,6 +352,10 @@ useEffect(() => {
                                                 <div className="t"><span>frame</span></div>
                                             </div>
                                             <div>
+                                                <div className="icon"><Shape/></div>
+                                                <div className="t"><span>Shape</span></div>
+                                            </div>
+                                            <div>
                                                 <div className="icon"><Text/></div>
                                                 <div className="t"><span>Text</span></div>
                                             </div>

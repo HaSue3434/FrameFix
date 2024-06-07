@@ -19,9 +19,9 @@ const View = () =>{
             className="main-img">
                 <motion.div 
                 
-                initial = {{scale : 0.5, opacity:0.5}}
+                initial = {{scale : 0.8, opacity:0.5}}
                 animate = {{scale : 1, opacity : 1,}}
-                transition={{duration : 1, ease : "easeInOut", delay : 1}}
+                transition={{duration : 1, ease : "easeInOut", delay : 1.2}}
                 className="img"><img src={require("../../../img/chain.jpg")} alt="" /></motion.div>
             </div>
             <motion.div 
@@ -30,8 +30,6 @@ const View = () =>{
             transition={{duration : 0.55, delay: 2.5, ease: "easeInOut"}}
             className="view-head">
                 <div>
-
-                
                     <div className="designing-logo"><p>DESIGNING</p></div>
                     <div className="start"><p>Let's start</p></div>
                     <div className="menu"><p>Menu</p></div>
@@ -146,3 +144,5 @@ const View = () =>{
     )
 }
 export default View;
+
+

@@ -7,15 +7,6 @@ import VanillaTilt from 'vanilla-tilt';
 import { ReactComponent as Deploy } from '../../../img/icons/deploy-icon.svg';
 import { ReactComponent as OutContentAI } from '../../../img/icons/out content.svg';
 import { ReactComponent as TextSvg } from '../../../img/text-svg.svg';
-import { ReactComponent as LinkToProduct } from '../../../img/link-to-project.svg';
-import { ReactComponent as PR } from '../../../img/PR.svg';
-import { ReactComponent as Ducts } from '../../../img/ducts.svg';
-import { ReactComponent as Design } from '../../../img/design.svg';
-import { ReactComponent as Studio } from '../../../img/studio.svg';
-import { ReactComponent as Circle } from '../../../img/circle.svg';
-import { ReactComponent as FirstTx } from '../../../img/first-tx.svg';
-import { ReactComponent as SecondTx } from '../../../img/second-tx.svg';
-import { ReactComponent as ThirdTx } from '../../../img/third-tx.svg';
 
 import { ReactComponent as Logo } from "../../../img/logo/logo.svg";
 import { ReactComponent as FrameLogo } from "../../../img/logo/frame-logo.svg";
@@ -50,6 +41,8 @@ import {
     useTypingEffect,
     useInViewPluginsScale
 } from "../animation-script";
+import ViewMain from "./view-main";
+
 gsap.registerPlugin(ScrollTrigger);
 
 const items = [
@@ -77,12 +70,6 @@ const FrameFixGuide: React.FC = () => {
 
     const scrolling = useRef<HTMLDivElement>(null)
     const [scrollingStateValue , setScrollingStateValue] = useState(0);
-
-    const [viewElement, setViewElement] = useState(false);
-    const [ourSite, setOutSite] = useState(false);
-    const [designingChanges, setDesigningChanges] = useState(false);
-    const [text1, setText1] = useState('');
-    const [text2, setText2] = useState('');
 
     const [viewLoad, setViewLoad] = useState(false);
     const [percent, setPercent] = useState(0);
@@ -115,8 +102,6 @@ const FrameFixGuide: React.FC = () => {
                         
 
                         setTimeout(()=>{
-                            setText1('Digital Soultions');
-                            setText2("Creativity Digital");
                             setTriggerTyping(true);
                             setViewLoad(true);
                         },500)
@@ -129,13 +114,7 @@ const FrameFixGuide: React.FC = () => {
                         gsap.to(section, { autoAlpha: 1, zIndex: 5, duration: 0.35 });
                         setActivate(true); 
                         setGenerate(true);
-                        setTimeout(()=>{
-                            setText1('Digital Soultions');
-                            setText2("Creativity Digital");
-                            setViewElement(true);
-                            setTriggerTyping(true);
-                            setDesigningChanges(true);
-                            setOutSite(true);                            
+                        setTimeout(()=>{                         
                             setViewLoad(true);
                         },500)
                     },
@@ -143,12 +122,6 @@ const FrameFixGuide: React.FC = () => {
                         gsap.to(section, { autoAlpha: 0, zIndex: -11, duration: 0.35 });
                         setActivate(false);
                         setGenerate(false);
-                        setText1('');
-                        setText2('');
-                        setTriggerTyping(false);
-                        setDesigningChanges(false);
-                        setViewElement(false);
-                        setOutSite(false);
                     },
                     onUpdate: (self) => {
                         if (progressBar) {
@@ -184,9 +157,6 @@ const FrameFixGuide: React.FC = () => {
                         setTimeout(()=>{
                             if(loader.current && scrolling.current) {
                                 loader.current.style.display = "none";
-                                setOutSite(true);
-                                setDesigningChanges(true);
-                                setViewElement(true);
                             }
                             
                         },1000)
@@ -390,7 +360,7 @@ const FrameFixGuide: React.FC = () => {
                                 <div className="icon"><Effect/></div>
                                 <div className="txt">effects</div>
                             </div>
-                            <h1> <span>Add effects</span> to delight your audience.</h1>
+                            <h1> <span>Add effects</span> to your website.</h1>
                         </div>
                         <div className="m-expl">
                             <div className="progress-contain">
@@ -425,7 +395,7 @@ const FrameFixGuide: React.FC = () => {
                                     <div className="view-effects">
                                         
                                         <div className="back">
-                                            {/** 
+                                            
                                             <motion.div 
                                             className="loading-contents"
                                             ref={loader}  
@@ -448,42 +418,9 @@ const FrameFixGuide: React.FC = () => {
                                                     </div>
                                                 </div>
                                             </motion.div>
-                                            */}
+                                            
                                             <div className="contents">
-                                                <div className="main-img">
-                                                    <div className="img"></div>
-                                                </div>
-                                                <div className="view-head">
-                                                    <div className="designing-logo"><p>DESIGNING</p></div>
-                                                    <div className="start"><p>Let's start</p></div>
-                                                    <div className="menu"><p>Menu</p></div>
-                                                    <div className="about-us"><p>About-us</p></div>
-                                                    <div className="sign-up"><p>Sign up</p></div>
-                                                </div>
-                                                <div className="view-main">
-                                                    <div className="titles">
-                                                        <div className="product">
-                                                            <div className="PR"><PR/></div>
-                                                            <div className="link-to-product"><LinkToProduct/></div>
-                                                            <div className="duct"><Ducts/></div>
-                                                        </div>
-                                                        <div className="studio">
-                                                            <div className="design-h"><Design/></div>
-                                                            <div className="studio-h"><Studio/></div>
-                                                        </div>
-                                                    </div>
-                                                    <div className="main-sub-txt">
-                                                        <div>
-                                                            <div></div>
-                                                            <div></div>
-                                                            <div></div>
-                                                            <div></div>
-                                                            <div></div>
-                                                        </div>
-                                                    </div>
-                                                    <div className="next-section"><Circle/></div>
-                                                    
-                                                </div>
+                                                {percent === 100 ? <ViewMain/> :""}
                                             </div>
                                             
                                         </div>

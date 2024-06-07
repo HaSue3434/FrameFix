@@ -531,28 +531,33 @@
 }
 .view-effects .back .contents .view-head {
     padding: 15px;
+    height: 65px;
+    overflow: hidden;
+    
+    
+}
+.view-effects .back .contents .view-head > div{
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
 }
-.view-effects .back .contents .view-head > div.designing-logo p{
+.view-effects .back .contents .view-head > div > div.designing-logo p{
     letter-spacing: -2.5px;
 }
-.view-effects .back .contents .view-head > div p{
+.view-effects .back .contents .view-head > div > div p{
     font-family: "Prata";
     font-size: 14px;
 }
-.view-effects .back .contents .view-head > div.sign-up{
+.view-effects .back .contents .view-head > div > div.sign-up{
     padding: 8px 10px;
     border-radius: 500px;
     border: 1px solid rgba(255,255,255,1);
 }
-.view-effects .back .contents .view-head > div.sign-up p{
+.view-effects .back .contents .view-head > div > div.sign-up p{
     font-family: "Poppins";
 }
 .view-effects .back .contents .view-main{
-    margin-top: 35px;
     width: 100%;
     height: 100%;
     display: flex;
@@ -560,17 +565,23 @@
     align-items: center;
     justify-content: center;
     position: relative;
+    padding-bottom: 60px;
 }
 .view-effects .back .contents .main-img{
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 40%;
     transform: translate(-50%,-50%);
+}
+.view-effects .back .contents .main-img .img{
+    width: 250px;
+    height: 350px;
+}
+.view-effects .back .contents .main-img .img img{
     width: 100%;
     height: 100%;
-}
-.view-effects .back .contents .main-img{
-
+    user-select: none;
+    object-fit: cover;
 }
 .view-effects .back .contents .view-main .titles>div>div{
     overflow: hidden;
@@ -596,6 +607,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transform-origin: center center;
 }
 .view-effects .back .contents .view-main .studio{
     display: flex;
@@ -609,14 +621,30 @@
     text-transform: uppercase;
     font-weight: 500;
 }
-.view-effects .back .contents .view-main .next-section{
-    height: 150px;
+
+.view-effects .back .contents .view-main .main-sub-txt{
     width: 100%;
-    border-top: 1px solid rgba(255,255,255,1);
     display: flex;
-    align-items: center;
     justify-content: center;
-    background: #000;
+    position: relative;
+    align-items: center;
+    top: 120px;
+}
+.view-effects .back .contents .view-main .main-sub-txt>div{
+    display: flex;
+    gap: 40px;
+}
+.view-effects .back .contents .view-main .main-sub-txt>div .t{
+    overflow: hidden;
+}
+.view-effects .back .contents .view-main .main-sub-txt>div .division{
+    width: 3px;
+    height:60px;
+    background-color: rgba(255,255,255,.15);
+}
+.view-effects .back .contents .view-main .img{
+    position: absolute;
+    
 }
 .layout .box .contents .contents-layout{
     width: 1045px;

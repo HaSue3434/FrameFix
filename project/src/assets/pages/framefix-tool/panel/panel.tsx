@@ -25,6 +25,14 @@ import {ReactComponent as SidebarOpen } from "../../../img/icons/framefix-style-
 
 import { PluginsCommon } from "./plugin";
 
+import {
+
+    Design,
+    Prototype,
+    HandOff
+
+} from "./modules/exportModule";
+import Handoff from "./modules/tab-panel/handoff";
 
 
 const variantsPlugin = [
@@ -152,7 +160,7 @@ export const RightPanel:React.FC = () =>{
     const renderTabContent = () => {
         switch (activeTab) {
             case 'Design':
-                return <TabDesign />;
+                return <Design />;
             case 'Prototype':
                 return <Prototype />;
             case 'Handoff':

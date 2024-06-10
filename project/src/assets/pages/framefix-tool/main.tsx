@@ -12,6 +12,9 @@ import {IframeCanvas} from "./iframeCanvas";
 
 const MainComponent: React.FC=()=>{
 
+    const [projectName, setProjectName ] = useState('');
+
+
     return (
       <>
           <div className={styles.container} >
@@ -20,14 +23,19 @@ const MainComponent: React.FC=()=>{
                         <div className={styles.headAppPointerFramefix}>
                            <div className={styles.headLeftColPointer}>
                                <div className={styles.projectFrameFix}>
-                                   <div className={styles.framefixLogo}><FrameLogo/></div>
-                                   <div className={styles.projectName}><p>Project name</p></div>
-                                   <AssetBottomArrow/>
-                               </div>
-                               <div className={styles.plans}>
-                                   <Link to={'/'}>
-                                       Free
-                                   </Link>
+                                    <div className = {styles.frameLogo}>
+                                          <Link to={'/'}><FrameLogo/></Link>
+                                    </div>
+
+                                    <div className={styles.division}></div>
+
+                                    <div className={styles.framefixProjectName}>
+                                      <div className={styles.projectName}>Untitled Project name</div>
+                                    </div>
+
+                                    <div className={styles.plans}>
+                                      <Link to={'/'}>Free</Link>
+                                    </div>
                                </div>
                            </div>
                            <div className={styles.headRightColPointer}>
@@ -86,3 +94,13 @@ const CtrlWheelBlocker:React.FC<codeBlocker> = ({ children }) => {
   };
   
 export default MainComponent;
+
+
+
+export const PopupProjectNames = () =>{
+    return (
+        <>
+
+        </>
+    )
+}

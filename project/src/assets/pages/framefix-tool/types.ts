@@ -1,4 +1,4 @@
-export interface MyType {
-    name: string;
-    age: number;
-  }
+export interface ProjectName {
+    name : String,
+    description : String, 
+}

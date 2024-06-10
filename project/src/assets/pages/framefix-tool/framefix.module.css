@@ -25,42 +25,49 @@
     border-bottom: 1px solid rgba(255,255,255,.1);
     background: #000;
     white-space: nowrap;
+    padding: 15px;
 }
 .container .wrapper .headAppPointerFramefix .headLeftColPointer{
     display: flex;
     align-items: center;
     height: 100%;
 }
-.container .wrapper .headAppPointerFramefix .headLeftColPointer .projectFrameFix{ 
+.container .wrapper .headAppPointerFramefix .headLeftColPointer .projectFrameFix{
     display: flex;
-    gap: 10px;
+    gap: 15px;
     align-items: center;
-    cursor: pointer;
-    padding-left: 10px;
-    padding-right: 10px;
-    height: inherit;
-    transition: .25s;
-}
-.container .wrapper .headAppPointerFramefix .headLeftColPointer .projectFrameFix:hover{
-    background: rgba(255,255,255,.1);
-    margin-right: 10px;
 }
 
-.container .wrapper .headAppPointerFramefix .headLeftColPointer .projectFrameFix .framefixLogo{
-    width: 25px;
+.container .wrapper .headAppPointerFramefix .headLeftColPointer .projectFrameFix .frameLogo a svg{
+    width: auto;
     height: 30px;
-    
-}
-.container .wrapper .headAppPointerFramefix .headLeftColPointer .projectFrameFix .projectName p{
-    color: rgba(255,255,255,1);
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 60px;
-}
-.container .wrapper .headAppPointerFramefix .headLeftColPointer .projectFrameFix >svg{
-    height: auto;
-    width: 10px;
     vertical-align: middle;
+}
+.container .wrapper .headAppPointerFramefix .headLeftColPointer .projectFrameFix .division{
+    height: 25px;
+    width: 2px;    
+    background: rgba(255,255,255,.2);
+}
+.container .wrapper .headAppPointerFramefix .headLeftColPointer .projectFrameFix .framefixProjectName{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+    cursor: pointer;
+}
+.container .wrapper .headAppPointerFramefix .headLeftColPointer .projectFrameFix .framefixProjectName>div{
+    font-family: "Inter", sans-serif;
+}
+.container .wrapper .headAppPointerFramefix .headLeftColPointer .projectFrameFix .framefixProjectName .state{
+    font-size: 12px;
+    color: rgba(255,255,255,.5);
+}
+.container .wrapper .headAppPointerFramefix .headLeftColPointer .projectFrameFix .framefixProjectName .projectName{
+    max-width: 200px;
+    font-size: 12px;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    color: rgba(255,255,255,1);
 }
 .container .wrapper .headAppPointerFramefix .headLeftColPointer  .plans a{
     color: rgba(255,255,255,1);

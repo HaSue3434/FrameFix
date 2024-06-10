@@ -25,6 +25,11 @@ export const LayerModule = React.lazy(() => import('./features/LayerModule'));
 */
 
 
+// panel //
+import Design from "./tab-panel/tabDesign";
+
+// panel //
+
 export {
 
     // layer 
@@ -38,4 +43,8 @@ export {
     // magic
     MagicModule
     // magic
+
+
+
+
 };

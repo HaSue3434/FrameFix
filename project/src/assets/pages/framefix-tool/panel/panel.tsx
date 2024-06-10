@@ -5,7 +5,6 @@ import { motion,AnimatePresence } from 'framer-motion';
 
 // icon plugin //
 import {ReactComponent as Template } from "../../../img/icons/framefix-plugin-icons/template.svg";
-import {ReactComponent as Layer } from "../../../img/icons/framefix-plugin-icons/layer.svg";
 import {ReactComponent as Frame } from "../../../img/icons/framefix-plugin-icons/frame.svg";
 import {ReactComponent as Shape } from "../../../img/icons/framefix-plugin-icons/shape.svg";
 import {ReactComponent as Text } from "../../../img/icons/framefix-plugin-icons/text.svg";
@@ -132,12 +131,10 @@ export const RightPanel:React.FC = () =>{
 
     const [stylesVisible, setStylesVisible] = useState(false);
     const sidebarOpenRef = useRef<HTMLDivElement>(null);
-    const openConrols = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        
-    }, [stylesVisible]);
-
+    const [activeTab, setActiveTab] = useState('Design');
+    const handleTabClick = (tabName: string) => {
+        setActiveTab(tabName);
+    };
     const handleClick = () => {
 
         const openSide = sidebarOpenRef.current;
@@ -151,6 +148,20 @@ export const RightPanel:React.FC = () =>{
 
         }
     }
+
+    const renderTabContent = () => {
+        switch (activeTab) {
+            case 'Design':
+                return <TabDesign />;
+            case 'Prototype':
+                return <Prototype />;
+            case 'Handoff':
+                return <Handoff />;
+            default:
+                return null;
+        }
+    };
+
     return(
         <>
         <AnimatePresence>
@@ -173,11 +184,28 @@ export const RightPanel:React.FC = () =>{
                     <motion.div
                         id={Styles.rightPanelWrapper}>
                         <div className={Styles.rightPanelTab}>
-                            <div className={`${Styles.designTab}  ${Styles.commTab} ${Styles.activeTab}`}><p className={Styles.tab}>Design</p></div>
-                            <div className={`${Styles.ProtoTab}   ${Styles.commTab}`}><p className={Styles.tab}>Prototype</p></div>
-                            <div className={`${Styles.HandoffTab} ${Styles.commTab}`}><p className={Styles.tab}>Handoff</p></div>
+                            <div 
+                                className={`${Styles.designTab} ${Styles.commTab} ${activeTab === 'Design' ? Styles.activeTab : ''}`}
+                                onClick={() => handleTabClick('Design')}
+                            >
+                                <p className={Styles.tab}>Design</p>
+                            </div>
+                            <div 
+                                className={`${Styles.ProtoTab} ${Styles.commTab} ${activeTab === 'Prototype' ? Styles.activeTab : ''}`}
+                                onClick={() => handleTabClick('Prototype')}
+                            >
+                                <p className={Styles.tab}>Prototype</p>
+                            </div>
+                            <div 
+                                className={`${Styles.HandoffTab} ${Styles.commTab} ${activeTab === 'Handoff' ? Styles.activeTab : ''}`}
+                                onClick={() => handleTabClick('Handoff')}
+                            >
+                                <p className={Styles.tab}>Handoff</p>
+                            </div>
                         </div>
-                        
+                        <div className={Styles.tabContent}>
+                            {renderTabContent()}
+                        </div>
                     </motion.div>
                 )}
                 

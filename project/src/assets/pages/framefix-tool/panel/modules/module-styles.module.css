@@ -1,0 +1,52 @@
+.pageFiles{
+    padding: 15px;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+    
+}
+.pageFiles .title {
+    display: flex;
+    justify-content: space-between;
+
+}
+.pageFiles .title .addFile{
+    position: relative;
+    cursor: pointer;
+}
+.pageFiles .title h4{
+    font-size: 14px;
+    color: rgba(255,255,255,1);
+    font-weight: 500;
+}
+.pageFiles~.layer{
+    padding: 15px;
+
+}
+.openFileAddOptions{
+    background: #2b2b2b;
+    width: auto;
+    max-width: 150px;
+    height: auto;
+    position: absolute;
+    left: 0;
+    margin-top: 5px;
+    box-shadow: 0px 8px 12px rgba(0,0,0,0.35);
+    border-radius: 5px;
+}
+.openFileAddOptions .wrap .option{
+    padding: 8px 15px;
+    font-size: 12px;
+    color: rgba(255,255,255,1);
+    text-overflow: ellipsis;
+}
+.openFileAddOptions .wrap .option:first-child{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.openFileAddOptions .wrap .option:last-child{
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top: 1px solid rgba(255,255,255,.1);
+}
+.openFileAddOptions .wrap .option:hover{
+    background: #459AFF;
+}

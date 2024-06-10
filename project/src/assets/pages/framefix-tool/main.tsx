@@ -10,11 +10,18 @@ import {
  } from './panel/panel';
 import {IframeCanvas} from "./iframeCanvas";
 
+import { 
+
+    ProjectName,
+
+ } from './types';
+
 const MainComponent: React.FC=()=>{
 
-    const [projectName, setProjectName ] = useState('');
+    const [projectName, setProjectName] = useState<ProjectName>({ name: 'Untitled Project name', description: '' });
 
-
+    const [popupScreen, setPopupScreen] = useState(false);
+    
     return (
       <>
           <div className={styles.container} >
@@ -27,10 +34,8 @@ const MainComponent: React.FC=()=>{
                                           <Link to={'/'}><FrameLogo/></Link>
                                     </div>
 
-                                    <div className={styles.division}></div>
-
                                     <div className={styles.framefixProjectName}>
-                                      <div className={styles.projectName}>Untitled Project name</div>
+                                      <div className={styles.projectName}>{projectName.name}</div>
                                     </div>
 
                                     <div className={styles.plans}>
@@ -95,12 +100,11 @@ const CtrlWheelBlocker:React.FC<codeBlocker> = ({ children }) => {
   
 export default MainComponent;
 
-
-
 export const PopupProjectNames = () =>{
+
     return (
         <>
-
+            
         </>
     )
 }

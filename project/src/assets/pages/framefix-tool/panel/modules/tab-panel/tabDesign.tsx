@@ -7,7 +7,7 @@ import ShapeSelected from "./selected-element/shapeSelected";
 import TextSelected from './selected-element/t-selected';
 
 
-export const tabDesign = () =>{
+const TabDesign = () =>{
     
     return(
         <>
@@ -16,3 +16,4 @@ export const tabDesign = () =>{
         </>
     )
 }
+export default TabDesign;

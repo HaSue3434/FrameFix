@@ -106,10 +106,12 @@ iframe{
     z-index: 88;
     height:100%;
     width: auto;
+    
     position: relative;
 }
 .wrapperLeftPanel .panel{
     display: flex;
+    
 }
 .wrapperLeftPanel .panel .plugins{
     gap: 35px;
@@ -326,6 +328,10 @@ iframe{
     font-size: 12px;
     font-weight: 500;
     color: rgba(255,255,255,0.5);
+    transition: .25s;
+}
+#rightPanelWrapper .rightPanelTab .commTab:hover .tab{
+    color: rgba(255,255,255,1);
 }
 #rightPanelWrapper .rightPanelTab .commTab.activeTab .tab{
     color: rgba(255,255,255,1);

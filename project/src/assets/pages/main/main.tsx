@@ -102,7 +102,7 @@ useEffect(() => {
             scrollTrigger: {
                 trigger: frameElement.current,
                 start: "-40% 50%",
-                end: "20% 50%",
+                end: "40% 50%",
                 scrub: 1,
                 onUpdate: (scrollTrigger) => {
 

@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {ReactComponent as FrameLogo} from '../../../img/logo/fill-logo.svg';
+import { ReactComponent as FrameLogo } from '../../../img/logo/fill-logo.svg';
 import { ReactComponent as CanvasImg } from '../../../img/canvas-hosting.svg';
 import { useSeoAnimation } from '../animation-script';
 import { motion } from "framer-motion";
+
+
 
 const Seo = () =>{
     const [animation,setAnimation] = useSeoAnimation();

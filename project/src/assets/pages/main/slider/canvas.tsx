@@ -69,15 +69,17 @@ const Canvas: React.FC = ()=>{
         let ctx = gsap.context(()=>{
 
             t1.from(canvasFrame.current,{
-                rotateX : 10,
+                rotateX : 15,
                 translateY : -150,
+                translateZ : -150,
                 opacity : 1,
                 scrollTrigger : {
                     trigger : canvasFrame.current,
                     start : "-45% 50%",
-                    end : "40% 50%",
+                    end : "60% 50%",
                     scrub : 1,
-                }
+                },
+                ease : "power1.InOut"
             })
 
         })
@@ -116,7 +118,7 @@ const Canvas: React.FC = ()=>{
                         </div>
                     </div>
                     <div className="ui-body">
-                        <div className="plugins">
+                        <div className="plugins side-comm">
                             <div className="option">
                             {plugins.map((plugin, index) => (
                                 <motion.div
@@ -210,7 +212,7 @@ const Canvas: React.FC = ()=>{
                                 </div>
                             </div>
                         </div>
-                        <div className="styles">
+                        <div className="styles side-comm">
                             <div className="tabs">
                                 <div>Design</div>
                                 <div>Interactive</div>
@@ -346,7 +348,6 @@ const Canvas: React.FC = ()=>{
                             </div>
                         </div>
                         <motion.div className="canvas-editor">
-                            <div className="left-frame"></div>
                             <motion.div 
                             
                             className="frame1" ref={canvasFrame}>
@@ -359,7 +360,6 @@ const Canvas: React.FC = ()=>{
                                 </div>
                                 <CanvasImg/>
                             </motion.div>
-                            <div className="right-frame"></div>
                         </motion.div>
                     </div>
                 </motion.div>

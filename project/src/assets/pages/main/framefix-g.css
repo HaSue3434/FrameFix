@@ -147,6 +147,9 @@
     border-radius: 10px;
     position: relative;
 }
+.section-i.f-b .framefix>.box > .contents{
+    background: #000;
+}
 .section-i .framefix>.box > .contents .assets{
     position: absolute;
     top: 60px;
@@ -244,6 +247,16 @@
     display: flex;
     gap: 10px;
     align-items: center;
+}
+.section-i.f-b .head{
+    
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+.section-i.f-b .head>div{
+    display: flex;
+    gap: 10px;
+    width: 100%;
 }
 .section-i .framefix>.box > .contents .head .frame-logo{
     display: flex;
@@ -666,4 +679,21 @@
     width: 1px;
     height: 100%;
     background: rgba(0,0,0,.1);
+}
+.view-selection>.view{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.view-selection>div.divi{
+    height: 25px;
+    width: 2px;
+    background: rgba(255,255,255,.15);
+}
+.view-selection>.view>p{
+    font-size: 12px;
+    color: rgba(255,255,255,1);
+}
+.view-selection>.overview{
+    opacity: 0.5;
 }

@@ -28,11 +28,11 @@ body{
     color: #fff;
 }
 section.main{
-    padding-top: 8em;
+    padding-top: 10em;
     width: 100%;
     position: relative;
     height: 100%;
-    padding-bottom: 7em;
+    padding-bottom: 10em;
 }   
 #background{
     position: absolute;

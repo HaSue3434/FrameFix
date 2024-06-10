@@ -15,6 +15,8 @@ import { ReactComponent as DropDownArrow } from "../../../img/icons/bottom-arrow
 import { ReactComponent as Star } from "../../../img/icons/star.svg";
 import { ReactComponent as Effect } from "../../../img/icons/effect.svg";
 import { ReactComponent as Layout } from "../../../img/icons/framefix-plugin-icons/template.svg";
+import { ReactComponent as Preview } from "../../../img/icons/framefix-proto-view/preview-icon.svg";
+import { ReactComponent as Overview } from "../../../img/icons/framefix-proto-view/overview-icon.svg";
 
 // icon tools //
 
@@ -116,7 +118,7 @@ const FrameFixGuide: React.FC = () => {
                         gsap.to(section, { autoAlpha: 0, zIndex: -11, duration: 0.35 });
                         setActivate(false);
                         setGenerate(false);
-                        setViewLoad(false)
+                        setViewLoad(false);
 
                     },
                     onUpdate: (self) => {
@@ -203,7 +205,7 @@ const FrameFixGuide: React.FC = () => {
                                 <div className="progress"></div>
                             </div>
                             <div className="explain">
-                                <p className="sub-title">Utilize</p>
+                                <p className="sub-title">AI-Powered</p>
                                 <p>FrameFix utilizes AI technology to allow for precise and quick adjustments in layouts. This tool supports efficient workflow, enhancing project completion speeds.</p>
                             </div>
                         </div>
@@ -365,7 +367,7 @@ const FrameFixGuide: React.FC = () => {
                             <div className="explain">
                                 <p className="sub-title">Effects</p>
                                 <p>
-                                Capture audience interest and elevate user experience by a clicks only add effects into your website.</p>
+                                Create a visually stunning website by adding effects that will captivate the audience and garner attention.</p>
                             </div>
                         </div>
                         <div className="see-all">
@@ -379,45 +381,41 @@ const FrameFixGuide: React.FC = () => {
                             <div className="box">
                                 <div className="contents">
                                     <div className="head">
-                                        <div className="frame-logo">
-                                            <FrameLogo/>
+                                        <div>
+                                            <div className="frame-logo">
+                                                <FrameLogo/>
+                                            </div>
+                                            <div className="project-name">
+                                                <p> <span>Drafts /</span> Project name <DropDownArrow/></p>
+                                            </div>
                                         </div>
-                                        <div className="project-name">
-                                            <p> <span>Drafts /</span> Project name <DropDownArrow/></p>
+                                        <div className="view-selection">
+                                            <div className="preview seleted view">
+                                                <div><Preview/></div>
+                                                <p>Preview</p>
+                                            </div>
+                                            <div className="divi"></div>
+                                            <div className="overview view">
+                                                <div><Overview/></div>
+                                                <p></p>
+                                            </div>
                                         </div>
-                                        
                                     </div>
 
                                     <div className="view-effects">
                                         
                                         <div className="back">
                                             
-                                            <motion.div 
-                                            className="loading-contents"
-                                            ref={loader}  
-                                            initial={{ opacity: 0, top: "0" }}
-                                            animate={{ opacity: 1, top: percent === 100 ? "-100%" : "0" }}
-                                            transition={{ duration : 1, ease : "anticipate", delay : 0.3}}>
-                                                <div className="contain-box">
-                                                    <motion.div className="loading-box">
-                                                        
-                                                        <motion.div 
-                                                        initial={{ width: "0" }}
-                                                        animate={{ width: `${percent}%` }}
-                                                        transition={{ duration: 0.25 }}
-                                                        className="process" style={{ width: `${percent}%` }}></motion.div>
-
-                                                    </motion.div>
-                                                    <div className="p">
-                                                        <div className="loading-t"><span>Loading</span></div>
-                                                        <div className="percents"><span>{percent}%</span></div>
-                                                    </div>
-                                                </div>
-                                            </motion.div>
+                                        {viewLoad ? (
+                                         <>
+                                             <ViewLoading ref={loader} percent={percent} />
+                                             <div className="contents">
+                                                 {percent === 100 ? <ViewMain /> : null}
+                                             </div>
+                                         </>
+                                        ) : null}
                                             
-                                            <div className="contents">
-                                                {percent === 100 ? <ViewMain/> :""}
-                                            </div>
+                                            
                                             
                                         </div>
                                     </div>
@@ -432,7 +430,7 @@ const FrameFixGuide: React.FC = () => {
                         <div>
                             <div className='type-icon'>
                                 <div className="icon"><Layout/></div>
-                                <div className="txt">Layout</div>
+                                <div className="txt">Application</div>
                             </div>
                             <h1> Structure with a few <span>clicks.</span></h1>
                         </div>
@@ -441,8 +439,8 @@ const FrameFixGuide: React.FC = () => {
                                 <div className="progress"></div>
                             </div>
                             <div className="explain">
-                                <p className="sub-title">Layout</p>
-                                <p>Effective visual effects guide user focus, enhance interaction with websites and apps, and enrich the user experience.</p>
+                                <p className="sub-title">Application</p>
+                                <p>You can precisely tailor the style as you desire based on familiar canvas tools, controlling it in real-time across CSS properties and throughout the entire site.</p>
                             </div>
                         </div>
                         <div className="see-all">
@@ -489,11 +487,36 @@ const FrameFixGuide: React.FC = () => {
 export default FrameFixGuide;
 
 
+interface Ve {
+    ref: React.RefObject<HTMLDivElement>;
+    percent: Number;
+}
 
-export const ViewLoading = () => {
+export const ViewLoading = ({ ref,percent }: Ve) => {
     return (
         <>
-        
+        <motion.div 
+        className="loading-contents"
+        ref={ref}  
+        initial={{ top: "0" }}
+        animate={{ top: percent === 100 ? "-100%" : "0" }}
+        transition={{ duration : 1, ease : "anticipate", delay : 0.3}}>
+            <div className="contain-box">
+                <motion.div className="loading-box">
+                    
+                    <motion.div 
+                    initial={{ width: "0" }}
+                    animate={{ width: `${percent}%` }}
+                    transition={{ duration: 0.25 }}
+                    className="process" style={{ width: `${percent}%` }}></motion.div>
+
+                </motion.div>
+                <div className="p">
+                    <div className="loading-t"><span>Loading</span></div>
+                    <div className="percents"><span>{`${percent}%`}</span></div>
+                </div>
+            </div>
+        </motion.div>
         </>
     )
 }

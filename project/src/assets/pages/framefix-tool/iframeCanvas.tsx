@@ -3,7 +3,7 @@ import Styles from './framefix.module.css';
 import Cusor from './icons/cursor-icon/cursor.svg';
 import Cursor from './icons/cursor-icon/cursor.svg';
 import { Canvas } from './canvasProps';
-
+import {ReactComponent as Toolbar} from "../../img/frame-toolbar-icon.svg"
 // module //
 import { SelectedFrame } from './script';
 // module //
@@ -19,8 +19,12 @@ export const IframeCanvas:React.FC = () =>{
     const draggCursor = useRef<HTMLDivElement>(null);
     const [ canvasState , setCanvasState ] = useState(false);
     const editor = useRef<HTMLDivElement>(null);
+    const [inputValues, setInputValues] = useState<{ [key: string]: string }>({});
 
     const handleMouseDown = (e: React.MouseEvent) => {
+        if ((e.target as HTMLElement).tagName.toLowerCase() === 'input') {
+            return; 
+        }
         e.preventDefault();
         if (e.button === 1 && layerSCRef.current) {
             const rect = layerSCRef.current.getBoundingClientRect();
@@ -108,9 +112,6 @@ export const IframeCanvas:React.FC = () =>{
             draggingRef.current = false;
             
         };
-        if(canvasRef.current){
-            canvasRef.current.style.zIndex = canvasState ? '5' : '-1';
-        }
 
         currentDraggCursor?.addEventListener('wheel', handleWheel, { passive: false });
         window.addEventListener('mousemove', handleMouseMove);
@@ -131,7 +132,6 @@ export const IframeCanvas:React.FC = () =>{
     
             if (target.getAttribute('frame')) {
                 const elementInfo = SelectedFrame.getInfo(target);
-                console.log('Ctrl + Clicked element info:', elementInfo);
             }
     
             const editorElement = editor.current;
@@ -147,12 +147,6 @@ export const IframeCanvas:React.FC = () =>{
             }
         }
     };
-    const handleElementMouseOver = (e:MouseEvent)=>{
-        if(e.ctrlKey){
-            const ediorCurrent = editor.current;
-            
-        }
-    }
     useEffect(() => {
         const editorElement = editor.current;
         if (!editorElement) return;
@@ -169,6 +163,20 @@ export const IframeCanvas:React.FC = () =>{
             editorElement.removeEventListener('mousedown', handleMouseDown);
         };
     }, [editor]);
+
+    useEffect(() => {
+        const storedValues = JSON.parse(localStorage.getItem('board-names') || '{}');
+        setInputValues(storedValues);
+    }, []);
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>, key: string) => {
+        const newValue = e.target.value;
+        setInputValues(prev => {
+            const updatedValues = { ...prev, [key]: newValue };
+            localStorage.setItem('board-names', JSON.stringify(updatedValues));
+            return updatedValues;
+        });
+    };
 
     return(
         <>
@@ -194,20 +202,53 @@ export const IframeCanvas:React.FC = () =>{
 
                             {/* block */}
                             <div className={`${Styles.frame1} ${Styles.frame}`}  data-frame-layer = "frame1">
-                                
-                                <div className={Styles.boardName}><p>frame1</p></div>
+                                <div className={Styles.board}>
+                                    <div className={Styles.boardName}>
+                                        <input
 
-                                <div data-node-type = "frame" className={Styles.boardFrame}>
-
+                                        type="text"
+                                        placeholder="Untitled frame name"
+                                        name="board-name-frame1"
+                                        value={inputValues['board-name-frame1'] || ''}
+                                        onChange={(e) => handleInputChange(e, 'board-name-frame1')}
+                                        
+                                        />
+                                    </div>
+                                    <div className={Styles.boardOption}>
+                                        <Toolbar/>
+                                    </div>
                                 </div>
-                            </div>
-                            {/* */}
 
-                            <div className={`${Styles.frame2} ${Styles.frame}`}  data-frame-layer = "frame2">
-                                <div className={Styles.boardName}><p>frame2</p></div>
                                 <div data-node-type = "frame" className={Styles.boardFrame}></div>
                             </div>
+                            {/* block */}
+                            <div className={`${Styles.frame2} ${Styles.frame}`}  data-frame-layer = "frame2">
+                                <div className={Styles.board}>
+                                    <div className={Styles.boardName}>
+                                        <input
+
+                                        type="text"
+                                        placeholder="Untitled frame name"
+                                        name="board-name-frame2"
+                                        value={inputValues['board-name-frame2'] || ''}
+                                        onChange={(e) => handleInputChange(e, 'board-name-frame2')}
+                                        
+                                        />
+                                    </div>
+                                    <div className={Styles.boardOption}>
+                                        <Toolbar/>
+                                    </div>
+                                </div>
+
+                                <div data-node-type = "frame" className={Styles.boardFrame}></div>
+                            </div>
+
                         </div>
+                        
+
+                            
+
+                        
                     </div>
 
                 </div>

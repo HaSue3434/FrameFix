@@ -189,7 +189,6 @@ iframe{
     z-index: 5;
     height: 100%;
     width:auto;
-    cursor: pointer;
     align-items: center;
     justify-content: center;
 }
@@ -278,34 +277,69 @@ iframe{
     height: 100%;
     
 }
-.canvasEditorContain .stylesLayer .layerSC .canvasEditor .editor .frame .boardName{
+.canvasEditorContain .stylesLayer .layerSC .canvasEditor .editor .frame .board{
     width: 100%;
     background: rgba(255,255,255,.1);
     margin-bottom: 10px;
-    padding: 10px;
+    padding: 6px;
     border-radius: 5px;
+    pointer-events: none;
+    display: flex;
+    visibility: hidden;
+    justify-content: space-between;
+    height: 40px;
+    align-items: center;
+}
+.canvasEditorContain .stylesLayer .layerSC .canvasEditor .editor .frame .board:hover{
+    cursor:move;
+}
+.canvasEditorContain .stylesLayer .layerSC .canvasEditor .editor .frame .board .boardName input{
+    outline: none;
+    color: rgba(255,255,255,0.8);
+    padding: 5px;
+    border: none;
+    font-size: 12px;
+    background: transparent;
+    user-select: all;
+}
+.canvasEditorContain .stylesLayer .layerSC .canvasEditor .editor .frame .board .boardOption{
+    width: 30px;
+    
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    border-radius: 3px;
+    align-items: center;
+    cursor: pointer;
+}
+.canvasEditorContain .stylesLayer .layerSC .canvasEditor .editor .frame .board .boardOption:hover{
+    background: rgba(255,255,255,.1);
+}
+.canvasEditorContain .stylesLayer .layerSC .canvasEditor .editor .frame .board .boardOption svg{
+    vertical-align: middle;
+}
+.canvasEditorContain .stylesLayer .layerSC > .canvasEditor .frame{
+    width: auto;
+    height:auto;
+    position: absolute
 }
 .canvasEditorContain .stylesLayer .layerSC > .canvasEditor .frame1{
-    width: 600px;
-    height:1900px;
+    
     left: 500px;
     top: 155px;
-    position: absolute;
 }
-.canvasEditorContain .stylesLayer .layerSC > .canvasEditor .frame2{
-    left: 1900px;
-    top: 3000px;
-    width: 600px;
-    height:1900px;
-    position: absolute;
+.canvasEditorContain .stylesLayer .layerSC > .canvasEditor .frame:hover .board{
+    visibility: visible;
+    pointer-events: all;
 }
 .canvasEditorContain .stylesLayer .layerSC > .canvasEditor .frame .boardFrame{
-    width: 100%;
-    height: 100%;
+    width: 600px;
+    height: 1900px;
     position: relative;
     max-width: 100%;
     background: #fff;
 }
+
 #canvas{
     width: 100%;
     height: 100%;
@@ -336,6 +370,7 @@ iframe{
 #rightPanelWrapper .rightPanelTab .commTab.activeTab .tab{
     color: rgba(255,255,255,1);
 }
-.frameActive .boardFrame{
-    outline: 2px solid #459AFF;
+.frame2{
+    left: 1500px;
+    top: 155px;
 }

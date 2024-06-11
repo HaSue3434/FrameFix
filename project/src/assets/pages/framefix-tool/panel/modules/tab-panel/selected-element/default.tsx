@@ -1,6 +1,12 @@
 import React from "react";
 
-const Default = () =>{
 
+
+const Default = () =>{
+    return(
+        <>
+
+        </>
+    )
 }
 export default Default;

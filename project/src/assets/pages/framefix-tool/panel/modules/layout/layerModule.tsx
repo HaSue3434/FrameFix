@@ -28,8 +28,7 @@ const LayerModule  = () =>{
 
     return (
         <>
-            <motion.div 
-            className={`${styles.pageFiles}`}>
+            <motion.div  className={`${styles.pageFiles}`}>
                 <div className={styles.title}>
                     <h4>Page</h4>
                     <div className={styles.addFile} onClick={handlerOpenAdd} ref={dropdownRef}>

@@ -32,7 +32,6 @@ import {
     HandOff
 
 } from "./modules/exportModule";
-import Handoff from "./modules/tab-panel/handoff";
 
 
 const variantsPlugin = [
@@ -164,7 +163,7 @@ export const RightPanel:React.FC = () =>{
             case 'Prototype':
                 return <Prototype />;
             case 'Handoff':
-                return <Handoff />;
+                return <HandOff />;
             default:
                 return null;
         }
@@ -190,6 +189,7 @@ export const RightPanel:React.FC = () =>{
                 
                {stylesVisible && (
                     <motion.div
+
                         id={Styles.rightPanelWrapper}>
                         <div className={Styles.rightPanelTab}>
                             <div 

@@ -45,13 +45,7 @@ export const PluginsCommon: React.FC<PluginsCommonProps> = ({activePluginText,si
         <>
             <div className={Styles.assetsWrapperPlugin}>
                 <div className={Styles.T_H}>
-                    <motion.h4
-                        key={activePluginText} 
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -10 }}
-                        transition={{ duration: 0.3 }}
-                    >
+                    <motion.h4>
                         {activePluginText}
                     </motion.h4>
 

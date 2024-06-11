@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Styles from "../framefix.module.css";
 import {ReactComponent as Toolbar} from "../../../img/frame-toolbar-icon.svg"
+import { Layer } from "../types";
+
 
 const Frame = () =>{
 
@@ -31,9 +33,9 @@ const Frame = () =>{
 
                         type="text"
                         placeholder="Untitled frame name"
-                        name={"key"}
-                        value={inputValues['key'] || ''}
-                        onChange={(e) => handleInputChange(e, 'key')}
+                        name={"frame"}
+                        value={inputValues['frame'] || ''}
+                        onChange={(e) => handleInputChange(e, 'frame')}
                         
                         />
                     </div>

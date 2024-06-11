@@ -1,4 +1,9 @@
 export interface ProjectName {
-    name : String,
-    description : String, 
+    name : string,
+    description : string, 
+}
+
+export interface Layer {
+    SVG : SVGAElement,
+    name : string,
 }

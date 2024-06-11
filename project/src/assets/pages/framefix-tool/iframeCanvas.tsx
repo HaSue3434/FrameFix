@@ -2,10 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import Styles from './framefix.module.css';
 import Cursor from './icons/cursor-icon/cursor.svg';
 import { Canvas } from './canvasProps';
-// module //
-import { SelectedFrame } from './script';
-// module //
-import Frame from "./frame/frame"
+import Frame from "./canvas-editor/canvas-editor"
 
 export const IframeCanvas:React.FC = () =>{
     
@@ -127,10 +124,6 @@ export const IframeCanvas:React.FC = () =>{
         if (e.ctrlKey && e.button === 0) {
             const target = e.target as HTMLElement;
     
-            if (target.getAttribute('frame')) {
-                const elementInfo = SelectedFrame.getInfo(target);
-            }
-    
             const editorElement = editor.current;
             if (editorElement) {
                 const elements = editorElement.querySelectorAll('[data-node-type]');
@@ -184,7 +177,9 @@ export const IframeCanvas:React.FC = () =>{
                             transform: `scale(${position.scale}) translateZ(0px)`,
                             transformOrigin: `${position.originX}% ${position.originY}%`
                         }} data-canvas-editor = "canvas-editor">
-                        <div className={Styles.editor} ref={editor}><Frame/></div>
+                        <div className={Styles.editor} ref={editor}>
+                            <Frame/>
+                        </div>
                     </div>
 
                 </div>

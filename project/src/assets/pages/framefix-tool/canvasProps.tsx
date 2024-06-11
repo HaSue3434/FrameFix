@@ -13,6 +13,9 @@ export const Canvas = React.forwardRef<HTMLDivElement, CanvasProps>((props, ref)
     const [startPos, setStartPos] = useState({ x: 0, y: 0 });
     const [canvasSize, setCanvasSize] = useState({ width: window.innerWidth, height: window.innerHeight });
     const [isMiddleButtonDown, setIsMiddleButtonDown] = useState(false);
+    const [isClick, setIsClick] = useState(false);
+
+
 
     useEffect(() => {
         const updateCanvasSize = () => {
@@ -46,6 +49,9 @@ export const Canvas = React.forwardRef<HTMLDivElement, CanvasProps>((props, ref)
 
         const rect = canvasRef.current?.getBoundingClientRect();
         if(event.button === 0){
+
+            setIsClick(true);
+            event.preventDefault();
             if (rect) {
                 setIsDrawing(true);
                 setStartPos({
@@ -68,7 +74,7 @@ export const Canvas = React.forwardRef<HTMLDivElement, CanvasProps>((props, ref)
         
     };
 
-    const handleMouseMove = (event: React.MouseEvent<HTMLCanvasElement>) => {
+    const handleMouseMove = (event: MouseEvent) => {
         if (isMiddleButtonDown) return;
         if (isDrawing && !isMiddleButtonDown && canvasRef.current) {
             const ctx = canvasRef.current.getContext('2d');
@@ -87,12 +93,13 @@ export const Canvas = React.forwardRef<HTMLDivElement, CanvasProps>((props, ref)
         }
     };
 
-    const handleMouseUp = (event: React.MouseEvent<HTMLCanvasElement>) => {
+    const handleMouseUp = (event: MouseEvent) => {
         if (event.button === 1) {
             setIsMiddleButtonDown(false);
+            
             canvasRef.current!.style.cursor = `url(${Cursor}), auto`;
         }
-
+        setIsClick(false);
         setIsDrawing(false);
 
         if (canvasRef.current) {
@@ -103,15 +110,25 @@ export const Canvas = React.forwardRef<HTMLDivElement, CanvasProps>((props, ref)
         }
     };
 
+    useEffect(() => {
+        window.addEventListener('mousemove', handleMouseMove);
+        window.addEventListener('mouseup', handleMouseUp);
+        return () => {
+            window.removeEventListener('mousemove', handleMouseMove);
+            window.removeEventListener('mouseup', handleMouseUp);
+        };
+    }, [isDrawing,isClick]);
+
     return (
         <>
-            <div id={Styles.canvas} ref={ref}>
+            <div id={Styles.canvas} ref={ref}
+            style={{zIndex : isClick ? 5 : -1, 
+                willChange : "transform"
+            }}>
                 <canvas
                     ref={canvasRef}
                     onMouseDown={handleMouseDown}
-                    onMouseMove={handleMouseMove}
-                    onMouseUp={handleMouseUp}
-                    onMouseOut={handleMouseUp}
+                    
                 />
             </div>
         </>

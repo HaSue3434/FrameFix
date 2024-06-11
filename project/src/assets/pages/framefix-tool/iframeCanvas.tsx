@@ -1,13 +1,11 @@
-import React, { useImperativeHandle, forwardRef, useRef, useState, useEffect, CSSProperties, RefObject} from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Styles from './framefix.module.css';
-import Cusor from './icons/cursor-icon/cursor.svg';
 import Cursor from './icons/cursor-icon/cursor.svg';
 import { Canvas } from './canvasProps';
-import {ReactComponent as Toolbar} from "../../img/frame-toolbar-icon.svg"
 // module //
 import { SelectedFrame } from './script';
 // module //
-
+import Frame from "./frame/frame"
 
 export const IframeCanvas:React.FC = () =>{
     
@@ -19,7 +17,6 @@ export const IframeCanvas:React.FC = () =>{
     const draggCursor = useRef<HTMLDivElement>(null);
     const [ canvasState , setCanvasState ] = useState(false);
     const editor = useRef<HTMLDivElement>(null);
-    const [inputValues, setInputValues] = useState<{ [key: string]: string }>({});
 
     const handleMouseDown = (e: React.MouseEvent) => {
         if ((e.target as HTMLElement).tagName.toLowerCase() === 'input') {
@@ -164,19 +161,7 @@ export const IframeCanvas:React.FC = () =>{
         };
     }, [editor]);
 
-    useEffect(() => {
-        const storedValues = JSON.parse(localStorage.getItem('board-names') || '{}');
-        setInputValues(storedValues);
-    }, []);
-
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>, key: string) => {
-        const newValue = e.target.value;
-        setInputValues(prev => {
-            const updatedValues = { ...prev, [key]: newValue };
-            localStorage.setItem('board-names', JSON.stringify(updatedValues));
-            return updatedValues;
-        });
-    };
+    
 
     return(
         <>
@@ -191,39 +176,15 @@ export const IframeCanvas:React.FC = () =>{
                 
                 <div className={Styles.layerSC} ref={layerSCRef}>
                     <Canvas ref={canvasRef}/>
+                    
                     <div className={Styles.canvasEditor} 
                         style={{
                             top: `${position.top}px`,
                             left: `${position.left}px`,
                             transform: `scale(${position.scale}) translateZ(0px)`,
                             transformOrigin: `${position.originX}% ${position.originY}%`
-                        }}>
-                        <div className={Styles.editor} ref={editor}>
-
-                            {/* block */}
-                            <div className={`${Styles.frame1} ${Styles.frame}`}  data-frame-layer = "frame1">
-                                <div className={Styles.board}>
-                                    <div className={Styles.boardName}>
-                                        <input
-
-                                        type="text"
-                                        placeholder="Untitled frame name"
-                                        name="board-name-frame1"
-                                        value={inputValues['board-name-frame1'] || ''}
-                                        onChange={(e) => handleInputChange(e, 'board-name-frame1')}
-                                        
-                                        />
-                                    </div>
-                                    <div className={Styles.boardOption}>
-                                        <Toolbar/>
-                                    </div>
-                                </div>
-
-                                <div data-node-type = "frame" className={Styles.boardFrame}></div>
-                            </div>
-                            {/* block */}
-
-                        </div>
+                        }} data-canvas-editor = "canvas-editor">
+                        <div className={Styles.editor} ref={editor}><Frame/></div>
                     </div>
 
                 </div>

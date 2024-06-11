@@ -5,10 +5,8 @@ import { Layer } from "../types";
 
 
 const Frame = () =>{
-
-    
     const [inputValues, setInputValues] = useState<{ [key: string]: string }>({});
-
+    
     useEffect(() => {
         const storedValues = JSON.parse(localStorage.getItem('board-names') || '{}');
         setInputValues(storedValues);

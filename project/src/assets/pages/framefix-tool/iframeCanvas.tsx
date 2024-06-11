@@ -177,7 +177,7 @@ export const IframeCanvas:React.FC = () =>{
                             transform: `scale(${position.scale}) translateZ(0px)`,
                             transformOrigin: `${position.originX}% ${position.originY}%`
                         }} data-canvas-editor = "canvas-editor">
-                        <div className={Styles.editor} ref={editor}>
+                        <div className={Styles.editor} ref={editor} data-editor = "editor">
                             <Frame/>
                         </div>
                     </div>

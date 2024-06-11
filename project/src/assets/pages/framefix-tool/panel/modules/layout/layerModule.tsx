@@ -26,6 +26,8 @@ const LayerModule  = () =>{
         };
     }, []);
 
+
+
     return (
         <>
             <motion.div  className={`${styles.pageFiles}`}>
@@ -52,8 +54,12 @@ const LayerModule  = () =>{
                     </div>
                 </div>
             </motion.div>
-            <div className={styles.layer}>
-                <div className={styles.title}><h4>Layer</h4></div>
+            <div className={styles.layers}>
+                <div className={styles.title}><h4>Layers</h4></div>
+                <div className={styles.layerEditing}>
+                    
+                </div>
+
             </div>
         </>
     )

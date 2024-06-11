@@ -13,7 +13,7 @@
     cursor: pointer;
 }
 .pageFiles .title h4{
-    font-size: 14px;
+    font-size: 12px;
     color: rgba(255,255,255,1);
     font-weight: 500;
 }
@@ -49,4 +49,13 @@
 }
 .openFileAddOptions .wrap .option:hover{
     background: #459AFF;
+}
+.layers .title{
+    padding: 15px;
+}
+.layers .title h4{
+    color: rgba(255,255,255,1);
+    font-size: 12px;
+    font-weight: 500;
+
 }

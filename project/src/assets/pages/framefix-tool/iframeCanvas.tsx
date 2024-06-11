@@ -222,33 +222,8 @@ export const IframeCanvas:React.FC = () =>{
                                 <div data-node-type = "frame" className={Styles.boardFrame}></div>
                             </div>
                             {/* block */}
-                            <div className={`${Styles.frame2} ${Styles.frame}`}  data-frame-layer = "frame2">
-                                <div className={Styles.board}>
-                                    <div className={Styles.boardName}>
-                                        <input
-
-                                        type="text"
-                                        placeholder="Untitled frame name"
-                                        name="board-name-frame2"
-                                        value={inputValues['board-name-frame2'] || ''}
-                                        onChange={(e) => handleInputChange(e, 'board-name-frame2')}
-                                        
-                                        />
-                                    </div>
-                                    <div className={Styles.boardOption}>
-                                        <Toolbar/>
-                                    </div>
-                                </div>
-
-                                <div data-node-type = "frame" className={Styles.boardFrame}></div>
-                            </div>
 
                         </div>
-                        
-
-                            
-
-                        
                     </div>
 
                 </div>

@@ -156,6 +156,7 @@ iframe{
     width: 250px;
     height: 100vh;
     display: none;
+    overflow: hidden;
     background: #000;
 }
 .wrapperLeftPanel .panel .leftSideComponents .assetsWrapperPlugin .T_H{

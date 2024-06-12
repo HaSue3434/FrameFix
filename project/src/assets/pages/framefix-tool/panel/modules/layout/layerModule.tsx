@@ -4,7 +4,11 @@ import {ReactComponent as Add} from "../../../../../img/icons/add.svg";
 import { motion } from "framer-motion";
 
 import { ReactComponent as RectangleIcon } from "../../../../../img/icons/framefix-plugin-icons/Rect.svg"; 
-import { ReactComponent as FrameIcon } from "../../../../../img/icons/framefix-plugin-icons/frame.svg"; 
+import { ReactComponent as FrameIcon } from "../../../../../img/icons/framefix-plugin-icons/layer-frame.svg"; 
+import { ReactComponent as ListArrow } from "../../../../../img/icons/framefix-plugin-icons/aseets-arrow-bottom.svg"; 
+import { ReactComponent as Rock } from "../../../../../img/icons/framefix-plugin-icons/rock.svg"; 
+import { ReactComponent as UnRock } from "../../../../../img/icons/framefix-plugin-icons/unrock.svg"; 
+import Frame from "../../../canvas-editor/canvas-editor";
 
 const LayerModule  = () =>{
 
@@ -65,15 +69,29 @@ const LayerModule  = () =>{
                         <li className={`${styles.layerFrame} ${styles.frame}`}>
                             
 
-                            
+                            <div className={styles.icon}>
+                                {/* <div className={styles.iconArrow}><ListArrow/></div> */}
+                                
+                                <div className={styles.frameIcon}><FrameIcon/></div>
+                            </div>
+                            <div className={styles.layerName}><span>framefix</span></div>
                             {/* ui / contents */}
 
                             {/* ui / contnets */}
                         </li>
+
                         <li className={`${styles.layerShape} ${styles.shape}`}>
                             <div className={styles.icon}><RectangleIcon/></div>
-                            <div className={styles.layerName}><span>Rectangle</span></div>
+                            <div className={styles.layerFunc}>
+                                <div className={styles.layerName}><span>Rectangle1feasd_sdadeasdgasdd</span></div>
+                                <div className={styles.layerRockAndOpen}>
+                                    <div className={styles.openIcon}><UnRock/></div>
+                                    {/* <div className={styles.rockIcon}></div>*/}
+                                    
+                                </div>
+                            </div>
                         </li>
+
                     </ul>
                 </div>
 

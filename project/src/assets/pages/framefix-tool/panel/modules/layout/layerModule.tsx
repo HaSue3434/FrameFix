@@ -3,6 +3,7 @@ import styles from "../module-styles.module.css";
 import {ReactComponent as Add} from "../../../../../img/icons/add.svg";
 import { motion } from "framer-motion";
 
+
 const LayerModule  = () =>{
 
     const [openAdd, setOpenAdd] = React.useState(false);
@@ -56,8 +57,11 @@ const LayerModule  = () =>{
             </motion.div>
             <div className={styles.layers}>
                 <div className={styles.title}><h4>Layers</h4></div>
+
                 <div className={styles.layerEditing}>
-                    
+                    <ul className={`${styles.frame}`} data-frame-name = "frame">
+
+                    </ul>
                 </div>
 
             </div>

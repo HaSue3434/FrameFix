@@ -62,3 +62,14 @@
 .layers .layerEditing{
     padding: 15px;
 }
+
+.shape{
+    position: absolute;
+}
+#shape{
+    top:1800px;
+    left: 1800px;
+    background: white;
+    width: 500px;
+    height: 500px;
+}

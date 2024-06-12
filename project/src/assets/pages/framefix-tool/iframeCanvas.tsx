@@ -162,9 +162,6 @@ export const IframeCanvas:React.FC = () =>{
         ref={draggCursor}
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}>
-            
-            
-            
             <div className={Styles.stylesLayer} >
                 
                 <div className={Styles.layerSC} ref={layerSCRef}>

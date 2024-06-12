@@ -122,7 +122,7 @@ export const Canvas = React.forwardRef<HTMLDivElement, CanvasProps>((props, ref)
     return (
         <>
             <div id={Styles.canvas} ref={ref}
-            style={{zIndex : isClick ? 5 : -1, 
+            style={{zIndex : isClick ? 9999 : -1, 
                 willChange : "transform"
             }}>
                 <canvas

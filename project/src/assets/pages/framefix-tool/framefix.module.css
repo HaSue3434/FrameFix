@@ -301,7 +301,9 @@ iframe{
     font-size: 12px;
     background: transparent;
     user-select: all;
+    text-overflow: ellipsis;
 }
+
 .canvasEditorContain .stylesLayer .layerSC .canvasEditor .editor .frame .board .boardOption{
     width: 30px;
     
@@ -321,7 +323,7 @@ iframe{
 .canvasEditorContain .stylesLayer .layerSC > .canvasEditor .frame{
     width: auto;
     height:auto;
-    position: absolute
+    position: absolute;
 }
 .canvasEditorContain .stylesLayer .layerSC > .canvasEditor .frame1{
     
@@ -332,14 +334,6 @@ iframe{
     visibility: visible;
     pointer-events: all;
 }
-.canvasEditorContain .stylesLayer .layerSC > .canvasEditor .frame .boardFrame{
-    width: 600px;
-    height: 1900px;
-    position: relative;
-    max-width: 100%;
-    background: #fff;
-}
-
 #canvas{
     width: 100%;
     height: 100%;

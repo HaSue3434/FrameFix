@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import Styles from "../framefix.module.css";
+import StylesMOdule from "../panel/modules/module-styles.module.css";
 import {ReactComponent as Toolbar} from "../../../img/frame-toolbar-icon.svg"
 import { Layer } from "../types";
 
 
 const Frame = () =>{
     const [inputValues, setInputValues] = useState<{ [key: string]: string }>({});
-    
+    const [boardClick, setBoardClick] = useState(false);
+    const [name, setName] = useState<string>('');
+
     useEffect(() => {
         const storedValues = JSON.parse(localStorage.getItem('board-names') || '{}');
         setInputValues(storedValues);
@@ -23,17 +26,17 @@ const Frame = () =>{
 
     return(
         <>
-            {/* block */}
+            {/* block 1 */}
             <div className={`${Styles.frame1} ${Styles.frame}`}  data-frame-layer = "frame1">
-                <div className={Styles.board}>
+                {/* board */}
+                <div className={Styles.board} >
                     <div className={Styles.boardName}>
                         <input
 
                         type="text"
                         placeholder="Untitled frame name"
-                        name={"frame"}
-                        value={inputValues['frame'] || ''}
-                        onChange={(e) => handleInputChange(e, 'frame')}
+                        value={inputValues['fr-frame1'] || ''}
+                        onChange={(e) => handleInputChange(e, 'fr-frame1')}
                         
                         />
                     </div>
@@ -41,10 +44,46 @@ const Frame = () =>{
                         <Toolbar/>
                     </div>
                 </div>
-
-                <div data-node-type = "frame" className={Styles.boardFrame}></div>
+                {/* board */}
+                <div 
+                data-node-type = "frame" 
+                className={Styles.boardFrame}
+                style={{width : "900px", height : "1800px", background : "#fff", }}
+                ></div>
             </div>
-            {/* block */}
+            {/* block 1 */}
+            {/* block 2 */}
+            <div className={`${Styles.frame2} ${Styles.frame}`}  data-frame-layer = "frame2" style={{left : "1500px", top : "1500px"}}>
+                {/* board */}
+                <div className={Styles.board} >
+                    <div className={Styles.boardName}>
+                        <input
+
+                        type="text"
+                        placeholder="Untitled frame name"
+                        value={inputValues['fr-frame2'] || ''}
+                        onChange={(e) => handleInputChange(e, 'fr-frame2')}
+                        
+                        />
+                    </div>
+                    <div className={Styles.boardOption}>
+                        <Toolbar/>
+                    </div>
+                </div>
+                {/* board */}
+                <div 
+                data-node-type = "frame" 
+                className={Styles.boardFrame}
+                style={{width : "900px", height : "1800px", background : "red", }}
+                ></div>
+            </div>
+            {/* block 2 */}
+            
+            {/* shape */}
+            <div className={StylesMOdule.shape} data-node-type = "shape" data-type-shape = "rectangle" id={StylesMOdule.shape}>
+                
+            </div>
+            {/* shape */}
         </>
     )
 }

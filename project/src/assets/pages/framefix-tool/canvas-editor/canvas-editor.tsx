@@ -80,7 +80,10 @@ const Frame = () =>{
             {/* block 2 */}
             
             {/* shape */}
-            <div className={StylesMOdule.shape} data-node-type = "shape" data-type-shape = "rectangle" id={StylesMOdule.shape}>
+            <div 
+            className={StylesMOdule.shape}
+            data-node-type = "shape" data-type-shape = "rectangle"
+            style={{left : "3000px", top : "1300px", background : "red",width : "500px", height:"500px"}}>
                 
             </div>
             {/* shape */}

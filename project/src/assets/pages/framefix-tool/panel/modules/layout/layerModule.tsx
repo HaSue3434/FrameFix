@@ -3,6 +3,8 @@ import styles from "../module-styles.module.css";
 import {ReactComponent as Add} from "../../../../../img/icons/add.svg";
 import { motion } from "framer-motion";
 
+import { ReactComponent as RectangleIcon } from "../../../../../img/icons/framefix-plugin-icons/Rect.svg"; 
+import { ReactComponent as FrameIcon } from "../../../../../img/icons/framefix-plugin-icons/frame.svg"; 
 
 const LayerModule  = () =>{
 
@@ -59,8 +61,19 @@ const LayerModule  = () =>{
                 <div className={styles.title}><h4>Layers</h4></div>
 
                 <div className={styles.layerEditing}>
-                    <ul className={`${styles.frame}`} data-frame-name = "frame">
+                    <ul className={`${styles.layerList}`}>
+                        <li className={`${styles.layerFrame} ${styles.frame}`}>
+                            
 
+                            
+                            {/* ui / contents */}
+
+                            {/* ui / contnets */}
+                        </li>
+                        <li className={`${styles.layerShape} ${styles.shape}`}>
+                            <div className={styles.icon}><RectangleIcon/></div>
+                            <div className={styles.layerName}><span>Rectangle</span></div>
+                        </li>
                     </ul>
                 </div>
 

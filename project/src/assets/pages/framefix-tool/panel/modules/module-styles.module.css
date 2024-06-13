@@ -59,14 +59,11 @@
     font-weight: 500;
 
 }
-.layers .layerEditing .layerList {
-    width: 100%;
-    height: 100%;
-}
 .layers .layerEditing .layerList li{
     display: flex;
     align-items: center;
     gap: 10px;
+    position: relative;
     padding: 10px 15px 10px 15px;
     width: auto;
 }
@@ -88,25 +85,43 @@
 }
 .layers .layerEditing .layerList li div {
     display: flex;
+    align-items: center;
+    max-width: 100%;
 }
 .layerFunc{
     display: flex;
     justify-content: space-between;
     gap: 15px;
-    overflow: hidden;
+    width: 100%;
+    position: relative;
 }
 .layers .layerEditing .layerList li div.layerName{
     
     width: 100%;
 }
-.layers .layerEditing .layerList li .layerName span{
+.layers .layerEditing .layerList li .layerName input{
     color: rgba(255,255,255,1);
     font-size: 11px;
     overflow: hidden;
     max-width: 75%;
     white-space: nowrap;
+    border: none;
+    outline: none;
+    background: transparent;
     text-overflow: ellipsis;
 }
 .shape{
     position: absolute;
+}
+.layerLockAndUnlock{
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    visibility: hidden;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.layers .layerEditing .layerList li:hover .layerLockAndUnlock{
+    visibility: visible;
 }

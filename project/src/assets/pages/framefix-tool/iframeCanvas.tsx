@@ -161,7 +161,7 @@ export const IframeCanvas:React.FC = () =>{
         <div className={Styles.canvasEditorContain} 
         ref={draggCursor}
         onMouseDown={handleMouseDown}
-        onMouseUp={handleMouseUp}>z
+        onMouseUp={handleMouseUp}>
             <div className={Styles.stylesLayer} >
                 
                 <div className={Styles.layerSC} ref={layerSCRef}>

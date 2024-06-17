@@ -3,7 +3,7 @@ import Styles from "../framefix.module.css";
 import StylesMOdule from "../panel/modules/module-styles.module.css";
 import {ReactComponent as Toolbar} from "../../../img/frame-toolbar-icon.svg"
 import { Layer } from "../types";
-
+import { analytics,app,db } from "../../../../firebaseConfig";
 
 const Frame = () =>{
     const [inputValues, setInputValues] = useState<{ [key: string]: string }>({});

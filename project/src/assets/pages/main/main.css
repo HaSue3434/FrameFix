@@ -551,25 +551,18 @@ section.main .wrapper  .main-framefix .frame>div .contain{
     font-size: 12px;
     text-transform: capitalize;
 }
-.framefix-footer .wrapper .contain .wrap .side .left .assets .layer{
-    padding: 15px;
-
-}
 .framefix-footer .wrapper .contain .wrap .side .left .assets .layer h4{
     color: rgba(255,255,255,1);
     font-size: 13px;
     font-weight: 500;
-}
-.framefix-footer .wrapper .contain .wrap .side .left .assets .layer .frame-contain {
-    padding-top: 15px;
+    padding: 15px;
 }
 .framefix-footer .wrapper .contain .wrap .side .left .assets .layer .frame-contain .frame .h{
     display: flex;
     align-items: center;
     padding: 8px;
     gap: 10px;
-    background: rgba(255,255,255,.1);
-    border-radius: 5px;
+    background: rgba(255,255,255,.25);
 }
 .framefix-footer .wrapper .contain .wrap .side .left .assets .layer .frame-contain .frame .h svg{
     height: 25px;
@@ -578,9 +571,14 @@ section.main .wrapper  .main-framefix .frame>div .contain{
     color: rgba(255,255,255,1);
     font-size: 12px;
 }
-.framefix-footer .wrapper .contain .wrap .side .left .assets .layer .frame-contain .in-e{
+.framefix-footer .wrapper .contain .wrap .side .left .assets .layer .frame-contain .list-layer{
     padding-top: 15px;
-    padding-left: 42px;
+}
+.framefix-footer .wrapper .contain .wrap .side .left .assets .layer .frame-contain .in-e{
+    padding-left: 40px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    background: rgba(255,255,255,0.05);
     display: flex;
     gap: 10px;
     justify-content: space-between;
@@ -754,14 +752,14 @@ section.main .wrapper  .main-framefix .frame>div .contain{
 #desktop-frame>div .header .nav .logo svg{
     width: auto;
     vertical-align: middle;
-    height: 20px;
+    height: 18px;
 }
 #desktop-frame>div .header .nav .items{
     display: flex;
     gap: 15px;
 }
 #desktop-frame>div .header .nav .items li{
-    font-size: 11px;
+    font-size: 8px;
     color: rgba(255,255,255,.8);
 }
 #desktop-frame>div .header .nav .btn{
@@ -769,7 +767,7 @@ section.main .wrapper  .main-framefix .frame>div .contain{
     background: #459AFF;
     padding: 5px 8px;
     border-radius: 5px;
-    font-size: 10px;
+    font-size: 8px;
 }
 #desktop-frame>div .ex-section {
     margin-top: 25px;
@@ -932,8 +930,8 @@ section.main .wrapper  .main-framefix .frame>div .contain{
 }
 #right .tab>div p{
     color: rgba(255,255,255,.35);
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 13px;
+    font-weight: 500;
 }
 #right .tab>div.tab-active p{
     color: rgba(255,255,255,1);

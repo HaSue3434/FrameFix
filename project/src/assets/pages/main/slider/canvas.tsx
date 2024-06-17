@@ -111,10 +111,6 @@ const Canvas: React.FC = ()=>{
                             <div className="m-settings common"><Preview/></div>
                             <div className="m-publish">Share</div>
                             <div className="m-publish">Publish</div>
-                            <div className="zoom-in">
-                                <span>100%</span>
-                                <AssetsBottomArrow/>
-                            </div>
                         </div>
                     </div>
                     <div className="ui-body">
@@ -353,7 +349,7 @@ const Canvas: React.FC = ()=>{
                             className="frame1" ref={canvasFrame}>
                                 <div className="head-selected-frame">
                                     <div className="frame-title">
-                                        <p><span className="desktop">Desktop / </span>Desktop frame</p>
+                                        <p><span className="desktop"></span>Desktop frame</p>
                                         
                                     </div>
                                     <div className="frame-toolbar-selection"><FrameToolbar/></div>

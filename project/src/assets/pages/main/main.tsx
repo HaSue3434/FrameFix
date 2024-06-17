@@ -52,9 +52,11 @@ import "./slider/canvas.css"
 import "./framefix-g.css"
 import "./publish/publish.css"
 import "./seo/seo.css"
+import "./framefix-footer/framefix-footer.css";
 
 import Canvas from "./slider/canvas";
 import Seo from './seo/seo';
+import FrameFixFooter from './framefix-footer/framefix-footer';
 
 import FrameFixGuide from './slider/framefix-g';
 
@@ -334,10 +336,6 @@ useEffect(() => {
                                         <div className='preview  an'><Preview/></div>
                                         <div className='publish-btn'>Share</div>
                                         <div className='publish-btn'>Publish</div>
-                                        <div className='zoom-in'>
-                                            <p>100%</p>
-                                            <AssetsBottomArrow/>
-                                        </div>
                                     </div>
                                 </div>
                                 <div className='side'>
@@ -425,37 +423,39 @@ useEffect(() => {
                                                     <div className='frame-contain'>
                                                         <div className="frame">
                                                             <div className='h'><AssetsBottomArrow/><FrameIcon/><p>Frame</p></div>
-
-                                                            <div className="in-e">
-                                                                <div className='e-infor'>
-                                                                    <Rect/> 
-                                                                    <p>Rectangle1</p>
+                                                            <div className='list-layer'>
+                                                                <div className="in-e">
+                                                                    <div className='e-infor'>
+                                                                        <Rect/> 
+                                                                        <p>Rectangle1</p>
+                                                                    </div>
+                                                                    <div className='e-isset-locked'>
+                                                                        <Locked/>
+                                                                    </div>
                                                                 </div>
-                                                                <div className='e-isset-locked'>
-                                                                    <Locked/>
+                                                                <div className="in-e">
+                                                                    <div className='e-infor'>
+                                                                        <Rect/> 
+                                                                        <p>Rectangle2</p>
+                                                                    </div>
+                                                                    <div className='e-isset-locked'>
+                                                                        <Open/>
+                                                                    </div>
+                                                                </div>
+                                                                <div className="in-e">
+                                                                    <div className='e-infor'>
+                                                                        <Rect/> 
+                                                                        <p>Rectangle3</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div className="in-e">
+                                                                    <div className='e-infor'>
+                                                                        <Rect/> 
+                                                                        <p>Rectangle4</p>
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                            <div className="in-e">
-                                                                <div className='e-infor'>
-                                                                    <Rect/> 
-                                                                    <p>Rectangle2</p>
-                                                                </div>
-                                                                <div className='e-isset-locked'>
-                                                                    <Open/>
-                                                                </div>
-                                                            </div>
-                                                            <div className="in-e">
-                                                                <div className='e-infor'>
-                                                                    <Rect/> 
-                                                                    <p>Rectangle3</p>
-                                                                </div>
-                                                            </div>
-                                                            <div className="in-e">
-                                                                <div className='e-infor'>
-                                                                    <Rect/> 
-                                                                    <p>Rectangle4</p>
-                                                                </div>
-                                                            </div>
+                                                            
                                                         </div>
                                                         
                                                     </div>

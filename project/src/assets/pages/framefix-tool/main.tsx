@@ -34,7 +34,9 @@ const MainComponent: React.FC=()=>{
                                     </div>
 
                                     <div className={styles.framefixProjectName}>
-                                      <div className={styles.projectName}>{projectName.name}</div>
+                                        <div className={styles.projectName}>
+                                            <span className={styles.param}>{projectName.name}</span>
+                                        </div>
                                     </div>
 
                                     <div className={styles.plans}>

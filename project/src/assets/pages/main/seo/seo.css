@@ -55,6 +55,15 @@
 .seo-contain .wrapper .contents .txt-content .link-to-framefix a{
     color: rgba(255,255,255,1);
 }
+.seo-contain .wrapper .contents .txt-content .link-to-framefix a svg{
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: .25s;
+}
+.seo-contain .wrapper .contents .txt-content .link-to-framefix a:hover svg{
+    opacity: 1;
+    transform: translateX(0);
+}
 .seo-contain .wrapper .contents .txt-content  .img{
     width: 90%;
     height: 90%;

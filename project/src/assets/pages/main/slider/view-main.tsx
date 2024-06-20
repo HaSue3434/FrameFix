@@ -5,7 +5,6 @@ import { ReactComponent as PR } from '../../../img/PR.svg';
 import { ReactComponent as Ducts } from '../../../img/ducts.svg';
 import { ReactComponent as Design } from '../../../img/design.svg';
 import { ReactComponent as Studio } from '../../../img/studio.svg';
-import { ReactComponent as Circle } from '../../../img/circle.svg';
 import { motion } from 'framer-motion';
 import { ReactComponent as FirstTx } from '../../../img/first-tx.svg';
 import { ReactComponent as SecondTx } from '../../../img/second-tx.svg';

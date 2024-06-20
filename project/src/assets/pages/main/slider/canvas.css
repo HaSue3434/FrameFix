@@ -251,8 +251,8 @@ section.main .wrapper .main-framefix .frame>div.framefix-ui
     display: flex;
     gap: 10px;
     align-items: center;
-    padding-top: 8px;
-    padding-bottom: 8px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     padding-left: 8px;
     background: rgba(255,255,255,.15);
 }
@@ -281,7 +281,6 @@ section.main .wrapper .main-framefix .frame>div.framefix-ui
     align-items: center;
     justify-content: space-between;
     padding: 6px;
-    padding-right: 6px;
 }
 section.main .wrapper .main-framefix .frame>div.framefix-ui 
 .ui-body > div.plugins .assets .layer .layer-e .frame-1 

@@ -697,3 +697,13 @@
 .view-selection>.overview{
     opacity: 0.5;
 }
+#effect-svg{
+    position: absolute;
+    left: -125px;
+    top: 40%;
+    transform: translateY(-0%);
+    z-index: 555;
+}
+#effect-svg svg{
+    box-shadow: 12px 0px 14px rgba(0,0,0,.35);
+}

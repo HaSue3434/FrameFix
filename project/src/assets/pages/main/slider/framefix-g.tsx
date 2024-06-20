@@ -2,11 +2,10 @@ import React, { useEffect,useRef,useState} from "react";
 import { gsap,ScrollTrigger } from 'gsap/all';
 import { motion } from 'framer-motion';
 import VanillaTilt from 'vanilla-tilt';
+import { ReactComponent as EffectSvg } from "../../../img/effect-layout.svg";
 
 
-import { ReactComponent as Deploy } from '../../../img/icons/deploy-icon.svg';
 import { ReactComponent as OutContentAI } from '../../../img/icons/out content.svg';
-import { ReactComponent as TextSvg } from '../../../img/text-svg.svg';
 
 import { ReactComponent as Logo } from "../../../img/logo/logo.svg";
 import { ReactComponent as FrameLogo } from "../../../img/logo/frame-logo.svg";
@@ -366,8 +365,7 @@ const FrameFixGuide: React.FC = () => {
                             </div>
                             <div className="explain">
                                 <p className="sub-title">Effects</p>
-                                <p>
-                                Create a visually stunning website by adding effects that will captivate the audience and garner attention.</p>
+                                <p>Create a visually outstanding website by adding various effects that can capture the attention of your audience when they visit.</p>
                             </div>
                         </div>
                         <div className="see-all">
@@ -379,7 +377,11 @@ const FrameFixGuide: React.FC = () => {
                         </div>
                         <div className="framefix">
                             <div className="box">
+                                <div id="effect-svg">
+                                        <EffectSvg/>
+                                </div>
                                 <div className="contents">
+                                    
                                     <div className="head">
                                         <div>
                                             <div className="frame-logo">

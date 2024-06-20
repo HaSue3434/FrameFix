@@ -151,12 +151,12 @@
 }
 .content-view-hosting-box .view-box .view-box-head .navbar{
     display: flex;
-    gap: 15px;
+    gap: 25px;
     justify-content: center;
     align-items: center;
 }
 .content-view-hosting-box .view-box .view-box-head .navbar>div{
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 500;
     white-space: nowrap;
     color: #171717;
@@ -167,7 +167,7 @@
     justify-content: flex-end;
 }
 .content-view-hosting-box .view-box .view-box-head .sign>div{
-    font-size: 10px;
+    font-size: 9px;
     padding: 3px 8px;
     border-radius: 5px;
 }

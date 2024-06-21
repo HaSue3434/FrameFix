@@ -25,7 +25,11 @@ const ScrollSmootherComponent: React.FC<ScrollSmootherProps> = ({ children }) =>
       class : 'is-inview',
       offset : ["-15%", '15%'],
       repeat : true,
-    });
+      mobile: {
+        breakpoint: 728 ,
+        smooth: false,
+      },
+    } as any);
     
     let currentScrollY = 0;
     ls.on("scroll", (scrollEvent) => {

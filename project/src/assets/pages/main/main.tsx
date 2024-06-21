@@ -23,14 +23,13 @@ import "./framefix-footer/framefix-footer.css";
 
 import Canvas from "./slider/canvas";
 import Seo from './seo/seo';
+import FrameFixFooter from './framefix-footer/framefix-footer';
 
 import FrameFixGuide from './slider/framefix-g';
 
 import {
 
     TxtAnimation,
-    useInViewExContentSpring,
-    useDelaySpring,
     useInViewCursorScale,
 
 } from './animation-script';
@@ -263,6 +262,9 @@ useEffect(() => {
                                 </Link>
                             </div>
                         </div>
+                    </div>
+                    <div className='contents'>
+                        <FrameFixFooter/>
                     </div>
                     
                     <div className="bottom-blur"></div>

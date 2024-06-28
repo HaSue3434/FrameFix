@@ -60,7 +60,7 @@ useEffect(() => {
         t1.from(frameElement.current, {
             rotationX: 10,
             translateY: -180,
-            translateZ: -100,
+            translateZ: -50,
             scrollTrigger: {
                 trigger: frameElement.current,
                 start: "-40% 50%",
@@ -231,12 +231,6 @@ useEffect(() => {
                         <div className="contain ref-c">
                             <FrameFixGuide />
                         </div>
-                    </div>
-                </section>
-
-                <section className='publish' data-scroll data-scroll-section id='publish'>
-                    <div className="wrapper">
-
                     </div>
                 </section>
 

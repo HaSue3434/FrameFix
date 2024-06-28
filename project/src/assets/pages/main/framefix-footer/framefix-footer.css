@@ -9,7 +9,6 @@
     margin: 0 auto;
     padding: 25px;
     height: 900px;
-    backdrop-filter: blur(5px);
     margin-top: 15px;
     overflow: hidden;
     position: relative;
@@ -20,18 +19,24 @@
     height: 100%;
     overflow: hidden;
     border-radius: 15px;
-    outline: 15px solid rgba(255,255,255,.15);
     background: var(--main-background);
 }
-.framefix-footer .wrapper>div>div{
+.framefix-footer .wrapper .contents > div.head{
+    width: 100%;
+    height: auto;
+}
+.framefix-footer .wrapper .contents > div.head svg{
+    width: 100%;
+}
+.framefix-footer .wrapper .contents > div{
     position: relative;
 }
-.framefix-footer .wrapper .main-contents{
-    margin-top: -5.5px;
+.framefix-footer .wrapper .contents .main-contents{
+    margin-top: -7px;
     display: flex;
     justify-content: space-between;
 }
-.framefix-footer .wrapper .animation-from-to{
+.framefix-footer .wrapper .contents .animation-from-to{
     position: absolute;
     top: 110px;
     right: 240px;

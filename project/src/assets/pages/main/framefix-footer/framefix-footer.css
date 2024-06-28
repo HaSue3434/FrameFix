@@ -7,17 +7,23 @@
     max-width: 100%;
     width: 1680px;
     margin: 0 auto;
-    
-    background: var(--main-background);
+    padding: 25px;
     height: 900px;
-    border-radius: 15px;
-    outline: 15px solid rgba(255,255,255,.15);
     backdrop-filter: blur(5px);
     margin-top: 15px;
     overflow: hidden;
     position: relative;
 }
-.framefix-footer .wrapper>div{
+.framefix-footer .wrapper .contents{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 15px;
+    outline: 15px solid rgba(255,255,255,.15);
+    background: var(--main-background);
+}
+.framefix-footer .wrapper>div>div{
     position: relative;
 }
 .framefix-footer .wrapper .main-contents{

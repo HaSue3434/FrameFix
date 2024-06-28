@@ -15,13 +15,13 @@ import { ReactComponent as PinkCursor } from '../../img/pink-cursor.svg';
 import { ReactComponent as BlueCursor } from '../../img/blue-cursor.svg';
 // framfix icon //
 
-import "./slider/canvas.css"
+import "./main-framefix/canvas.css"
 import "./slider/framefix-g.css"
 import "./publish/publish.css"
 import "./seo/seo.css"
 import "./framefix-footer/framefix-footer.css";
 
-import Canvas from "./slider/canvas";
+import Canvas from "./main-framefix/canvas";
 import Seo from './seo/seo';
 import FrameFixFooter from './framefix-footer/framefix-footer';
 

@@ -10,29 +10,32 @@ const FrameFixFooter = () =>{
     return(
         <>
             <div className="wrapper">
-                <div className="head">
-                    <HeadSvg/>
-                </div>
-                <div className="main-contents">
-                    <div className="left">
-                        <LeftPanelSvg/>
+                <div className="contents">
+                    <div className="head">
+                        <HeadSvg/>
                     </div>
-                    <div className="right">
-                        <RightPanelSvg/>
+                    <div className="main-contents">
+                        <div className="left">
+                            <LeftPanelSvg/>
+                        </div>
+                        <div className="right">
+                            <RightPanelSvg/>
+                        </div>
+                    </div>
+                    <div 
+                    data-scroll
+                    data-scroll-speed = "-1"
+                    className="animation-from-to">
+                        <AnimationFromToSvg/>
+                    </div>
+                    <div className="contents-frame">
+                        <div className="desktop-frame">
+                            <DesktopFrame/>
+                        </div>
+                        <div className="mobile-frame"></div>
                     </div>
                 </div>
-                <div 
-                data-scroll
-                data-scroll-speed = "-1"
-                className="animation-from-to">
-                    <AnimationFromToSvg/>
-                </div>
-                <div className="contents-frame">
-                    <div className="desktop-frame">
-                        <DesktopFrame/>
-                    </div>
-                    <div className="mobile-frame"></div>
-                </div>
+                
             </div>
         </>
     )

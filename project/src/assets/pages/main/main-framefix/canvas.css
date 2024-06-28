@@ -1,0 +1,95 @@
+section.main .wrapper .main-framefix .frame>div.framefix-ui{
+    background: #000;
+    overflow: hidden;
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui>div{
+    width: 100%;
+    height: 100%;
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui .ui-body{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 35px;
+    z-index: 11;
+    height: 100%;
+    position: relative;
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui .ui-body > .side-comm{
+    height: 100%;
+    background: #060606;
+    
+}
+
+section.main .wrapper .main-framefix .frame>div.framefix-ui .ui-body .canvas-editor{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    perspective: 1000px;
+    z-index: -1;
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui .ui-body .canvas-editor .frame1{
+    width: auto;
+    height: 800px;
+    position: relative;
+    transform-origin: top;
+    opacity: 1;
+    left: 20px;
+    transform: scale(1) rotateX(1deg) translateY(-180px) translateZ(0);
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui .ui-body .canvas-editor .left-frame{
+    height: 800px;
+    width: 250px;
+    background: #000;
+    position: absolute;
+    left: 250px;
+    transform: scale(0.9) translateY(-50%);
+    opacity: 0.6;
+    top: 50%;
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui .ui-body .canvas-editor .right-frame{
+    height: 800px;
+    width: 250px;
+    background: #000;
+    position: absolute;
+    right: 250px;
+    transform: scale(0.9) translateY(-50%);
+    top: 50%;
+    z-index: -2;
+    opacity: 0.6;
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui .ui-body .canvas-editor .frame1 .head-selected-frame{
+    margin-bottom: 10px;
+    width: 100%;
+    height: 35px;
+    border-radius: 8px;
+    background: rgba(255,255,255,.05);
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    align-items: center;
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui .ui-body .canvas-editor .frame1 .head-selected-frame .frame-title{
+    padding: 10px 12px;
+    position: relative;
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui .ui-body .canvas-editor .frame1 .head-selected-frame .frame-title p{
+    font-size: 12px;
+    color: rgba(255,255,255,1);
+    font-family: "Inter", sans-serif;
+}
+section.main .wrapper .main-framefix .frame>div.framefix-ui .ui-body .canvas-editor .frame1 .head-selected-frame .frame-title p span{
+    color: rgba(255,255,255,0.5);
+}
+.frame-toolbar-selection{
+    padding: 10px 12px;
+}
+.frame-toolbar-selection svg{
+    vertical-align: middle;
+}

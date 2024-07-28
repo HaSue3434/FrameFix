@@ -92,18 +92,15 @@ export const SideImgViewsR : React.FC<FileUploadProps> = ({files , setFiles }) =
             setFiles([...files, ...newFiles]);
         },
         accept: { 'image/*': [] },
-        multiple: false // Assuming replace should work with one file at a time
+        multiple: false 
     });
 
-    // Function to delete an image
     const deleteImage = (index: number) => {
         setFiles(prevFiles => prevFiles.filter((_, i) => i !== index));
     };
 
-    // Ref for the hidden input used for replacing images
     const replaceInputRef = React.useRef<HTMLInputElement>(null);
 
-    // Function to handle image replacement
     const replaceImage = (index: number, file: File) => {
         const newFile = {
             file,
@@ -116,7 +113,6 @@ export const SideImgViewsR : React.FC<FileUploadProps> = ({files , setFiles }) =
         ]);
     };
 
-    // Function to trigger file input for replacement
     const handleReplaceClick = (index: number) => {
         const input = replaceInputRef.current;
         if (input) {

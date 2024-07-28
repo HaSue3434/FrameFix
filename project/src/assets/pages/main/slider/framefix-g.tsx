@@ -181,12 +181,6 @@ const FrameFixGuide: React.FC = () => {
 
     return (
         <>  
-            <div className="titles">
-                <div className="logo"><Logo/></div>
-                <div>
-                    <h1>FrameFix supports various plugins.</h1>
-                </div>
-            </div>
             <div ref={sectionsRef}>
                 <motion.div className="section-i f-a">
                   <div>
@@ -357,7 +351,7 @@ const FrameFixGuide: React.FC = () => {
                                 <div className="icon"><Effect/></div>
                                 <div className="txt">effects</div>
                             </div>
-                            <h1> <span>Add effects</span> to your website.</h1>
+                            <h1> <span> Add effects</span> to your website.</h1>
                         </div>
                         <div className="m-expl">
                             <div className="progress-contain">
@@ -434,7 +428,7 @@ const FrameFixGuide: React.FC = () => {
                                 <div className="icon"><Layout/></div>
                                 <div className="txt">Application</div>
                             </div>
-                            <h1> Structure with a few <span>clicks.</span></h1>
+                            <h1> <span>Configured</span> with a few clicks.</h1>
                         </div>
                         <div className="m-expl">
                             <div className="progress-contain">

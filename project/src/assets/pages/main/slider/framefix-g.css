@@ -6,14 +6,14 @@
     margin-bottom: 8em;
 }
 .titles > div.logo{
-    padding-bottom: 35px;
+    padding-bottom: 15px;
 }
 .titles > div h1{
     color: rgba(255,255,255,1);
     font-size:5em;
     text-align: center;
     letter-spacing: 1px;
-    max-width: 900px;
+    max-width: 800px;
 }
 .section-i{
     width: 100%;
@@ -49,7 +49,7 @@
     max-width: 600px;
 }
 .section-i.f-b .txt h1{
-    max-width: 750px;
+    max-width: 550px;
 }
 .section-i>div .txt{
     width: 100%;

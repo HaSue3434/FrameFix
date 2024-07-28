@@ -9,61 +9,21 @@ import { motion } from "framer-motion";
 
 
 const Seo = () =>{
-    const [animation,setAnimation] = useSeoAnimation();
 
     return(
         <>
-           <div className="txt-content">
-                <div className="title">
-                    <h1>SEO</h1>
-                </div>
-                <div className="sub-txt">
-                    <p>FrameFix enables swift and effortless discovery through an optimized search engine.</p>
-                </div>
-                <div className="link-to-framefix">
+           <div className="website-builder-title">
+                <h1>Website Builder</h1>
+                <h1>Accelerates Growth</h1>
+
+                <div className="go-to-dashboard">
                     <Link to={'./'}>
-                        See all SEO <LinkTo/>
+                        Go to dashboard
                     </Link>
-                </div>  
-
+                </div>
            </div>
-           <div className="animation-content">
-                <div className="title">
-                    <h1>Hosting</h1>
-                </div>
-                <div className="sub-txt">
-                    <p>FrameFix enables swift and effortless discovery through an optimized search engine.</p>
-                </div>
-
-                <motion.div 
-                ref={animation as React.Ref<HTMLDivElement> }
-                initial = {{x : 0, y : 0,}}
-                animate = {setAnimation}
-                className="content-view-hosting-box">
-                    <div className="view-box">
-                        <div className="hosting-domain">
-                            <p>https://www.framefix.com</p>
-                        </div>
-                        <div className="view-box-head">
-                            <div className="framefix-logo"><FrameLogo/></div>
-                            <div className="navbar">
-                                <div>Resource</div>
-                                <div>Features</div>
-                                <div>Partner with us</div>
-                                <div>About us</div>
-                            </div>
-                            <div className="sign">
-                                <div className="login">Login</div>
-                                <div className="sign-up">Sign up</div>
-                            </div>
-                        </div>
-                        <div className="view-box-main">
-                            <CanvasImg/>
-                            <div className="top-right-blur"></div>
-                            <div className="bottom-left-blur"></div>
-                        </div>
-                    </div>
-                </motion.div>
+           <div className="features-item">
+                
            </div>
         </>
     )

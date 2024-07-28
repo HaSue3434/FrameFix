@@ -59,8 +59,9 @@ useEffect(() => {
         
         t1.from(frameElement.current, {
             rotationX: 10,
-            translateY: -180,
+            translateY: -200,
             translateZ: -50,
+            scale : 0.95,
             scrollTrigger: {
                 trigger: frameElement.current,
                 start: "-40% 50%",
@@ -206,7 +207,9 @@ useEffect(() => {
                             </motion.div>
                         </div>
                         <motion.div
-
+                            initial = {{rotateX : -10, }}
+                            animate = {{rotateX : 10,}}
+                            transition={{duration : 1, ease : "anticipate",}}
                             className="main-framefix">
                             <div className="frame" ref={frameElement} style={{ 
                                 transform: `rotateX(${rotationX}deg) rotateY(${rotationY}deg) `,

@@ -119,6 +119,7 @@ const CreateProject:React.FC = ()=>{
                     </div>
                 </div>
             </div>
+            <div className={styles.Blur}></div>
         </motion.div>
         </AnimatePresence>
         </>

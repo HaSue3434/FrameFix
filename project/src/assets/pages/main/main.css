@@ -281,16 +281,7 @@ section.main>.bottom-blur{
     fill: #459AFF;
 
 }
-.framefix-footer .top-blur{
-    top: -100px;
-    left: -35px;
-    width: 150vw;
-    height: 100px;
-    position: absolute;
-    background: #000;
-    filter: blur(25px);
-    z-index: 5555;
-}
+
 .framefix-footer .bottom-blur{
     bottom: -50px;
     width: 150vw;

@@ -18,11 +18,11 @@ import { ReactComponent as BlueCursor } from '../../img/blue-cursor.svg';
 import "./main-framefix/canvas.css"
 import "./slider/framefix-g.css"
 import "./publish/publish.css"
-import "./seo/seo.css"
+import "./seo/web-builder-styles.css"
 import "./framefix-footer/framefix-footer.css";
 
 import Canvas from "./main-framefix/canvas";
-import Seo from './seo/seo';
+import Seo from './seo/web-builder';
 import FrameFixFooter from './framefix-footer/framefix-footer';
 
 import FrameFixGuide from './slider/framefix-g';
@@ -32,7 +32,7 @@ import {
     TxtAnimation,
     useInViewCursorScale,
 
-} from './animation-script';
+} from './main-animation-script';
 import Particles from './particle';
 
 const Main = () => {

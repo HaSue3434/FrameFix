@@ -41,7 +41,7 @@ import { Link } from 'react-router-dom';
 import {
     useTypingEffect,
     useInViewPluginsScale
-} from "../animation-script";
+} from "../main-animation-script";
 import ViewMain from "./view-main";
 
 gsap.registerPlugin(ScrollTrigger);

@@ -1,0 +1,200 @@
+.seo-contain{
+    width: 100%;
+    height: 100%;
+    padding-top: 50vh;
+}
+.seo-contain .wrapper{
+    width: 1680px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 25px;
+    gap: 35px;
+    display: flex;
+    justify-content: center;
+}
+.seo-contain .wrapper .website-builder-title{
+    height: 100%;
+    padding-left: 35px;
+    padding-bottom: 6.25em;
+}
+.seo-contain .wrapper .website-builder-title h1{
+    font-size: 5em;
+    color: #fff;
+    line-height: 100px;
+}
+.seo-contain .wrapper .website-builder-title h1:nth-child(1){
+    font-weight: bold;
+}
+.seo-contain .wrapper .website-builder-title h1:nth-child(2){
+    font-weight: 600;
+    color: rgba(255,255,255,.35);
+}
+.seo-contain .wrapper .website-builder-title .go-to-dashboard{
+    padding-top: 5em;
+}
+.seo-contain .wrapper .website-builder-title .go-to-dashboard a{
+    font-size: 1.25em;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 15px;
+    box-shadow: 0 4px 4px rgba(8,8,8,.08),0 1px 2px rgba(8,8,8,.2),inset 0 6px 12px rgba(255,255,255,.12),inset 0 1px 1px rgba(255,255,255,.2);
+    background: #459AFF;
+    transition: background .25s;
+}
+.seo-contain .wrapper .website-builder-title .go-to-dashboard a:hover{
+    background: #E960FF;
+}
+.web-builder-container{
+    width: 1080px;
+    height: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 15px;
+}
+.common-features{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.common-features > div{
+    border-radius: 15px;
+
+}
+.grid-left-1{
+    width: 100%;
+}
+.grid-right-2{
+    width: 100%;
+}
+.grid-bottom-3{
+    width: 100%;
+}
+#feature-seo{
+    width: 100%;
+    height: 487px;
+    background: linear-gradient(120deg , #459AFF,#75D6FF);
+}
+#feature-ai{
+    width: 100%;
+    height: 555px;
+    background: linear-gradient(120deg , #E960FF,#8B00FF);
+}
+#feature-cms{
+    width: 100%;
+    height: 658px;
+    background: linear-gradient(120deg , #FF9C55,#FFCC4A);
+}
+#feature-responsive{
+    width: 100%;
+    height: 385px;
+    background: linear-gradient(120deg , #FF3232,#FF7A2F);
+}
+#feature-layouts{
+    width: 100%;
+    height: 430px;
+    background: linear-gradient(120deg , #0A22FF,#459AFF);
+}
+#loading{
+    width: 60%;
+    height: 430px;
+    border: 1px solid rgba(255,255,255,.25);
+}
+.grid-bottom-3 {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+    align-self: flex-end;
+}
+
+.grid-bottom-3 > div{
+    border-radius: 15px;
+}
+.common-contain > div{
+    overflow: hidden;
+    box-shadow: 0 4px 4px rgba(8,8,8,.08),0 1px 2px rgba(8,8,8,.2),inset 0 6px 12px rgba(255,255,255,.12),inset 0 1px 1px rgba(255,255,255,.2);
+    position: relative;
+}
+.absolutly-white-background{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+.common-contain > div > a{
+    position: absolute;
+    z-index: 777;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    visibility: hidden;
+}
+.common-contain > div .contents{
+    z-index: 55;
+    display: flex;
+    padding: 25px;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    position: relative;
+}
+.common-contain > div .contents .feature-title h1{
+    color: rgba(255,255,255,1);
+}
+.common-contain > div .contents .feature-title h1~p{
+    color: rgba(255,255,255,1);
+    padding-top: 10px;
+    line-height: 122.2%;
+    max-width: 280px;
+}
+
+/* contents in feature styles */
+#feature-seo .contents .site-view-seo{
+    position: relative;
+    top: 32px;
+}
+#feature-layouts .contents .layouts{
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding-top: 25px;
+    gap: 15px;
+    height: 300px;
+    overflow: hidden;
+    align-items: flex-end;
+}
+#feature-layouts .contents .layouts > div{
+    width: 100%;
+    overflow: hidden;
+    box-shadow: 
+        0px 0px 20.1px 1.5px rgba(0,0,0,0.5),
+        0px 0px 10.1px 1.5px rgba(0,0,0,0.25);
+}
+#feature-layouts .contents .layouts > div:nth-child(1){
+    height: 100%;
+    
+    border-top-right-radius: 15px;
+}
+#feature-layouts .contents .layouts > div:nth-child(2){
+    height: 85%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+#feature-layouts .contents .layouts > div:nth-child(3){
+    height: 70%;
+    border-top-left-radius: 15px;
+}
+#feature-layouts .contents .layouts > div img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    user-select: none;
+}
+/*features link*/
+.common-contain > div:hover > a{
+    visibility: visible;
+}

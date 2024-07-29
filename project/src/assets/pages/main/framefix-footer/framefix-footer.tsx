@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as FooterFrameFix } from "../../../img/footer-framefix.svg";
+import { ReactComponent as FooterFrameFix } from "../../../img/main-canvas.svg";
 
 
 const FrameFixFooter = () =>{
@@ -7,7 +7,7 @@ const FrameFixFooter = () =>{
         <>
             <div className="wrapper">
                 <div className="contents">
-                    <FooterFrameFix/>
+                   <FooterFrameFix/>
                 </div>
                 
             </div>

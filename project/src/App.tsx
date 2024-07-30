@@ -28,7 +28,7 @@ function RoutesWithComponents(): JSX.Element | null {
   const { pathname } = useLocation();
   const shouldHideHeader = ['/file/framefix', '/create-project/project', '/user-files/default','/proto-view'].includes(location.pathname);
   const shouldHideFooter = ['/file/framefix', '/user-files/default','/proto-view'].includes(location.pathname);
-  const title = 'FrameFix canvas tool'; 
+  const title = 'FrameFix ━ AI-Powered turning ideas into Reality'; 
 
   useEffect(() => {
     const page = pages.find((p) => p.path === pathname);

@@ -40,7 +40,7 @@ header nav{
 }
 header nav .logo svg{
     width: auto;
-    height: 40px;
+    height: 35px;
 }
 header nav ul{
     display: flex;
@@ -86,7 +86,7 @@ header nav ul li .f svg{
 }
 .start-link .nav-f-link >div{
     border-radius: 5px;
-    padding: 12px 18px;
+    padding: 10px 15px;
     color: #fff;
     font-weight: 600;
     font-size: 14px;

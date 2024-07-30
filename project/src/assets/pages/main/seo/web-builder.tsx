@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ReactComponent as FBlur } from "../../../img/f-bl.svg";
 import { ReactComponent as SEO } from "./canvas-img/site-canvas.svg";
+import { ReactComponent as AI } from "./canvas-img/ai-icon.svg";
 import { motion } from "framer-motion";
 
 
@@ -40,6 +41,24 @@ const Seo = () =>{
                         <div className="contents">
                             <div className="feature-title">
                                 <h1>AI features enable <br></br> rapid building</h1>
+                            </div>
+                            <div className="box">
+                                <div className="ai-icon"><AI/></div>
+                                <div className="ai-create-imgs">
+                                    <div className="create-a">
+                                        <div className=""></div>
+                                        <div className=""></div>
+                                    </div>
+                                    <div className="create-b"></div>
+                                    <div className="create-c"></div>
+                                </div>
+                                <div className="ai-generate">
+                                    <div>Comment....</div>
+                                    <div className="btn">
+                                        <div className="ex-btn">Try Example</div>
+                                        <div className="generate"></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <Link to={"./"}></Link>

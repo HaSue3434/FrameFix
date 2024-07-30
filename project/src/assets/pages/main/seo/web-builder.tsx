@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ReactComponent as FBlur } from "../../../img/f-bl.svg";
 import { ReactComponent as SEO } from "./canvas-img/site-canvas.svg";
 import { ReactComponent as AI } from "./canvas-img/ai-icon.svg";
+import { ReactComponent as AIGenerate } from "./canvas-img/ai-generate-icon.svg";
 import { motion } from "framer-motion";
 
 
@@ -45,18 +46,40 @@ const Seo = () =>{
                             <div className="box">
                                 <div className="ai-icon"><AI/></div>
                                 <div className="ai-create-imgs">
-                                    <div className="create-a">
-                                        <div className=""></div>
-                                        <div className=""></div>
+                                    <div className="create-a create">
+                                        <div className="create-img-idx-1 common">
+                                            <img src={require("./canvas-img/img-idx-1.jpg")} alt="" />
+                                        </div>
+                                        <div className="create-img-idx-2 common">
+                                            <img src={require("./canvas-img/img-idx-2.jpg")} alt="" />
+                                        </div>
                                     </div>
-                                    <div className="create-b"></div>
-                                    <div className="create-c"></div>
+                                    <div className="create-b create">
+                                        <div className="create-img-idx-3 common">
+                                            <img src={require("./canvas-img/img-idx-3.jpg")} alt="" />
+                                        </div>
+                                        <div className="create-img-idx-4 common">
+                                            <img src={require("./canvas-img/img-idx-4.jpg")} alt="" />
+
+                                        </div>
+                                    </div>
+                                    <div className="create-c create">
+                                        <div className="create-img-idx-5 common">
+                                            <img src={require("./canvas-img/img-idx-5.jpg")} alt="" />
+                                        </div>
+                                        <div className="create-img-idx-6 common">
+                                            <img src={require("./canvas-img/img-idx-6.jpg")} alt="" />
+                                        </div>
+                                    </div>
                                 </div>
                                 <div className="ai-generate">
-                                    <div>Comment....</div>
+                                    <div className="comment"><span>comment...</span></div>
                                     <div className="btn">
                                         <div className="ex-btn">Try Example</div>
-                                        <div className="generate"></div>
+                                        <div className="generate">
+                                            <AIGenerate/>
+                                            <span>Generate</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -82,6 +105,7 @@ const Seo = () =>{
                                 <h1>Responsive web</h1>
                                 <p>Implement a responsive design  effortlessly with just a few clicks.</p>
                             </div>
+                            
                         </div>
                         <Link to={"./"}></Link>
                         <div className="absolutly-white-background"><FBlur/></div>

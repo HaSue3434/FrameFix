@@ -13,22 +13,18 @@ const Header = () =>{
                    <Link to='/'><Logo /></Link>
                 </div>
                 <ul className='nav'>
-                    <Link to='/'>
-                      <li className = 'framefix-features' >
-                          <div className='f'>Features <Arrow/></div>
-                          <ul>
-
-                          </ul>
-                      </li>
-                    </Link>
-                    <Link to='/'>
-                      <li className = 'framefix-resource' >
-                          <div className='f'>Resource <Arrow/></div>
-                          <ul>
-
-                          </ul>
-                      </li>
-                    </Link>
+                    <li>
+                        <div className='framefix-features-nav drop-nav'>
+                            <div>Features</div>
+                            <div><Arrow/></div>
+                        </div>
+                     </li>
+                    <li>
+                        <div className='framefix-resource-nav drop-nav'>
+                            <div>Resource</div>
+                            <div><Arrow/></div>
+                        </div>
+                    </li>
                     <Link to='/'><li>Updates</li></Link>
                     <Link to='/'><li>Community</li></Link>
                     <Link to='/'><li>Pricing</li></Link>

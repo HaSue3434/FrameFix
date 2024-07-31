@@ -298,6 +298,64 @@
     height: 100%;
     user-select: none;
 }
+#feature-responsive .contents .mobile-web{
+    position: absolute;
+    bottom: -75px;
+    left: 0;
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    z-index: -1;
+    gap: 20px;
+}
+#feature-cms .contents .cms-management{
+    position: absolute;
+    bottom: -20px;
+    right: 0;
+}
+#feature-cms .contents .cms-settings{
+    position: absolute;
+    bottom: 0;
+    left: 55px;
+    width: 260px;
+    height: 220px;
+    background: #171717;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+#feature-cms .contents .cms-settings .title > p{
+    color: #fff;
+    font-size: 9px;
+}
+#feature-cms .contents .cms-settings .title .text-box{
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 5px;
+    background: rgba(255,255,255,.1);
+    padding: 8px 10px ;
+    color: rgba(255,255,255,.8);
+    overflow: hidden;
+    font-size: 9px;
+    
+}
+#feature-cms .contents .cms-settings .description .text-box{
+    height: 300px;
+    color: rgba(255,255,255,.5);
+}
+#loading .circle{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 /*features link*/
 .common-contain > div:hover > a{
     visibility: visible;

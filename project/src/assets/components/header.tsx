@@ -13,13 +13,13 @@ const Header = () =>{
                    <Link to='/'><Logo /></Link>
                 </div>
                 <ul className='nav'>
-                    <li>
+                    <li className='drop'>
                         <div className='framefix-features-nav drop-nav'>
                             <div>Features</div>
                             <div><Arrow/></div>
                         </div>
                      </li>
-                    <li>
+                    <li className='drop'>
                         <div className='framefix-resource-nav drop-nav'>
                             <div>Resource</div>
                             <div><Arrow/></div>

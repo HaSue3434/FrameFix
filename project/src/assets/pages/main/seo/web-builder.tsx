@@ -1,15 +1,37 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { ReactComponent as FBlur } from "../../../img/f-bl.svg";
 import { ReactComponent as SEO } from "./canvas-img/site-canvas.svg";
 import { ReactComponent as AI } from "./canvas-img/ai-icon.svg";
 import { ReactComponent as AIGenerate } from "./canvas-img/ai-generate-icon.svg";
+import { ReactComponent as MainResponsive } from "./canvas-img/main-responsive.svg";
+import { ReactComponent as LiveResponsive } from "./canvas-img/live-responsive.svg";
+import { ReactComponent as CMS } from "./canvas-img/cms-svg.svg";
 import { motion } from "framer-motion";
 
 
 
 const Seo = () =>{
-
+    const [percentage, setPercentage] = useState(0);
+    const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  
+    useEffect(() => {
+      if (percentage < 100) {
+        intervalRef.current = setInterval(() => {
+          setPercentage((prev) => prev + 1);
+        }, 50);
+      } else {
+        if (intervalRef.current) {
+          clearInterval(intervalRef.current);
+        }
+      }
+  
+      return () => {
+        if (intervalRef.current) {
+          clearInterval(intervalRef.current);
+        }
+      };
+    }, [percentage]);
     return(
         <>
         <div>
@@ -94,6 +116,33 @@ const Seo = () =>{
                             <div className="feature-title">
                                 <h1>Built-in CMS</h1>
                                 <p>Real-time management with built-in CMS.</p>
+                                <div className="cms-management">
+                                    <div className="cms"><CMS></CMS></div>
+                                </div>
+                                <div className="cms-settings">
+                                        <div className = "title">
+                                            <p>Title</p>
+                                            <div className="text-box">
+                                                Navigation Componnents
+                                            </div>
+                                        </div>
+                                        <div className = "slug">
+                                            <div className = "title">
+                                                <p>Slug</p>
+                                                <div className="text-box">
+                                                    navigation-comoponents
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className = "description">
+                                            <div className = "title">
+                                                <p>Description</p>
+                                                <div className="text-box">
+                                                    Description....
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
                             </div>
                         </div>
                         <Link to={"./"}></Link>
@@ -105,7 +154,10 @@ const Seo = () =>{
                                 <h1>Responsive web</h1>
                                 <p>Implement a responsive design  effortlessly with just a few clicks.</p>
                             </div>
-                            
+                            <div className="mobile-web">
+                                <div><MainResponsive/></div>
+                                <div><LiveResponsive/></div>
+                            </div>
                         </div>
                         <Link to={"./"}></Link>
                         <div className="absolutly-white-background"><FBlur/></div>
@@ -141,7 +193,7 @@ const Seo = () =>{
                             <h1>Faster Loading</h1>
                         </div>   
                         <div className="circle">
-
+                            
                         </div>
                     </div>
                 </div>

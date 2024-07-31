@@ -28,14 +28,14 @@ function RoutesWithComponents(): JSX.Element | null {
   const { pathname } = useLocation();
   const shouldHideHeader = ['/file/framefix', '/create-project/project', '/user-files/default','/proto-view'].includes(location.pathname);
   const shouldHideFooter = ['/file/framefix', '/user-files/default','/proto-view'].includes(location.pathname);
-  const title = 'FrameFix ━ AI-Powered turning ideas into Reality'; 
+  const title = 'FrameFix: AI-Powered turning ideas into Reality'; 
 
   useEffect(() => {
     const page = pages.find((p) => p.path === pathname);
     if (page) {
       if(page.title.toUpperCase()==='framefix'.toUpperCase()){
         document.title = title;
-      } else document.title = title + ' - ' + page.title; 
+      } else document.title = title + ': ' + page.title; 
     }
   }, [pathname,pages]);
 

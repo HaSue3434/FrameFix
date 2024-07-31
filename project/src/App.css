@@ -102,9 +102,11 @@ header nav ul li .f svg{
 ::-webkit-scrollbar{
     width: 0;
 }
+header nav ul li.drop{
+    cursor: pointer;
+}
 header nav ul li .drop-nav{
     display: flex;
-    cursor: default;
     height: 100%;
     align-items: center;
     gap: 10px;
@@ -115,15 +117,13 @@ header nav ul li .drop-nav svg{
 }
 header nav ul li .drop-nav > div{
     transition: .25s;
+    
 }
 header nav ul li:hover .drop-nav > div{
     color: rgba(255,255,255,1);
 }
 header nav ul li .drop-nav svg{
     transition: .25s;
-}
-header nav ul li:hover .drop-nav svg{
-    transform: rotate(180deg);
 }
 footer{
     width: 100vw;

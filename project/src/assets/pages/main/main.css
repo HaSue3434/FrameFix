@@ -141,9 +141,11 @@ section.main .wrapper  .main-framefix{
     perspective: 500px;
     position: relative;
     padding-top: 8vw;
+    transform-origin: top center;
     margin:0 auto;
     z-index: 5;
     transform: scale(1) translateZ(0);
+    
 
 }
 section.main .wrapper  .main-framefix .frame{
@@ -162,26 +164,6 @@ section.main>.bottom-blur{
     filter: blur(25px);
 }
 
-.f-g{
-    width: 100%;
-    height: auto;
-    margin-top: 50vh;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 50vh;
-    background: #080811;
-}
-.f-g .wrapper{
-    width: 1680px;
-    max-width: 100%;
-    height: 100%;
-    margin: 0 auto;
-    padding: 25px;
-}
-.f-g .wrapper .contain{
-    width: 100%;
-    height: 500vh;
-}
 
 /*publish*/
 .publish{

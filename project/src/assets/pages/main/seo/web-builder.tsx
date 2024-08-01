@@ -4,8 +4,6 @@ import { ReactComponent as FBlur } from "../../../img/f-bl.svg";
 import { ReactComponent as SEO } from "./canvas-img/site-canvas.svg";
 import { ReactComponent as AI } from "./canvas-img/ai-icon.svg";
 import { ReactComponent as AIGenerate } from "./canvas-img/ai-generate-icon.svg";
-import { ReactComponent as MainResponsive } from "./canvas-img/main-responsive.svg";
-import { ReactComponent as LiveResponsive } from "./canvas-img/live-responsive.svg";
 import { ReactComponent as CMS } from "./canvas-img/cms-svg.svg";
 import { motion } from "framer-motion";
 
@@ -58,12 +56,14 @@ const Seo = () =>{
                             </div>
                         </div>
                         <Link to={"./"}></Link>
-                        <div className="absolutly-white-background"><FBlur/></div>
+                        <div className="absolutly-white-background">
+                            <div className="fancy-border-blur"></div>
+                        </div>
                     </div>
                     <div id="feature-ai">
                         <div className="contents">
                             <div className="feature-title">
-                                <h1>AI features enable <br></br> rapid building</h1>
+                                <h1>AI features for <br></br> rapid building</h1>
                             </div>
                             <div className="box">
                                 <div className="ai-icon"><AI/></div>
@@ -107,7 +107,9 @@ const Seo = () =>{
                             </div>
                         </div>
                         <Link to={"./"}></Link>
-                        <div className="absolutly-white-background"><FBlur/></div>
+                        <div className="absolutly-white-background">
+                            <div className="fancy-border-blur"></div>
+                        </div>
                     </div>
                 </div>
                 <div className="grid-right-2 common-features common-contain">
@@ -117,7 +119,7 @@ const Seo = () =>{
                                 <h1>Built-in CMS</h1>
                                 <p>Real-time management with built-in CMS.</p>
                                 <div className="cms-management">
-                                    <div className="cms"><CMS></CMS></div>
+                                    <div className="cms"><CMS/></div>
                                 </div>
                                 <div className="cms-settings">
                                         <div className = "title">
@@ -146,21 +148,29 @@ const Seo = () =>{
                             </div>
                         </div>
                         <Link to={"./"}></Link>
-                        <div className="absolutly-white-background"><FBlur/></div>
+                        <div className="absolutly-white-background">
+                            <div className="fancy-border-blur"></div>
+                        </div>
                     </div>
                     <div id="feature-responsive">
                         <div className="contents">
                             <div className="feature-title">
                                 <h1>Responsive web</h1>
-                                <p>Implement a responsive design  effortlessly with just a few clicks.</p>
+                                <p>Make a responsive design <br></br>with just a few clicks.</p>
                             </div>
                             <div className="mobile-web">
-                                <div><MainResponsive/></div>
-                                <div><LiveResponsive/></div>
+                                <div className="common-mobile-web">
+                                    <img src={require("./canvas-img/main-responsive.png")} alt="" />
+                                </div>
+                                <div className="common-mobile-web">
+                                    <img src={require("./canvas-img/live-responsive.png")} alt="" />
+                                </div>
                             </div>
                         </div>
                         <Link to={"./"}></Link>
-                        <div className="absolutly-white-background"><FBlur/></div>
+                        <div className="absolutly-white-background">
+                            <div className="fancy-border-blur"></div>
+                        </div>
                     </div>
                 </div>
                 
@@ -169,8 +179,8 @@ const Seo = () =>{
                 <div id="feature-layouts">
                     <div className="contents">
                         <div className="feature-title">
-                            <h1>Rapidly build layouts</h1>
-                            <p>Design your site on a familiar canvas.</p>
+                            <h1>Familiar canvas.</h1>
+                            <p>Create your layout on a familiar canvas.</p>
                         </div>   
                         <div className="layouts">
                             <div className="layout-1">
@@ -185,7 +195,9 @@ const Seo = () =>{
                         </div>
                     </div>
                     <Link to={"./"}></Link>
-                    <div className="absolutly-white-background"><FBlur/></div>
+                    <div className="absolutly-white-background">
+                        <div className="fancy-border-blur"></div>
+                    </div>
                 </div>
                 <div id="loading">
                     <div className="contents">

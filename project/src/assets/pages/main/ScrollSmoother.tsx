@@ -21,7 +21,7 @@ const ScrollSmootherComponent: React.FC<ScrollSmootherProps> = ({ children }) =>
     const ls = new LocomotiveScroll({
       el: scrollRef.current,
       smooth: true,
-      lerp : 0.1,
+      lerp : 0.05,
       class : 'is-inview',
       offset : ["-15%", '15%'],
       repeat : true,

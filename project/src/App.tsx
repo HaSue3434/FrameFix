@@ -5,7 +5,6 @@ import "./assets/pages/main/main.css"
 import Header from './assets/components/header';
 import Footer from './assets/components/footer';
 import Main from './assets/pages/main/main';
-import SignUp from './assets/pages/sign-up/sign';
 import FrameFix from './assets/pages/framefix-tool/main';
 import CreateProject from './assets/pages/create-project/create-project';
 import Preview from './assets/pages/framefix-tool/preview/views';
@@ -45,7 +44,6 @@ function RoutesWithComponents(): JSX.Element | null {
         {!shouldHideHeader && <Header />}
           <Routes>
             <Route path="/" element={<Main />} />
-            <Route path="/sign-up" element={<SignUp />} />
             <Route path="/file/framefix" element={<FrameFix />} />
             <Route path="/create-project/project" element={<CreateProject />} />
             <Route path="/proto-view" element={<Preview />} />

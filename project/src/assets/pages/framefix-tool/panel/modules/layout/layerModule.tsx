@@ -1,13 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "../module-styles.module.css";
-import {ReactComponent as Add} from "../../../../../img/icons/add.svg";
 import { motion } from "framer-motion";
-
 import { ReactComponent as RectangleIcon } from "../../../../../img/icons/framefix-plugin-icons/Rect.svg"; 
-import { ReactComponent as FrameIcon } from "../../../../../img/icons/framefix-plugin-icons/layer-frame.svg"; 
-import { ReactComponent as ListArrow } from "../../../../../img/icons/framefix-plugin-icons/aseets-arrow-bottom.svg"; 
-import { ReactComponent as Lock } from "../../../../../img/icons/framefix-plugin-icons/lock.svg"; 
-import { ReactComponent as Unlock } from "../../../../../img/icons/framefix-plugin-icons/unlock.svg"; 
+import { ReactComponent as FrameIcon } from "../../../../../img/icons/framefix-plugin-icons/layer-frame.svg";
 
 const LayerModule  = () =>{
 
@@ -45,7 +40,7 @@ const LayerModule  = () =>{
                 <div className={styles.title}>
                     <h4>Page</h4>
                     <div className={styles.addFile} onClick={handlerOpenAdd} ref={dropdownRef}>
-                        <Add/>
+                        {/* add */}
 
                         {/* file option */} 
                         { openAdd ?

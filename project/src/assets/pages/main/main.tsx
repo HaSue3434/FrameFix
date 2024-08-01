@@ -4,11 +4,10 @@ import ScrollSmootherComponent from "./ScrollSmoother";
 import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import {motion} from 'framer-motion';
+import { motion } from 'framer-motion';
 
 import FooterSection from "../../components/footer";
 import { ReactComponent as Logo } from '../../img/logo/logo.svg';
-import { ReactComponent as NextArrow } from '../../img/icons/next-arrow.svg';
 
 // framfix icon //
 import { ReactComponent as PinkCursor } from '../../img/pink-cursor.svg';
@@ -16,7 +15,6 @@ import { ReactComponent as BlueCursor } from '../../img/blue-cursor.svg';
 // framfix icon //
 
 import "./main-framefix/canvas.css"
-import "./slider/framefix-g.css"
 import "./publish/publish.css"
 import "./seo/web-builder-styles.css"
 import "./framefix-footer/framefix-footer.css";
@@ -25,7 +23,6 @@ import Canvas from "./main-framefix/canvas";
 import Seo from './seo/web-builder';
 import FrameFixFooter from './framefix-footer/framefix-footer';
 
-import FrameFixGuide from './slider/framefix-g';
 
 import {
 
@@ -56,20 +53,19 @@ useEffect(() => {
     
 
     let tx = gsap.context(() => {
-        
+
         t1.from(frameElement.current, {
-            rotationX: 10,
+            rotationX: 6,
             translateY: -200,
-            translateZ: -50,
-            scale : 0.95,
+            scaleX : 0.85,
+            scaleY : 0.85,
             scrollTrigger: {
                 trigger: frameElement.current,
-                start: "-40% 50%",
-                end: "40% 50%",
-                scrub: 1,
-                onUpdate: (scrollTrigger) => {
-
-                },
+                start: "-65% 50%",
+                end: "80% 50%",
+                scrub: 10,
+                toggleActions : "play none none restart"
+                
             },
         });
     });
@@ -194,7 +190,7 @@ useEffect(() => {
                                 initial = {{opacity : 0, y : 50}}
                                 animate = {{opacity : 1, y : 0}}
                                 transition={{duration : 1, ease : 'backInOut', delay : 0.35}}
-                                >We build easy and fast workflows through AI.</motion.p>
+                                >Build easy and fast workflows through AI.</motion.p>
                             </div>
                             <motion.div 
                             initial = {{opacity : 0, y : 50}}
@@ -232,7 +228,7 @@ useEffect(() => {
                 <section data-scroll data-scroll-section className='f-g' id='f-g' ref={fullScreenRef}>
                     <div className="wrapper">
                         <div className="contain ref-c">
-                            <FrameFixGuide />
+
                         </div>
                     </div>
                 </section>
@@ -255,7 +251,7 @@ useEffect(() => {
                             <div className='btn'>
                                 <Link to='./'>
                                     Start FrameFix
-                                    <div className='next'><NextArrow/></div>
+                                    <div className='next'></div>
                                 </Link>
                             </div>
                         </div>

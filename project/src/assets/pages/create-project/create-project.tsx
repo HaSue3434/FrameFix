@@ -1,11 +1,7 @@
 import React,{ useState,useEffect,useRef } from "react";
 import { ReactComponent as Logo } from "../../img/logo/logo.svg";
-import { ReactComponent as PrevArrow } from "../../img/icons/prev-arrow.svg";
 import { ReactComponent as Close } from "./project-maker-icons/close.svg";
 import { ReactComponent as Open } from "./project-maker-icons/open-imgview.svg";
-
-
-import axios from 'axios';
 import styles from './create-project.module.css';
 import { Link } from "react-router-dom";
 import { motion,AnimatePresence } from 'framer-motion';
@@ -16,12 +12,6 @@ import {
     SideImgViewsR,
 
 } from './file-upload';
-
-const variants = {
-    hidden  : {},
-
-}
-
 const CreateProject:React.FC = ()=>{
 
     const [isOpen, setIsOpen] = useState(true); 
@@ -49,7 +39,7 @@ const CreateProject:React.FC = ()=>{
                     <div className={styles.createHeader}>
                         <div className={styles.prevBtn}>
                             <Link to='../../'>
-                                <PrevArrow/>
+                                
                             </Link>
                         </div>
                         <div className={styles.headLogo}>
@@ -62,10 +52,10 @@ const CreateProject:React.FC = ()=>{
                     <div className={styles.userPrompt}>
                         <div className={styles.titles}>
                             <div className={`${styles.title} ${styles.tCommon}`}>
-                                <h1>Desired Design References</h1>
+                                <h1>Upload References</h1>
                             </div>
                             <div className={`${styles.subTitle} ${styles.tCommon}`}>
-                                <p>The more references you provide, the greater the chance <br/>of finding exactly what you're looking for.</p>
+                                <p>The more references you provide<br></br>the better and more accuarate result you will get </p>
                             </div>
 
                         </div>
@@ -113,7 +103,7 @@ const CreateProject:React.FC = ()=>{
                 </div>
                 <div className={`${styles.SelectIndustry} ${styles.common}`}>
                     <div className={styles.createHeader}>
-                        <div className={styles.prevBtn}><PrevArrow/></div>
+                        <div className={styles.prevBtn}></div>
                         <div className={styles.headLogo}><Logo/></div>
                         <div></div>
                     </div>

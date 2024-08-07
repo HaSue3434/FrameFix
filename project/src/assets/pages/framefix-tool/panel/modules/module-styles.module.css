@@ -21,6 +21,20 @@
     padding: 15px;
 
 }
+.pageFiles .addFile .addBtn{
+    padding: 5px;
+    background: red;
+    display: flex;
+    border-radius: 3px;
+    background: rgba(255,255,255,.1);
+
+}
+.pageFiles .addFile .addBtn svg{
+    opacity: 0.5;
+}
+.pageFiles .List{
+    
+}
 .openFileAddOptions{
     background: #2b2b2b;
     width: auto;
@@ -99,7 +113,7 @@
     
     width: 100%;
 }
-.layers .layerEditing .layerList li .layerName input{
+.layers .layerEditing .layerList li  input{
     color: rgba(255,255,255,1);
     font-size: 11px;
     overflow: hidden;
@@ -109,6 +123,11 @@
     outline: none;
     background: transparent;
     text-overflow: ellipsis;
+    padding: 3px;
+}
+.layers .layerEditing .layerList li .layerName input:focus{
+    border: 1px solid #ffffff7b;
+    max-width: 100%;
 }
 .shape{
     position: absolute;

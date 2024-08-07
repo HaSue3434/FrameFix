@@ -45,9 +45,6 @@ const LayerModule  = () =>{
 
     {/* file list */}
 
-
-    
-
     return (
         <>
             <motion.div  className={`${styles.pageFiles}`}>
@@ -80,11 +77,16 @@ const LayerModule  = () =>{
                             <PageFile/>
                         </div>
                         <div className={`${styles.name}`}>
-
+                            <input type="text" />
                         </div>                                                                                                                                                                                                                
                     </div>
                     <div className={`${styles.CommonFile} ${styles.folder}`}>
-
+                        <div className={`${styles.icon}`}>
+                            <Folder/>
+                        </div>
+                        <div className={`${styles.name}`}>
+                            <input type="text" />
+                        </div>
                     </div>
                 </div>
             </motion.div>

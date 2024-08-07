@@ -152,7 +152,9 @@
 /* contents in feature styles */
 #feature-seo .contents .site-view-seo{
     position: relative;
-    top: 32px;
+    width: 100%;
+    height: 100%;
+    top: 65px;
 }
 #feature-ai .contents .box{
     width: 100%;

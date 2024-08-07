@@ -6,7 +6,7 @@ import { ReactComponent as AI } from "./canvas-img/ai-icon.svg";
 import { ReactComponent as AIGenerate } from "./canvas-img/ai-generate-icon.svg";
 import { ReactComponent as CMS } from "./canvas-img/cms-svg.svg";
 import { motion } from "framer-motion";
-
+import { UseBuilderAnimations } from "./Animation-web-builder";
 
 
 const Seo = () =>{

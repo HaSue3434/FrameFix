@@ -217,7 +217,7 @@ export const useDelaySpring = (delay: number = 1): [React.RefObject<HTMLDivEleme
         controls.start({
           scale : 1,
           opacity : 1,
-          transition: { duration: 1.5, ease : "anticipate" ,delay : delay},
+          transition: { duration: 1.5, ease : "anticipate" , delay : delay},
         });
       } else {
         controls.start({ scale : 0.5,opacity : 0,});

@@ -43,6 +43,9 @@
     padding-left: 25px;
     align-items: center;
 }
+.pageFiles .List .CommonFile .icon{
+    width: 14px;
+}
 .pageFiles .List .CommonFile:hover {
     background: rgba(255,255,255,.25);
 }
@@ -100,15 +103,42 @@
     align-items: center;
     gap: 10px;
     position: relative;
-    padding: 10px 15px 10px 25px;
     width: auto;
+}
+.layers .layerEditing .layerList li .parent{
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    padding: 8px 15px 8px 25px;
+    overflow: hidden;
+    position: relative;
+}
+.layers .layerEditing .layerList li .parent .dropArrow{
+    position: absolute;
+    left: 7.5px;
+    width: 10px;
+    height: 10px;
+}
+.layers .layerEditing .layerList li .parent .lock{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.layers .layerEditing .layerList li .parent .dropList{
+    display: none;
 }
 .layers .layerEditing .layerList li:hover{
     background-color: rgba(255,255,255,.25);
 }
-.layers .layerEditing .layerList li .icon{
+.layers .layerEditing .layerList li .parent .icon{
     display: flex;
     gap: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 18px;
 }
 .layers .layerEditing .layerList li .icon .iconArrow svg{
     height: auto;
@@ -117,7 +147,10 @@
 .layers .layerEditing .layerList li .icon svg{
     vertical-align: middle;
     height: auto;
-    width: 16px;
+}
+.layers .layerEditing .layerList li .icon.iconText svg{
+    width: 14px;
+    height: auto;
 }
 .layers .layerEditing .layerList li div {
     display: flex;
@@ -148,7 +181,7 @@
     padding: 3px;
 }
 .layers .layerEditing .layerList li .layerName input:focus{
-    border: 1px solid #ffffff7b;
+    
     max-width: 100%;
 }
 .shape{

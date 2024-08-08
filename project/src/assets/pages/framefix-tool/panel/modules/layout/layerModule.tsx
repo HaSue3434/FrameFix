@@ -1,11 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "../module-styles.module.css";
 import { motion } from "framer-motion";
-import { ReactComponent as FrameIcon} from "../../edit/layer-module-edit/frame-icon.svg";
-import { ReactComponent as RectIcon} from "../../edit/layer-module-edit/Rect-icon.svg";
-import { ReactComponent as Add} from "../../edit/layer-module-edit/add.svg";
-import { ReactComponent as Folder} from "../../edit/layer-module-edit/folder-icon.svg";
-import { ReactComponent as PageFile} from "../../edit/layer-module-edit/page-file-icon.svg";
+import { ReactComponent as FrameIcon } from "../../edit/layer-module-edit/frame-icon.svg";
+import { ReactComponent as RectIcon  } from "../../edit/layer-module-edit/Rect-icon.svg";
+import { ReactComponent as Add       } from "../../edit/layer-module-edit/add.svg";
+import { ReactComponent as Folder    } from "../../edit/layer-module-edit/folder-icon.svg";
+import { ReactComponent as PageFile  } from "../../edit/layer-module-edit/page-file-icon.svg";
+import { ReactComponent as TextIcon  } from "../../edit/layer-module-edit/text-icon.svg";
 
 
 
@@ -27,9 +28,6 @@ const LayerModule  = () =>{
         }
     };
     
-    const inputValue = ( e: React.ChangeEvent<HTMLInputElement>) =>{
-        console.log(e.target.value)
-    }
 
     useEffect(() => {
         document.addEventListener("mousedown", handleClickOutside);
@@ -41,9 +39,18 @@ const LayerModule  = () =>{
 
     {/* file list */}
 
-    const files = useRef<HTMLDivElement>(null);
+
+
+
 
     {/* file list */}
+
+    {/*  element name  */}
+
+
+
+    {/*  element name  */}
+
 
     return (
         <>
@@ -96,35 +103,74 @@ const LayerModule  = () =>{
                 <div className={styles.layerEditing}>
                     <ul className={`${styles.layerList}`}>
                         <li className={`${styles.layerFrame} ${styles.frame}`}>
-                            
-                            <div className={styles.icon}>
-                                {/* <div className={styles.iconArrow}><ListArrow/></div> */}
-                                <div className={styles.frameIcon}><FrameIcon/></div>
-                            </div>
-                            <div className={styles.layerFunc}>
-                                <div className={styles.layerName}>
-                                    <input type="text" />
+                            <div className={styles.parent}>
+                                <div className={styles.dropArrow}></div>
+                                <div className={styles.icon}>
+                                    {/* <div className={styles.iconArrow}><ListArrow/></div> */}
+                                    <div className={styles.frameIcon}><FrameIcon/></div>
+                                </div>
+                                <div className={styles.layerFunc}>
+                                    <div className={styles.layerName} data-element-name = "Frame">
+                                        <input type="text" />
+                                    </div>
                                 </div>
                             </div>
+                            
 
 
-                            {/* ui / contents */}
+                            {/* ui / in */}
+                            <div className={styles.dropList}>
+
+                            </div>
                             
-                            
-                            
-                            {/* ui / contnets */}
+                            {/* ui / in */}
                         </li>
 
                         <li className={`${styles.layerShape} ${styles.shape}`}>
 
-                            <div className={styles.icon}><RectIcon/></div>
-
-                            <div className={styles.layerFunc}>
-                                <div className={styles.layerName}>
-                                    <input type="text"
-                                    onChange={(e) => inputValue(e)}
+                            <div className={styles.parent}>
+                                
+                                <div className={styles.icon}>
+                                    {/* <div className={styles.iconArrow}><ListArrow/></div> */}
+                                    <div className={styles.frameIcon}><RectIcon/></div>
+                                </div>
+                                <div className={styles.layerFunc}>
+                                    <div className={styles.layerName} data-element-name = "Frame">
+                                        <input type="text" />
+                                    </div>
+                                </div>
+                                <div className={`${styles.lock}`}>
                                     
-                                    />
+                                </div>
+                            </div>
+
+                        </li>
+                        <li className={`${styles.layerShape} ${styles.shape}`}>
+
+                            <div className={styles.parent}>
+                                <div className={styles.icon}>
+                                    {/* <div className={styles.iconArrow}><ListArrow/></div> */}
+                                    <div className={styles.RectIcon}><RectIcon/></div>
+                                </div>
+                                <div className={styles.layerFunc}>
+                                    <div className={styles.layerName} data-element-name = "Shape">
+                                        <input type="text" />
+                                    </div>
+                                </div>
+                            </div>
+
+                        </li>
+                        <li className={`${styles.layerShape} ${styles.shape}`}>
+
+                            <div className={styles.parent}>
+                                <div className={styles.icon}>
+                                    {/* <div className={styles.iconArrow}><ListArrow/></div> */}
+                                    <div className={styles.frameIcon}><TextIcon/></div>
+                                </div>
+                                <div className={styles.layerFunc}>
+                                    <div className={styles.layerName} data-element-name = "Text">
+                                        <input type="text" />
+                                    </div>
                                 </div>
                             </div>
 

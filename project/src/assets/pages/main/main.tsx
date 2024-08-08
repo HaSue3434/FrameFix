@@ -34,7 +34,7 @@ import Particles from './particle';
 
 const Main = () => {
 
-    const [cursorRefMainPink, setCursorPink] = useInViewCursorScale(200,-200);
+    const [cursorRefMainPink, setCursorPink] = useInViewCursorScale(200,-50);
     const [cursorRefMainBlue, setCursorBlue] = useInViewCursorScale(-250,45);
 
 

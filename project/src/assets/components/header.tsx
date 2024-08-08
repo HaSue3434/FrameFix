@@ -28,6 +28,7 @@ const Header = () =>{
                     <Link to='/'><li>Updates</li></Link>
                     <Link to='/'><li>Community</li></Link>
                     <Link to='/'><li>Pricing</li></Link>
+                    <Link to={'./'}><li>Support</li></Link>
                     <div id="move-line"></div>
                 </ul>
                 <div className='start-link'>

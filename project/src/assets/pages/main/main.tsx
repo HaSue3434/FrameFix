@@ -6,7 +6,6 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { motion } from 'framer-motion';
 
-import FooterSection from "../../components/footer";
 import { ReactComponent as Logo } from '../../img/logo/logo.svg';
 
 // framfix icon //
@@ -190,7 +189,7 @@ useEffect(() => {
                                 initial = {{opacity : 0, y : 50}}
                                 animate = {{opacity : 1, y : 0}}
                                 transition={{duration : 1, ease : 'backInOut', delay : 0.35}}
-                                >Build easy and fast workflows through AI.</motion.p>
+                                >With Framefix's canvas tool, you can easily <br></br> design and publish your work.</motion.p>
                             </div>
                             <motion.div 
                             initial = {{opacity : 0, y : 50}}
@@ -202,6 +201,7 @@ useEffect(() => {
                                 </Link>
                             </motion.div>
                         </div>
+                        {/* 
                         <motion.div
                             initial = {{rotateX : -10, }}
                             animate = {{rotateX : 10,}}
@@ -216,13 +216,9 @@ useEffect(() => {
                                 <Canvas/>
                             </div>
                         </motion.div>
-
+                        */}
                         <div className="canvas-blur-back"><div></div></div>
                     </div>
-                    <div className='txt-back-contain'>
-                        <TxtAnimation text='AI-POWERED BUILD WEBSITES' />
-                    </div>
-                    <div className="bottom-blur"></div>
                 </section>
 
                 <section data-scroll data-scroll-section className='f-g' id='f-g' ref={fullScreenRef}>
@@ -242,7 +238,7 @@ useEffect(() => {
                 </section>
 
                 <section className='framefix-footer' data-scroll data-scroll-section>
-                    <div className="top-blur"></div>
+
                     <div className='title'>
                         <div>
                             <div className="logo"><Logo/></div>
@@ -262,7 +258,6 @@ useEffect(() => {
                     
                     <div className="bottom-blur"></div>
                 </section>
-                <FooterSection/>
             </>
         </ScrollSmootherComponent>
     );

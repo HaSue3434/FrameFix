@@ -4,7 +4,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 :root{
     --main-color : #ffffff;
-
+    --background-color-blue : linear-gradient(to right, #459AFF,#096EFF);
+    --background-color-purple : linear-gradient(to right, #EC74FF,#A946FC);
+    --shadow : 0 4px 4px rgba(8,8,8,.08),0 1px 2px rgba(8,8,8,.2),
+                inset 0 6px 12px rgba(255,255,255,.12),
+                inset 0 1px 1px rgba(255,255,255,.2);
 }
 *{
     margin: 0;
@@ -15,9 +19,6 @@
     font-family: 'Poppins', sans-serif,serif;
     backface-visibility: hidden;
     -webkit-font-smoothing : "subpixel-antialiased";
-    
-
-
 }
 body{
     overflow-x: hidden;
@@ -25,7 +26,7 @@ body{
 header{
     position: fixed;
     width: 100%;
-    z-index: 10;
+    z-index: 111;
     height: 80px;
     transition: .3s;
     background: #000;
@@ -88,12 +89,13 @@ header nav ul li .f svg{
     color: #fff;
     font-weight: 600;
     font-size: 14px;
-    background: #4A96FE;
-    box-shadow: 0 4px 4px rgba(8,8,8,.08),0 1px 2px rgba(8,8,8,.2),inset 0 6px 12px rgba(255,255,255,.12),inset 0 1px 1px rgba(255,255,255,.2);
+    background: var(--background-color-blue);
+    box-shadow: var(--shadow);
+    transform: translateY(0);
     transition: .25s;
 }   
 .start-link .nav-f-link >div:hover{
-    background: #E960FF;
+    transform: translateY(-5px);
 }
 #navigation-live{
     position: absolute;
@@ -129,10 +131,10 @@ header nav ul li .drop-nav svg{
     transition: .25s;
 }
 footer{
-    width: 100vw;
+    width: 100%;
     height: 100%;
-    padding-top: 20vh;
-    padding-bottom: 8em;
+    padding-bottom: 5em;
+    padding-top: 5em;
 }
 footer .f-wrapper{
     width: 1440px;
@@ -149,24 +151,26 @@ footer .f-wrapper .start-design{
 }
 footer .f-wrapper .start-design h1{
     color: var(--main-color);
-    font-size: 2.25em;
+    font-size: 2.5em;
 }
 footer .f-wrapper .start-design .get-started a{
     padding: 10px 15px;
-    background-color: hsl(213, 100%, 64%);
+    background: var(--background-color-blue);
     border-radius: 5px;
     color: var(--main-color);
     font-weight: 600;
-    box-shadow: 0 4px 4px rgba(8,8,8,.08),0 1px 2px rgba(8,8,8,.2),inset 0 6px 12px rgba(255,255,255,.12),inset 0 1px 1px rgba(255,255,255,.2);
+    box-shadow:var(--shadow);
     transition: all .25s;
+    display: block;
     white-space: nowrap;
+    transform: translateY(0);
 }
 footer .f-wrapper .start-design .get-started a:hover{
-    background-color: #E960FF;
+    transform: translateY(-5px);
 }
 footer .f-wrapper .division{
-    margin-top: 5em;
-    margin-bottom: 5em;
+    margin-top: 4em;
+    margin-bottom: 4em;
     width: 100%;
     height: 1px;
     background: rgba(255,255,255,.2);
@@ -226,7 +230,7 @@ footer .f-wrapper  .framefix .right li .new{
     font-weight: 500;
     color: var(--main-color);
     font-size: 12px;
-    background: linear-gradient(to left, #A946FC,#EC74FF);
+    background: var(--background-color-purple);
     box-shadow: 0px 3px 8px 1px rgba(255,255,255,.35);
 }
 .social{

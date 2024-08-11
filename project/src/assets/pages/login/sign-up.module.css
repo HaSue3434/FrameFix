@@ -1,0 +1,19 @@
+.containerSignin{
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.containerSignin .signInLogoHead{
+    position: absolute;
+    z-index: 555;
+    left: 25px;
+    top: 25px;
+}
+.containerSignin .signInLogoHead .logo svg{
+    height: auto;
+    width: 100px;
+}

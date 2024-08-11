@@ -1,32 +1,7 @@
 body{
     background: #000;
 }
-.type-icon{
-    display: flex;
-    gap: 15px;
-    width: fit-content;
-    margin-bottom: 15px;
-    align-items: center;
-}
-.type-icon .icon svg{width: 20px;height: 20px;}
-.type-icon .icon{
-    width: 35px;
-    min-width: 35px;
-    height: 35px;
-    background: linear-gradient(120deg, #459AFF,rgba(0,117,255,1));
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 4px rgba(8,8,8,.08),0 1px 2px rgba(8,8,8,.2),inset 0 6px 12px rgba(255,255,255,.12),inset 0 1px 1px rgba(255,255,255,.2);
 
-}
-.type-icon .icon~div{
-    font-weight: bold;
-    text-transform: capitalize;
-    font-size: 1.13em;
-    color: #fff;
-}
 section.main{
     padding-top: 10em;
     width: 100%;
@@ -54,6 +29,7 @@ section.main .wrapper{
     position: relative;
     max-width: 100%;
     min-width: 480px;
+    padding-bottom: 5em;
 }
 section.main .wrapper .cursor .pink-cursor{
     position: absolute;
@@ -123,16 +99,19 @@ section.main .wrapper .main-contents-txt .link-to-dashboard{
 }
 section.main .wrapper .main-contents-txt .link-to-dashboard a{
     padding: 15px 25px;
-    background: #459AFF;
+    background: var(--background-color-blue);
     color: rgba(255,255,255,1);
     font-weight: 600;
-    font-size: 1.13em;
+    font-size: 1.25em;
     border-radius: 5px;
-    box-shadow: 0 4px 4px rgba(8,8,8,.08),0 1px 2px rgba(8,8,8,.2),inset 0 6px 12px rgba(255,255,255,.12),inset 0 1px 1px rgba(255,255,255,.2);
-    transition: background .25s ;
+    box-shadow: var(--shadow);
+    transition: all .25s;
+    letter-spacing: 0.3px;
+    display: block;
+    transform: translateY(0);
 }
 section.main .wrapper .main-contents-txt .link-to-dashboard a:hover{
-    background: #E960FF;
+    transform: translateY(-5px);
 }
 section.main .wrapper  .main-framefix{
     
@@ -187,6 +166,7 @@ section.main>.bottom-blur{
     margin-top: 50vh;
     padding-top: 5em;
     padding-bottom: 5em;
+    position: relative;
     background-image: url('../../img//background.jpg');
     background-size: cover;
     width: 100vw;

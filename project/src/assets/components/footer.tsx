@@ -87,7 +87,7 @@ const Footer = () =>{
                         <div className='social'>
                             <div><p>Social</p></div>
                             <div className='social-link'>
-                                <Link to={'./'}><Insta/></Link>
+                                <Link to={'https://www.instagram.com/'}><Insta/></Link>
                                 <Link to={'./'}><Facebook/></Link>
                             </div>
                         </div>

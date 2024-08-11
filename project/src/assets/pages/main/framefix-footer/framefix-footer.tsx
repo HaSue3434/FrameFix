@@ -5,9 +5,9 @@ import { ReactComponent as FooterFrameFix } from "../../../img/main-canvas.svg";
 const FrameFixFooter = () =>{
     return(
         <>
-            <div className="wrapper">
+            <div className="wrapper" data-scroll data-scroll-section>
                 <div className="contents">
-                   <FooterFrameFix/>
+                    
                 </div>
                 
             </div>

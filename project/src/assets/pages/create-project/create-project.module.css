@@ -26,30 +26,15 @@
     height: auto;
     
 }
-.createContain .createWrapper .common .createHeader{
+.createContain .createWrapper .common .createHead{
     width: 100%;
-    padding: 15px;
-    background: #171717;
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    align-items: center;
-    z-index: 11111;
-    border-bottom: 1px solid rgba(255,255,255,.1);
+    position: relative;
+    z-index: 555;
+    padding: 25px;
 }
-.createContain .createWrapper .common .createHeader .headLogo,.prevBtn{
-    z-index: 11111;
-}
-.createContain .createWrapper .common .createHeader .prevBtn svg{
-    vertical-align: middle;
-}
-.createContain .createWrapper .common .createHeader .headLogo{
-    display: flex;
-    justify-content: center;
-}
-.createContain .createWrapper .common .createHeader .headLogo svg{
+.createContain .createWrapper .common .createHead .logo svg{
     height: auto;
-    width: 120px;
-    vertical-align: middle;
+    width: 100px;
 }
 .createContain .createWrapper .projectInit .userPrompt{
     width: 100%;
@@ -179,44 +164,34 @@
 
 .createContain .createWrapper .projectInit .userPrompt .tCommon{
     text-align: center;
-    padding-bottom: 35px;
+}
+.createContain .createWrapper .projectInit .userPrompt .titles{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
 }
 .createContain .createWrapper .projectInit .userPrompt .tCommon h1{
     font-size: 3em;
-    font-weight: 800;
+    font-weight: 700;
     color: rgba(255,255,255,1);
 }
 .createContain .createWrapper .projectInit .userPrompt .tCommon p{
-    color: rgba(255,255,255,.5);
-    font-size: 1.25em;
+    color: rgba(255,255,255,.7);
+    font-size: 1em;
+    max-width: 410px;
+    line-height: 120%;
 }
 .createContain .createWrapper .projectInit .form{
-    width: auto;
+    width: 650px;
     height: auto;
+    padding: 15px;
+    background: rgba(255,255,255,.1);
+    margin-top: 35px;
+    border-radius: 10px;
 }
-.createContain .createWrapper .projectInit .form .inputprojectName{
-    width: 400px;
-    height: 60px;
-    overflow: hidden;
-    border-radius: 5px;
-}
-.createContain .createWrapper .projectInit .form .inputprojectName input{
-    width: 100%;
-    height: 100%;
-    outline: none;
-    border: 0px solid transparent;
-    transition: .3s;
-    background: rgba(255,255,255,.10);
-    font-size: 1.13em;
-    padding: 8px 12px;
-    color: rgba(255,255,255,.8);
-    border-radius: 5px;
-    display: flex;
-    font-weight: 500;
-    align-items: center;
-}
-.createContain .createWrapper .projectInit .form .inputprojectName input:focus{
-    border: 1px solid rgba(255,255,255,.35);
+.createContain .createWrapper .projectInit .form .userComentForm{
+    
 }
 .createContain .createWrapper .projectInit .form .uploaderFile{
     display: flex;

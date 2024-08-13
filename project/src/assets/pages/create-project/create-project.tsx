@@ -2,6 +2,7 @@ import React,{ useState,useEffect,useRef } from "react";
 import { ReactComponent as Logo } from "../../img/logo/logo.svg";
 import { ReactComponent as Close } from "./project-maker-icons/close.svg";
 import { ReactComponent as Open } from "./project-maker-icons/open-imgview.svg";
+import { ReactComponent as FramefixAI } from "./project-maker-icons/Framefix AI.svg";
 import styles from './create-project.module.css';
 import { Link } from "react-router-dom";
 import { motion,AnimatePresence } from 'framer-motion';
@@ -18,14 +19,11 @@ const CreateProject:React.FC = ()=>{
 
     const toggleSidebar = () => {
         setIsOpen(!isOpen); 
-      };
+    };
     
     const [files, setFiles] = useState<ImagePreview[]>([]); 
 
-    useEffect(()=>{
-        
-    },[])
-
+    
     return(
         <>
         <AnimatePresence>
@@ -36,42 +34,34 @@ const CreateProject:React.FC = ()=>{
         className={styles.createContain}>
             <div className={styles.createWrapper}>
                 <div className={`${styles.projectInit} ${styles.common}`}>
-                    <div className={styles.createHeader}>
-                        <div className={styles.prevBtn}>
-                            <Link to='../../'>
-                                
+                    <div className={styles.createHead}>
+                        <div className={styles.logo}>
+                            <Link to={"/"}>
+                                <Logo/>
                             </Link>
-                        </div>
-                        <div className={styles.headLogo}>
-                        <Link to='../../'>
-                            <Logo/>
-                        </Link>
-                        </div>
-                        <div></div>
+                        </div> 
                     </div>
                     <div className={styles.userPrompt}>
                         <div className={styles.titles}>
+
+                            <div>
+                                <FramefixAI/>
+                            </div>
+                            
                             <div className={`${styles.title} ${styles.tCommon}`}>
-                                <h1>Upload References</h1>
+                                <h1>Generate Reference</h1>
                             </div>
                             <div className={`${styles.subTitle} ${styles.tCommon}`}>
-                                <p>The more references you provide<br></br>the better and more accuarate result you will get </p>
+                                <p>Create a fast and high-quality UI using simple prompts and images. </p>
                             </div>
 
                         </div>
                         <div className={styles.form}>
-                            <div className={styles.inputprojectName}>
-                                <input type="text" placeholder="Enter your project name" name="project-name" id={styles.projectName} maxLength={30}/>
-                                
-                            </div>
-                            <div className={styles.uploaderFile}>
-                                
-                                <div className={styles.upload}>
-                                    <FileUpload files={files} setFiles={setFiles} />
+                            <div className={styles.userCommentForm}>
+                                <div className={styles.comment}>
+
                                 </div>
-                                <div className={styles.next}>
-                                    {files.length > 0 ? 'Continue' : 'Skip'}
-                                </div>
+
                             </div>
                         </div>
                         <motion.div
@@ -109,7 +99,6 @@ const CreateProject:React.FC = ()=>{
                     </div>
                 </div>
             </div>
-            <div className={styles.Blur}></div>
         </motion.div>
         </AnimatePresence>
         </>

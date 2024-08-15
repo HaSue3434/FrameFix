@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Styles from "./sign-up.module.css";
 import { ReactComponent as Logo } from "../../img/logo/logo.svg";
-import { ReactComponent as GoogleIcon } from "../../img/google-icon.svg";
-import { ReactComponent as Top } from "../../img/top.svg";
-import { ReactComponent as Center } from "../../img/center.svg";
-import { ReactComponent as Bottom } from "../../img/bottom.svg";
+import { ReactComponent as GoogleIcon } from "../../img/sign-up/google-icon.svg";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 

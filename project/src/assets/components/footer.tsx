@@ -1,9 +1,8 @@
 import React from 'react';
 import { ReactComponent as Logo } from "../img/logo/logo.svg";
 import { Link } from 'react-router-dom';
-import { ReactComponent as Insta } from '../img/instagram.svg';
-import { ReactComponent as Facebook } from '../img/facebook.svg';
-import { ReactComponent as SocialTxt } from '../img/Social.svg';
+import { ReactComponent as Insta } from '../img/common/instagram.svg';
+import { ReactComponent as Facebook } from '../img/common/facebook.svg';
 
 const Footer = () =>{
     return (

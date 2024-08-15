@@ -150,3 +150,7 @@
     position: absolute;
     z-index: 11;
 }
+.containerSignin .background .common{
+    display: flex;
+    width: 100%;
+}

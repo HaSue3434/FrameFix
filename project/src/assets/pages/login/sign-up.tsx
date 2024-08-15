@@ -45,14 +45,26 @@ const SignUp = () => {
         className={Styles.background}
       >
         <div className={Styles.top}></div>
-        <div className={Styles.colIndex1}>
-            
+        <div className={`${Styles.colIndex1} ${Styles.common}`}>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
-        <div className={Styles.colIndex2}>
-
+        <div className={`${Styles.colIndex2} ${Styles.common}`}>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
-        <div className={Styles.colIndex3}>
-
+        <div className={`${Styles.colIndex3} ${Styles.common}`}>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
         <div className={Styles.bottom}></div>
       </motion.div>

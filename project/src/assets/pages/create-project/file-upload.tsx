@@ -4,6 +4,9 @@ import styles from './create-project.module.css';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ReactComponent as Del } from "./project-maker-icons/del.svg";
 import { ReactComponent as Replace } from "./project-maker-icons/replace.svg";
+import { ReactComponent as ImgIcon } from "./project-maker-icons/img-icon.svg";
+
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 interface ImagePreview {
     file: File;
@@ -48,10 +51,10 @@ export const FileUpload: React.FC<FileUploadProps> = ({ files, setFiles }) => {
             <div {...getRootProps({ className: styles.dropzone })}>
                 <input {...getInputProps()} disabled={files.length >= 20} />
                 <div className={styles.placeholder}>
-                    <p>{files.length > 0 ? '' : 'Upload Image'}</p>
+                    <p>Upload Image</p>
                 </div>
                 <div className={styles.imgIcon}>
-                    <img src={require("../../img/icons/create-project-icons/img-icon.png")} alt="" />
+                    <ImgIcon/>
                 </div>
             </div>
             <div className={styles.desiredReferenced}>
@@ -78,7 +81,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({ files, setFiles }) => {
                 </AnimatePresence>
                 {count > 0 && (
                     <div className={styles.count}>
-                        <p>...+{count+8}</p>
+                        <p>+{count+8}</p>
                     </div>
                 )}
             </div>
@@ -141,30 +144,32 @@ export const SideImgViewsR: React.FC<FileUploadProps> = ({ files, setFiles }) =>
 
     return (
         <>
-            <div {...getRootProps({ className: styles.dropzone })}>
-                <input {...getInputProps()} disabled={files.length >= 20} />
-                <div className={styles.placeholder}>
-                    <p>{files.length > 0 ? '' : 'Upload Image'}</p>
-                </div>
-            </div>
-            <div className={styles.desiredReferenced}>
-                <AnimatePresence>
-                    {files.map((file, index) => (
-                        <motion.div 
-                            key={index}
-                            initial={{ opacity: 0, scale: 0 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            exit={{ opacity: 0, scale: 1 }}
-                            transition={{ duration: 0.3 }}
-                            className={styles.img}>
-                            <img src={file.previewUrl} alt={`preview ${index}`} />
-                            <div>
-                                <div className={styles.replace} onClick={() => handleReplaceClick(index)}><Replace/></div>
-                                <div className={styles.del} onClick={() => deleteImage(index)}><Del/></div>
-                            </div>
-                        </motion.div>
-                    ))}
-                </AnimatePresence>
+            <div className={styles.imagesContain}>
+                <Swiper
+                    spaceBetween={0}
+                    slidesPerView={'auto'}
+
+                    className={styles.Swiper}
+                >
+                    <AnimatePresence>
+                        {files.map((file, index) => (
+                            <SwiperSlide key={index} className={styles.swliperSlide}>
+                                <motion.div 
+                                    initial={{ opacity: 0, scale: 0 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    exit={{ opacity: 0, scale: 1 }}
+                                    transition={{ duration: 0.3 }}
+                                    className={styles.imagesWrapper}>
+                                    <img src={file.previewUrl} alt={`preview ${index}`} />
+                                    <div className={styles.icons}>
+                                        <div className={styles.replace} onClick={() => handleReplaceClick(index)}><Replace/></div>
+                                        <div className={styles.del    } onClick={() => deleteImage(index)}><Del/></div>
+                                    </div>
+                                </motion.div>
+                            </SwiperSlide>
+                        ))}
+                    </AnimatePresence>
+                </Swiper>
             </div>
             {/* Hidden input for file replacement */}
             <input
@@ -174,7 +179,7 @@ export const SideImgViewsR: React.FC<FileUploadProps> = ({ files, setFiles }) =>
                 accept="image/*"
             />
         </>
-    )
-}
+    );
+};
 
 export type { ImagePreview };

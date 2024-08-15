@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Styles from "../framefix.module.css";
 import StylesMOdule from "../panel/modules/module-styles.module.css";
-import {ReactComponent as Toolbar} from "../../../img/frame-toolbar-icon.svg"
+import {ReactComponent as Toolbar} from "../../../img/canvas-editor/frame-toolbar-icon.svg"
 import { Layer } from "../types";
 import { analytics,app,db } from "../../../../firebaseConfig";
 

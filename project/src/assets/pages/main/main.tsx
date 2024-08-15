@@ -8,10 +8,10 @@ import { motion } from 'framer-motion';
 
 import { ReactComponent as Logo } from '../../img/logo/logo.svg';
 
-// framfix icon //
+// framfix cursor //
 import { ReactComponent as PinkCursor } from '../../img/pink-cursor.svg';
 import { ReactComponent as BlueCursor } from '../../img/blue-cursor.svg';
-// framfix icon //
+// framfix cursor //
 
 import "./main-framefix/canvas.css"
 import "./publish/publish.css"

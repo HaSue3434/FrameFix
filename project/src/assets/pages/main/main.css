@@ -13,7 +13,7 @@ section.main{
     left: 0;
     width: 100vw;
     height: 100%;
-    background-image: url('../../img/background.jpg');
+    background-image: url('../../img/main/background.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
@@ -167,7 +167,7 @@ section.main>.bottom-blur{
     padding-top: 5em;
     padding-bottom: 5em;
     position: relative;
-    background-image: url('../../img//background.jpg');
+    background-image: url('../../img/main/background.jpg');
     background-size: cover;
     width: 100vw;
 }

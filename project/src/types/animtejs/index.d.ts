@@ -3,3 +3,6 @@ declare module 'animejs' {
     export default anime;
 }
 declare module 'react-iframe';
+
+
+declare module '@splinetool/react-spline';

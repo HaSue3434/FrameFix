@@ -4,6 +4,7 @@ import { ReactComponent as Logo } from "../../img/logo/logo.svg";
 import { ReactComponent as GoogleIcon } from "../../img/sign-up/google-icon.svg";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import Spline from '@splinetool/react-spline';
 
 
 const SignUp = () => {
@@ -21,7 +22,7 @@ const SignUp = () => {
           <form action="#" className={Styles.form}>
             <input type="text" placeholder="Enter Your Email..." className={`${Styles.emailInput} ${Styles.common}`} />
             <button type="button" className={`${Styles.enterSignin} ${Styles.common} ${Styles.btn}`}>
-              <span>Sign in</span>
+              <span>Login with email</span>
             </button>
             <div className={Styles.or}>
               <div></div>
@@ -35,34 +36,13 @@ const SignUp = () => {
           </form>
         </div>
       </div>
-      <motion.div
-        initial={{ scale: 0.8, opacity: 0.2 }}
-        animate={{ scale: 1, opacity: 0.35 }}
-        transition={{ delay: 0.5, ease: "anticipate", duration: 2 }}
-        className={Styles.background}
-      >
+      <motion.div className={Styles.background}>   
+        
+            <Spline
+              scene="https://prod.spline.design/N0KvD6h9bZQCUbr3/scene.splinecode" 
+            />
+          
         <div className={Styles.top}></div>
-        <div className={`${Styles.colIndex1} ${Styles.common}`}>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-        <div className={`${Styles.colIndex2} ${Styles.common}`}>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-        <div className={`${Styles.colIndex3} ${Styles.common}`}>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
         <div className={Styles.bottom}></div>
       </motion.div>
     </div>

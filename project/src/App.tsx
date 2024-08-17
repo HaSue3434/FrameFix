@@ -58,6 +58,7 @@ function RoutesWithComponents() {
         <Route path="/create-project/project" element={<CreateProject />} />
         <Route path="/proto-view" element={<Preview />} />
         <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/*" element={<Main />} /> 
       </Routes>
       {!shouldHideFooter && <Footer />}
     </>

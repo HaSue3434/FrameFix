@@ -22,6 +22,8 @@
     "jsx": "react-jsx"
   },
   "include": [
-    "src"
-, "craco.config.js", "src/assets/pages/main/slider/project-maker.tsx", "src/setupProxy.js"  ]
+    "src", 
+    "craco.config.js", 
+    "src/setupProxy.js",  
+  ]
 }

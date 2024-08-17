@@ -8,6 +8,8 @@ import { ReactComponent as ImgIcon } from "./project-maker-icons/img-icon.svg";
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
+import 'swiper/css';
+
 interface ImagePreview {
     file: File;
     previewUrl: string;
@@ -146,14 +148,13 @@ export const SideImgViewsR: React.FC<FileUploadProps> = ({ files, setFiles }) =>
         <>
             <div className={styles.imagesContain}>
                 <Swiper
-                    spaceBetween={0}
                     slidesPerView={'auto'}
-
+                    spaceBetween={15}
                     className={styles.Swiper}
                 >
                     <AnimatePresence>
                         {files.map((file, index) => (
-                            <SwiperSlide key={index} className={styles.swliperSlide}>
+                            <SwiperSlide key={index} className={styles.swiperSlide}>
                                 <motion.div 
                                     initial={{ opacity: 0, scale: 0 }}
                                     animate={{ opacity: 1, scale: 1 }}

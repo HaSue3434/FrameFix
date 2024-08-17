@@ -22,10 +22,11 @@
     width: 450px;
     padding: 35px 25px;
     height: 390px;
+    z-index: 555;
     overflow: hidden;
     background: rgba(255,255,255,.1);
     border-radius: 15px;
-    backdrop-filter: blur(30px);
+    backdrop-filter: blur(7px);
     display: flex;
     flex-direction: column;
     position: relative;
@@ -128,29 +129,29 @@
 }
 .containerSignin .background{
     position: absolute;
-    width: 100vw;
-    height: 100%;
+    width: 100%;
+    min-width: 100%;
+    height: 100vh;
     left: 0;
     top: 0;
-    z-index: -1;
-    opacity: 0.35;
+    z-index: 1;
+    opacity:1;
     transform-origin: center center;
+    flex-shrink: 1;
 }
 .containerSignin .background .top{
     width: 100vw;
-    height: 10vw;
+    height: 20vh;
     background: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,.0));
     position: absolute;
     z-index: 11;
 }
 .containerSignin .background .bottom{
     width: 100vw;
-    height: 10vw;
+    height: 20vh;
     background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,1));
     position: absolute;
     z-index: 11;
-}
-.containerSignin .background .common{
-    display: flex;
-    width: 100%;
+    bottom: 0;
+    left: 0;
 }

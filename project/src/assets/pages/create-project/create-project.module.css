@@ -64,7 +64,7 @@
     overflow: hidden;
     padding: 20px;
     background: rgba(255,255,255,.1);
-    margin-top: 35px;
+    margin-top: 5em;
     border-radius: 10px;
 }
 .createContain  .form .userCommentForm .comment .prompt{
@@ -77,25 +77,12 @@
     padding-left: 5px;
     width: 100%;
 }
-.viewContain{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 0.6vw;
 
-    height: 25vh;
-    background: #171717;
-    border-top: 1px solid rgba(255,255,255,.2);
-}
 .desiredReferenced{
     width: 100%;
     display: flex;
 }
-.viewContain .viewWrapper{
-    width: 100%;
-    height: 100%;
-}
+
 .emptyText{
     width: 100%;
     position: absolute;
@@ -168,42 +155,47 @@
     display: flex;
     align-items: center;
 }
+.viewContain{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 25vh;
+    background: #171717;
+    border-top: 1px solid rgba(255,255,255,.2);
+}
+.viewContain .viewWrapper{
+    
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+}
 .imageUploadBtn{
     display: flex;
     width: 100%;
     align-items: center;
     gap: 10px;
 }
-.imagesContain{
-    width: 100%;
-    height: 100%;
-}
-.imagesContain .imagesWrapper{
-    height: 100%;
-    width: 100%;
-}
-.Swiper{
-    width: 100%;
-    height: 100%;
-    display: flex;
+.Swiper {
     cursor: grab;
-}
-.Swiper>div{
     width: 100%;
     height: 100%;
-    display: flex;
-    gap: 0.6vw;
 }
-.swliperSlide .imagesWrapper{
+.swiperSlide {
     height: 100%;
-    width: 100%;
+    width: auto !important;
+}
+.swiperSlide .imagesWrapper{
+    width: 300px;
+    height: calc(25vh - 30px);
     position: relative;
 }
-.swliperSlide img{
-    width: 15vw;
+.swiperSlide img{
+    
+    width: 100%;
+    
+    border-radius: 10px;
     height: 100%;
-    border-radius: 0.5vw;
-    display: block;
     object-fit: cover;
 }
 .icons{
@@ -220,7 +212,7 @@
     opacity: 0;
     transition: .25s;
 }
-.swliperSlide .imagesWrapper:hover .icons{
+.swiperSlide:hover .imagesWrapper .icons{
     opacity: 1;
     background: rgba(0,0,0,.25);
 }

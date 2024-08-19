@@ -1,186 +1,107 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "../module-styles.module.css";
-import { motion } from "framer-motion";
-import { ReactComponent as FrameIcon } from "../../edit/layer-module-edit/frame-icon.svg";
-import { ReactComponent as RectIcon  } from "../../edit/layer-module-edit/Rect-icon.svg";
-import { ReactComponent as Add       } from "../../edit/layer-module-edit/add.svg";
-import { ReactComponent as Folder    } from "../../edit/layer-module-edit/folder-icon.svg";
-import { ReactComponent as PageFile  } from "../../edit/layer-module-edit/page-file-icon.svg";
-import { ReactComponent as TextIcon  } from "../../edit/layer-module-edit/text-icon.svg";
+import { ReactComponent as Add } from "../../edit/layer-module-edit/add.svg";
+import FilesDnd from "./files-dnd/filesDnd";
+import LayerDnd from "./layer-dnd/layerDnd";
 
+type FileItem = {
+  type: 'file' | 'folder';
+  id: string;
+  name?: string;
+  children?: FileItem[];
+};
 
+const LayerModule: React.FC = () => {
+  const [openAdd, setOpenAdd] = useState(false);
+  const [items, setItems] = useState<FileItem[]>([]);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
-const LayerModule  = () =>{
+  const handleOpenAdd = () => {
+    setOpenAdd(true);
+  };
 
-    const [openAdd, setOpenAdd] = React.useState(false);
-    const dropdownRef = useRef<HTMLDivElement>(null);
-    const [isLock, setIsLock] = useState(false);
-
-    {/* file add */}
-    const handlerOpenAdd = () =>{
-        setOpenAdd(true);
+  const handleClickOutside = (event: MouseEvent) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      setOpenAdd(false);
     }
-    
+  };
 
-    const handleClickOutside = (event: MouseEvent) => {
-        if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-            setOpenAdd(false);
-        }
+  const addNewFile = (type: 'file' | 'folder') => {
+    const newItem: FileItem = {
+      type,
+      id: new Date().toISOString(),
     };
-    
+    setItems([...items, newItem]);
+    setOpenAdd(false);
+  };
 
-    useEffect(() => {
-        document.addEventListener("mousedown", handleClickOutside);
-        return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
-        };
-    }, []);
-    {/* file add */}
+  const handleItemNameChange = (id: string, newName: string) => {
+    setItems(items.map(item =>
+      item.id === id ? { ...item, name: newName } : item
+    ));
+  };
 
-    {/* file list */}
+  const handleAddChild = (parentId: string, newItem: FileItem) => {
+    const addChildRecursively = (items: FileItem[], parentId: string, newItem: FileItem): FileItem[] => {
+      return items.map(item => {
+        if (item.id === parentId) {
+          return {
+            ...item,
+            children: item.children ? [...item.children, newItem] : [newItem]
+          };
+        } else if (item.children) {
+          return {
+            ...item,
+            children: addChildRecursively(item.children, parentId, newItem)
+          };
+        } else {
+          return item;
+        }
+      });
+    };
 
+    setItems(addChildRecursively(items, parentId, newItem));
+  };
 
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
-
-
-    {/* file list */}
-
-    {/*  element name  */}
-
-
-
-    {/*  element name  */}
-
-
-    return (
-        <>
-            <motion.div  className={`${styles.pageFiles}`}>
-                <div className={styles.title}>
-                    <h4>Page</h4>
-                    <div className={styles.addFile} onClick={handlerOpenAdd} ref={dropdownRef}>
-                        {/* add */}
-                        <div className={styles.addBtn}>
-                            <Add/>
-                        </div>
-                        {/* file option */} 
-                        { openAdd ?
-
-                        <div className={styles.openFileAddOptions}>
-                            <ul className={styles.wrap}>
-                                <li className={`${styles.option} ${styles.newPage}`}>New Page</li>
-                                <li className={`${styles.option} ${styles.newFolder}`}>New Folder</li>
-                            </ul>
-                        </div>
-
-                        : null }
-                        {/* file option */} 
-
-                        
-                    </div>
-                </div>
-                <div className={`${styles.List}`}>
-                    <div className={`${styles.CommonFile} ${styles.page}`}>
-                        <div className={`${styles.icon}`}>
-                            <PageFile/>
-                        </div>
-                        <div className={`${styles.name}`}>
-                            <input type="text" />
-                        </div>                                                                                                                                                                                                                
-                    </div>
-                    <div className={`${styles.CommonFile} ${styles.folder}`}>
-                        <div className={`${styles.icon}`}>
-                            <Folder/>
-                        </div>
-                        <div className={`${styles.name}`}>
-                            <input type="text" />
-                        </div>
-                    </div>
-                </div>
-            </motion.div>
-            <div className={styles.layers}>
-                <div className={styles.title}><h4>Layers</h4></div>
-
-                <div className={styles.layerEditing}>
-                    <ul className={`${styles.layerList}`}>
-                        <li className={`${styles.layerFrame} ${styles.frame}`}>
-                            <div className={styles.parent}>
-                                <div className={styles.dropArrow}></div>
-                                <div className={styles.icon}>
-                                    {/* <div className={styles.iconArrow}><ListArrow/></div> */}
-                                    <div className={styles.frameIcon}><FrameIcon/></div>
-                                </div>
-                                <div className={styles.layerFunc}>
-                                    <div className={styles.layerName} data-element-name = "Frame">
-                                        <input type="text" />
-                                    </div>
-                                </div>
-                            </div>
-                            
-
-
-                            {/* ui / in */}
-                            <div className={styles.dropList}>
-
-                            </div>
-                            
-                            {/* ui / in */}
-                        </li>
-
-                        <li className={`${styles.layerShape} ${styles.shape}`}>
-
-                            <div className={styles.parent}>
-                                
-                                <div className={styles.icon}>
-                                    {/* <div className={styles.iconArrow}><ListArrow/></div> */}
-                                    <div className={styles.frameIcon}><RectIcon/></div>
-                                </div>
-                                <div className={styles.layerFunc}>
-                                    <div className={styles.layerName} data-element-name = "Frame">
-                                        <input type="text" />
-                                    </div>
-                                </div>
-                                <div className={`${styles.lock}`}>
-                                    
-                                </div>
-                            </div>
-
-                        </li>
-                        <li className={`${styles.layerShape} ${styles.shape}`}>
-
-                            <div className={styles.parent}>
-                                <div className={styles.icon}>
-                                    {/* <div className={styles.iconArrow}><ListArrow/></div> */}
-                                    <div className={styles.RectIcon}><RectIcon/></div>
-                                </div>
-                                <div className={styles.layerFunc}>
-                                    <div className={styles.layerName} data-element-name = "Shape">
-                                        <input type="text" />
-                                    </div>
-                                </div>
-                            </div>
-
-                        </li>
-                        <li className={`${styles.layerShape} ${styles.shape}`}>
-
-                            <div className={styles.parent}>
-                                <div className={styles.icon}>
-                                    {/* <div className={styles.iconArrow}><ListArrow/></div> */}
-                                    <div className={styles.frameIcon}><TextIcon/></div>
-                                </div>
-                                <div className={styles.layerFunc}>
-                                    <div className={styles.layerName} data-element-name = "Text">
-                                        <input type="text" />
-                                    </div>
-                                </div>
-                            </div>
-
-                        </li>
-
-                    </ul>
-                </div>
-
+  return (
+    <>
+      <div className={`${styles.pageFiles}`}>
+        <div className={styles.title}>
+          <h4>Page</h4>
+          <div className={styles.addFile} onClick={handleOpenAdd} ref={dropdownRef}>
+            <div className={styles.addBtn}>
+              <Add />
             </div>
-        </>
-    )
-}
+            {openAdd && (
+              <div className={styles.openFileAddOptions}>
+                <ul className={styles.wrap}>
+                  <li className={`${styles.option} ${styles.newPage}`} onClick={() => addNewFile('file')}>New File</li>
+                  <li className={`${styles.option} ${styles.newFolder}`} onClick={() => addNewFile('folder')}>New Folder</li>
+                </ul>
+              </div>
+            )}
+          </div>
+        </div>
+        <FilesDnd items={items} onItemNameChange={handleItemNameChange} onAddChild={handleAddChild} />
+      </div>
+
+      <div className={styles.layers}>
+        <div className={styles.title}><h4>Layers</h4></div>
+        <div className={styles.layerEditing}>
+          <ul className={`${styles.layerList}`}>
+            <LayerDnd />
+          </ul>
+        </div>
+      </div>
+    </>
+  );
+};
+
 export default LayerModule;

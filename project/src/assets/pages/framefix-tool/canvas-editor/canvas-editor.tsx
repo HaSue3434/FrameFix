@@ -10,16 +10,11 @@ const Frame = () =>{
     const [boardClick, setBoardClick] = useState(false);
     const [name, setName] = useState<string>('');
 
-    useEffect(() => {
-        const storedValues = JSON.parse(localStorage.getItem('board-names') || '{}');
-        setInputValues(storedValues);
-    }, []);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>, key: string) => {
         const newValue = e.target.value;
         setInputValues(prev => {
             const updatedValues = { ...prev, [key]: newValue };
-            localStorage.setItem('board-names', JSON.stringify(updatedValues));
             return updatedValues;
         });
     };

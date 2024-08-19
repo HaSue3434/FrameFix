@@ -154,7 +154,7 @@ iframe{
 }
 .wrapperLeftPanel .panel .plugins ul li p{
     color: rgba(255,255,255,1);
-    font-size: 12px;
+    font-size: 11px;
     text-transform: capitalize;
     font-weight: 500;
 }
@@ -177,7 +177,7 @@ iframe{
 }
 .wrapperLeftPanel .panel .leftSideComponents .assetsWrapperPlugin .T_H h4{
     color: rgba(255,255,255,1);
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 600;
     text-transform: capitalize;
 }
@@ -363,7 +363,7 @@ iframe{
     border-bottom: 1px solid rgba(255,255,255,.1);
 }
 #rightPanelWrapper .rightPanelTab .commTab .tab{
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 500;
     color: rgba(255,255,255,0.5);
     transition: .25s;

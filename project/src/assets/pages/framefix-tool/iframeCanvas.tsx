@@ -4,7 +4,7 @@ import Cursor from './icons/cursor-icon/cursor.svg';
 import { Canvas } from './canvasProps';
 import Frame from "./canvas-editor/canvas-editor"
 
-export const IframeCanvas:React.FC = () =>{
+export const IframeCanvas:React.FC = () => {
     
     const [position, setPosition] = useState({ top: 0, left: 0, scale: 1, originX: 0, originY: 0 });
     const posRef = useRef<{ x: number; y: number; originX: number; originY: number; }>({ x: 0, y: 0, originX: 0, originY: 0 });
@@ -34,10 +34,6 @@ export const IframeCanvas:React.FC = () =>{
         else if(e.button === 0){
             setCanvasState(true);
         }
-
-        // canvas
-        
-        
     };
 
     const handleMouseMove = (e: MouseEvent) => {
@@ -88,15 +84,18 @@ export const IframeCanvas:React.FC = () =>{
             const mouseX = e.clientX - rect.left;
             const mouseY = e.clientY - rect.top;
             const scaleDelta = deltaY > 0 ? 0.9 : 1.1; 
-    
-            setPosition(prev => ({
-                ...prev,
-                scale: prev.scale * scaleDelta,
-                left: prev.left - (mouseX - prev.left) * (scaleDelta - 1),
-                top: prev.top - (mouseY - prev.top) * (scaleDelta - 1),
-                originX: prev.originX + (mouseX - prev.left) * (1 - scaleDelta),
-                originY: prev.originY + (mouseY - prev.top) * (1 - scaleDelta),
-            }));
+
+            setPosition(prev => {
+                const newScale = Math.min(5, Math.max(0.05, prev.scale * scaleDelta));
+                return {
+                    ...prev,
+                    scale: newScale,
+                    left: prev.left - (mouseX - prev.left) * (newScale / prev.scale - 1),
+                    top: prev.top - (mouseY - prev.top) * (newScale / prev.scale - 1),
+                    originX: prev.originX + (mouseX - prev.left) * (1 - newScale / prev.scale),
+                    originY: prev.originY + (mouseY - prev.top) * (1 - newScale / prev.scale),
+                };
+            });
         }
     };
 
@@ -154,8 +153,6 @@ export const IframeCanvas:React.FC = () =>{
         };
     }, [editor]);
 
-    
-
     return(
         <>
         <div className={Styles.canvasEditorContain} 
@@ -187,4 +184,3 @@ export const IframeCanvas:React.FC = () =>{
         </>
     )
 }
-

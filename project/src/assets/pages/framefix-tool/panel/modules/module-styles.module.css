@@ -14,7 +14,7 @@
     cursor: pointer;
 }
 .pageFiles .title h4{
-    font-size: 12px;
+    font-size: 13px;
     color: rgba(255,255,255,1);
     font-weight: 500;
 }
@@ -133,7 +133,6 @@
     background-color: rgba(255,255,255,.25);
 }
 .layers .layerEditing .layerList li .parent .icon{
-    display: flex;
     gap: 5px;
     display: flex;
     justify-content: center;
@@ -198,4 +197,21 @@
 }
 .layers .layerEditing .layerList li:hover .layerLockAndUnlock{
     visibility: visible;
+}
+#folder{
+    display: flex;
+}
+.pageFileContain{
+    display: flex;
+    gap: 8px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    align-items: center;
+}
+.pageFileContain input::placeholder{
+    color: #fff;
+}
+.pageFileContain input:focus::placeholder{
+    color: rgba(255,255,255,.0);
 }

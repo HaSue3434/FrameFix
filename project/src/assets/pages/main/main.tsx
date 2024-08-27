@@ -18,17 +18,10 @@ import "./publish/publish.css"
 import "./seo/web-builder-styles.css"
 import "./framefix-footer/framefix-footer.css";
 
-import Canvas from "./main-framefix/canvas";
 import Seo from './seo/web-builder';
 import FrameFixFooter from './framefix-footer/framefix-footer';
+import ReactPlayer from "react-player";
 
-
-import {
-
-    TxtAnimation,
-    useInViewCursorScale,
-
-} from './main-animation-script';
 import Particles from './particle';
 
 const Main = () => {
@@ -106,82 +99,33 @@ useEffect(() => {
         });
         return () => ctx.revert();
     }, []);
-
-
+    // playing
+    //playing
     return (
         <ScrollSmootherComponent>
             <>
                 <section className='main' data-scroll data-scroll-section >
+                    <motion.div className="video-framefix">
+                        <ReactPlayer
+                            url={"../img/main/main-video.webm"}
+                            width={`${'100px'}`}
+                            height={`${'100px'}`}
+                            playing={true}
+                            controls={false}
+                            
+
+                        />
+                    </motion.div>
                     <div id="background">
                         <Particles/>
                     </div>
                     <div className='wrapper' ref={mainFrameFixWrapperRef}>
                         <div className="main-contents-txt">
-                            <div className="title">
-                                <div className='ai-powered'>
-                                    <motion.div 
-                                    initial = {{opacity : 0, y : 80}}
-                                    animate = {{opacity : 1, y : 0}}
-                                    transition={{duration : 1, ease : "backInOut"}}
-                                    className='t'>
-                                        <h1 className='color'>AI-POWERED</h1>
-                                        <div className="d"></div>
-                                    </motion.div>
-                                    
-                                    <motion.h1 
-                                    initial = {{opacity : 0, y : 80}}
-                                    animate = {{opacity : 1, y : 0}}
-                                    transition={{duration : 1, ease : "backInOut",delay : 0.2,}}
-                                    ><span>Turning</span> </motion.h1>
-                                </div>
-                                
-                                <h1 className='ideas'>
-                                <motion.span
-                                initial = {{opacity : 0, y : 80}}
-                                animate = {{opacity : 1, y : 0}}
-                                transition={{duration : 1, ease : "backInOut",delay : 0.25,}}
-                                >Ideas </motion.span> <motion.span
-                                initial = {{opacity : 0, y : 80}}
-                                animate = {{opacity : 1, y : 0}}
-                                transition={{duration : 1, ease : "backInOut",delay : 0.3,}}>into</motion.span> <motion.span
-                                initial = {{opacity : 0, y : 80}}
-                                animate = {{opacity : 1, y : 0}}
-                                transition={{duration : 1, ease : "backInOut",delay : 0.35,}}
-                                >  Reality.</motion.span> </h1>
-                            </div>
-                            <div className="sub-title">
-                                <motion.p
-                                initial = {{opacity : 0, y : 50}}
-                                animate = {{opacity : 1, y : 0}}
-                                transition={{duration : 1, ease : 'backInOut', delay : 0.35}}
-                                >With Framefix's canvas tool, you can easily <br></br> design and publish your work.</motion.p>
-                            </div>
-                            <motion.div 
-                            initial = {{opacity : 0, y : 50}}
-                            animate = {{opacity : 1, y : 0}}
-                            transition={{duration : 1, ease : 'backInOut', delay : 0.45}}
-                            className="link-to-dashboard">
-                                <Link to={'./'}>
-                                    Go to dashboard
-                                </Link>
-                            </motion.div>
+                            
+
+                            
                         </div>
-                        {/* 
-                        <motion.div
-                            initial = {{rotateX : -10, }}
-                            animate = {{rotateX : 10,}}
-                            transition={{duration : 1, ease : "anticipate",}}
-                            className="main-framefix">
-                            <div className="frame" ref={frameElement} style={{ 
-                                transform: `rotateX(${rotationX}deg) rotateY(${rotationY}deg) `,
-                                backfaceVisibility : "hidden",
-                                willChange : "transform",
-                                WebkitFontSmoothing : "subpixel-antialiased",
-                                }}>
-                                <Canvas/>
-                            </div>
-                        </motion.div>
-                        */}
+                        
                         <div className="canvas-blur-back"><div></div></div>
                     </div>
                 </section>

@@ -17,9 +17,15 @@ section.main{
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
+    opacity: 0.5;
     align-items: flex-end;
 }
-
+.main  .video-framefix{
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
 
 section.main .wrapper{
     width: 1440px;
@@ -31,107 +37,6 @@ section.main .wrapper{
     min-width: 480px;
     padding-bottom: 5em;
 }
-section.main .wrapper .cursor .pink-cursor{
-    position: absolute;
-    top: 350px;
-    left: 250px;
-}
-section.main .wrapper .cursor .blue-cursor{
-    top: 300px;
-    right: 250px;
-    position: absolute;
-}
-section.main .wrapper .main-contents-txt{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    
-}
-section.main .wrapper .main-contents-txt .title h1{
-    text-align: center;
-    font-size: 5.00em;
-    font-weight: 700;
-}
-section.main .wrapper .main-contents-txt .title .ai-powered{
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: center;
-    overflow: hidden;
-}
-section.main .wrapper .main-contents-txt .title .ai-powered .t{
-    display: flex;
-    align-items: center;
-}
-section.main .wrapper .main-contents-txt .title .ai-powered .color{
-    color: #459AFF;
-}
-section.main .wrapper .main-contents-txt .title .ai-powered .d{
-    width: 135px;
-    height: 30px;
-    margin-right: 15px;
-    margin-left: 15px;
-    border: 5px solid rgba(255,255,255,1);
-    border-radius: 50px;
-    
-}
-section.main .wrapper .main-contents-txt .title .ideas{
-    overflow: hidden;
-}
-section.main .wrapper .main-contents-txt .title  span{
-    display: inline-block;
-    color: white;
-}
-section.main .wrapper .main-contents-txt .sub-title{
-    padding-top: 55px;
-    overflow: hidden;
-    padding-bottom: 55px;
-}
-section.main .wrapper .main-contents-txt .sub-title p{
-    color: rgba(255,255,255,.8);
-    font-weight: 500;
-    font-size: 1.5em;
-    text-align: center;
-}
-section.main .wrapper .main-contents-txt .link-to-dashboard{
-    margin-top: 15px;
-}
-section.main .wrapper .main-contents-txt .link-to-dashboard a{
-    padding: 15px 25px;
-    background: var(--background-color-blue);
-    color: rgba(255,255,255,1);
-    font-weight: 600;
-    font-size: 1.25em;
-    border-radius: 5px;
-    box-shadow: var(--shadow);
-    transition: all .25s;
-    letter-spacing: 0.3px;
-    display: block;
-    transform: translateY(0);
-}
-section.main .wrapper .main-contents-txt .link-to-dashboard a:hover{
-    transform: translateY(-5px);
-}
-section.main .wrapper  .main-framefix{
-    
-    width: 100%;
-    height: auto;
-    perspective: 500px;
-    position: relative;
-    padding-top: 8vw;
-    transform-origin: top center;
-    margin:0 auto;
-    z-index: 5;
-    transform: scale(1) translateZ(0);
-    
-
-}
-section.main .wrapper  .main-framefix .frame{
-    width: 100%;
-    height: fit-content;
-}
-
 section.main>.bottom-blur{
     position: absolute;
     bottom: -8%;

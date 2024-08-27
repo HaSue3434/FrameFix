@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styles from './framefix.module.css';
-import {ReactComponent as FrameLogo} from "../../img/logo/frame-logo.svg";
+import { ReactComponent as Logo } from "../../img/logo/logo.svg";
 import { Link } from 'react-router-dom';
 
 import { 
@@ -28,21 +28,14 @@ const MainComponent: React.FC=()=>{
                 <CtrlWheelBlocker>
                         <div className={styles.headAppPointerFramefix}>
                            <div className={styles.headLeftColPointer}>
-                               <div className={styles.projectFrameFix}>
-                                    <div className = {styles.frameLogo}>
-                                          <Link to={'/'}><FrameLogo/></Link>
-                                    </div>
-
-                                    <div className={styles.framefixProjectName}>
-                                        <div className={styles.projectName}>
-                                            <span className={styles.param}>{projectName.name}</span>
-                                        </div>
-                                    </div>
-
-                                    <div className={styles.plans}>
-                                      <Link to={'/'}>Free</Link>
-                                    </div>
-                               </div>
+                                <div className={styles.frameLogo}>
+                                    <Link to={'/'}><Logo/></Link>
+                                </div>
+                           </div>
+                           <div className={styles.headCenterPointer}>
+                                <div className={styles.projectName}>
+                                    asdasd
+                                </div>
                            </div>
                            <div className={styles.headRightColPointer}>
                                 
